@@ -1,23 +1,38 @@
-# Compiled class file
-*.class
+<<<<<<< HEAD
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+workspace/.metadata
+Servers/
+Servers2/
+Servers3/
+**/Entities.map
+.metadata/
 
-# Log file
-*.log
+# Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
+=======
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+workspace/.metadata
+Servers/
+Servers2/
+Servers3/
+**/Entities.map
+.metadata/
 
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+# Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
+>>>>>>> pablo
+!/.mvn/wrapper/maven-wrapper.jar

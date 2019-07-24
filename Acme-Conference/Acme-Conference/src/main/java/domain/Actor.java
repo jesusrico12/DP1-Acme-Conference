@@ -23,13 +23,13 @@ public class Actor extends DomainEntity {
 	// Atributes
 
 	private String name;
+	private String middleName;
 	private String surname;
-	private String VAT;
 	private String photo;
 	private String email;
 	private String phoneNumber;
 	private String address;
-	private CreditCard creditCard;
+
 	private UserAccount userAccount;
 
 	// Getters and Setters
@@ -52,13 +52,12 @@ public class Actor extends DomainEntity {
 		this.surname = surname;
 	}
 
-	@NotBlank
-	public String getVAT() {
-		return VAT;
+	public String getMiddleName() {
+		return middleName;
 	}
 
-	public void setVAT(String VAT) {
-		this.VAT = VAT;
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
 	}
 
 	@URL
@@ -95,15 +94,6 @@ public class Actor extends DomainEntity {
 		this.address = address;
 	}
 
-	@Valid
-	@NotNull
-	public CreditCard getCreditCard() {
-		return creditCard;
-	}
-
-	public void setCreditCard(CreditCard creditCard) {
-		this.creditCard = creditCard;
-	}
 
 	@NotNull
 	@Valid
@@ -120,11 +110,10 @@ public class Actor extends DomainEntity {
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + ((VAT == null) ? 0 : VAT.hashCode());
 		result = prime * result + ((address == null) ? 0 : address.hashCode());
-		result = prime * result
-				+ ((creditCard == null) ? 0 : creditCard.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result
+				+ ((middleName == null) ? 0 : middleName.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result
 				+ ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
@@ -144,25 +133,20 @@ public class Actor extends DomainEntity {
 		if (getClass() != obj.getClass())
 			return false;
 		Actor other = (Actor) obj;
-		if (VAT == null) {
-			if (other.VAT != null)
-				return false;
-		} else if (!VAT.equals(other.VAT))
-			return false;
 		if (address == null) {
 			if (other.address != null)
 				return false;
 		} else if (!address.equals(other.address))
 			return false;
-		if (creditCard == null) {
-			if (other.creditCard != null)
-				return false;
-		} else if (!creditCard.equals(other.creditCard))
-			return false;
 		if (email == null) {
 			if (other.email != null)
 				return false;
 		} else if (!email.equals(other.email))
+			return false;
+		if (middleName == null) {
+			if (other.middleName != null)
+				return false;
+		} else if (!middleName.equals(other.middleName))
 			return false;
 		if (name == null) {
 			if (other.name != null)
@@ -194,10 +178,11 @@ public class Actor extends DomainEntity {
 
 	@Override
 	public String toString() {
-		return "Actor [name=" + name + ", surname=" + surname + ", VAT=" + VAT
-				+ ", photo=" + photo + ", email=" + email + ", phoneNumber="
-				+ phoneNumber + ", address=" + address + ", creditCard="
-				+ creditCard + ", userAccount=" + userAccount + "]";
+		return "Actor [name=" + name + ", middleName=" + middleName
+				+ ", surname=" + surname + ", photo=" + photo + ", email="
+				+ email + ", phoneNumber=" + phoneNumber + ", address="
+				+ address + ", userAccount=" + userAccount + "]";
 	}
 
+	
 }

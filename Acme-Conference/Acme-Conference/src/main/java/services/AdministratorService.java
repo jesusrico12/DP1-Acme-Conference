@@ -69,7 +69,7 @@ public class AdministratorService {
 		userAccount.setAuthorities(authority);
 
 		res.setUserAccount(userAccount);
-		res.setCreditCard(creditCard);
+		
 
 		return res;
 	}
