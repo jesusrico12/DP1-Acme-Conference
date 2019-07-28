@@ -24,24 +24,15 @@ public class SystemConfiguration extends DomainEntity {
 	private Map<String, String> welcomeMessage;
 	private String banner;
 	private String countryCode;
-	private Integer timeResultsCached;
-	private Integer maxResults;
-	private Map<String, String> breachNotification;
-	private Double VATTax;
-	private Double flatRate;
-	private Boolean alreadyRebranded;
+	private String creditCardMakes;
+	private Map<String,String> topics;
+	
+	
+
 
 	/* Getters&Setters */
 
-	@ElementCollection
-	public Map<String, String> getBreachNotification() {
-		return this.breachNotification;
-	}
 
-	public void setBreachNotification(
-			final Map<String, String> breachNotification) {
-		this.breachNotification = breachNotification;
-	}
 
 	@NotBlank
 	public String getSystemName() {
@@ -52,7 +43,7 @@ public class SystemConfiguration extends DomainEntity {
 		this.systemName = systemName;
 	}
 
-	@NotNull
+
 	@NotEmpty
 	@ElementCollection
 	public Map<String, String> getWelcomeMessage() {
@@ -81,51 +72,24 @@ public class SystemConfiguration extends DomainEntity {
 	public void setCountryCode(final String countryCode) {
 		this.countryCode = countryCode;
 	}
-
-	@Range(min = 1, max = 24)
-	public Integer getTimeResultsCached() {
-		return this.timeResultsCached;
-	}
-
-	public void setTimeResultsCached(final Integer timeResultsCached) {
-		this.timeResultsCached = timeResultsCached;
-	}
-
-	@Range(min = 0, max = 100)
-	public Integer getMaxResults() {
-		return this.maxResults;
-	}
-
-	public void setMaxResults(final Integer maxResults) {
-		this.maxResults = maxResults;
-	}
-
-	@Digits(integer = 3, fraction = 2)
-	@Range(min = 0, max = 1)
-	public Double getVATTax() {
-		return VATTax;
-	}
-
-	public void setVATTax(Double vATTax) {
-		VATTax = vATTax;
+	@NotBlank
+	public String getCreditCardMakes() {
+		return creditCardMakes;
 	}
 	
-	@Digits(integer = 3, fraction = 2)
-	@Range(min = 0, max = 5)
-	public Double getFlatRate() {
-		return flatRate;
+	public void setCreditCardMakes(String creditCardMakes) {
+		this.creditCardMakes = creditCardMakes;
+	}
+	@NotEmpty
+	@ElementCollection
+	public Map<String, String> getTopics() {
+		return topics;
 	}
 
-	public void setFlatRate(Double flatRate) {
-		this.flatRate = flatRate;
+	public void setTopics(Map<String, String> topics) {
+		this.topics = topics;
 	}
 
-	public Boolean getAlreadyRebranded() {
-		return alreadyRebranded;
-	}
-
-	public void setAlreadyRebranded(Boolean alreadyRebranded) {
-		this.alreadyRebranded = alreadyRebranded;
-	}
+	
 
 }
