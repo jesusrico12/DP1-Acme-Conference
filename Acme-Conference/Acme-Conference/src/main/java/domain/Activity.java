@@ -38,6 +38,7 @@ public class Activity extends DomainEntity{
 			this.title = title;
 		}
 		@NotEmpty
+		@ElementCollection(targetClass = String.class)
 		public List<String> getSpeakers() {
 			return speakers;
 		}

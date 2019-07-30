@@ -5,10 +5,13 @@
 	* TDG Licence, a copy of which you may download from http://www.tdg-seville.info/License.html -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="
-	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	http://www.springframework.org/schema/beans
+                    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                    http://www.springframework.org/schema/util
+                    http://www.springframework.org/schema/util/spring-util-2.5.xsd">
 
 	<!-- User accounts -->
 
@@ -34,6 +37,73 @@
 			</list>
 		</property>
 	</bean>
+		<bean id="userAuthor1" class="security.UserAccount">
+		<property name="username" value="author1" />
+		<property name="password" value="b312ba4ffd5245fa2a1ab819ec0d0347" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="AUTHOR" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+		<bean id="userAuthor2" class="security.UserAccount">
+		<property name="username" value="author2" />
+		<property name="password" value="9bd97baef2b853ec00cc3cffd269f679" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="AUTHOR" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+		<bean id="userAuthor3" class="security.UserAccount">
+		<property name="username" value="author3" />
+		<property name="password" value="c59a474d5ade296a15ebc40d6c4e8e11" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="AUTHOR" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+		<bean id="userReviewer1" class="security.UserAccount">
+		<property name="username" value="reviewer1" />
+		<property name="password" value="6ce19528a40dde9521d97cf7ba264eca" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="REVIEWER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+		<bean id="userReviewer2" class="security.UserAccount">
+		<property name="username" value="reviewer2" />
+		<property name="password" value="2693b57f0f59df94caacefb811e99851" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="REVIEWER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+		<bean id="userReviewer3" class="security.UserAccount">
+		<property name="username" value="reviewer3" />
+		<property name="password" value="315d31e7c8f3a136610aafa220d689be" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="REVIEWER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
 
 	
 	<!-- ADMINISTRATOR -->
@@ -41,28 +111,103 @@
 	<bean id="administrator1" class="domain.Administrator">
 		<property name="name" value="José" />
 		<property name="surname" value="Gamiz Redondo" />
-		<property name="VAT" value="ES12345678" />
+		<property name="middleName" value="Josito" />
 		<property name="photo"
 			value="https://ih1.redbubble.net/image.376305132.3400/flat,550x550,075,f.u1.jpg" />
 		<property name="email" value="josgamred@mail.com" />
 		<property name="phoneNumber" value="+34611987654" />
 		<property name="address" value="C/ Atlántica sex, 1 (Málaga)" />
-		<property name="creditCard" ref="creditCard1" />
 		<property name="userAccount" ref="userAdmin1" />
 	</bean>
 
 	<bean id="administrator2" class="domain.Administrator">
 		<property name="name" value="Carlos" />
 		<property name="surname" value="Albalat Heredia" />
-		<property name="VAT" value="ES23456789" />
+		<property name="middleName" value="Carl" />
 		<property name="photo"
 			value="https://ih1.redbubble.net/ima76305daddfsj132.340aaaa0/flat,5.u1.jpg" />
 		<property name="email" value="carlo12@mail.com" />
 		<property name="phoneNumber" value="+34611987622" />
 		<property name="address" value="C/ Rota" />
-		<property name="creditCard" ref="creditCard2" />
+
 		<property name="userAccount" ref="userAdmin2" />
 	</bean>
+
+	<bean id="author1" class="domain.Administrator">
+		<property name="name" value="Antonio" />
+		<property name="surname" value="Lago" />
+		<property name="middleName" value="Toni" />
+		<property name="photo"
+			value="https://ih1.redbubble.net/ima76305daddfsj132.340aaaa0/flat,5.u1.jpg" />
+		<property name="email" value="toni12@mail.com" />
+		<property name="phoneNumber" value="+34611987622" />
+		<property name="address" value="C/ Lebrija 12" />
+
+		<property name="userAccount" ref="userAuthor1" />
+	</bean>
+
+	<bean id="author2" class="domain.Administrator">
+		<property name="name" value="Carlos" />
+		<property name="surname" value="Bosque Heredia" />
+		<property name="middleName" value="Carl" />
+		<property name="photo"
+			value="https://ih1.redbubble.net/ima76305daddfsj132.340aaaa0/flat,5.u1.jpg" />
+		<property name="email" value="carlo1dsa2@mail.com" />
+		<property name="phoneNumber" value="+34611987622" />
+		<property name="address" value="C/ Utrera 23" />
+
+		<property name="userAccount" ref="userAuthor2" />
+	</bean>
+		<bean id="author3" class="domain.Administrator">
+		<property name="name" value="Carla" />
+		<property name="surname" value="Rico Heredia" />
+		<property name="middleName" value="Carl" />
+		<property name="photo"
+			value="https://ih1.redbubble.net/ima76305daddfsj132.340aaaa0/flat,5.u1.jpg" />
+		<property name="email" value="carla12@mail.com" />
+		<property name="phoneNumber" value="+34611987622" />
+		<property name="address" value="C/Sanchez Perrier" />
+
+		<property name="userAccount" ref="userAuthor3" />
+	</bean>
+	<bean id="reviewer1" class="domain.Administrator">
+		<property name="name" value="Rosa" />
+		<property name="surname" value="Lago" />
+		<property name="middleName" value="Rosi" />
+		<property name="photo"
+			value="https://ih1.redbubble.net/ima76305daddfsj132.340aaaa0/flat,5.u1.jpg" />
+		<property name="email" value="rosi12@mail.com" />
+		<property name="phoneNumber" value="+34611987612" />
+		<property name="address" value="C/ Cordoba 12" />
+
+		<property name="userAccount" ref="userReviewer1" />
+	</bean>
+
+	<bean id="reviewer2" class="domain.Administrator">
+		<property name="name" value="Jose Carlos" />
+		<property name="surname" value="Rios " />
+		<property name="middleName" value="Carl" />
+		<property name="photo"
+			value="https://ih1.redbubble.net/ima76305daddfsj132.340aaaa0/flat,5.u1.jpg" />
+		<property name="email" value="carlo1dsa2@mail.com" />
+		<property name="phoneNumber" value="+34611987622" />
+		<property name="address" value="C/ Carmona 23" />
+
+		<property name="userAccount" ref="userReviewer2" />
+	</bean>
+		<bean id="reviewer3" class="domain.Administrator">
+		<property name="name" value="Raul" />
+		<property name="surname" value="Botella Heredia" />
+		<property name="middleName" value="Raul" />
+		<property name="photo"
+			value="https://ih1.redbubble.net/ima76305daddfsj132.340aaaa0/flat,5.u1.jpg" />
+		<property name="email" value="carla12@mail.com" />
+		<property name="phoneNumber" value="+34611987622" />
+		<property name="address" value="C/Sanchez Perrier" />
+
+		<property name="userAccount" ref="userReviewer3" />
+	</bean>
+	
 
 	<!-- CREDIT CARD -->
 
@@ -77,354 +222,177 @@
 
 	<bean id="creditCard2" class="domain.CreditCard">
 		<property name="holder" value="Carlos Albalat Heredia" />
-		<property name="make" value="MASTERCARD" />
-		<property name="number" value="4544963188930071" />
+		<property name="make" value="MASTER" />
+		<property name="number" value="4544963188930321" />
 		<property name="expirationMonth" value="11" />
 		<property name="expirationYear" value="20" />
 		<property name="CVV" value="366" />
 	</bean>
-
-	<!-- ROOKIES -->
-
 	<bean id="creditCard3" class="domain.CreditCard">
-		<property name="holder" value="Alberto Ramírez" />
-		<property name="make" value="VISA" />
-		<property name="number" value="4582276213483252" />
-		<property name="expirationMonth" value="01" />
-		<property name="expirationYear" value="28" />
-		<property name="CVV" value="707" />
-	</bean>
-
-	<bean id="creditCard4" class="domain.CreditCard">
-		<property name="holder" value="Pepe Viyuela" />
-		<property name="make" value="AMERICAN EXPRESS" />
-		<property name="number" value="4354197982162289" />
-		<property name="expirationMonth" value="02" />
-		<property name="expirationYear" value="28" />
-		<property name="CVV" value="479" />
-	</bean>
-
-	<!-- COMPANIES -->
-
-	<bean id="creditCard5" class="domain.CreditCard">
-		<property name="holder" value="María Rodríguez Perez" />
-		<property name="make" value="VISA" />
-		<property name="number" value="4448552245719630" />
+		<property name="holder" value="Rosa Bosque Heredia" />
+		<property name="make" value="AMEX" />
+		<property name="number" value="4544963086930071" />
 		<property name="expirationMonth" value="11" />
-		<property name="expirationYear" value="23" />
-		<property name="CVV" value="112" />
-	</bean>
-
-	<!-- CREDIT CARD -->
-
-	<bean id="creditCard6" class="domain.CreditCard">
-		<property name="holder" value="Pedro Marín López" />
-		<property name="make" value="MASTERCARD" />
-		<property name="number" value="4248139401623715" />
-		<property name="expirationMonth" value="08" />
-		<property name="expirationYear" value="24" />
-		<property name="CVV" value="999" />
-	</bean>
-
-	<bean id="creditCard7" class="domain.CreditCard">
-		<property name="holder" value="Paula Montero Galán" />
-		<property name="make" value="VISA" />
-		<property name="number" value="4017359522310013" />
-		<property name="expirationMonth" value="09" />
-		<property name="expirationYear" value="25" />
-		<property name="CVV" value="525" />
-	</bean>
-
-	<bean id="creditCard8" class="domain.CreditCard">
-		<property name="holder" value="Gustavos S.A." />
-		<property name="make" value="AMERICAN EXPRESS" />
-		<property name="number" value="4786794545649162" />
-		<property name="expirationMonth" value="07" />
-		<property name="expirationYear" value="27" />
-		<property name="CVV" value="458" />
-	</bean>
-
-	<bean id="creditCard9" class="domain.CreditCard">
-		<property name="holder" value="Google" />
-		<property name="make" value="VISA" />
-		<property name="number" value="4288676013366200" />
-		<property name="expirationMonth" value="09" />
-		<property name="expirationYear" value="25" />
-		<property name="CVV" value="140" />
-	</bean>
-
-	<bean id="creditCard10" class="domain.CreditCard">
-		<property name="holder" value="Pato Donald" />
-		<property name="make" value="MASTERCARD" />
-		<property name="number" value="4735502658425730" />
-		<property name="expirationMonth" value="03" />
 		<property name="expirationYear" value="20" />
-		<property name="CVV" value="808" />
-	</bean>
-	<!-- Credit Cards AUDITORS -->
-	<bean id="creditCard11" class="domain.CreditCard">
-		<property name="holder" value="Paco Donald" />
-		<property name="make" value="VISA" />
-		<property name="number" value="4735502656425730" />
-		<property name="expirationMonth" value="03" />
-		<property name="expirationYear" value="20" />
-		<property name="CVV" value="808" />
-	</bean>
-	<bean id="creditCard12" class="domain.CreditCard">
-		<property name="holder" value="Pepe Donald" />
-		<property name="make" value="MASTERCARD" />
-		<property name="number" value="4735502658425738" />
-		<property name="expirationMonth" value="03" />
-		<property name="expirationYear" value="20" />
-		<property name="CVV" value="808" />
-	</bean>
-	<bean id="creditCard13" class="domain.CreditCard">
-		<property name="holder" value="Jesus Donald" />
-		<property name="make" value="VISA" />
-		<property name="number" value="4735502658425732" />
-		<property name="expirationMonth" value="03" />
-		<property name="expirationYear" value="20" />
-		<property name="CVV" value="808" />
-	</bean>
-	<bean id="creditCard14" class="domain.CreditCard">
-		<property name="holder" value="Carlos Donald" />
-		<property name="make" value="MASTERCARD" />
-		<property name="number" value="4735502658425739" />
-		<property name="expirationMonth" value="03" />
-		<property name="expirationYear" value="20" />
-		<property name="CVV" value="808" />
-	</bean>
-	<!-- Credit Cards PROVIDERS -->
-	<bean id="creditCard15" class="domain.CreditCard">
-		<property name="holder" value="Paco Campos" />
-		<property name="make" value="MASTERCARD" />
-		<property name="number" value="4735502658425739" />
-		<property name="expirationMonth" value="03" />
-		<property name="expirationYear" value="20" />
-		<property name="CVV" value="808" />
-	</bean>
-	<bean id="creditCard16" class="domain.CreditCard">
-		<property name="holder" value="Jesús Campos" />
-		<property name="make" value="MASTERCARD" />
-		<property name="number" value="4735502658425739" />
-		<property name="expirationMonth" value="03" />
-		<property name="expirationYear" value="20" />
-		<property name="CVV" value="808" />
-	</bean>
-	<bean id="creditCard17" class="domain.CreditCard">
-		<property name="holder" value="Carlos Campos" />
-		<property name="make" value="MASTERCARD" />
-		<property name="number" value="4735502658425739" />
-		<property name="expirationMonth" value="03" />
-		<property name="expirationYear" value="20" />
-		<property name="CVV" value="808" />
-	</bean>
-	<bean id="creditCard18" class="domain.CreditCard">
-		<property name="holder" value="Pablo Campos" />
-		<property name="make" value="MASTERCARD" />
-		<property name="number" value="4735502658425739" />
-		<property name="expirationMonth" value="03" />
-		<property name="expirationYear" value="20" />
-		<property name="CVV" value="808" />
+		<property name="CVV" value="386" />
 	</bean>
 
-	<!--CREDIT CARDS SPONSORSHIPS -->
-	<bean id="creditCard19" class="domain.CreditCard">
-		<property name="holder" value="Mario Conde" />
-		<property name="make" value="AMERICAN EXPRESS" />
-		<property name="number" value="4786794542649163" />
-		<property name="expirationMonth" value="07" />
-		<property name="expirationYear" value="27" />
-		<property name="CVV" value="458" />
-	</bean>
-	<bean id="creditCard20" class="domain.CreditCard">
-		<property name="holder" value="Rosa Conde" />
-		<property name="make" value="AMERICAN EXPRESS" />
-		<property name="number" value="4786794542649164" />
-		<property name="expirationMonth" value="07" />
-		<property name="expirationYear" value="27" />
-		<property name="CVV" value="458" />
-	</bean>
-	<bean id="creditCard21" class="domain.CreditCard">
-		<property name="holder" value="Mario Conde" />
-		<property name="make" value="AMERICAN EXPRESS" />
-		<property name="number" value="4786794542649162" />
-		<property name="expirationMonth" value="07" />
-		<property name="expirationYear" value="27" />
-		<property name="CVV" value="123" />
-	</bean>
-	<bean id="creditCard22" class="domain.CreditCard">
-		<property name="holder" value="Carlos Conde" />
-		<property name="make" value="AMERICAN EXPRESS" />
-		<property name="number" value="4786794542649161" />
-		<property name="expirationMonth" value="07" />
-		<property name="expirationYear" value="27" />
-		<property name="CVV" value="243" />
-	</bean>
-	<bean id="creditCard23" class="domain.CreditCard">
-		<property name="holder" value="Pepe Conde" />
-		<property name="make" value="AMERICAN EXPRESS" />
-		<property name="number" value="4786794542649160" />
-		<property name="expirationMonth" value="07" />
-		<property name="expirationYear" value="27" />
-		<property name="CVV" value="536" />
-	</bean>
-	<bean id="creditCard24" class="domain.CreditCard">
-		<property name="holder" value="Pepito Conde" />
-		<property name="make" value="AMERICAN EXPRESS" />
-		<property name="number" value="4786794542649160" />
-		<property name="expirationMonth" value="07" />
-		<property name="expirationYear" value="27" />
-		<property name="CVV" value="536" />
-	</bean>
-	<bean id="creditCard25" class="domain.CreditCard">
-		<property name="holder" value="Rodolfo Conde" />
-		<property name="make" value="AMERICAN EXPRESS" />
-		<property name="number" value="4786794542649160" />
-		<property name="expirationMonth" value="07" />
-		<property name="expirationYear" value="27" />
-		<property name="CVV" value="536" />
-	</bean>
-
-	<bean id="creditCard26" class="domain.CreditCard">
-		<property name="holder" value="Rodolfo Conde" />
-		<property name="make" value="AMERICAN EXPRESS" />
-		<property name="number" value="1111222233334444" />
-		<property name="expirationMonth" value="07" />
-		<property name="expirationYear" value="27" />
-		<property name="CVV" value="536" />
-	</bean>
-
-	<bean id="creditCard27" class="domain.CreditCard">
-		<property name="holder" value="Rodolfo Conde" />
-		<property name="make" value="AMERICAN EXPRESS" />
-		<property name="number" value="1111222233334444" />
-		<property name="expirationMonth" value="07" />
-		<property name="expirationYear" value="27" />
-		<property name="CVV" value="536" />
-	</bean>
-
-	<bean id="creditCard28" class="domain.CreditCard">
-		<property name="holder" value="Rodolfo Conde" />
-		<property name="make" value="AMERICAN EXPRESS" />
-		<property name="number" value="1111222233334444" />
-		<property name="expirationMonth" value="07" />
-		<property name="expirationYear" value="27" />
-		<property name="CVV" value="536" />
-	</bean>
-
-	<bean id="creditCard29" class="domain.CreditCard">
-		<property name="holder" value="Rodolfo Conde" />
-		<property name="make" value="AMERICAN EXPRESS" />
-		<property name="number" value="1111222233334444" />
-		<property name="expirationMonth" value="07" />
-		<property name="expirationYear" value="27" />
-		<property name="CVV" value="536" />
-	</bean>
-
-	<bean id="creditCard30" class="domain.CreditCard">
-		<property name="holder" value="Rodolfo Conde" />
-		<property name="make" value="AMERICAN EXPRESS" />
-		<property name="number" value="1111222233334444" />
-		<property name="expirationMonth" value="07" />
-		<property name="expirationYear" value="27" />
-		<property name="CVV" value="536" />
-	</bean>
-
-	<bean id="creditCard31" class="domain.CreditCard">
-		<property name="holder" value="Rodolfo Conde" />
-		<property name="make" value="AMERICAN EXPRESS" />
-		<property name="number" value="1111222233334444" />
-		<property name="expirationMonth" value="07" />
-		<property name="expirationYear" value="27" />
-		<property name="CVV" value="536" />
-	</bean>
-
-	<bean id="creditCard32" class="domain.CreditCard">
-		<property name="holder" value="Rodolfo Conde" />
-		<property name="make" value="AMERICAN EXPRESS" />
-		<property name="number" value="1111222233334444" />
-		<property name="expirationMonth" value="07" />
-		<property name="expirationYear" value="27" />
-		<property name="CVV" value="536" />
-	</bean>
-
-	<bean id="creditCard33" class="domain.CreditCard">
-		<property name="holder" value="Rodolfo Conde" />
-		<property name="make" value="AMERICAN EXPRESS" />
-		<property name="number" value="1111222233334444" />
-		<property name="expirationMonth" value="07" />
-		<property name="expirationYear" value="27" />
-		<property name="CVV" value="536" />
-	</bean>
-
-	<bean id="creditCard34" class="domain.CreditCard">
-		<property name="holder" value="Rodolfo Conde" />
-		<property name="make" value="AMERICAN EXPRESS" />
-		<property name="number" value="1111222233334444" />
-		<property name="expirationMonth" value="07" />
-		<property name="expirationYear" value="27" />
-		<property name="CVV" value="536" />
-	</bean>
-
-	<bean id="creditCard35" class="domain.CreditCard">
-		<property name="holder" value="Rodolfo Conde" />
-		<property name="make" value="AMERICAN EXPRESS" />
-		<property name="number" value="1111222233334444" />
-		<property name="expirationMonth" value="07" />
-		<property name="expirationYear" value="27" />
-		<property name="CVV" value="536" />
-	</bean>
-
-	<bean id="creditCard36" class="domain.CreditCard">
-		<property name="holder" value="Rodolfo Conde" />
-		<property name="make" value="AMERICAN EXPRESS" />
-		<property name="number" value="1111222233334444" />
-		<property name="expirationMonth" value="07" />
-		<property name="expirationYear" value="27" />
-		<property name="CVV" value="536" />
-	</bean>
-
-	<bean id="creditCard37" class="domain.CreditCard">
-		<property name="holder" value="Rodolfo Conde" />
-		<property name="make" value="AMERICAN EXPRESS" />
-		<property name="number" value="1111222233334444" />
-		<property name="expirationMonth" value="07" />
-		<property name="expirationYear" value="27" />
-		<property name="CVV" value="536" />
-	</bean>
 
 
 	<!-- SYSTEM CONFIGURATION -->
 
 	<bean id="sysConf" class="domain.SystemConfiguration">
-		<property name="systemName" value=" Acme Rookies" />
+		<property name="systemName" value="Acme Conference" />
 
 		<property name="welcomeMessage">
 			<util:map id="utilmap0" map-class="java.util.HashMap"
 				key-type="java.lang.String" value-type="java.lang.String">
 				<entry key="Español"
-					value="¡Bienvenidos a Acme Rookies¡, ¡Somos el mercado de trabajo favorito de los profesionales de las TICs!" />
+					value="¡Bienvenidos a Acme Conference! Su gestor de eventos científicos" />
 				<entry key="English"
-					value="Welcome to Acme Rookies¡, We’re IT rookie’s favourite job marketplace!" />
+					value="Welcome to Acme Conference! Your scientific event manager" />
 
 			</util:map>
 		</property>
-		<property name="breachNotification">
+
+		<property name="banner" value="https://i.ibb.co/GVpZCtM/acme-conference.png" />
+		<property name="countryCode" value="+034" />
+		<property name="creditCardMakes" value="VISA,MASTER,DINNERS,AMEX" />
+	<property name="topics">
 			<util:map id="utilmap10" map-class="java.util.HashMap"
 				key-type="java.lang.String" value-type="java.lang.String">
-				<entry key="Español" value="" />
-				<entry key="English" value="" />
+				<entry key="Español"
+					value="CONSULTA,REFUTACIÓN,INSCRIPCIÓN,TEMAS,OTRO" />
+				<entry key="English"
+					value="INQUIRY,REBUTTAL,REGISTRATION,TOPICS,OTHER" />
+
 			</util:map>
 		</property>
-		<property name="banner" value="https://raw.githubusercontent.com/McAllisterDTur/grooving-project/master/rookie.png" />
-		<property name="countryCode" value="+034" />
-		<property name="timeResultsCached" value="1" />
-		<property name="maxResults" value="10" />
-		<property name="VATTax" value="0.21" />
-		<property name="flatRate" value="2.50" />
-		<property name="alreadyRebranded" value="false" />
+
+	</bean>
+	
+	<!-- MESSAGE -->
+	
+	<bean id="message1" class="domain.Message">
+		<property name="sendMoment" value="12/12/2016 05:32:14" />
+		<property name="subject" value="Message 1" />
+		<property name="body" value="No entiendo que quieres decir en el primer párrafo." />
+
+		<property name="topic" value="INQUIRY" />
+
+		<property name="sender">
+			<ref bean="reviewer1" />
+		</property>
+		<property name="receiver">
+
+			<ref bean="author1" />
+
+		</property>
+
+		</bean>
+		<bean id="message2" class="domain.Message">
+		<property name="sendMoment" value="12/12/2017 05:32:14" />
+		<property name="subject" value="Conferencia Dia 16" />
+		<property name="body" value="Se puede cambiar la fecha de la conferencia?" />
+
+		<property name="topic" value="TOPICS" />
+
+		<property name="sender">
+			<ref bean="author1" />
+		</property>
+		<property name="receiver">
+
+			<ref bean="administrator1" />
+
+		</property>
+
+	</bean>
+		<bean id="message3" class="domain.Message">
+		<property name="sendMoment" value="12/12/2018 05:32:14" />
+		<property name="subject" value="Error" />
+		<property name="body" value="Creo que el datos que has dado al principio es erróneo." />
+
+		<property name="topic" value="REBUTTAL" />
+
+		<property name="sender">
+			<ref bean="reviewer1" />
+		</property>
+		<property name="receiver">
+
+			<ref bean="author1" />
+
+		</property>
+
+	</bean>
+	
+	<!-- CONFERENCE -->
+	
+		<bean id="conference1" class="domain.Conference">
+		<property name="title" value="Conferencia Bilogía" />
+		<property name="acronym" value="UNESCO" />
+		<property name="venue" value="MADRID(WIZINK CENTER)" />
+
+		<property name="submissionDeadline" value="12/12/2019 05:32:14" />
+		<property name="notiticationDeadline" value="08/01/2020 05:32:14" />
+		<property name="cameraReadyDeadline" value="12/01/2020 05:32:14" />
+		<property name="startDate" value="14/01/2020 05:32:14" />
+		<property name="endDate" value="17/01/2020 15:32:14" />
+		<property name="summary" value="12/12/2017 05:32:14" />
+		<property name="fee" value="15.00" />
+		<property name="isDraft" value="true" />
+		<property name="durationDays" value="3" />
+		<property name="administrator" ref="administrator1" />
+		<property name="activities">
+		
+			<list>
+				<ref bean="activity1" />
+			</list>
+		
+		</property>
+
+
+	</bean>
+	
+		<!-- ACTIVITY -->
+
+		<bean id="activity1" class="domain.Conference">
+		<property name="title" value="Conferencia Bilogía" />
+	 <property name="speakers">
+
+			<list>
+				<value>Antonio</value>
+		</list>
+      </property>
+		<property name="startMoment" value="15/01/2019 05:32:14" />
+		<property name="duration" value="30" />
+
+		<property name="room" value="Aula Magna" />
+		<property name="summary" value="Fotosíntesis" />
+		<property name="attachments">
+		
+			
+
+    <list>
+				<value>https://www.dropbox.com/h?preview=iadhd.jpg</value>
+		</list>
+      </property>
+
+		
+
 
 	</bean>
 
+ 
+ <!-- SUBMISSION -->
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 </beans>

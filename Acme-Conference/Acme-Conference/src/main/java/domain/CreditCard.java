@@ -5,6 +5,7 @@ import javax.persistence.AccessType;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.CreditCardNumber;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Range;
 
@@ -42,6 +43,7 @@ public class CreditCard {
 	}
 
 	@NotBlank
+	@CreditCardNumber
 	public String getNumber() {
 		return number;
 	}

@@ -26,6 +26,8 @@ public class Message extends DomainEntity{
 	private Actor receiver;
 	private Actor sender;
 	
+	
+	
 	@Past
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
@@ -33,13 +35,16 @@ public class Message extends DomainEntity{
 	public Date getSendMoment() {
 		return sendMoment;
 	}
-	public void sedSentMoment(Date sendMoment) {
+	public void setSendMoment(Date sendMoment) {
 		this.sendMoment = sendMoment;
 	}
+	
+	
 	@NotBlank
 	public String getSubject() {
 		return subject;
 	}
+
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}

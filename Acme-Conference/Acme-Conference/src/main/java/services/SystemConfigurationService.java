@@ -54,11 +54,8 @@ public class SystemConfigurationService {
 		aux.setWelcomeMessage(systemConfiguration.getWelcomeMessage());
 		aux.setBanner(systemConfiguration.getBanner());
 		aux.setCountryCode(systemConfiguration.getCountryCode());
-		aux.setTimeResultsCached(systemConfiguration.getTimeResultsCached());
-		aux.setMaxResults(systemConfiguration.getMaxResults());
-		aux.setBreachNotification(systemConfiguration.getBreachNotification());
-		aux.setVATTax(systemConfiguration.getVATTax());
-		aux.setFlatRate(systemConfiguration.getFlatRate());
+
+
 
 		result = this.systemConfigurationRepository.save(aux);
 
@@ -95,12 +92,6 @@ public class SystemConfigurationService {
 		return result;
 	}
 
-	/* Find BreachNotification */
-	public Map<String, String> findBreachNotification() {
-		final Map<String, String> result;
-		result = this.findMySystemConfiguration().getBreachNotification();
-		return result;
-	}
 
 	public SystemConfiguration reconstruct(
 			final SystemConfiguration systemConfiguration, final String nameES,
@@ -115,23 +106,17 @@ public class SystemConfigurationService {
 		res.setId(systemConfiguration.getId());
 		res.setVersion(systemConfiguration.getVersion());
 		res.setWelcomeMessage(systemConfiguration.getWelcomeMessage());
-		res.setBreachNotification(systemConfiguration.getBreachNotification());
+
 		res.setSystemName(systemConfiguration.getSystemName());
 		res.setBanner(systemConfiguration.getBanner());
 		res.setCountryCode(systemConfiguration.getCountryCode());
-		res.setTimeResultsCached(systemConfiguration.getTimeResultsCached());
-		res.setMaxResults(systemConfiguration.getMaxResults());
-		res.setVATTax(systemConfiguration.getVATTax());
-		res.setFlatRate(systemConfiguration.getFlatRate());
-		res.setAlreadyRebranded(systemConfiguration.getAlreadyRebranded());
+
 
 		res.setWelcomeMessage(new HashMap<String, String>());
 
 		res.getWelcomeMessage().put("Español", nameES);
 		res.getWelcomeMessage().put("English", nameEN);
-		res.setBreachNotification(new HashMap<String, String>());
-		res.getBreachNotification().put("Español", nEs);
-		res.getBreachNotification().put("English", nEn);
+
 
 		try {
 			Assert.isTrue(!res.getSystemName().isEmpty(), "name.error");
@@ -152,35 +137,10 @@ public class SystemConfigurationService {
 			binding.rejectValue("countryCode", "cc.error");
 		}
 
-		try {
-			Assert.isTrue(
-					res.getTimeResultsCached() >= 1
-							&& res.getTimeResultsCached() <= 24, "time.error");
-		} catch (Throwable oops) {
-			// binding.rejectValue("timeResultsCached", "time.error");
-		}
+	
 
-		try {
-			Assert.isTrue(
-					res.getMaxResults() > 0 && res.getMaxResults() <= 100,
-					"results.error");
-		} catch (Throwable oops) {
-			binding.rejectValue("maxResults", "results.error");
-		}
 
-		try {
-			Assert.isTrue(res.getVATTax() > 0 && res.getVATTax() < 1,
-					"vat.error");
-		} catch (Throwable oops) {
-			binding.rejectValue("VATTax", "vat.error");
-		}
 
-		try {
-			Assert.isTrue(res.getFlatRate() > 0 && res.getFlatRate() < 5,
-					"flat.error");
-		} catch (Throwable oops) {
-			binding.rejectValue("flatRate", "flat.error");
-		}
 
 		this.validator.validate(res, binding);
 
@@ -203,23 +163,16 @@ public class SystemConfigurationService {
 		res.setId(systemConfiguration.getId());
 		res.setVersion(systemConfiguration.getVersion());
 		res.setWelcomeMessage(systemConfiguration.getWelcomeMessage());
-		res.setBreachNotification(systemConfiguration.getBreachNotification());
+
 		res.setSystemName(systemConfiguration.getSystemName());
 		res.setBanner(systemConfiguration.getBanner());
 		res.setCountryCode(systemConfiguration.getCountryCode());
-		res.setTimeResultsCached(systemConfiguration.getTimeResultsCached());
-		res.setMaxResults(systemConfiguration.getMaxResults());
-		res.setVATTax(systemConfiguration.getVATTax());
-		res.setFlatRate(systemConfiguration.getFlatRate());
-		res.setAlreadyRebranded(systemConfiguration.getAlreadyRebranded());
+
 
 		res.setWelcomeMessage(new HashMap<String, String>());
 
 		res.getWelcomeMessage().put("Español", nameES);
 		res.getWelcomeMessage().put("English", nameEN);
-		res.setBreachNotification(new HashMap<String, String>());
-		res.getBreachNotification().put("Español", nEs);
-		res.getBreachNotification().put("English", nEn);
 
 		try {
 			Assert.isTrue(!res.getSystemName().isEmpty(), "name.error");
@@ -243,39 +196,7 @@ public class SystemConfigurationService {
 			errMessages.add("cc.error");
 		}
 
-		try {
-			Assert.isTrue(
-					res.getTimeResultsCached() >= 1
-							&& res.getTimeResultsCached() <= 24, "time.error");
-		} catch (Throwable oops) {
-			binding.rejectValue("timeResultsCached", "time.error");
-			errMessages.add("time.error");
-		}
-
-		try {
-			Assert.isTrue(
-					res.getMaxResults() > 0 && res.getMaxResults() <= 100,
-					"results.error");
-		} catch (Throwable oops) {
-			binding.rejectValue("maxResults", "results.error");
-			errMessages.add("results.error");
-		}
-
-		try {
-			Assert.isTrue(res.getVATTax() > 0 && res.getVATTax() < 1,
-					"vat.error");
-		} catch (Throwable oops) {
-			binding.rejectValue("VATTax", "vat.error");
-			errMessages.add("vat.error");
-		}
-
-		try {
-			Assert.isTrue(res.getFlatRate() > 0 && res.getFlatRate() < 5,
-					"flat.error");
-		} catch (Throwable oops) {
-			binding.rejectValue("flatRate", "flat.error");
-			errMessages.add("flat.error");
-		}
+	
 
 		try {
 			Assert.notNull(nEn);
@@ -300,16 +221,5 @@ public class SystemConfigurationService {
 
 	}
 
-	public void runOnlyOnceProcess() {
-		SystemConfiguration res = this.findMySystemConfiguration();
-
-		Assert.isTrue(res.getAlreadyRebranded() == false, "commit.error");
-		Assert.isTrue(res != null);
-
-		res.setAlreadyRebranded(true);
-
-		this.systemConfigurationRepository.save(res);
-
-	}
 
 }

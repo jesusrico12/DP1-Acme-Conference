@@ -1,7 +1,23 @@
 #./src/main/resources/Entities.map
-#Sun Jul 14 21:07:45 CEST 2019
-administrator1=8
-sysConf=10
-userAdmin2=7
-userAdmin1=6
-administrator2=9
+#Mon Jul 29 19:16:24 CEST 2019
+sysConf=38
+reviewer3=37
+reviewer2=36
+reviewer1=35
+message3=41
+message2=40
+message1=39
+author3=34
+userAuthor3=26
+author2=33
+userAuthor2=25
+author1=32
+userAuthor1=24
+administrator2=31
+administrator1=30
+conference1=42
+userReviewer3=29
+userReviewer2=28
+userReviewer1=27
+userAdmin2=23
+userAdmin1=22

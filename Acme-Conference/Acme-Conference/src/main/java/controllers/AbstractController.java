@@ -40,19 +40,7 @@ public class AbstractController {
 		return urlBanner;
 	}
 
-	@ModelAttribute("breachNotification")
-	public Map<String, String> getBreachNotification(final Model model) {
-		final Map<String, String> res = this.systemConfigurationService.findBreachNotification();
 
-		return res;
-	}
-	
-	@ModelAttribute("AlreadyRebranded")
-	public Boolean getAlreadyRebranded(final Model model) {
-		final Boolean res = this.systemConfigurationService.findMySystemConfiguration().getAlreadyRebranded();
-
-		return res;
-	}
 
 	// Panic handler ----------------------------------------------------------
 

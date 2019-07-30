@@ -58,12 +58,12 @@ public class SystemConfigurationController extends AbstractController {
 					.findMySystemConfiguration();
 
 			welcomeMessage = sysConfig.getWelcomeMessage();
-			breachNotification = sysConfig.getBreachNotification();
+			
 
 			res = new ModelAndView("sysConfig/display");
 			res.addObject("sysConfig", sysConfig);
 			res.addObject("welcomeMessage", welcomeMessage);
-			res.addObject("breachNotification", breachNotification);
+
 
 		} catch (final Throwable oopsie) {
 			res = new ModelAndView("sysConfig/display");
@@ -158,7 +158,7 @@ public class SystemConfigurationController extends AbstractController {
 			principal = this.actorService.findByPrincipal();
 			Assert.isTrue(this.actorService.checkAuthority(principal, "ADMIN"));
 
-			this.systemConfigurationService.runOnlyOnceProcess();
+
 
 			res = new ModelAndView("redirect:display.do");
 			// res.addObject("AlreadyRebranded",

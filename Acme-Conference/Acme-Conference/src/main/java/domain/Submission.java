@@ -37,7 +37,8 @@ public class Submission extends DomainEntity{
 	private Collection<Report> reports;
 	
 	@NotBlank
-	//@Column(name = "ticker", unique=true)
+	@Column(unique = true)
+	@Pattern(regexp = "^[A-Z]{4}-\\d{4}$")
 	public String getTicker() {
 		return ticker;
 	}
