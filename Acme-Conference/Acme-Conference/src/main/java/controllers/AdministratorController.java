@@ -29,6 +29,110 @@ public class AdministratorController extends AbstractController {
 
 	@Autowired
 	private ActorService actorService;
+	
+	
+	
+	
+
+	/* Methods */
+
+	/**
+	 * 
+	 * Display admin
+	 * 
+	 * @params id (optional)
+	 * 
+	 * @return ModelAndView
+	 * **/
+	@RequestMapping(value = "/display", method = RequestMethod.GET)
+	public ModelAndView display(@RequestParam(required = false) final Integer id) {
+		ModelAndView res;
+		Administrator toDisplay;
+		String requestURI = "administrator/display.do";
+		Boolean found = true;
+		Boolean permission;
+
+		try {
+			if (id != null) {
+				toDisplay = (Administrator) this.actorService.findOne(id);
+				requestURI += "?id=" + id;
+				if (toDisplay == null)
+					found = false;
+				permission = (toDisplay.getId() == this.actorService
+						.findByPrincipal().getId()) ? true : false;
+			} else {
+				toDisplay = (Administrator) this.actorService.findByPrincipal();
+				permission = true;
+			}
+
+			res = new ModelAndView("administrator/display");
+			res.addObject("admin", toDisplay);
+			res.addObject("found", found);
+			res.addObject("requestURI", requestURI);
+			res.addObject("permission", permission);
+		} catch (final Throwable oops) {
+			found = false;
+			res = new ModelAndView("administrator/display");
+			res.addObject("found", found);
+		}
+
+		return res;
+	}
+	
+	/**
+	 * 
+	 * Register administrator GET
+	 * 
+	 * @return ModelAndView
+	 **/
+/*	@RequestMapping(value = "/administrator/register", method = RequestMethod.GET)
+	public ModelAndView registerNewAdministrator() {
+		ModelAndView res;
+
+		final Administrator admin = new Administrator();
+
+
+
+
+		return res;
+	}
+	/**
+	 * 
+	 * Register administrator POST
+	 * 
+	 * @return ModelAndView
+	 **/
+	@RequestMapping(value = "/administrator/register", method = RequestMethod.POST, params = "save")
+	public ModelAndView register(
+			@Valid final Administrator admin,
+			final BindingResult binding) {
+
+		ModelAndView res;
+
+		Administrator administrator = new Administrator();
+		administrator = this.administratorService.create();
+
+
+
+		if (binding.hasErrors())
+			
+			res = new ModelAndView("administrator/register");
+			
+		else
+			try {
+
+				this.administratorService.save(administrator);
+
+				res = new ModelAndView("redirect:/");
+
+			} catch (final Throwable oops) {
+				res = new ModelAndView("administrator/register");
+				res = res.addObject("messageCode", "film.commit.error");
+
+			}
+		return res;
+	}
+
 
 
 }

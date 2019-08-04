@@ -1,9 +1,9 @@
-<<<<<<< HEAD
-target/
+
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
 pom.xml.next
+.metadata/.plugins
 release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
@@ -14,25 +14,3 @@ Servers2/
 Servers3/
 **/Entities.map
 .metadata/
-
-# Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
-=======
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-workspace/.metadata
-Servers/
-Servers2/
-Servers3/
-**/Entities.map
-.metadata/
-
-# Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
->>>>>>> pablo
-!/.mvn/wrapper/maven-wrapper.jar

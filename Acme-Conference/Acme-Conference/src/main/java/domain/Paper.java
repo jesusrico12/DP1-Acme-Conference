@@ -15,6 +15,7 @@ import org.hibernate.validator.constraints.URL;
 @Access(AccessType.PROPERTY)
 public class Paper extends DomainEntity{
 
+
 	private String title;
 	private Boolean isCameraReady;
 	private List<String> authors;

@@ -38,8 +38,7 @@ public class AdministratorService {
 	@Autowired
 	private ActorService actorService;
 
-	@Autowired
-	private CreditCardService creditCardService;
+
 
 	@Autowired
 	private UtilityService utilityService;
@@ -56,9 +55,9 @@ public class AdministratorService {
 		UserAccount userAccount;
 		Authority auth;
 		Collection<Authority> authority;
-		CreditCard creditCard;
+	
 
-		creditCard = new CreditCard();
+		
 		auth = new Authority();
 		authority = new ArrayList<Authority>();
 		userAccount = new UserAccount();
@@ -133,18 +132,22 @@ public class AdministratorService {
 				}
 
 			/* Managing email */
-			/*
-			 * String email = administrator.getEmail(); Assert.isTrue(
-			 * this.actorService.checkEmail(email, administrator
-			 * .getUserAccount().getAuthorities().iterator()
-			 * .next().toString()), "actor.email.error");
-			 * 
-			 * /* Managing photo
-			 */
-			/*
-			 * Assert.isTrue(ResourceUtils.isUrl(administrator.getPhoto()),
-			 * "actor.photo.error");
-			 */
+			
+			 	String email = administrator.getEmail(); Assert.isTrue(
+			 	this.actorService.checkEmail(email, administrator
+			 	.getUserAccount().getAuthorities().iterator()
+			    .next().toString()), "actor.email.error");
+			 
+				// Managing photo
+			if(administrator.getPhoto()!="" || administrator.getPhoto()!=null){
+			
+				
+				Assert.isTrue(administrator.getPhoto().startsWith("https://www.flickr.com")||administrator.getPhoto().startsWith("https://www.dropbox.com"),"actor.photo.error");
+				
+				
+			  
+			}
+			 
 		} else {
 
 			Assert.isTrue(principal.getId() == administrator.getId(),
@@ -165,18 +168,23 @@ public class AdministratorService {
 				}
 
 			/* Managing email */
-			/*
-			 * String email = administrator.getEmail(); Assert.isTrue(
-			 * this.actorService.checkEmail(email, administrator
-			 * .getUserAccount().getAuthorities().iterator()
-			 * .next().toString()), "actor.email.error");
-			 * 
-			 * /* Managing photo
-			 */
-			/*
-			 * Assert.isTrue(ResourceUtils.isUrl(administrator.getPhoto()),
-			 * "actor.photo.error");
-			 */
+			
+			  String email = administrator.getEmail(); Assert.isTrue(
+			  this.actorService.checkEmail(email, administrator
+			  .getUserAccount().getAuthorities().iterator()
+			 .next().toString()), "actor.email.error");
+				 
+			  //Managing photo
+			 
+				// Managing photo
+				if(administrator.getPhoto()!="" || administrator.getPhoto()!=null){
+				
+					
+					Assert.isTrue(administrator.getPhoto().startsWith("https://www.flickr.com")||administrator.getPhoto().startsWith("https://www.dropbox.com"),"actor.photo.error");
+					
+					
+				  
+				}
 		}
 
 		res = this.administratorRepository.save(administrator);

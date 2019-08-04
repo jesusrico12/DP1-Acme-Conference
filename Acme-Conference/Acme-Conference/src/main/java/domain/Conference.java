@@ -2,6 +2,7 @@ package domain;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
@@ -24,6 +25,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Access(AccessType.PROPERTY)
 public class Conference extends DomainEntity{
 	
+
+
+	public void setDurationDays(Integer durationDays) {
+		this.durationDays = durationDays;
+	}
+
 	private String title;
 	private String acronym;
 	private String venue;
@@ -124,7 +131,7 @@ public class Conference extends DomainEntity{
 	public void setSummary(String summary) {
 		this.summary = summary;
 	}
-	@Range(min=0,message="Min. 0")
+	@Range(min=0,message="Min. 0.0")
 	public Double getFee() {
 		return fee;
 	}
@@ -142,12 +149,18 @@ public class Conference extends DomainEntity{
 	}
 
 	public Integer getDurationDays() {
-		return durationDays;
+		// long diff = this.endDate.getTime() - this.startDate.getTime();
+		  //  return (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+	
+		   int daysdiff = 0;
+		    long diff = this.endDate.getTime() - this.startDate.getTime();
+		    long diffDays = diff / (24 * 60 * 60 * 1000) + 1;
+		    daysdiff = (int) diffDays;
+		    return daysdiff;
 	}
 
-	public void setDurationDays(Integer durationDays) {
-		this.durationDays = durationDays;
-	}
+
+
 	@Valid
 	@NotNull
 	@ManyToOne(optional = false)

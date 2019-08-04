@@ -4,6 +4,7 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.CreditCardNumber;
 import org.hibernate.validator.constraints.NotBlank;
@@ -43,7 +44,8 @@ public class CreditCard {
 	}
 
 	@NotBlank
-	@CreditCardNumber
+//	@CreditCardNumber
+//	@Pattern(regexp="[\\d]{16}")
 	public String getNumber() {
 		return number;
 	}

@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.UniqueConstraint;
+
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -38,7 +38,7 @@ public class Submission extends DomainEntity{
 	
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "^[A-Z]{4}-\\d{4}$")
+	//@Pattern(regexp = "^[A-Z]{4}-\\d{4}$")
 	public String getTicker() {
 		return ticker;
 	}
