@@ -35,8 +35,7 @@
 					<li class="arrow"></li>
 					<li><a href="administrator/administrator/register.do"><spring:message
 								code="master.page.register.admin" /></a></li>
-					<li><a href="auditor/auditor/register.do"><spring:message
-								code="master.page.register.auditor" /></a></li>
+					
 				</ul></li>
 
 		</security:authorize>
@@ -48,89 +47,15 @@
 						code="master.page.singup" /></a>
 				<ul>
 					<li class="arrow"></li>
-					<li><a href="company/company/register.do"><spring:message
-								code="master.page.register.company" /></a></li>
-					<li><a href="rookie/rookie/register.do"><spring:message
-								code="master.page.register.rookie" /></a></li>
-					<li><a href="provider/provider/register.do"><spring:message
-								code="master.page.register.provider" /></a></li>
+					<li><a href="author/author/register.do"><spring:message
+								code="master.page.register.author" /></a></li>
+	
 				</ul></li>
 
 		</security:authorize>
-		<li><a class="fNiv"><spring:message
-					code="master.page.position" /></a>
-			<ul>
-				<security:authorize access="!hasRole('ROOKIE')">
-					<li class="arrow"></li>
-					<li><a href="position/listAll.do"><spring:message
-								code="master.page.position.list.all" /></a></li>
-					<li><a href="finder/anon/search.do"><spring:message
-								code="master.page.finder" /></a></li>
-				</security:authorize>
-				<security:authorize access="hasRole('ROOKIE')">
-					<li class="arrow"></li>
-					<li><a href="position/listAll.do"><spring:message
-								code="master.page.position.list.all" /></a></li>
 
-				</security:authorize>
-				<security:authorize access="hasRole('COMPANY')">
-					<li><a href="position/list.do"><spring:message
-								code="master.page.position.mylist" /></a></li>
+		
 
-
-					<li><a href="position/create.do"><spring:message
-								code="master.page.position.edit" /></a></li>
-				</security:authorize>
-
-			</ul></li>
-		<security:authorize access="hasRole('COMPANY')">
-
-			<li><a class="fNiv"><spring:message
-						code="master.page.problem" /></a>
-				<ul>
-					<li class="arrow"></li>
-					<li><a href="problem/list.do"><spring:message
-								code="master.page.problem.list" /></a></li>
-					<security:authorize access="hasRole('COMPANY')">
-
-						<li><a href="problem/create.do"><spring:message
-									code="master.page.problem.edit" /></a></li>
-					</security:authorize>
-
-				</ul></li>
-		</security:authorize>
-		<security:authorize access="hasRole('AUDITOR')">
-			<li><a class="fNiv"><spring:message code="master.page.audit" /></a>
-				<ul>
-					<li class="arrow"></li>
-					<li><a href="audit/list.do"><spring:message
-								code="master.page.audit.list" /></a></li>
-				</ul></li>
-		</security:authorize>
-
-		<security:authorize access="!hasRole('PROVIDER')">
-
-			<li><a href="item/listAll.do"><spring:message
-						code="master.page.items" /></a></li>
-
-		</security:authorize>
-
-		<security:authorize access="hasRole('PROVIDER')">
-
-			<li><a class="fNiv" href="sponsorship/list.do"><spring:message
-						code="master.page.sponsorship" /></a></li>
-
-			<li><a class="fNiv"><spring:message code="master.page.items" /></a>
-				<ul>
-					<li class="arrow"></li>
-					<li><a href="item/list.do"><spring:message
-								code="master.page.item.list" /></a></li>
-					<li><a href="item/create.do"><spring:message
-								code="master.page.item.create" /></a></li>
-				</ul></li>
-
-
-		</security:authorize>
 
 
 		
@@ -148,10 +73,43 @@
 						code="master.page.profile" /> (<security:authentication
 						property="principal.username" />)
 			</a>
+				<ul>
+					<li class="arrow"></li>
+					<security:authorize access="hasRole('ADMIN')">
+						<li><a href="statistics/administrator/display.do"><spring:message
+									code="master.page.dashboard" /></a></li>
+						
+						<li><a href="sysconfig/administrator/display.do"><spring:message
+									code="master.page.system" /></a></li>
+						<li><a href="administrator/display.do"><spring:message
+									code="actor.view" /></a></li>
+					 	
+						<li><a href="administrator/administrator/edit.do"><spring:message
+									code="master.page.actor.edit" /></a></li>
+									
+									</security:authorize>	
+									
+									<security:authorize access="hasRole('AUTHOR')">
 				
-
-
-
+						<li><a href="author/display.do"><spring:message
+									code="actor.view" /></a></li>
+				
+						<li><a href="author/author/edit.do"><spring:message
+									code="master.page.actor.edit" /></a></li>
+									
+									</security:authorize>
+												<security:authorize access="hasRole('REVIEWER')">
+				
+						<li><a href="reviewer/display.do"><spring:message
+									code="actor.view" /></a></li>
+				
+						<li><a href="reviewer/reviewer/edit.do"><spring:message
+									code="master.page.actor.edit" /></a></li>
+									
+									</security:authorize>
+						
+						
+						</ul>
 					<li><a href="j_spring_security_logout"><spring:message
 								code="master.page.logout" /> </a></li>
 		</security:authorize>

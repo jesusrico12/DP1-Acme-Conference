@@ -23,7 +23,7 @@
 
 <spring:message code="phone.confirmation" var="confirmTelephone" />
 <security:authorize access="hasRole('ADMIN')">
-	<form:form modelAttribute="editionFormObject"
+	<form:form modelAttribute="administrator"
 		action="administrator/administrator/edit.do"
 		onsubmit="javascript: return checkPhone('${confirmTelephone}');">
 
@@ -78,6 +78,15 @@
 					</form:label></strong>
 				<form:input path="name" />
 			</div>
+				<div>
+				<p>
+					<form:errors path="middleName" cssClass="error" />
+				</p>
+				<strong><form:label path="middleName">
+						<spring:message code="actor.name" />
+					</form:label></strong>
+				<form:input path="middleName" />
+			</div>
 
 			<div>
 				<p>
@@ -89,19 +98,6 @@
 				<form:input path="surname" />
 			</div>
 
-			<br />
-
-			<div>
-				<form:errors path="VAT" cssClass="error">
-					<p class="error">
-						<spring:message code="VAT.error" />
-					</p>
-				</form:errors>
-				<strong><form:label path="VAT">
-						<spring:message code="actor.VAT" />
-					</form:label></strong>
-				<form:input path="VAT" />
-			</div>
 
 			<br />
 
@@ -155,105 +151,18 @@
 		</fieldset>
 		<br />
 
-		<!-- Credit card -->
-		<fieldset>
-			<legend style="font-size: 21px">
-				<spring:message code="card.data" />
-			</legend>
+	
 
-			<div>
-				<p>
-					<form:errors path="holder" cssClass="error" />
-				</p>
-				<strong><form:label path="holder">
-						<spring:message code="card.holder" />
-					</form:label></strong>
-				<form:input path="holder" />
-			</div>
+		
+		
 
-			<div>
-				<p>
-					<form:errors path="make" cssClass="error" />
-				</p>
-				<strong><form:label path="make">
-						<spring:message code="card.make" />
-					</form:label></strong>
-				<form:input path="make" />
-			</div>
-
-			<br />
-
-			<div>
-				<form:errors path="number" cssClass="error">
-					<p class="error">
-						<spring:message code="number.error" />
-					</p>
-				</form:errors>
-				<strong><form:label path="number">
-						<spring:message code="card.number" />
-					</form:label></strong>
-				<form:input path="number" />
-			</div>
-
-			<br>
-
-			<div>
-				<form:errors path="expirationMonth" cssClass="error">
-					<p class="error">
-						<spring:message code="card.date.error" />
-					</p>
-				</form:errors>
-				<strong><form:label path="expirationMonth">
-						<spring:message code="card.expirationMonth" />
-					</form:label></strong>
-				<form:input placeholder="MM" path="expirationMonth" />
-			</div>
-
-			<br>
-
-			<div>
-				<form:errors path="expirationYear" cssClass="error">
-					<p class="error">
-						<spring:message code="card.date.error" />
-					</p>
-				</form:errors>
-				<strong><form:label path="expirationYear">
-						<spring:message code="card.expirationYear" />
-					</form:label></strong>
-				<form:input placeholder="YY" path="expirationYear" />
-			</div>
-
-			<br />
-
-			<div>
-				<spring:message var="cvvmessage" code="cvv.message" />
-				<form:errors path="CVV" cssClass="error">
-					<p class="error">
-						<spring:message code="CVV.error" />
-					</p>
-				</form:errors>
-				<strong><form:label path="CVV">
-						<spring:message code="card.CVV" />
-					</form:label></strong>
-				<form:input style="width:245px;" placeholder="${cvvmessage}"
-					path="CVV" />
-			</div>
-			<br />
-		</fieldset>
 		<br />
 
 		<!-- Buttons -->
 		<input type="submit" name="save"
 			value="<spring:message code="form.save" />" />
+	
 		
-		<input type="submit" name="compute"
-			value="<spring:message code="admin.compute" />" />
-			
-		<jstl:if test="${count > 1}">
-			<input type="submit" name="deleteAdmin"
-				value="<spring:message code="actor.delete"/>"
-				onclick="return confirm('<spring:message code="actor.confirm.delete"/>')" />
-		</jstl:if>
 		
 
 		<button type="button" onclick="javascript: relativeRedir('/')">

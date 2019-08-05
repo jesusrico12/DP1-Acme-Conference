@@ -5,7 +5,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.Assert;
+
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -73,7 +73,7 @@ public class AdministratorController extends AbstractController {
 		} catch (final Throwable oops) {
 			found = false;
 			res = new ModelAndView("administrator/display");
-			res.addObject("found", found);
+			
 		}
 
 		return res;
@@ -85,15 +85,15 @@ public class AdministratorController extends AbstractController {
 	 * 
 	 * @return ModelAndView
 	 **/
-/*	@RequestMapping(value = "/administrator/register", method = RequestMethod.GET)
-	public ModelAndView registerNewAdministrator() {
+
+	@RequestMapping(value = "/administrator/register", method = RequestMethod.GET)
+	public ModelAndView create() {
 		ModelAndView res;
+		Administrator administrator;
 
-		final Administrator admin = new Administrator();
-
-
-
-
+		administrator = this.administratorService.create();
+		res = this.createEditModelAndView(administrator);
+		res.addObject(administrator);
 		return res;
 	}
 	/**
@@ -132,7 +132,23 @@ public class AdministratorController extends AbstractController {
 			}
 		return res;
 	}
+	protected ModelAndView createEditModelAndView(Administrator administrator) {
+		ModelAndView res;
 
+		res = this.createEditModelAndView(administrator, null);
+
+		return res;
+	}
+
+	protected ModelAndView createEditModelAndView(Administrator administrator,
+			String messageCode) {
+		ModelAndView res;
+
+		res = new ModelAndView("administrator/register");
+		res.addObject("administrator", administrator);
+		res.addObject("message", messageCode);
+		return res;
+	}
 
 
 }

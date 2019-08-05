@@ -215,10 +215,7 @@ public class AdministratorService {
 		return this.administratorRepository.findByUsername(username);
 	}
 
-	public Long count() {
-		final Long res = this.administratorRepository.count();
-		return res;
-	}
+
 
 	public void flush() {
 		this.administratorRepository.flush();

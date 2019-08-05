@@ -23,6 +23,13 @@
 				</div>
 
 				<br />
+				
+					<div>
+					<strong><spring:message code="actor.middleName" />: </strong>
+					<jstl:out value="${admin.middleName}" />
+				</div>
+
+				<br />
 
 				<div>
 					<strong><spring:message code="actor.surname" />: </strong>
@@ -31,10 +38,6 @@
 
 				<br />
 
-				<div>
-					<strong><spring:message code="actor.VAT" />: </strong>
-					<jstl:out value="${admin.VAT}" />
-				</div>
 
 				<br />
 
