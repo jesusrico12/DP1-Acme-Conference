@@ -27,8 +27,8 @@
 		<value>/views/administrator/messages</value>
 		<value>/views/system-configuration/messages</value>
 
-
-
+		<!-- Conference messages -->
+		<value>/views/conference/messages</value>
 
 	</util:list>
 

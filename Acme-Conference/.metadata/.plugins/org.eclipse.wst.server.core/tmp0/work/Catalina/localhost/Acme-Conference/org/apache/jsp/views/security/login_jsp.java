@@ -73,18 +73,17 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write('\r');
       out.write('\n');
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       //  form:form
       org.springframework.web.servlet.tags.form.FormTag _jspx_th_form_005fform_005f0 = (org.springframework.web.servlet.tags.form.FormTag) _005fjspx_005ftagPool_005fform_005fform_0026_005fmodelAttribute_005faction.get(org.springframework.web.servlet.tags.form.FormTag.class);
       _jspx_th_form_005fform_005f0.setPageContext(_jspx_page_context);
@@ -98,17 +97,15 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
         int _jspx_eval_form_005fform_005f0 = _jspx_th_form_005fform_005f0.doStartTag();
         if (_jspx_eval_form_005fform_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
           do {
-            out.write("\r\n");
-            out.write("\r\n");
-            out.write("\t");
+            out.write('\n');
+            out.write('\n');
+            out.write('	');
             if (_jspx_meth_form_005flabel_005f0(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write('\r');
             out.write('\n');
             out.write('	');
             if (_jspx_meth_form_005finput_005f0(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write('\r');
             out.write('\n');
             out.write('	');
             //  form:errors
@@ -133,18 +130,16 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
               _jspx_th_form_005ferrors_005f0.doFinally();
               _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fclass_005fnobody.reuse(_jspx_th_form_005ferrors_005f0);
             }
-            out.write("\r\n");
-            out.write("\t<br />\r\n");
-            out.write("\r\n");
+            out.write("\n");
+            out.write("\t<br />\n");
+            out.write("\n");
             out.write("\t");
             if (_jspx_meth_form_005flabel_005f1(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write('\r');
             out.write('\n');
             out.write('	');
             if (_jspx_meth_form_005fpassword_005f0(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write('\r');
             out.write('\n');
             out.write('	');
             //  form:errors
@@ -169,19 +164,19 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
               _jspx_th_form_005ferrors_005f1.doFinally();
               _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fclass_005fnobody.reuse(_jspx_th_form_005ferrors_005f1);
             }
-            out.write("\r\n");
-            out.write("\t<br />\r\n");
-            out.write("\r\n");
+            out.write("\n");
+            out.write("\t<br />\n");
+            out.write("\n");
             out.write("\t");
             if (_jspx_meth_jstl_005fif_005f0(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("\r\n");
-            out.write("\r\n");
+            out.write("\n");
+            out.write("\n");
             out.write("\t<input type=\"submit\" value=\"");
             if (_jspx_meth_spring_005fmessage_005f3(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("\" />\r\n");
-            out.write("\r\n");
+            out.write("\" />\n");
+            out.write("\n");
             int evalDoAfterBody = _jspx_th_form_005fform_005f0.doAfterBody();
             if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
               break;
@@ -225,11 +220,11 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       int _jspx_eval_form_005flabel_005f0 = _jspx_th_form_005flabel_005f0.doStartTag();
       if (_jspx_eval_form_005flabel_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
-          out.write("\r\n");
-          out.write("\t\t");
+          out.write('\n');
+          out.write('	');
+          out.write('	');
           if (_jspx_meth_spring_005fmessage_005f0(_jspx_th_form_005flabel_005f0, _jspx_page_context, _jspx_push_body_count_form_005flabel_005f0))
             return true;
-          out.write('\r');
           out.write('\n');
           out.write('	');
           int evalDoAfterBody = _jspx_th_form_005flabel_005f0.doAfterBody();
@@ -320,11 +315,11 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       int _jspx_eval_form_005flabel_005f1 = _jspx_th_form_005flabel_005f1.doStartTag();
       if (_jspx_eval_form_005flabel_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
-          out.write("\r\n");
-          out.write("\t\t");
+          out.write('\n');
+          out.write('	');
+          out.write('	');
           if (_jspx_meth_spring_005fmessage_005f1(_jspx_th_form_005flabel_005f1, _jspx_page_context, _jspx_push_body_count_form_005flabel_005f1))
             return true;
-          out.write('\r');
           out.write('\n');
           out.write('	');
           int evalDoAfterBody = _jspx_th_form_005flabel_005f1.doAfterBody();
@@ -413,13 +408,13 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     int _jspx_eval_jstl_005fif_005f0 = _jspx_th_jstl_005fif_005f0.doStartTag();
     if (_jspx_eval_jstl_005fif_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write("\r\n");
-        out.write("\t\t<div class=\"error\">\r\n");
+        out.write("\n");
+        out.write("\t\t<div class=\"error\">\n");
         out.write("\t\t\t");
         if (_jspx_meth_spring_005fmessage_005f2(_jspx_th_jstl_005fif_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
           return true;
-        out.write("\r\n");
-        out.write("\t\t</div>\r\n");
+        out.write("\n");
+        out.write("\t\t</div>\n");
         out.write("\t");
         int evalDoAfterBody = _jspx_th_jstl_005fif_005f0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)

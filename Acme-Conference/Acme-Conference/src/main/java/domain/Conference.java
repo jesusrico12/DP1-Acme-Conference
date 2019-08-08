@@ -27,28 +27,34 @@ public class Conference extends DomainEntity{
 	
 
 
-	public void setDurationDays(Integer durationDays) {
-		this.durationDays = durationDays;
-	}
+
 
 	private String title;
 	private String acronym;
 	private String venue;
 	private Date submissionDeadline;
-	private Date notiticationDeadline;
+	private Date notificationDeadline;
 	private Date cameraReadyDeadline;
 	private Date startDate;
 	private Date endDate;
 	private String summary;
 	private Double fee;
 	private Boolean isDraft;
-	private Integer durationDays;
 
+	private Integer durationDays;
 	//Activities
 	private Collection<Activity> activities;
 	private Administrator administrator;
 
 	
+	public Integer getDurationDays() {
+		return durationDays;
+	}
+
+	public void setDurationDays(Integer durationDays) {
+		this.durationDays = durationDays;
+	}
+
 	@NotBlank
 	public String getTitle() {
 		return title;
@@ -86,12 +92,12 @@ public class Conference extends DomainEntity{
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
-	public Date getNotiticationDeadline() {
-		return notiticationDeadline;
+	public Date getNotificationDeadline() {
+		return notificationDeadline;
 	}
 
-	public void setNotiticationDeadline(Date notiticationDeadline) {
-		this.notiticationDeadline = notiticationDeadline;
+	public void setNotificationDeadline(Date notificationDeadline) {
+		this.notificationDeadline = notificationDeadline;
 	}
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
@@ -148,16 +154,6 @@ public class Conference extends DomainEntity{
 		this.isDraft = isDraft;
 	}
 
-	public Integer getDurationDays() {
-		// long diff = this.endDate.getTime() - this.startDate.getTime();
-		  //  return (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
-	
-		   int daysdiff = 0;
-		    long diff = this.endDate.getTime() - this.startDate.getTime();
-		    long diffDays = diff / (24 * 60 * 60 * 1000) + 1;
-		    daysdiff = (int) diffDays;
-		    return daysdiff;
-	}
 
 
 

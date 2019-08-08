@@ -58,31 +58,31 @@ public final class footer_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       java.util.Date date = null;
       date = (java.util.Date) _jspx_page_context.getAttribute("date", javax.servlet.jsp.PageContext.PAGE_SCOPE);
       if (date == null){
         date = new java.util.Date();
         _jspx_page_context.setAttribute("date", date, javax.servlet.jsp.PageContext.PAGE_SCOPE);
       }
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("<hr />\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<hr />\n");
       out.write("<div><a href=\"terms.do\">");
       if (_jspx_meth_spring_005fmessage_005f0(_jspx_page_context))
         return;
-      out.write("</a></div>\r\n");
-      out.write("\t\t\t\t\t\t\t\t\r\n");
+      out.write("</a></div>\n");
+      out.write("\t\t\t\t\t\t\t\t\n");
       out.write("<b>Copyright &copy; ");
       if (_jspx_meth_fmt_005fformatDate_005f0(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("\tAcme-Rookies Co., Inc.\r\n");
+      out.write("\n");
+      out.write("\tAcme-Rookies Co., Inc.\n");
       out.write("</b>");
     } catch (java.lang.Throwable t) {
       if (!(t instanceof javax.servlet.jsp.SkipPageException)){

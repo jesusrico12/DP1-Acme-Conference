@@ -16,12 +16,16 @@
 			class="converters.Class1ToClass2" /> -->
 		<bean class="converters.ActorToStringConverter" />
 		<bean class="converters.StringToActorConverter" />
-
+		
 		<bean class="converters.AdministratorToStringConverter" />
 		<bean class="converters.StringToAdministratorConverter" />
 
-
-
+		<bean class="converters.StringToConferenceConverter" />
+		<bean class="converters.ConferenceToStringConverter" />
+		
+		<bean class="converters.StringToActivityConverter" />
+		<bean class="converters.ActivityToStringConverter" />
+	
 		<bean class="converters.SystemConfigurationToStringConverter" />
 		<bean class="converters.StringToSystemConfigurationConverter" />
 
