@@ -8,8 +8,13 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<jstl:choose>
-	<jstl:when test="${found}">
+
+
+
+
+
+<security:authorize access="hasRole('ADMIN')">
+
 		<!-- Actor Attributes -->
 		<fieldset style="width:35%">
 			<legend style="font-size: 21px">
@@ -19,47 +24,50 @@
 			<div style="float: left;">
 				<div>
 					<strong><spring:message code="actor.name" />: </strong>
-					<jstl:out value="${admin.name}" />
+					<jstl:out value="${administrator.name}" />
+				</div>
+
+				<br />
+				
+					<div>
+					<strong><spring:message code="administrator.middleName" />: </strong>
+					<jstl:out value="${administrator.middleName}" />
 				</div>
 
 				<br />
 
 				<div>
 					<strong><spring:message code="actor.surname" />: </strong>
-					<jstl:out value="${admin.surname}" />
+					<jstl:out value="${administrator.surname}" />
 				</div>
 
 				<br />
 
-				<div>
-					<strong><spring:message code="actor.VAT" />: </strong>
-					<jstl:out value="${admin.VAT}" />
-				</div>
 
 				<br />
 
 				<div>
 					<strong><spring:message code="actor.email" />: </strong>
-					<jstl:out value="${admin.email}" />
+					<jstl:out value="${administrator.email}" />
 				</div>
 
 				<br />
 
 				<div>
 					<strong><spring:message code="actor.phone" />: </strong>
-					<jstl:out value="${admin.phoneNumber}" />
+					<jstl:out value="${administrator.phoneNumber}" />
 				</div>
 
 				<br />
 
 				<div>
 					<strong><spring:message code="actor.address" />: </strong>
-					<jstl:out value="${admin.address}" />
+					<jstl:out value="${administrator.address}" />
 				</div>
 			</div>
 
 			<div style="float: right;">
-				<img style="width: 200px; height: 200px" src="${admin.photo}"
+				<img style="width: 200px; height: 200px" src="${administrator.photo}"
 					alt="User photo">
 			</div>
 
@@ -69,10 +77,5 @@
 	
 		
 			
-	</jstl:when>
-	<jstl:otherwise>
-		<p class="error">
-			<spring:message code="some.error" />
-		</p>
-	</jstl:otherwise>
-</jstl:choose>
+
+</security:authorize>

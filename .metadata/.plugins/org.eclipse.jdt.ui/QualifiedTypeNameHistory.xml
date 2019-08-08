@@ -22,9 +22,7 @@
 <fullyQualifiedTypeName name="domain.Author"/>
 <fullyQualifiedTypeName name="domain.Conference"/>
 <fullyQualifiedTypeName name="java.util.Collection"/>
-<fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
 <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
-<fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
 <fullyQualifiedTypeName name="javax.persistence.ManyToMany"/>
 <fullyQualifiedTypeName name="javax.persistence.Column"/>
 <fullyQualifiedTypeName name="javax.persistence.UniqueConstraint"/>
@@ -35,4 +33,7 @@
 <fullyQualifiedTypeName name="org.hibernate.validator.constraints.CreditCardNumber"/>
 <fullyQualifiedTypeName name="javax.validation.constraints.Pattern"/>
 <fullyQualifiedTypeName name="java.util.concurrent.TimeUnit"/>
+<fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
+<fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
+<fullyQualifiedTypeName name="domain.Administrator"/>
 </qualifiedTypeNameHistroy>

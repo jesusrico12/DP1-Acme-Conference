@@ -27,7 +27,7 @@ public class Actor extends DomainEntity {
 	private String middleName;
 	private String surname;
 	private String photo;
-	private String email;
+
 	private String phoneNumber;
 	private String address;
 
@@ -70,15 +70,7 @@ public class Actor extends DomainEntity {
 		this.photo = photo;
 	}
 
-	@NotBlank
-	@Pattern(regexp = "^([A-z0-9 ]+[ ]<[A-z0-9]+@([A-z0-9]+\\.{0,1})+[A-z0-9]+>|[A-z0-9]+@([A-z0-9]+\\.{0,1})+[A-z0-9]+)$")
-	public String getEmail() {
-		return email;
-	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
 
 	public String getPhoneNumber() {
 		return phoneNumber;
@@ -108,83 +100,7 @@ public class Actor extends DomainEntity {
 		this.userAccount = userAccount;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + ((address == null) ? 0 : address.hashCode());
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result
-				+ ((middleName == null) ? 0 : middleName.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result
-				+ ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
-		result = prime * result + ((photo == null) ? 0 : photo.hashCode());
-		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
-		result = prime * result
-				+ ((userAccount == null) ? 0 : userAccount.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (!super.equals(obj))
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Actor other = (Actor) obj;
-		if (address == null) {
-			if (other.address != null)
-				return false;
-		} else if (!address.equals(other.address))
-			return false;
-		if (email == null) {
-			if (other.email != null)
-				return false;
-		} else if (!email.equals(other.email))
-			return false;
-		if (middleName == null) {
-			if (other.middleName != null)
-				return false;
-		} else if (!middleName.equals(other.middleName))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (phoneNumber == null) {
-			if (other.phoneNumber != null)
-				return false;
-		} else if (!phoneNumber.equals(other.phoneNumber))
-			return false;
-		if (photo == null) {
-			if (other.photo != null)
-				return false;
-		} else if (!photo.equals(other.photo))
-			return false;
-		if (surname == null) {
-			if (other.surname != null)
-				return false;
-		} else if (!surname.equals(other.surname))
-			return false;
-		if (userAccount == null) {
-			if (other.userAccount != null)
-				return false;
-		} else if (!userAccount.equals(other.userAccount))
-			return false;
-		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Actor [name=" + name + ", middleName=" + middleName
-				+ ", surname=" + surname + ", photo=" + photo + ", email="
-				+ email + ", phoneNumber=" + phoneNumber + ", address="
-				+ address + ", userAccount=" + userAccount + "]";
-	}
+	
 
 	
 }
