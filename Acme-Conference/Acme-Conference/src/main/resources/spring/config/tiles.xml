@@ -16,6 +16,8 @@
 		<value>/views/misc/tiles.xml</value>
 		<value>/views/security/tiles.xml</value>
 		<value>/views/welcome/tiles.xml</value>
+		<value>/views/author/tiles.xml</value>
+		<value>/views/reviewer/tiles.xml</value>
 
 		<!-- Admin views -->
 		<value>/views/administrator/tiles.xml</value>

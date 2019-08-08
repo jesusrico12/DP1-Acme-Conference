@@ -119,4 +119,13 @@ public class ActorService {
 	public Boolean existsUsername(String username) {
 		return !(this.actorRepository.existsUsername(username) != null);
 	}
+	public Actor findByActorId(int id) {
+		Assert.notNull(id);
+		Actor res = this.actorRepository.findByActorId(id);
+
+		return res;
+	}
+	public boolean exists(Integer id) {
+		return this.actorRepository.exists(id);
+	}
 }

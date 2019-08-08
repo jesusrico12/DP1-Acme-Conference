@@ -47,7 +47,7 @@ public class SystemConfigurationController extends AbstractController {
 		Actor principal;
 		SystemConfiguration sysConfig;
 		Map<String, String> welcomeMessage;
-		Map<String, String> breachNotification;
+		Map<String,String> topics;
 		Boolean err;
 
 		try {
@@ -58,11 +58,12 @@ public class SystemConfigurationController extends AbstractController {
 					.findMySystemConfiguration();
 
 			welcomeMessage = sysConfig.getWelcomeMessage();
-			
+			topics=sysConfig.getTopics();
 
 			res = new ModelAndView("sysConfig/display");
 			res.addObject("sysConfig", sysConfig);
 			res.addObject("welcomeMessage", welcomeMessage);
+			res.addObject("topics",topics);
 
 
 		} catch (final Throwable oopsie) {
@@ -117,15 +118,16 @@ public class SystemConfigurationController extends AbstractController {
 	public ModelAndView save(SystemConfiguration systemConfiguration,
 			@RequestParam("nameES") final String nameES,
 			@RequestParam("nameEN") final String nameEN,
-			@RequestParam("nEs") final String nEs,
-			@RequestParam("nEn") final String nEn, BindingResult binding) {
+			@RequestParam("topicsES") final String topicsES,
+			@RequestParam("topicsEN") final String topicsEN,
+			 BindingResult binding) {
 		ModelAndView res;
 		Collection<String> errMessages = new ArrayList<>();
 		SystemConfiguration sysConfig;
 		Map<SystemConfiguration, Collection<String>> wA = new HashMap<>();
 
 		wA = this.systemConfigurationService.reconstructWA(systemConfiguration,
-				nameES, nameEN, nEs, nEn, binding);
+				nameES, nameEN,topicsES,topicsEN, binding);
 
 		sysConfig = wA.keySet().iterator().next();
 		errMessages = wA.get(sysConfig);
@@ -135,40 +137,22 @@ public class SystemConfigurationController extends AbstractController {
 
 			res.addObject("sysConfig",
 					this.systemConfigurationService.findMySystemConfiguration());
-			res.addObject("errMessages", errMessages);
+			res.addObject("errMessages",errMessages);
+			//res = this.createEditModelAndView(sysConfig,
+				//	binding.getAllErrors().get(binding.getAllErrors().size()-1).getCode());
 		} else
 			try {
 
-				this.systemConfigurationService.save(systemConfiguration);
+				this.systemConfigurationService.save(sysConfig);
 
 				res = new ModelAndView("redirect:display.do");
 			} catch (final Throwable oops) {
-				res = this.createEditModelAndView(systemConfiguration,
+				res = this.createEditModelAndView(sysConfig,
 						"system.error");
 			}
 		return res;
 	}
 
-	@RequestMapping(value = "/rebrand", method = RequestMethod.GET)
-	public ModelAndView rebrand() {
-		ModelAndView res;
-		Actor principal;
 
-		try {
-			principal = this.actorService.findByPrincipal();
-			Assert.isTrue(this.actorService.checkAuthority(principal, "ADMIN"));
-
-
-
-			res = new ModelAndView("redirect:display.do");
-			// res.addObject("AlreadyRebranded",
-			// this.systemConfigurationService.findMySystemConfiguration().getAlreadyRebranded());
-
-		} catch (final Throwable oopsie) {
-			res = new ModelAndView("redirect:/welcome/index.do");
-		}
-		return res;
-
-	}
 
 }

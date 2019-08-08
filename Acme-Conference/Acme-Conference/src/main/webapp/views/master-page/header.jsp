@@ -33,7 +33,7 @@
 						code="master.page.register" /></a>
 				<ul>
 					<li class="arrow"></li>
-					<li><a href="administrator/administrator/register.do"><spring:message
+					<li><a href="administrator/create.do"><spring:message
 								code="master.page.register.admin" /></a></li>
 					
 				</ul></li>
@@ -47,8 +47,11 @@
 						code="master.page.singup" /></a>
 				<ul>
 					<li class="arrow"></li>
-					<li><a href="author/author/register.do"><spring:message
+					<li><a href="author/create.do"><spring:message
 								code="master.page.register.author" /></a></li>
+									<li><a href="reviewer/create.do"><spring:message
+								code="master.page.register.reviewer" /></a></li>
+	
 	
 				</ul></li>
 
@@ -84,7 +87,7 @@
 						<li><a href="administrator/display.do"><spring:message
 									code="actor.view" /></a></li>
 					 	
-						<li><a href="administrator/administrator/edit.do"><spring:message
+						<li><a href="administrator/edit.do"><spring:message
 									code="master.page.actor.edit" /></a></li>
 									
 									</security:authorize>	
@@ -94,7 +97,7 @@
 						<li><a href="author/display.do"><spring:message
 									code="actor.view" /></a></li>
 				
-						<li><a href="author/author/edit.do"><spring:message
+						<li><a href="author/edit.do"><spring:message
 									code="master.page.actor.edit" /></a></li>
 									
 									</security:authorize>
@@ -103,7 +106,7 @@
 						<li><a href="reviewer/display.do"><spring:message
 									code="actor.view" /></a></li>
 				
-						<li><a href="reviewer/reviewer/edit.do"><spring:message
+						<li><a href="reviewer/edit.do"><spring:message
 									code="master.page.actor.edit" /></a></li>
 									
 									</security:authorize>

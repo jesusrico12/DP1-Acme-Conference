@@ -54,6 +54,8 @@ public class SystemConfigurationService {
 		aux.setWelcomeMessage(systemConfiguration.getWelcomeMessage());
 		aux.setBanner(systemConfiguration.getBanner());
 		aux.setCountryCode(systemConfiguration.getCountryCode());
+		aux.setCreditCardMakes(systemConfiguration.getCreditCardMakes());
+		aux.setTopics(systemConfiguration.getTopics());
 
 
 
@@ -95,7 +97,7 @@ public class SystemConfigurationService {
 
 	public SystemConfiguration reconstruct(
 			final SystemConfiguration systemConfiguration, final String nameES,
-			final String nameEN, final String nEs, final String nEn,
+			final String nameEN, String topicsES,String topicsEN,
 			BindingResult binding) {
 
 		Assert.isTrue(this.actorService.checkAuthority(
@@ -110,8 +112,18 @@ public class SystemConfigurationService {
 		res.setSystemName(systemConfiguration.getSystemName());
 		res.setBanner(systemConfiguration.getBanner());
 		res.setCountryCode(systemConfiguration.getCountryCode());
+		
+		//CC
+		
+		res.setCreditCardMakes(systemConfiguration.getCreditCardMakes());
+		
+		//Topics
+		
+		res.setTopics(new HashMap<String, String>());
 
-
+		res.getTopics().put("Español", topicsES);
+		res.getTopics().put("English", topicsEN);
+		
 		res.setWelcomeMessage(new HashMap<String, String>());
 
 		res.getWelcomeMessage().put("Español", nameES);
@@ -123,6 +135,17 @@ public class SystemConfigurationService {
 		} catch (Throwable oops) {
 			binding.rejectValue("systemName", "name.error");
 		}
+		try {
+			Assert.isTrue(!res.getTopics().values().isEmpty(), "topics.error");
+		} catch (Throwable oops) {
+			binding.rejectValue("topics", "topics.error");
+		}
+		try {
+			Assert.isTrue(res.getTopics().get("Español").split(",").length==res.getTopics().get("English").split(",").length, "topics.error.length");
+		} catch (Throwable oops) {
+			binding.rejectValue("topics", "topics.error.length");
+		}
+
 
 		try {
 			Assert.isTrue(!res.getBanner().isEmpty(), "banner.error");
@@ -135,6 +158,10 @@ public class SystemConfigurationService {
 					"cc.error");
 		} catch (Throwable oops) {
 			binding.rejectValue("countryCode", "cc.error");
+		}	try {
+			Assert.isTrue(!res.getCreditCardMakes().isEmpty(), "makes.error");
+		} catch (Throwable oops) {
+			binding.rejectValue("creditCardMakes", "makes.error");
 		}
 
 	
@@ -149,7 +176,7 @@ public class SystemConfigurationService {
 
 	public Map<SystemConfiguration, Collection<String>> reconstructWA(
 			final SystemConfiguration systemConfiguration, final String nameES,
-			final String nameEN, final String nEs, final String nEn,
+			final String nameEN,String topicsES,String topicsEN, 
 			BindingResult binding) {
 
 		Assert.isTrue(this.actorService.checkAuthority(
@@ -168,7 +195,18 @@ public class SystemConfigurationService {
 		res.setBanner(systemConfiguration.getBanner());
 		res.setCountryCode(systemConfiguration.getCountryCode());
 
+		//Topics
+		
+		
+		
+		res.setTopics(new HashMap<String, String>());
 
+		res.getTopics().put("Español", topicsES);
+		res.getTopics().put("English", topicsEN);
+		
+		//CC
+		res.setCreditCardMakes(systemConfiguration.getCreditCardMakes());
+		
 		res.setWelcomeMessage(new HashMap<String, String>());
 
 		res.getWelcomeMessage().put("Español", nameES);
@@ -179,6 +217,24 @@ public class SystemConfigurationService {
 		} catch (Throwable oops) {
 			binding.rejectValue("systemName", "name.error");
 			errMessages.add("name.error");
+		}
+		try {
+			Assert.isTrue(!res.getTopics().values().isEmpty(), "topics.error");
+		} catch (Throwable oops) {
+			binding.rejectValue("topics", "topics.error");
+			errMessages.add("topics.error");
+		}
+		try {
+			Assert.isTrue(!res.getCreditCardMakes().isEmpty(), "makes.error");
+		} catch (Throwable oops) {
+			binding.rejectValue("creditCardMakes", "makes.error");
+			errMessages.add("makes.error");
+		}
+		try {
+			Assert.isTrue(res.getTopics().get("Español").split(",").length==res.getTopics().get("English").split(",").length, "topics.error.length");
+		} catch (Throwable oops) {
+			binding.rejectValue("topics", "topics.error.length");
+			errMessages.add("topics.error.length");
 		}
 
 		try {
@@ -198,14 +254,9 @@ public class SystemConfigurationService {
 
 	
 
-		try {
-			Assert.notNull(nEn);
-			Assert.notNull(nEs);
-		} catch (Throwable oops) {
-			errMessages.add("welcome.error");
-		}
+	
 
-		wA.put(systemConfiguration, errMessages);
+		wA.put(res, errMessages);
 		this.validator.validate(res, binding);
 
 		return wA;

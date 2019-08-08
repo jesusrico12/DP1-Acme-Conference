@@ -19,7 +19,12 @@
 
 		<bean class="converters.AdministratorToStringConverter" />
 		<bean class="converters.StringToAdministratorConverter" />
-
+		
+		<bean class="converters.AuthorToStringConverter" />
+		<bean class="converters.StringToAuthorConverter" />
+		
+		<bean class="converters.ReviewerToStringConverter" />
+		<bean class="converters.StringToReviewerConverter" />
 
 
 		<bean class="converters.SystemConfigurationToStringConverter" />
