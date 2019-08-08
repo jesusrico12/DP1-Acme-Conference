@@ -61,107 +61,107 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("<div>\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<div>\n");
       out.write("\t<a href=\"#\"><img src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${banner}", java.lang.String.class, (javax.servlet.jsp.PageContext)_jspx_page_context, null, false));
-      out.write("\" alt=\"Acme-Rookie Co., Inc.\"\r\n");
-      out.write("\t\tstyle=\"margin-bottom: 0.5em;\" /></a>\r\n");
-      out.write("</div>\r\n");
-      out.write("\r\n");
-      out.write("<div>\r\n");
-      out.write("\t<ul id=\"jMenu\">\r\n");
-      out.write("\t\t<!-- Do not forget the \"fNiv\" class for the first level links !! -->\r\n");
+      out.write("\" alt=\"Acme-Rookie Co., Inc.\"\n");
+      out.write("\t\tstyle=\"margin-bottom: 0.5em;\" /></a>\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("<div>\n");
+      out.write("\t<ul id=\"jMenu\">\n");
+      out.write("\t\t<!-- Do not forget the \"fNiv\" class for the first level links !! -->\n");
       out.write("\t\t");
       if (_jspx_meth_security_005fauthorize_005f0(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\t\t");
       if (_jspx_meth_security_005fauthorize_005f1(_jspx_page_context))
         return;
-      out.write("\r\n");
+      out.write("\n");
       out.write("\t\t<li><a class=\"fNiv\">");
       if (_jspx_meth_spring_005fmessage_005f7(_jspx_page_context))
         return;
-      out.write("</a>\r\n");
-      out.write("\t\t\t<ul>\r\n");
+      out.write("</a>\n");
+      out.write("\t\t\t<ul>\n");
       out.write("\t\t\t\t");
       if (_jspx_meth_security_005fauthorize_005f2(_jspx_page_context))
         return;
-      out.write("\r\n");
+      out.write("\n");
       out.write("\t\t\t\t");
       if (_jspx_meth_security_005fauthorize_005f3(_jspx_page_context))
         return;
-      out.write("\r\n");
+      out.write("\n");
       out.write("\t\t\t\t");
       if (_jspx_meth_security_005fauthorize_005f4(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\t\t\t</ul></li>\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\t\t\t</ul></li>\n");
       out.write("\t\t");
       if (_jspx_meth_security_005fauthorize_005f5(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("\t\t");
+      out.write('\n');
+      out.write('	');
+      out.write('	');
       if (_jspx_meth_security_005fauthorize_005f7(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\t\t");
       if (_jspx_meth_security_005fauthorize_005f8(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\t\t");
       if (_jspx_meth_security_005fauthorize_005f9(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\t\t\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\t\t\n");
+      out.write("\n");
       out.write("\t\t");
       if (_jspx_meth_security_005fauthorize_005f10(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("\t\t\r\n");
-      out.write("\r\n");
-      out.write("\t\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\t\t\n");
+      out.write("\n");
+      out.write("\t\n");
+      out.write("\n");
       out.write("\t\t");
       if (_jspx_meth_security_005fauthorize_005f11(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\t</ul>\r\n");
-      out.write("\r\n");
-      out.write("</div>\r\n");
-      out.write("\r\n");
-      out.write("<div style=\"float: right;\">\r\n");
-      out.write("\r\n");
-      out.write("\t<a href=\"?language=en\"><img style=\"width: 20px; height: 15px\"\r\n");
-      out.write("\t\tsrc=\"https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1280px-Flag_of_the_United_Kingdom.svg.png\" alt=\"EN\"></a> <span>|</span>\r\n");
-      out.write("\r\n");
-      out.write("\t<a href=\"?language=es\"><img style=\"width: 20px; height: 15px;\"\r\n");
-      out.write("\t\tsrc=\"http://www.ahb.es/m/100150RES.jpg\"\r\n");
-      out.write("\t\talt=\"ES\"></a>\r\n");
-      out.write("\r\n");
-      out.write("</div>\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\t</ul>\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("<div style=\"float: right;\">\n");
+      out.write("\n");
+      out.write("\t<a href=\"?language=en\"><img style=\"width: 20px; height: 15px\"\n");
+      out.write("\t\tsrc=\"https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1280px-Flag_of_the_United_Kingdom.svg.png\" alt=\"EN\"></a> <span>|</span>\n");
+      out.write("\n");
+      out.write("\t<a href=\"?language=es\"><img style=\"width: 20px; height: 15px;\"\n");
+      out.write("\t\tsrc=\"http://www.ahb.es/m/100150RES.jpg\"\n");
+      out.write("\t\talt=\"ES\"></a>\n");
+      out.write("\n");
+      out.write("</div>\n");
       if (_jspx_meth_security_005fauthorize_005f12(_jspx_page_context))
         return;
-      out.write('\r');
       out.write('\n');
     } catch (java.lang.Throwable t) {
       if (!(t instanceof javax.servlet.jsp.SkipPageException)){
@@ -187,24 +187,24 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_security_005fauthorize_005f0.setAccess("hasRole('ADMIN')");
     int _jspx_eval_security_005fauthorize_005f0 = _jspx_th_security_005fauthorize_005f0.doStartTag();
     if (_jspx_eval_security_005fauthorize_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      out.write("\r\n");
-      out.write("\t\t\t<!-- Register admin -->\r\n");
+      out.write("\n");
+      out.write("\t\t\t<!-- Register admin -->\n");
       out.write("\t\t\t<li><a class=\"fNiv\">");
       if (_jspx_meth_spring_005fmessage_005f0(_jspx_th_security_005fauthorize_005f0, _jspx_page_context))
         return true;
-      out.write("</a>\r\n");
-      out.write("\t\t\t\t<ul>\r\n");
-      out.write("\t\t\t\t\t<li class=\"arrow\"></li>\r\n");
+      out.write("</a>\n");
+      out.write("\t\t\t\t<ul>\n");
+      out.write("\t\t\t\t\t<li class=\"arrow\"></li>\n");
       out.write("\t\t\t\t\t<li><a href=\"administrator/administrator/register.do\">");
       if (_jspx_meth_spring_005fmessage_005f1(_jspx_th_security_005fauthorize_005f0, _jspx_page_context))
         return true;
-      out.write("</a></li>\r\n");
+      out.write("</a></li>\n");
       out.write("\t\t\t\t\t<li><a href=\"auditor/auditor/register.do\">");
       if (_jspx_meth_spring_005fmessage_005f2(_jspx_th_security_005fauthorize_005f0, _jspx_page_context))
         return true;
-      out.write("</a></li>\r\n");
-      out.write("\t\t\t\t</ul></li>\r\n");
-      out.write("\r\n");
+      out.write("</a></li>\n");
+      out.write("\t\t\t\t</ul></li>\n");
+      out.write("\n");
       out.write("\t\t");
     }
     if (_jspx_th_security_005fauthorize_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -308,29 +308,29 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_security_005fauthorize_005f1.setAccess("isAnonymous()");
     int _jspx_eval_security_005fauthorize_005f1 = _jspx_th_security_005fauthorize_005f1.doStartTag();
     if (_jspx_eval_security_005fauthorize_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\t\t\t<!-- Sign up -->\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\t\t\t<!-- Sign up -->\n");
       out.write("\t\t\t<li><a class=\"fNiv\">");
       if (_jspx_meth_spring_005fmessage_005f3(_jspx_th_security_005fauthorize_005f1, _jspx_page_context))
         return true;
-      out.write("</a>\r\n");
-      out.write("\t\t\t\t<ul>\r\n");
-      out.write("\t\t\t\t\t<li class=\"arrow\"></li>\r\n");
+      out.write("</a>\n");
+      out.write("\t\t\t\t<ul>\n");
+      out.write("\t\t\t\t\t<li class=\"arrow\"></li>\n");
       out.write("\t\t\t\t\t<li><a href=\"company/company/register.do\">");
       if (_jspx_meth_spring_005fmessage_005f4(_jspx_th_security_005fauthorize_005f1, _jspx_page_context))
         return true;
-      out.write("</a></li>\r\n");
+      out.write("</a></li>\n");
       out.write("\t\t\t\t\t<li><a href=\"rookie/rookie/register.do\">");
       if (_jspx_meth_spring_005fmessage_005f5(_jspx_th_security_005fauthorize_005f1, _jspx_page_context))
         return true;
-      out.write("</a></li>\r\n");
+      out.write("</a></li>\n");
       out.write("\t\t\t\t\t<li><a href=\"provider/provider/register.do\">");
       if (_jspx_meth_spring_005fmessage_005f6(_jspx_th_security_005fauthorize_005f1, _jspx_page_context))
         return true;
-      out.write("</a></li>\r\n");
-      out.write("\t\t\t\t</ul></li>\r\n");
-      out.write("\r\n");
+      out.write("</a></li>\n");
+      out.write("\t\t\t\t</ul></li>\n");
+      out.write("\n");
       out.write("\t\t");
     }
     if (_jspx_th_security_005fauthorize_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -488,16 +488,16 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_security_005fauthorize_005f2.setAccess("!hasRole('ROOKIE')");
     int _jspx_eval_security_005fauthorize_005f2 = _jspx_th_security_005fauthorize_005f2.doStartTag();
     if (_jspx_eval_security_005fauthorize_005f2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      out.write("\r\n");
-      out.write("\t\t\t\t\t<li class=\"arrow\"></li>\r\n");
+      out.write("\n");
+      out.write("\t\t\t\t\t<li class=\"arrow\"></li>\n");
       out.write("\t\t\t\t\t<li><a href=\"position/listAll.do\">");
       if (_jspx_meth_spring_005fmessage_005f8(_jspx_th_security_005fauthorize_005f2, _jspx_page_context))
         return true;
-      out.write("</a></li>\r\n");
+      out.write("</a></li>\n");
       out.write("\t\t\t\t\t<li><a href=\"finder/anon/search.do\">");
       if (_jspx_meth_spring_005fmessage_005f9(_jspx_th_security_005fauthorize_005f2, _jspx_page_context))
         return true;
-      out.write("</a></li>\r\n");
+      out.write("</a></li>\n");
       out.write("\t\t\t\t");
     }
     if (_jspx_th_security_005fauthorize_005f2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -574,13 +574,13 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_security_005fauthorize_005f3.setAccess("hasRole('ROOKIE')");
     int _jspx_eval_security_005fauthorize_005f3 = _jspx_th_security_005fauthorize_005f3.doStartTag();
     if (_jspx_eval_security_005fauthorize_005f3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      out.write("\r\n");
-      out.write("\t\t\t\t\t<li class=\"arrow\"></li>\r\n");
+      out.write("\n");
+      out.write("\t\t\t\t\t<li class=\"arrow\"></li>\n");
       out.write("\t\t\t\t\t<li><a href=\"position/listAll.do\">");
       if (_jspx_meth_spring_005fmessage_005f10(_jspx_th_security_005fauthorize_005f3, _jspx_page_context))
         return true;
-      out.write("</a></li>\r\n");
-      out.write("\r\n");
+      out.write("</a></li>\n");
+      out.write("\n");
       out.write("\t\t\t\t");
     }
     if (_jspx_th_security_005fauthorize_005f3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -630,17 +630,17 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_security_005fauthorize_005f4.setAccess("hasRole('COMPANY')");
     int _jspx_eval_security_005fauthorize_005f4 = _jspx_th_security_005fauthorize_005f4.doStartTag();
     if (_jspx_eval_security_005fauthorize_005f4 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      out.write("\r\n");
+      out.write("\n");
       out.write("\t\t\t\t\t<li><a href=\"position/list.do\">");
       if (_jspx_meth_spring_005fmessage_005f11(_jspx_th_security_005fauthorize_005f4, _jspx_page_context))
         return true;
-      out.write("</a></li>\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("</a></li>\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\t\t\t\t\t<li><a href=\"position/create.do\">");
       if (_jspx_meth_spring_005fmessage_005f12(_jspx_th_security_005fauthorize_005f4, _jspx_page_context))
         return true;
-      out.write("</a></li>\r\n");
+      out.write("</a></li>\n");
       out.write("\t\t\t\t");
     }
     if (_jspx_th_security_005fauthorize_005f4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -717,24 +717,24 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_security_005fauthorize_005f5.setAccess("hasRole('COMPANY')");
     int _jspx_eval_security_005fauthorize_005f5 = _jspx_th_security_005fauthorize_005f5.doStartTag();
     if (_jspx_eval_security_005fauthorize_005f5 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\t\t\t<li><a class=\"fNiv\">");
       if (_jspx_meth_spring_005fmessage_005f13(_jspx_th_security_005fauthorize_005f5, _jspx_page_context))
         return true;
-      out.write("</a>\r\n");
-      out.write("\t\t\t\t<ul>\r\n");
-      out.write("\t\t\t\t\t<li class=\"arrow\"></li>\r\n");
+      out.write("</a>\n");
+      out.write("\t\t\t\t<ul>\n");
+      out.write("\t\t\t\t\t<li class=\"arrow\"></li>\n");
       out.write("\t\t\t\t\t<li><a href=\"problem/list.do\">");
       if (_jspx_meth_spring_005fmessage_005f14(_jspx_th_security_005fauthorize_005f5, _jspx_page_context))
         return true;
-      out.write("</a></li>\r\n");
+      out.write("</a></li>\n");
       out.write("\t\t\t\t\t");
       if (_jspx_meth_security_005fauthorize_005f6(_jspx_th_security_005fauthorize_005f5, _jspx_page_context))
         return true;
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\t\t\t\t</ul></li>\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\t\t\t\t</ul></li>\n");
       out.write("\t\t");
     }
     if (_jspx_th_security_005fauthorize_005f5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -811,12 +811,12 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_security_005fauthorize_005f6.setAccess("hasRole('COMPANY')");
     int _jspx_eval_security_005fauthorize_005f6 = _jspx_th_security_005fauthorize_005f6.doStartTag();
     if (_jspx_eval_security_005fauthorize_005f6 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\t\t\t\t\t\t<li><a href=\"problem/create.do\">");
       if (_jspx_meth_spring_005fmessage_005f15(_jspx_th_security_005fauthorize_005f6, _jspx_page_context))
         return true;
-      out.write("</a></li>\r\n");
+      out.write("</a></li>\n");
       out.write("\t\t\t\t\t");
     }
     if (_jspx_th_security_005fauthorize_005f6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -866,18 +866,18 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_security_005fauthorize_005f7.setAccess("hasRole('AUDITOR')");
     int _jspx_eval_security_005fauthorize_005f7 = _jspx_th_security_005fauthorize_005f7.doStartTag();
     if (_jspx_eval_security_005fauthorize_005f7 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      out.write("\r\n");
+      out.write("\n");
       out.write("\t\t\t<li><a class=\"fNiv\">");
       if (_jspx_meth_spring_005fmessage_005f16(_jspx_th_security_005fauthorize_005f7, _jspx_page_context))
         return true;
-      out.write("</a>\r\n");
-      out.write("\t\t\t\t<ul>\r\n");
-      out.write("\t\t\t\t\t<li class=\"arrow\"></li>\r\n");
+      out.write("</a>\n");
+      out.write("\t\t\t\t<ul>\n");
+      out.write("\t\t\t\t\t<li class=\"arrow\"></li>\n");
       out.write("\t\t\t\t\t<li><a href=\"audit/list.do\">");
       if (_jspx_meth_spring_005fmessage_005f17(_jspx_th_security_005fauthorize_005f7, _jspx_page_context))
         return true;
-      out.write("</a></li>\r\n");
-      out.write("\t\t\t\t</ul></li>\r\n");
+      out.write("</a></li>\n");
+      out.write("\t\t\t\t</ul></li>\n");
       out.write("\t\t");
     }
     if (_jspx_th_security_005fauthorize_005f7.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -954,13 +954,13 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_security_005fauthorize_005f8.setAccess("!hasRole('PROVIDER')");
     int _jspx_eval_security_005fauthorize_005f8 = _jspx_th_security_005fauthorize_005f8.doStartTag();
     if (_jspx_eval_security_005fauthorize_005f8 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\t\t\t<li><a href=\"item/listAll.do\">");
       if (_jspx_meth_spring_005fmessage_005f18(_jspx_th_security_005fauthorize_005f8, _jspx_page_context))
         return true;
-      out.write("</a></li>\r\n");
-      out.write("\r\n");
+      out.write("</a></li>\n");
+      out.write("\n");
       out.write("\t\t");
     }
     if (_jspx_th_security_005fauthorize_005f8.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1010,30 +1010,30 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_security_005fauthorize_005f9.setAccess("hasRole('PROVIDER')");
     int _jspx_eval_security_005fauthorize_005f9 = _jspx_th_security_005fauthorize_005f9.doStartTag();
     if (_jspx_eval_security_005fauthorize_005f9 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\t\t\t<li><a class=\"fNiv\" href=\"sponsorship/list.do\">");
       if (_jspx_meth_spring_005fmessage_005f19(_jspx_th_security_005fauthorize_005f9, _jspx_page_context))
         return true;
-      out.write("</a></li>\r\n");
-      out.write("\r\n");
+      out.write("</a></li>\n");
+      out.write("\n");
       out.write("\t\t\t<li><a class=\"fNiv\">");
       if (_jspx_meth_spring_005fmessage_005f20(_jspx_th_security_005fauthorize_005f9, _jspx_page_context))
         return true;
-      out.write("</a>\r\n");
-      out.write("\t\t\t\t<ul>\r\n");
-      out.write("\t\t\t\t\t<li class=\"arrow\"></li>\r\n");
+      out.write("</a>\n");
+      out.write("\t\t\t\t<ul>\n");
+      out.write("\t\t\t\t\t<li class=\"arrow\"></li>\n");
       out.write("\t\t\t\t\t<li><a href=\"item/list.do\">");
       if (_jspx_meth_spring_005fmessage_005f21(_jspx_th_security_005fauthorize_005f9, _jspx_page_context))
         return true;
-      out.write("</a></li>\r\n");
+      out.write("</a></li>\n");
       out.write("\t\t\t\t\t<li><a href=\"item/create.do\">");
       if (_jspx_meth_spring_005fmessage_005f22(_jspx_th_security_005fauthorize_005f9, _jspx_page_context))
         return true;
-      out.write("</a></li>\r\n");
-      out.write("\t\t\t\t</ul></li>\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("</a></li>\n");
+      out.write("\t\t\t\t</ul></li>\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\t\t");
     }
     if (_jspx_th_security_005fauthorize_005f9.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1164,11 +1164,11 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_security_005fauthorize_005f10.setAccess("isAnonymous()");
     int _jspx_eval_security_005fauthorize_005f10 = _jspx_th_security_005fauthorize_005f10.doStartTag();
     if (_jspx_eval_security_005fauthorize_005f10 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      out.write("\r\n");
+      out.write("\n");
       out.write("\t\t\t<li><a class=\"fNiv\" href=\"security/login.do\">");
       if (_jspx_meth_spring_005fmessage_005f23(_jspx_th_security_005fauthorize_005f10, _jspx_page_context))
         return true;
-      out.write("</a></li>\r\n");
+      out.write("</a></li>\n");
       out.write("\t\t");
     }
     if (_jspx_th_security_005fauthorize_005f10.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1218,7 +1218,7 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_security_005fauthorize_005f11.setAccess("isAuthenticated()");
     int _jspx_eval_security_005fauthorize_005f11 = _jspx_th_security_005fauthorize_005f11.doStartTag();
     if (_jspx_eval_security_005fauthorize_005f11 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      out.write("\r\n");
+      out.write("\n");
       out.write("\t\t\t<li><a class=\"fNiv\"> ");
       if (_jspx_meth_spring_005fmessage_005f24(_jspx_th_security_005fauthorize_005f11, _jspx_page_context))
         return true;
@@ -1226,16 +1226,16 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write('(');
       if (_jspx_meth_security_005fauthentication_005f0(_jspx_th_security_005fauthorize_005f11, _jspx_page_context))
         return true;
-      out.write(")\r\n");
-      out.write("\t\t\t</a>\r\n");
-      out.write("\t\t\t\t\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write(")\n");
+      out.write("\t\t\t</a>\n");
+      out.write("\t\t\t\t\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\t\t\t\t\t<li><a href=\"j_spring_security_logout\">");
       if (_jspx_meth_spring_005fmessage_005f25(_jspx_th_security_005fauthorize_005f11, _jspx_page_context))
         return true;
-      out.write(" </a></li>\r\n");
+      out.write(" </a></li>\n");
       out.write("\t\t");
     }
     if (_jspx_th_security_005fauthorize_005f11.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1331,8 +1331,9 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_security_005fauthorize_005f12.setAccess("isAuthenticated()");
     int _jspx_eval_security_005fauthorize_005f12 = _jspx_th_security_005fauthorize_005f12.doStartTag();
     if (_jspx_eval_security_005fauthorize_005f12 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      out.write("\r\n");
-      out.write("\t\r\n");
+      out.write('\n');
+      out.write('	');
+      out.write('\n');
     }
     if (_jspx_th_security_005fauthorize_005f12.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _005fjspx_005ftagPool_005fsecurity_005fauthorize_0026_005faccess.reuse(_jspx_th_security_005fauthorize_005f12);
