@@ -28,6 +28,8 @@
 		<value>/views/conference/tiles.xml</value>
 		<value>/views/panel/tiles.xml</value>
 		<value>/views/presentation/tiles.xml</value>
+		<value>/views/tutorial/tiles.xml</value>
+		<value>/views/section/tiles.xml</value>
 
 	</util:list>
 

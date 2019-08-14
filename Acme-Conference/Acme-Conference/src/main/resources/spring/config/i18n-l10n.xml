@@ -31,6 +31,8 @@
 		<value>/views/conference/messages</value>
 		<value>/views/panel/messages</value>
 		<value>/views/presentation/messages</value>
+		<value>/views/section/messages</value>
+			<value>/views/tutorial/messages</value>
 
 	</util:list>
 

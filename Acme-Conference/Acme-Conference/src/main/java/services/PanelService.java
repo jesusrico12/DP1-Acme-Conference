@@ -46,7 +46,7 @@ public class PanelService {
 	
 		
 			
-			Panel result;
+			Panel copy=new Panel();
 			Date currentMoment;
 			Assert.isTrue(panel.getStartMoment().before(conference.getEndDate())&&panel.getStartMoment().after(conference.getStartDate()),"date.error");
 			currentMoment = new Date(System.currentTimeMillis() - 1);
@@ -59,47 +59,41 @@ public class PanelService {
 			Assert.isTrue(this.actorService.checkAuthority(principal, "ADMIN"),
 					"not.allowed");
 			Assert.isTrue(panel.getStartMoment().after(currentMoment),"invalid.date");
-			result=this.panelRepository.save(panel);
-			if(panel.getId()==0){
+			
+			if(panel.getId()!=0){
+				copy=this.findOne(panel.getId());
+				copy.setAttachments(panel.getAttachments());
+				copy.setRoom(panel.getRoom());
+				copy.setSpeakers(panel.getSpeakers());
+				copy.setStartMoment(panel.getStartMoment());
+
+				copy.setSummary(panel.getSummary());
+				copy.setTitle(panel.getTitle());
+				copy.setDuration(panel.getDuration());
 				
-				conference.getActivities().add(panel);
+				this.panelRepository.save(copy);
+				
+			}else{
+				
+				copy.setAttachments(panel.getAttachments());
+				copy.setRoom(panel.getRoom());
+				copy.setSpeakers(panel.getSpeakers());
+				copy.setStartMoment(panel.getStartMoment());
+				copy.setSummary(panel.getSummary());
+				copy.setTitle(panel.getTitle());
+				copy.setDuration(panel.getDuration());
+				
+				//this.panelRepository.save(copy);
+				
+				conference.getActivities().add(copy);
 				
 				conferenceService.saveForce(conference);
-				
 			}
 			
 			
 			
-			return result;
-		/*	if(panel.getId()==0){
-				
-				
-				Assert.isTrue(panel.getStartMoment().after(currentMoment),"invalid.date");
-		
-				res=this.panelRepository.save(panel);
-				
-			//	conference=this.conferenceService.findOne(conference.getId());
-				
-				Collection<Activity> actis=conference.getActivities();
-				actis.add(panel);
-				conference.setActivities(actis);
-				this.conferenceService.saveForce(conference);
-			}else {
-			//	Assert.isTrue(conference.getAdministrator().getId() == principal.getId(), "no.permission");
-				//COmprobar que le pertenece a esa conferencia
-				
-				Actor principal = this.actorService.findByPrincipal();
-				Assert.isTrue(this.actorService.checkAuthority(principal, "ADMIN"),
-						"not.allowed");
-				Assert.isTrue(panel.getStartMoment().after(currentMoment),"invalid.date");
-				
-				
-				res=this.panelRepository.save(panel);
-			}
-			
-			
-			return res;
-			*/
+			return copy;
+
 		}
 
 		public void delete(Panel panel,Conference conference){

@@ -43,6 +43,8 @@ public class PresentationService {
 	public Presentation save(Presentation presentation,Conference conference){
 		
 		
+		Presentation copy= new Presentation();
+		
 		Date currentMoment;
 		Assert.isTrue(presentation.getStartMoment().before(conference.getEndDate())&&presentation.getStartMoment().after(conference.getStartDate()),"date.error");
 		currentMoment = new Date(System.currentTimeMillis() - 1);
@@ -56,17 +58,40 @@ public class PresentationService {
 				"not.allowed");
 		Assert.isTrue(presentation.getStartMoment().after(currentMoment),"invalid.date");
 		Assert.isTrue(presentation.getPaper().getIsCameraReady()==true,"paper.invalid");
-		this.presentationRepository.save(presentation);
-		if(presentation.getId()==0){
+		
+		if(presentation.getId()!=0){
+			copy=this.findOne(presentation.getId());
+			copy.setAttachments(presentation.getAttachments());
+			copy.setRoom(presentation.getRoom());
+			copy.setSpeakers(presentation.getSpeakers());
+			copy.setStartMoment(presentation.getStartMoment());
+			copy.setPaper(presentation.getPaper());
+			copy.setSummary(presentation.getSummary());
+			copy.setTitle(presentation.getTitle());
+			copy.setDuration(presentation.getDuration());
 			
-			conference.getActivities().add(presentation);
+			this.presentationRepository.save(copy);
+			
+		}else{
+			
+			copy.setAttachments(presentation.getAttachments());
+			copy.setRoom(presentation.getRoom());
+			copy.setSpeakers(presentation.getSpeakers());
+			copy.setStartMoment(presentation.getStartMoment());
+			copy.setPaper(presentation.getPaper());
+			copy.setSummary(presentation.getSummary());
+			copy.setTitle(presentation.getTitle());
+			copy.setDuration(presentation.getDuration());
+			
+			//this.presentationRepository.save(copy);
+			
+			conference.getActivities().add(copy);
 			
 			conferenceService.saveForce(conference);
-			
 		}
 		
 		
-		return presentation;
+		return copy;
 	}
 	
 	public void delete(Presentation presentation,Conference conference){

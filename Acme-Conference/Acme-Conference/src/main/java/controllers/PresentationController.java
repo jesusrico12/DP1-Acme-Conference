@@ -14,12 +14,11 @@ import org.springframework.web.servlet.ModelAndView;
 import domain.Conference;
 import domain.Presentation;
 
-import repositories.PaperRepository;
-import services.AdministratorService;
+
 import services.ConferenceService;
 import services.PaperService;
 import services.PresentationService;
-import services.SubmissionService;
+
 
 @Controller
 public class PresentationController extends AbstractController {
