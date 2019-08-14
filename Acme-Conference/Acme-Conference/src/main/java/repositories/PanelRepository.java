@@ -9,5 +9,7 @@ import domain.Panel;
 @Repository
 public interface PanelRepository extends
 JpaRepository<Panel, Integer>{
+	
+	
 
 }

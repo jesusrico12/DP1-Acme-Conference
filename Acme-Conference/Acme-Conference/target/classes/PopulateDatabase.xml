@@ -472,7 +472,7 @@
 				<value>Antonio</value>
 			</list>
 		</property>
-		<property name="startMoment" value="2019/01/15 05:32:14" />
+		<property name="startMoment" value="2020/01/15 05:32:14" />
 		<property name="duration" value="30" />
 
 		<property name="room" value="Aula Magna" />
@@ -497,7 +497,7 @@
 		<property name="status" value="ACCEPTED" />
 		<property name="toReview" value="true" />
 
-		<property name="paper" ref="paper2" />
+		<property name="paper" ref="paper3" />
 
 		<property name="author" ref="author3" />
 

@@ -222,13 +222,30 @@
 							code="conference.activities" /> :
 				</strong></td>
 
+				<jstl:if test="${isPanel == true}">
+					<td><jstl:forEach items="${panels}" var="x">
+							<input type="button" value="<jstl:out value="${x.title}"/>"
+								onclick="redirect: location.href = 'panel/display.do?panelId=${x.id}';" />
+						</jstl:forEach></td>
+				</jstl:if>
+				<jstl:if test="${isPresentation == true}">
+					<td><jstl:forEach items="${presentations}" var="x">
+							<input type="button" value="<jstl:out value="${x.title}"/>"
+								onclick="redirect: location.href = 'presentation/display.do?presentationId=${x.id}';" />
+						</jstl:forEach></td>
+				</jstl:if>
+				<jstl:if test="${isTutorial == true}">
+					<td><jstl:forEach items="${tutorials}" var="x">
+							<input type="button" value="<jstl:out value="${x.title}"/>"
+								onclick="redirect: location.href = 'tutorial/display.do?turorialId=${x.id}';" />
+						</jstl:forEach></td>
+				</jstl:if>
 
-				<td><jstl:forEach items="${activities}" var="x">
-						<jstl:out value="${x.title}"></jstl:out>
-					</jstl:forEach></td>
 
 			</tr>
 		</jstl:if>
+
+
 		<tr>
 			<td><strong> <spring:message
 						code="conference.administrator" /> :
@@ -254,6 +271,15 @@
 	<input type="button" name="back"
 		value="<spring:message code="conference.back" />"
 		onclick="window.history.back()" />
-
+	<jstl:if test="${ not conference.isDraft}">
+		<input type="button" value="<spring:message code="panel.create"	/>"
+			onclick="redirect: location.href = 'panel/create.do?conferenceId=${conference.id}';" />
+		<input type="button"
+			value="<spring:message code="presentation.create"	/>"
+			onclick="redirect: location.href = 'presentation/create.do?conferenceId=${conference.id}';" />
+				<input type="button"
+			value="<spring:message code="tutorial.create"	/>"
+			onclick="redirect: location.href = 'tutorial/create.do?conferenceId=${conference.id}';" />
+	</jstl:if>
 
 </security:authorize>

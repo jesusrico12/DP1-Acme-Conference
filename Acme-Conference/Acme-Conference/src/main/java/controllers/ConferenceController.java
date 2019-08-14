@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.validation.Valid;
@@ -17,6 +18,9 @@ import services.ConferenceService;
 import domain.Activity;
 import domain.Administrator;
 import domain.Conference;
+import domain.Panel;
+import domain.Presentation;
+import domain.Tutorial;
 
 @Controller
 @RequestMapping(value = "/conference")
@@ -51,6 +55,9 @@ public class ConferenceController extends AbstractController{
 		ModelAndView result;
 		Conference conference = this.conferenceService.findOne(conferenceId);
 		boolean isActivity = false;
+		boolean isPanel=false;
+		boolean isTutorial=false;
+		boolean isPresentation=false;
 		Collection<Activity> activities = conference.getActivities();
 		
 		result = new ModelAndView("conference/display");
@@ -58,6 +65,28 @@ public class ConferenceController extends AbstractController{
 		if(!activities.isEmpty()){
 			result.addObject("activities", activities);
 			isActivity = true;
+			Collection<Activity> panels= new ArrayList<Activity>();
+			Collection<Activity> pres= new ArrayList<Activity>();
+			Collection<Activity> tuts= new ArrayList<Activity>();
+			for(Activity i: activities){
+			if(i instanceof Panel){
+				panels.add(i);
+				result.addObject("panels", panels);
+				isPanel = true;
+				result.addObject("isPanel", isPanel);
+			}else if(i instanceof Presentation){
+				pres.add(i);
+				result.addObject("presentations", pres);
+				isPresentation = true;
+				result.addObject("isPresentation", isPresentation);
+			}else if(i instanceof Tutorial){
+				tuts.add(i);
+				result.addObject("tutorials", tuts);
+			
+				isTutorial = true;
+				result.addObject("isTutorial", isTutorial);
+			}
+			}
 		}
 		
 		result.addObject("conference", conference);

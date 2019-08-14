@@ -1,6 +1,7 @@
 package services;
 
 import java.util.Collection;
+import java.util.LinkedList;
 
 import javax.transaction.Transactional;
 
@@ -9,8 +10,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import repositories.ConferenceRepository;
+import domain.Activity;
 import domain.Administrator;
 import domain.Conference;
+
 
 @Transactional
 @Service
@@ -34,6 +37,9 @@ public class ConferenceService {
 		Conference result = new Conference();
 
 		Administrator principal = (Administrator) this.actorService.findByPrincipal();
+		
+		Collection<Activity> actis= new LinkedList<>();
+		result.setActivities(actis);
 
 		result.setAdministrator(principal);
 		result.setIsDraft(true);
@@ -172,6 +178,16 @@ public class ConferenceService {
 		Collection<Conference> result = this.conferenceRepository.getStartLess5();
 		
 		return result;
+	}
+	public 	Conference ConferenceOwn(int panelId){
+		Conference cof=this.conferenceRepository.ConferenceOwn(panelId);
+		return cof;
+	}
+
+	public Conference saveForce(Conference conference) {
+		
+		return this.conferenceRepository.save(conference);
+		
 	}
 	
 }

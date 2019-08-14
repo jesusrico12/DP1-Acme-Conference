@@ -26,6 +26,8 @@
 		
 		<!-- Conference views -->
 		<value>/views/conference/tiles.xml</value>
+		<value>/views/panel/tiles.xml</value>
+		<value>/views/presentation/tiles.xml</value>
 
 	</util:list>
 

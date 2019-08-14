@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import domain.Conference;
+import domain.Panel;
 
 @Repository
 public interface ConferenceRepository  extends
@@ -32,4 +33,8 @@ JpaRepository<Conference, Integer>{
 	
 	@Query("select c from Conference c where (datediff(c.startDate, CURRENT_DATE) <= 5) and (c.startDate >= CURRENT_DATE)")
 	Collection<Conference> getStartLess5();
+	
+	@Query("select c from Conference c join c.activities a where a.id= ?1")
+	Conference ConferenceOwn(int panelId);
+	
 }

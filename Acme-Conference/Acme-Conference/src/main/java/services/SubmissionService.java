@@ -1,5 +1,6 @@
 package services;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.transaction.Transactional;
@@ -43,6 +44,15 @@ public class SubmissionService {
 		
 		return result;
 	}
+	
+	
+/*	public Collection<Submission> submissionAccepted(){
+		Collection<Submission> res;
+		
+		res= this.submissionRepository.submissionAccepted();
+		return res;
+		
+	}*/
 	
 	
 

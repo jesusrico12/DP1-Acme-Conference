@@ -29,6 +29,8 @@
 
 		<!-- Conference messages -->
 		<value>/views/conference/messages</value>
+		<value>/views/panel/messages</value>
+		<value>/views/presentation/messages</value>
 
 	</util:list>
 

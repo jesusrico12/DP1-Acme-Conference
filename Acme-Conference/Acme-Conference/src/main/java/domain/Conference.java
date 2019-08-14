@@ -2,7 +2,7 @@ package domain;
 
 import java.util.Collection;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
+
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
@@ -167,10 +167,9 @@ public class Conference extends DomainEntity{
 	public void setAdministrator(Administrator administrator) {
 		this.administrator = administrator;
 	}
-
 	@Valid
 	@ElementCollection
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(orphanRemoval=true,fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	public Collection<Activity> getActivities() {
 		return activities;
 	}

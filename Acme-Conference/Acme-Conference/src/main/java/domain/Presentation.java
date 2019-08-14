@@ -11,18 +11,20 @@ import javax.validation.constraints.NotNull;
 @Access(AccessType.PROPERTY)
 public class Presentation extends Activity {
 	
-	private Submission submission;
+	private Paper paper;
+
 
 	@Valid
 	@NotNull
 	@OneToOne
-	public Submission getSubmission() {
-		return submission;
+	public Paper getPaper() {
+		return paper;
 	}
 
-	public void setSubmission(Submission submission) {
-		this.submission = submission;
+	public void setPaper(Paper paper) {
+		this.paper = paper;
 	}
+
 
 
 	
