@@ -10,16 +10,16 @@
 
 <tiles-definitions>
 
-	<definition name="panel/edit" extends="master.page">
-		<put-attribute name="title" value="Tablero" />
-		<put-attribute name="body" value="/views/panel/edit.jsp" />
+	<definition name="tutorial/edit" extends="master.page">
+		<put-attribute name="title" value="Tutorial" />
+		<put-attribute name="body" value="/views/tutorial/edit.jsp" />
 	</definition>
 	
 
 	
-	<definition name="panel/display" extends="master.page">
-		<put-attribute name="title" value="Tablero" />
-		<put-attribute name="body" value="/views/panel/display.jsp" />
+	<definition name="tutorial/display" extends="master.page">
+		<put-attribute name="title" value="Tutorial" />
+		<put-attribute name="body" value="/views/tutorial/display.jsp" />
 	</definition>
 
 	

@@ -82,7 +82,7 @@
 		<acme:submit code="presentation.save" name="save" />&nbsp;
 		<jstl:if test="${presentation.id != 0 }">
 		<acme:cancel
-			url="display.do?activityId=${presentation.id}"
+			url="presentation/display.do?presentationId=${presentation.id}"
 			code="presentation.cancel" />
 </jstl:if>
 		<jstl:if test="${presentation.id == 0 }">

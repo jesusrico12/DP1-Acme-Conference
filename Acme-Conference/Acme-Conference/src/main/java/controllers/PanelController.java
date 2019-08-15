@@ -102,11 +102,22 @@ public class PanelController extends AbstractController {
 			}*/
 	
 			this.panelService.save(panel,c);
-			result = new ModelAndView("redirect:/conference/list.do");
-			
+			if(panel.getId()!=0){
+			result = new ModelAndView("redirect:/panel/display.do?panelId="+panel.getId());
+			}else{
+				result = new ModelAndView("redirect:/conference/display.do?conferenceId="+c.getId());
+			}
 
-		} catch (Throwable oops) {
+		}
+		
+		catch (Throwable oops) {
+			if(oops.getMessage()==null){
+				
+					result = new ModelAndView("redirect:/welcome/index.do");
+				
+			}else{
 			result = this.createEditModelAndView(panel,c,  oops.getMessage());
+			}
 		}
 		}
 		return result;
@@ -123,7 +134,7 @@ public class PanelController extends AbstractController {
 			c = this.conferenceService.ConferenceOwn(panel.getId());
 			Assert.isTrue(c!=null,"commit.error");
 			this.panelService.delete(panel, c);
-			result = new ModelAndView("redirect:/conference/list.do");
+			result = new ModelAndView("redirect:/conference/display.do?conferenceId="+c.getId());
 		} catch (final Throwable oops) {
 			c = this.conferenceService.ConferenceOwn(panel.getId());
 			result = this.createEditModelAndView(panel, c,  oops.getMessage());

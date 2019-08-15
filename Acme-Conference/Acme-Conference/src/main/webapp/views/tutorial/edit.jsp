@@ -11,14 +11,15 @@
 
 <security:authorize access="hasRole('ADMIN')">
 
-	<form:form action="panel/edit.do?conferenceId=${conference.id}"  modelAttribute="panel">
+	<form:form action="tutorial/edit.do?conferenceId=${conference.id}"  modelAttribute="tutorial">
 
 		<form:hidden path="id" />
 		<form:hidden path="version" />
+		<form:hidden path="sections" />
 
 
 		<form:label path="title">
-			<spring:message code="panel.title" /> :
+			<spring:message code="tutorial.title" /> :
 	</form:label>
 		<form:input path="title" />
 		<form:errors cssClass="error" path="title" />
@@ -26,9 +27,9 @@
 		<br />
 
 		<form:label path="speakers">
-			<spring:message code="panel.speakers" /> :
+			<spring:message code="tutorial.speakers" /> :
 	</form:label>
-	<spring:message code="panel.speakers.placeholder" var="placeh" />
+	<spring:message code="tutorial.speakers.placeholder" var="placeh" />
 		<form:input path="speakers" placeholder='${placeh}' />
 		<form:errors cssClass="error" path="speakers" />
 		<br />
@@ -36,7 +37,7 @@
 		
 
 		<form:label path="startMoment">
-			<spring:message code="panel.startMoment" /> :
+			<spring:message code="tutorial.startMoment" /> :
 	</form:label>
 		<form:input path="startMoment" placeholder="dd/MM/yyyy HH:mm"/>
 		<form:errors cssClass="error" path="startMoment" />
@@ -44,14 +45,14 @@
 		<br />
 
 		<form:label path="duration">
-			<spring:message code="panel.duration" /> :
+			<spring:message code="tutorial.duration" /> :
 	</form:label>
 		<form:input path="duration" />
 		<form:errors cssClass="error" path="duration" />
 		<br />
 		<br />
 		<form:label path="room">
-			<spring:message code="panel.room" /> :
+			<spring:message code="tutorial.room" /> :
 	</form:label>
 		<form:input path="room" />
 		<form:errors cssClass="error" path="room" />
@@ -59,14 +60,14 @@
 		<br />
 	
 		<form:label path="summary">
-			<spring:message code="panel.summary" /> :
+			<spring:message code="tutorial.summary" /> :
 	</form:label>
 		<form:textarea path="summary" />
 		<form:errors cssClass="error" path="summary" />
 		<br />
 		<br />
 				<form:label path="attachments">
-			<spring:message code="panel.attachments" /> :
+			<spring:message code="tutorial.attachments" /> :
 	</form:label>
 		<form:input path="attachments" placeholder="url1,url2,url3..."/>
 		<form:errors cssClass="error" path="attachments" />
@@ -74,20 +75,20 @@
 		<br />
 
 
-		<acme:submit code="panel.save" name="save" />&nbsp;
-		<jstl:if test="${panel.id != 0 }">
+		<acme:submit code="tutorial.save" name="save" />&nbsp;
+		<jstl:if test="${tutorial.id != 0 }">
 		<acme:cancel
-			url="display.do?activityId=${panel.id}"
-			code="panel.cancel" />
+			url="tutorial/display.do?tutorialId=${tutorial.id}"
+			code="tutorial.cancel" />
 </jstl:if>
-		<jstl:if test="${panel.id == 0 }">
+		<jstl:if test="${tutorial.id == 0 }">
 		<acme:cancel
 			url="conference/display.do?conferenceId=${conference.id }"
-			code="panel.cancel" />
+			code="tutorial.cancel" />
 </jstl:if>
-		<jstl:if test="${panel.id != 0 }">
+		<jstl:if test="${tutorial.id != 0 }">
 			<input type="submit" name="delete"
-				value="<spring:message code="panel.delete"/>" />
+				value="<spring:message code="tutorial.delete"/>" />
 
 		</jstl:if>
 	</form:form>

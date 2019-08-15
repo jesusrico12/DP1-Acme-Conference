@@ -77,7 +77,7 @@
 		<acme:submit code="panel.save" name="save" />&nbsp;
 		<jstl:if test="${panel.id != 0 }">
 		<acme:cancel
-			url="display.do?activityId=${panel.id}"
+			url="panel/display.do?panelId=${panel.id}"
 			code="panel.cancel" />
 </jstl:if>
 		<jstl:if test="${panel.id == 0 }">

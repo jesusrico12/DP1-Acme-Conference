@@ -16,48 +16,48 @@
 
 	<table class="displayStyle">
 		<tr>
-			<td><strong> <spring:message code="panel.title" />
+			<td><strong> <spring:message code="tutorial.title" />
 					:
 			</strong></td>
-			<td><jstl:out value="${panel.title}"></jstl:out></td>
+			<td><jstl:out value="${tutorial.title}"></jstl:out></td>
 		</tr>		
 		<tr>
-			<td><strong> <spring:message code="panel.speakers" />
+			<td><strong> <spring:message code="tutorial.speakers" />
 					:
 			</strong></td>
-			<td><jstl:out value="${panel.speakers}"></jstl:out></td>
+			<td><jstl:out value="${tutorial.speakers}"></jstl:out></td>
 		</tr>
 	<tr>
-			<td><strong> <spring:message code="panel.startMoment" />
+			<td><strong> <spring:message code="tutorial.startMoment" />
 					:
 			</strong></td>
 			<td><fmt:formatDate type="both" dateStyle="short"
-					timeStyle="short" value="${panel.startMoment}" /></td>
+					timeStyle="short" value="${tutorial.startMoment}" /></td>
 		</tr>
 			<tr>
-			<td><strong> <spring:message code="panel.duration" />
+			<td><strong> <spring:message code="tutorial.duration" />
 					:
 			</strong></td>
-			<td><jstl:out value="${panel.duration}"> </jstl:out></td>
+			<td><jstl:out value="${tutorial.duration}"> </jstl:out></td>
 			
 		</tr>
 		<tr>
-			<td><strong> <spring:message code="panel.room" />
+			<td><strong> <spring:message code="tutorial.room" />
 					:
 			</strong></td>
-			<td><jstl:out value="${panel.room}"></jstl:out></td>
+			<td><jstl:out value="${tutorial.room}"></jstl:out></td>
 		</tr>
 				<tr>
-			<td><strong> <spring:message code="panel.summary" />
+			<td><strong> <spring:message code="tutorial.summary" />
 					:
 			</strong></td>
-			<td><jstl:out value="${panel.summary}"></jstl:out></td>
+			<td><jstl:out value="${tutorial.summary}"></jstl:out></td>
 		</tr>
 						<tr>
-			<td><strong> <spring:message code="panel.attachments" />
+			<td><strong> <spring:message code="tutorial.attachments" />
 					:
 			</strong></td>
-			<td><img class="picture" src="<jstl:out value="${panel.attachments}"/>" /></td>
+			<td><img class="picture" src="<jstl:out value="${tutorial.attachments}"/>" /></td>
 		</tr>
 		
 
@@ -65,15 +65,27 @@
 
 	<tr><td>
 		<input type="button" name="edit"
-			value="<spring:message code="panel.edit"	/>"
-			onclick="redirect: location.href = 'panel/edit.do?panelId=${panel.id}';" />
+			value="<spring:message code="tutorial.edit"	/>"
+			onclick="redirect: location.href = 'tutorial/edit.do?tutorialId=${tutorial.id}';" />
 </td>
 </tr>
 </table>
 
+<display:table pagesize="10" class="displaytag" name="sections"
+			 id="row">
+			 
+
+			<display:column titleKey="section.display" >
+				<input type="button" value="<jstl:out value="${row.title}"/>"
+								onclick="redirect: location.href = 'section/display.do?sectionId=${row.id}';" />
+			</display:column>
+</display:table>
+
 	<input type="button" name="back"
-		value="<spring:message code="panel.back" />"
+		value="<spring:message code="tutorial.back" />"
 		onclick="window.history.back()" />
+		<input type="button" value="<spring:message code="section.create"	/>"
+			onclick="redirect: location.href = 'section/create.do?tutorialId=${tutorial.id}';" />
 
 
 

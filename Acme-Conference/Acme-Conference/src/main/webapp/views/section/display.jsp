@@ -16,48 +16,23 @@
 
 	<table class="displayStyle">
 		<tr>
-			<td><strong> <spring:message code="panel.title" />
+			<td><strong> <spring:message code="section.title" />
 					:
 			</strong></td>
-			<td><jstl:out value="${panel.title}"></jstl:out></td>
+			<td><jstl:out value="${section.title}"></jstl:out></td>
 		</tr>		
-		<tr>
-			<td><strong> <spring:message code="panel.speakers" />
-					:
-			</strong></td>
-			<td><jstl:out value="${panel.speakers}"></jstl:out></td>
-		</tr>
-	<tr>
-			<td><strong> <spring:message code="panel.startMoment" />
-					:
-			</strong></td>
-			<td><fmt:formatDate type="both" dateStyle="short"
-					timeStyle="short" value="${panel.startMoment}" /></td>
-		</tr>
-			<tr>
-			<td><strong> <spring:message code="panel.duration" />
-					:
-			</strong></td>
-			<td><jstl:out value="${panel.duration}"> </jstl:out></td>
-			
-		</tr>
-		<tr>
-			<td><strong> <spring:message code="panel.room" />
-					:
-			</strong></td>
-			<td><jstl:out value="${panel.room}"></jstl:out></td>
-		</tr>
+
 				<tr>
-			<td><strong> <spring:message code="panel.summary" />
+			<td><strong> <spring:message code="section.summary" />
 					:
 			</strong></td>
-			<td><jstl:out value="${panel.summary}"></jstl:out></td>
+			<td><jstl:out value="${section.summary}"></jstl:out></td>
 		</tr>
 						<tr>
-			<td><strong> <spring:message code="panel.attachments" />
+			<td><strong> <spring:message code="section.pictures" />
 					:
 			</strong></td>
-			<td><img class="picture" src="<jstl:out value="${panel.attachments}"/>" /></td>
+			<td><img class="picture" src="<jstl:out value="${section.pictures}"/>" /></td>
 		</tr>
 		
 
@@ -65,14 +40,14 @@
 
 	<tr><td>
 		<input type="button" name="edit"
-			value="<spring:message code="panel.edit"	/>"
-			onclick="redirect: location.href = 'panel/edit.do?panelId=${panel.id}';" />
+			value="<spring:message code="section.edit"	/>"
+			onclick="redirect: location.href = 'section/edit.do?sectionId=${section.id}';" />
 </td>
 </tr>
 </table>
 
 	<input type="button" name="back"
-		value="<spring:message code="panel.back" />"
+		value="<spring:message code="section.back" />"
 		onclick="window.history.back()" />
 
 

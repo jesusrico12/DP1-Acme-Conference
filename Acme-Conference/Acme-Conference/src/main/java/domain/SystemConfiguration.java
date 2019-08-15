@@ -6,6 +6,7 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.validation.constraints.Size;
 
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -55,6 +56,7 @@ public class SystemConfiguration extends DomainEntity {
 
 	@URL
 	@NotBlank
+	@Size(max=80,message="max. 80")
 	public String getBanner() {
 		return this.banner;
 	}

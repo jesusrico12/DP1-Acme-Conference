@@ -718,6 +718,7 @@
 		<property name="creditCard" ref="creditCard1" />
 
 		<property name="conference" ref="conference1" />
+		<property name="author" ref="author1" />
 
 	</bean>
 		
@@ -726,6 +727,7 @@
 		<property name="creditCard" ref="creditCard2" />
 
 		<property name="conference" ref="conference1" />
+		<property name="author" ref="author2" />
 
 	</bean>
 	
@@ -735,6 +737,7 @@
 		<property name="creditCard" ref="creditCard3" />
 
 		<property name="conference" ref="conference2" />
+		<property name="author" ref="author3" />
 
 	</bean>
 	

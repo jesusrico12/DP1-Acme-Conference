@@ -74,14 +74,14 @@ public class SectionController extends AbstractController{
 	@RequestMapping(value = "section/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@RequestParam final int tutorialId,@Valid Section section, final BindingResult binding) {
 		ModelAndView result;
-		Tutorial c;
+		Tutorial tutorial;
 		if(section.getId()!=0){
-		 c=this.tutorialService.TutorialOwn(section.getId());
+			tutorial=this.tutorialService.TutorialOwn(section.getId());
 		}else {
-			 c = this.tutorialService.findOne(tutorialId);
+			tutorial = this.tutorialService.findOne(tutorialId);
 		}
 		if(binding.hasErrors()){
-			result = this.createEditModelAndView(section,c, null);
+			result = this.createEditModelAndView(section,tutorial, null);
 		}else{
 		try {
 			
@@ -92,12 +92,12 @@ public class SectionController extends AbstractController{
 				
 			}*/
 	
-			this.sectionService.save(section,c);
-			result = new ModelAndView("redirect:/tutorial/list.do");
+			this.sectionService.save(section,tutorial);
+			result = new ModelAndView("redirect:/tutorial/display.do?tutorialId="+tutorial.getId());
 			
 
 		} catch (Throwable oops) {
-			result = this.createEditModelAndView(section,c,  oops.getMessage());
+			result = this.createEditModelAndView(section,tutorial,  oops.getMessage());
 		}
 		}
 		return result;
@@ -106,29 +106,29 @@ public class SectionController extends AbstractController{
 	@RequestMapping(value = "section/edit", method = RequestMethod.POST, params = "delete")
 	public ModelAndView delete(final Section section, final BindingResult binding) {
 		ModelAndView result;
-		Tutorial c;
+		Tutorial tutorial;
 //		Administrator admin= this.administratorService.findByPrincipal();
 //		Assert.isTrue();
 
 		try {
-			c = this.tutorialService.TutorialOwn(section.getId());
-			Assert.isTrue(c!=null,"commit.error");
-			this.sectionService.delete(section, c);
-			result = new ModelAndView("redirect:/tutorial/list.do");
+			tutorial = this.tutorialService.TutorialOwn(section.getId());
+			Assert.isTrue(tutorial!=null,"commit.error");
+			this.sectionService.delete(section, tutorial);
+			result = new ModelAndView("redirect:/tutorial/display.do?tutorialId="+tutorial.getId());
 		} catch (final Throwable oops) {
-			c = this.tutorialService.TutorialOwn(section.getId());
-			result = this.createEditModelAndView(section, c,  oops.getMessage());
+			tutorial = this.tutorialService.TutorialOwn(section.getId());
+			result = this.createEditModelAndView(section, tutorial,  oops.getMessage());
 		}
 		return result;
 	}
-	protected ModelAndView createEditModelAndView(Section section, Tutorial c) {
+	protected ModelAndView createEditModelAndView(Section section, Tutorial tutorial) {
 		ModelAndView result;
 
-		result = this.createEditModelAndView(section,c, null);
+		result = this.createEditModelAndView(section,tutorial, null);
 
 		return result;
 	}
-	protected ModelAndView createEditModelAndView(Section section,Tutorial c,
+	protected ModelAndView createEditModelAndView(Section section,Tutorial tutorial,
 			String messageCode) {
 		ModelAndView result;
 		
@@ -137,7 +137,7 @@ public class SectionController extends AbstractController{
 
 
 		result.addObject("section", section);
-		result.addObject("tutorial", c);
+		result.addObject("tutorial", tutorial);
 		result.addObject("message", messageCode);
 	
 

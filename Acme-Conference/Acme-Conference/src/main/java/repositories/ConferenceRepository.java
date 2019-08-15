@@ -36,5 +36,18 @@ JpaRepository<Conference, Integer>{
 	
 	@Query("select c from Conference c join c.activities a where a.id= ?1")
 	Conference ConferenceOwn(int panelId);
+	@Query("select c from Conference c where c.isDraft = 0 and ( c.title like %?1% or c.venue like %?1% or c.summary like %?1% )")
+	Collection<Conference> conferencesFinder(String keyword);
+	
+	@Query("select max(1.0*(select count(*) from Submission c where c.conference=f)),min(1.0*(select count(*) from Submission c where c.conference=f)),avg(1.0*(select count(*) from Submission c where c.conference=f)),stddev(1.0*(select count(*) from Submission c where c.conference=f)) from Conference f")
+	Double[] submissionsPerConference();
+	
+	@Query("select max(1.0*(select count(*) from Registration c where c.conference=f)),min(1.0*(select count(*) from Registration c where c.conference=f)),avg(1.0*(select count(*) from Registration c where c.conference=f)),stddev(1.0*(select count(*) from Registration c where c.conference=f)) from Conference f")
+	Double[] registrationsPerConference();
+	@Query("select max(c.fee),min(c.fee),avg(c.fee),stddev(c.fee) from Conference c")
+	Double[] feesPerConference();
+	@Query("select max(c.durationDays),min(c.durationDays),avg(c.durationDays),stddev(c.durationDays) from Conference c")
+	Double[] numberOfDaysPerConference();
+	
 	
 }

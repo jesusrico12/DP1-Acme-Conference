@@ -2,6 +2,7 @@ package controllers;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedList;
 
 import javax.validation.Valid;
 
@@ -245,9 +246,30 @@ public class ConferenceController extends AbstractController{
 		result.addObject("isAll", isAll);
 		
 		
+		
+		
+		
+		
 		return result;
 	}
 
+	
+	//FINDER 
+	
+	@RequestMapping(value = "/finder" , method = RequestMethod.POST)
+	public ModelAndView finder(@RequestParam String keyword){
+		ModelAndView result;
+		
+		Collection<Conference> conferencesFinder=new LinkedList<>();
+		if(!keyword.isEmpty()){
+			conferencesFinder=this.conferenceService.conferencesFinder(keyword);
+		}
+		result = new ModelAndView("conference/list");
+		result.addObject("conferencesFinder",conferencesFinder);
+		
+		return result;
+	
+	}
 
 
 	protected ModelAndView createEditModelAndView(Conference conference) {

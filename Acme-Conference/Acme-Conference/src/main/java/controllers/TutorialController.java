@@ -96,13 +96,26 @@ public class TutorialController extends AbstractController {
 			}*/
 	
 			this.tutorialService.save(tutorial,c);
-			result = new ModelAndView("redirect:/conference/list.do");
+			result = new ModelAndView("redirect:/tutorial/display.do?tutorialId="+tutorial.getId());
+			if(tutorial.getId()!=0){
+				result = new ModelAndView("redirect:/tutorial/display.do?tutorialId="+tutorial.getId());
+			}
+			else{
+				result = new ModelAndView("redirect:/conference/display.do?conferenceId="+c.getId());
+			}
+			
 			
 
 		} catch (Throwable oops) {
-			result = this.createEditModelAndView(tutorial,c,  oops.getMessage());
+			if(oops.getMessage()==null){
+				
+				result = new ModelAndView("redirect:/welcome/index.do");
+			
+		}else{
+		result = this.createEditModelAndView(tutorial,c,  oops.getMessage());
 		}
-		}
+	}
+	}
 		return result;
 	}
 	
@@ -117,7 +130,7 @@ public class TutorialController extends AbstractController {
 			c = this.conferenceService.ConferenceOwn(tutorial.getId());
 			Assert.isTrue(c!=null,"commit.error");
 			this.tutorialService.delete(tutorial, c);
-			result = new ModelAndView("redirect:/conference/list.do");
+			result = new ModelAndView("redirect:/conference/display.do?conferenceId="+c.getId());
 		} catch (final Throwable oops) {
 			c = this.conferenceService.ConferenceOwn(tutorial.getId());
 			result = this.createEditModelAndView(tutorial, c,  oops.getMessage());

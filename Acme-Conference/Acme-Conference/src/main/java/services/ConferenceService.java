@@ -189,5 +189,27 @@ public class ConferenceService {
 		return this.conferenceRepository.save(conference);
 		
 	}
+	public Collection<Conference> conferencesFinder(String keyword){
+		
+		Collection<Conference> res= this.conferenceRepository.conferencesFinder(keyword);
+		return res;
+	}
+	public  Double[] submissionsPerConference(){
+		return this.conferenceRepository.submissionsPerConference();
+	}
 	
+	
+	public Double[] registrationsPerConference(){
+		return this.conferenceRepository.registrationsPerConference();
+	}
+	
+	
+	public Double[] feesPerConference(){
+		return this.conferenceRepository.feesPerConference();
+	}
+	
+	
+	public Double[] numberOfDaysPerConference(){
+		return this.conferenceRepository.numberOfDaysPerConference();
+	}
 }

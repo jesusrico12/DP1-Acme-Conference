@@ -81,7 +81,10 @@ public Tutorial save(Tutorial tutorial,Conference conference){
 		copy.setRoom(tutorial.getRoom());
 		copy.setSpeakers(tutorial.getSpeakers());
 		copy.setStartMoment(tutorial.getStartMoment());
-		copy.setSections(tutorial.getSections());
+		Collection<Section> cols= tutorial.getSections();
+		
+		
+		copy.setSections(cols);
 		copy.setSummary(tutorial.getSummary());
 		copy.setTitle(tutorial.getTitle());
 		copy.setDuration(tutorial.getDuration());

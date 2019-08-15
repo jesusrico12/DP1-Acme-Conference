@@ -69,7 +69,7 @@ public Section create(){
 			
 		}else{
 			
-			copy=this.findOne(section.getId());
+			
 			copy.setPictures(section.getPictures());
 			copy.setSummary(section.getSummary());
 			copy.setTitle(section.getTitle());
