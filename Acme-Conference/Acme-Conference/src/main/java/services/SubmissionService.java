@@ -1,5 +1,6 @@
 package services;
 
+
 import java.util.Collection;
 import java.util.Date;
 
@@ -55,5 +56,15 @@ public class SubmissionService {
 	}*/
 	
 	
+	public Collection<Submission> submissionsOfReviewer(int reviewerId){
+		return this.submissionRepository.submissionsOfReviewer(reviewerId);
+	}
+	public Submission findOne(int id){
+		return this.submissionRepository.findOne(id);
+	}
+	
+	public void  saveForce(Submission submission){
+		this.submissionRepository.save(submission);
+	}
 
 }

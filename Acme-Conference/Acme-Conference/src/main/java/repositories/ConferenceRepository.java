@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import domain.Conference;
-import domain.Panel;
+
 
 @Repository
 public interface ConferenceRepository  extends
@@ -48,6 +48,8 @@ JpaRepository<Conference, Integer>{
 	Double[] feesPerConference();
 	@Query("select max(c.durationDays),min(c.durationDays),avg(c.durationDays),stddev(c.durationDays) from Conference c")
 	Double[] numberOfDaysPerConference();
+	@Query("select c from Conference c where c.isDraft = 0")
+	Collection<Conference> conferencesFinals();
 	
 	
 }

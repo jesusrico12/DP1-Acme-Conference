@@ -1,26 +1,27 @@
 package converters;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
+import repositories.ReportRepository;
 
-import repositories.PaperRepository;
-import domain.Paper;
+import domain.Report;
 
 
 	@Component
 	@Transactional
-	public class StringToPaperConverter implements Converter<String, Paper> {
+	public class StringToReportConverter implements Converter<String, Report> {
 
 		@Autowired
-		PaperRepository paperRepository;
+		ReportRepository reportRepository   	;
 
 		@Override
-		public Paper convert(final String text) {
-			Paper result;
+		public Report convert(final String text) {
+			Report result;
 
 			int id;
 
@@ -29,7 +30,7 @@ import domain.Paper;
 					result = null;
 				else {
 					id = Integer.valueOf(text);
-					result = this.paperRepository.findOne(id);
+					result = this.reportRepository.findOne(id);
 				}
 			} catch (final Throwable oops) {
 				throw new IllegalArgumentException(oops);

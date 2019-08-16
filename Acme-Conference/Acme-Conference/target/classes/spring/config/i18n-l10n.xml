@@ -19,6 +19,7 @@
 		<value>/views/tiles/messages</value>
 		<value>/views/author/messages</value>
 		<value>/views/reviewer/messages</value>
+		<value>/views/report/messages</value>
 		
 		
 

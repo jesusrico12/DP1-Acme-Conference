@@ -7,6 +7,8 @@ C:\Documents and Settings\Student\Desktop\SEPTIEMBRE\DP1-Acme-Conference\.metada
 \Acme-Conference\src\main\java
 C:\Documents and Settings\Student\Desktop\SEPTIEMBRE\DP1-Acme-Conference\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3462847650.index
 \Acme-Conference\src\main\java
+C:\Documents and Settings\Student\Desktop\SEPTIEMBRE\DP1-Acme-Conference\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1791487771.index
+\Acme-Conference\src\main\java
 C:\Documents and Settings\Student\Desktop\SEPTIEMBRE\DP1-Acme-Conference\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1473579006.index
 \Acme-Conference\src\main\java
 C:\Documents and Settings\Student\Desktop\SEPTIEMBRE\DP1-Acme-Conference\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3236449834.index

@@ -212,4 +212,8 @@ public class ConferenceService {
 	public Double[] numberOfDaysPerConference(){
 		return this.conferenceRepository.numberOfDaysPerConference();
 	}
+	
+	public Collection<Conference> conferencesFinals(){
+		return this.conferenceRepository.conferencesFinals();
+	}
 }

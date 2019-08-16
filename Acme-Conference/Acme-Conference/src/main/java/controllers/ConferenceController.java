@@ -264,13 +264,28 @@ public class ConferenceController extends AbstractController{
 		if(!keyword.isEmpty()){
 			conferencesFinder=this.conferenceService.conferencesFinder(keyword);
 		}
-		result = new ModelAndView("conference/list");
+		result = new ModelAndView("conference/finder");
 		result.addObject("conferencesFinder",conferencesFinder);
+		result.addObject("conferencesFinals", this.conferenceService.conferencesFinals());
 		
 		return result;
 	
 	}
 
+	
+	@RequestMapping(value = "/finder" , method = RequestMethod.GET)
+	public ModelAndView finder(){
+		ModelAndView result;
+		
+		result = new ModelAndView("conference/finder");
+		
+		
+		result.addObject("conferencesFinals", this.conferenceService.conferencesFinals());
+		
+		
+		return result;
+		
+	}
 
 	protected ModelAndView createEditModelAndView(Conference conference) {
 		ModelAndView result;

@@ -56,6 +56,18 @@
 				</ul></li>
 
 		</security:authorize>
+		
+		<li><a class="fNiv"><spring:message
+						code="master.page.conference" /></a>
+				<ul>
+					<li class="arrow"></li>
+					<li><a href="conference/list.do"><spring:message
+								code="master.page.conference.list" /></a></li>
+									<li><a href="conference/finder.do"><spring:message
+								code="master.page.conference.finder" /></a></li>
+	
+	
+				</ul></li>
 
 		
 
