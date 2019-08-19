@@ -1,9 +1,9 @@
 package controllers;
 
-import java.util.Collection;
+
 
 import javax.validation.Valid;
-import javax.validation.ValidationException;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,12 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import domain.Activity;
-import domain.Administrator;
 import domain.Conference;
 import domain.Panel;
 
-import services.AdministratorService;
+
 import services.ConferenceService;
 import services.PanelService;
 
@@ -34,8 +32,7 @@ public class PanelController extends AbstractController {
 	@Autowired
 	private ConferenceService conferenceService;
 	
-	@Autowired
-	private AdministratorService administratorService;
+
 	
 	
 	//DISPLAY

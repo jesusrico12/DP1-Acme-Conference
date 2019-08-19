@@ -7,107 +7,72 @@
 <%@taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
+<%@ taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
+<security:authorize access="hasRole('REVIEWER')">
 
-<security:authorize access="hasRole('ADMIN')">
-
-	<form:form action="conference/edit.do" modelAttribute="conference">
+	<form:form action="report/edit.do?submissionId=${submissionId}"
+		modelAttribute="report">
 
 		<form:hidden path="id" />
 		<form:hidden path="version" />
-		<form:hidden path="isDraft" />
-		<form:hidden path="administrator" />
-		<form:hidden path="activities" />
+		<form:hidden path="reviewer" />
 
-		<form:label path="title">
-			<spring:message code="conference.title" /> :
+		<form:label path="originalityScore">
+			<spring:message code="report.originalityScore" /> :
 	</form:label>
-		<form:input path="title" />
-		<form:errors cssClass="error" path="title" />
+		<form:input path="originalityScore" />
+		<form:errors cssClass="error" path="originalityScore" />
 		<br />
 		<br />
 
-		<form:label path="acronym">
-			<spring:message code="conference.acronym" /> :
+		<form:label path="qualityScore">
+			<spring:message code="report.qualityScore" /> :
 	</form:label>
-		<form:input path="acronym" />
-		<form:errors cssClass="error" path="acronym" />
+		<form:input path="qualityScore" />
+		<form:errors cssClass="error" path="qualityScore" />
 		<br />
 		<br />
 
-		<form:label path="venue">
-			<spring:message code="conference.venue" /> :
+
+		<form:label path="readabilityScore">
+			<spring:message code="report.readabilityScore" /> :
 	</form:label>
-		<form:input path="venue" />
-		<form:errors cssClass="error" path="venue" />
+		<form:input path="readabilityScore" />
+		<form:errors cssClass="error" path="readabilityScore" />
 		<br />
 		<br />
 
 
-		<form:label path="submissionDeadline">
-			<spring:message code="conference.submissionDL" /> :
+
+		<form:label path="decision">
+			<spring:message code="report.decision" /> :
 	</form:label>
-		<form:input path="submissionDeadline" placeholder="dd/MM/yyyy HH:mm" />
-		<form:errors cssClass="error" path="submissionDeadline" />
+
+		<form:select path="decision" id="decisions">
+			<form:option value="ACCEPT" />
+			<form:option value="REJECT" />
+			<form:option value="BORDER-LINE" />
+		</form:select>
+		<form:errors cssClass="error" path="decision" />
 		<br />
 		<br />
 
-		<form:label path="notificationDeadline">
-			<spring:message code="conference.notificationDL" /> :
+
+		<form:label path="comments">
+			<spring:message code="report.comments" /> :
 	</form:label>
-		<form:input path="notificationDeadline" placeholder="dd/MM/yyyy HH:mm" />
-		<form:errors cssClass="error" path="notificationDeadline" />
+		<form:input path="comments" />
+		<form:errors cssClass="error" path="comments" />
 		<br />
 		<br />
 
-		<form:label path="cameraReadyDeadline">
-			<spring:message code="conference.cameraReadyDL" /> :
-	</form:label>
-		<form:input path="cameraReadyDeadline" placeholder="dd/MM/yyyy HH:mm" />
-		<form:errors cssClass="error" path="cameraReadyDeadline" />
-		<br />
-		<br />
 
-		<form:label path="startDate">
-			<spring:message code="conference.startDate" /> :
-	</form:label>
-		<form:input path="startDate" placeholder="dd/MM/yyyy HH:mm" />
-		<form:errors cssClass="error" path="startDate" />
-		<br />
-		<br />
-
-		<form:label path="endDate">
-			<spring:message code="conference.endDate" /> :
-	</form:label>
-		<form:input path="endDate" placeholder="dd/MM/yyyy HH:mm" />
-		<form:errors cssClass="error" path="endDate" />
-		<br />
-		<br />
-
-		<form:label path="summary">
-			<spring:message code="conference.summary" /> :
-	</form:label>
-		<form:textarea path="summary" />
-		<form:errors cssClass="error" path="summary" />
-		<br />
-		<br />
-
-		<form:label path="fee">
-			<spring:message code="conference.fee" /> :
-	</form:label>
-		<form:input path="fee" min="0" />
-		<form:errors cssClass="error" path="fee" />
-		<br />
-		<br />
-
-		<input type="submit" name="saveNormal"
-			value="<spring:message code="conference.saveNormal"/>" />&nbsp;
-	
-	<input type="submit" name="saveFinal"
-			value="<spring:message code="conference.saveFinal"/>" />&nbsp;
+		<input type="submit" name="save"
+			value="<spring:message code="report.save"/>" />&nbsp;
 				
 		<input type="button" name="back"
-			value="<spring:message code="conference.back" />"
+			value="<spring:message code="report.back" />"
 			onclick="window.history.back()" />
 	</form:form>
 </security:authorize>

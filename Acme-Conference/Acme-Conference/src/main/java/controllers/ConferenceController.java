@@ -60,9 +60,15 @@ public class ConferenceController extends AbstractController{
 		boolean isTutorial=false;
 		boolean isPresentation=false;
 		Collection<Activity> activities = conference.getActivities();
+		boolean isTimeToDecisionMaking=false;
 		
 		result = new ModelAndView("conference/display");
 		
+		if(this.conferenceService.conferencesBetweenSubDeadlineNotifDeadline().contains(conference)){
+			isTimeToDecisionMaking=true;
+			
+		}
+		result.addObject("isTimeToDecisionMaking",isTimeToDecisionMaking);
 		if(!activities.isEmpty()){
 			result.addObject("activities", activities);
 			isActivity = true;
@@ -267,6 +273,20 @@ public class ConferenceController extends AbstractController{
 		result = new ModelAndView("conference/finder");
 		result.addObject("conferencesFinder",conferencesFinder);
 		result.addObject("conferencesFinals", this.conferenceService.conferencesFinals());
+		
+		return result;
+	
+	}
+	
+	//DECISIONMAKING
+	@RequestMapping(value = "/decisionMaking" , method = RequestMethod.POST)
+	public ModelAndView decisionMaking(@RequestParam int conferenceId){
+		ModelAndView result;
+		
+		this.conferenceService.decisionMaking(conferenceId);
+	
+		result = new ModelAndView("redirect:list.do");
+		
 		
 		return result;
 	

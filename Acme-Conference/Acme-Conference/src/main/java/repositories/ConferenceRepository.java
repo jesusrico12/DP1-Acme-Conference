@@ -50,6 +50,9 @@ JpaRepository<Conference, Integer>{
 	Double[] numberOfDaysPerConference();
 	@Query("select c from Conference c where c.isDraft = 0")
 	Collection<Conference> conferencesFinals();
+	@Query("select c from Conference c where c.submissionDeadline < CURRENT_DATE and c.notificationDeadline > CURRENT_DATE")
+	Collection<Conference> conferencesBetweenSubDeadlineNotifDeadline();
 	
-	
+	@Query("select c from Conference c where c.startDate > CURRENT_DATE")
+	Collection<Conference> conferencesNotStarted();
 }

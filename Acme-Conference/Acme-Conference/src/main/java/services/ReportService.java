@@ -1,7 +1,7 @@
 package services;
 
 import java.util.Collection;
-import java.util.LinkedList;
+
 
 import javax.transaction.Transactional;
 
@@ -9,15 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
-import domain.Activity;
-import domain.Administrator;
-import domain.Conference;
+
 import domain.Report;
 import domain.Reviewer;
 import domain.Submission;
 
 import repositories.ReportRepository;
-import repositories.SubmissionRepository;
+
 
 @Transactional
 @Service
@@ -63,8 +61,9 @@ public class ReportService {
 			 
 
 				result = this.reportRepository.save(report);
-				
-				submission.getReports().add(report);
+				Collection<Report> r= submission.getReports();
+				r.add(result);
+				submission.setReports(r);
 				this.submissionService.saveForce(submission);
 				
 
@@ -93,7 +92,13 @@ public class ReportService {
 			return result;
 		}
 		public Collection<Report> reportsPerReviewer(int reviewerId){
-			return this.reportRepository.reportsPerReviewer(reviewerId);
+			Collection<Report>res=this.reportRepository.reportsPerReviewer(reviewerId);
+			return res;
+		}
+
+		public void saveForce(Report report) {
+			this.reportRepository.save(report);
+			
 		}
 		
 

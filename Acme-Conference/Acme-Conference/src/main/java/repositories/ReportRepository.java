@@ -14,7 +14,7 @@ import domain.Report;
 	JpaRepository<Report, Integer>{
 		
 		
-		@Query("select r from Report r where r.reviewer= ?1 ")
+		@Query("select r from Report r where r.reviewer.id= ?1 ")
 		Collection<Report> reportsPerReviewer(int reviewerId); 
 		
 }

@@ -66,5 +66,13 @@ public class SubmissionService {
 	public void  saveForce(Submission submission){
 		this.submissionRepository.save(submission);
 	}
+	
+	public Collection<Submission> submissionsPerConferenceDecisionMaking(int conferenceId){
+		return this.submissionRepository.submissionsPerConferenceDecisionMaking(conferenceId);
+		
+	}
+	public Submission reportTimeToComment(int reportId){
+		return this.submissionRepository.reportTimeToComment(reportId);
+	}
 
 }

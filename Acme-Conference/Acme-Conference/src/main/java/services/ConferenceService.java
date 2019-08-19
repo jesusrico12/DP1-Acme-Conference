@@ -13,6 +13,8 @@ import repositories.ConferenceRepository;
 import domain.Activity;
 import domain.Administrator;
 import domain.Conference;
+import domain.Report;
+import domain.Submission;
 
 
 @Transactional
@@ -28,6 +30,9 @@ public class ConferenceService {
 
 	@Autowired
 	private ActorService actorService;
+	
+	@Autowired
+	private SubmissionService submissionService;
 
 
 	//Create
@@ -216,4 +221,39 @@ public class ConferenceService {
 	public Collection<Conference> conferencesFinals(){
 		return this.conferenceRepository.conferencesFinals();
 	}
+	
+	
+	public void decisionMaking (int conferenceId){
+		Collection<Submission> subs=this.submissionService.submissionsPerConferenceDecisionMaking(conferenceId);
+		
+		for (Submission s:subs){
+			int aceptado=0;
+			int rechazado=0;
+			
+			for(Report r : s.getReports()){
+				
+				if(r.getDecision().toString().equals("ACCEPT")){
+					aceptado++;
+				}else if(r.getDecision().toString().equals("RECJECT")){
+					rechazado++;
+				}			
+				
+			}	
+			if(rechazado>aceptado){
+				s.setStatus("REJECTED");
+			}else{
+				s.setStatus("ACCEPTED");
+			}
+		
+			this.submissionService.saveForce(s);
+		}
+	}
+	
+	public Collection<Conference> conferencesBetweenSubDeadlineNotifDeadline(){
+		return this.conferenceRepository.conferencesBetweenSubDeadlineNotifDeadline();
+	}
+	public Collection<Conference> conferencesNotStarted(){
+		return this.conferenceRepository.conferencesNotStarted();
+	}
+	
 }

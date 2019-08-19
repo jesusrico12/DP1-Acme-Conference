@@ -48,11 +48,15 @@
 
 		<bean class="converters.PresentationToStringConverter" />
 		<bean class="converters.StringToPresentationConverter" />
-		
-				<bean class="converters.TutorialToStringConverter" />
+
+		<bean class="converters.TutorialToStringConverter" />
 		<bean class="converters.StringToTutorialConverter" />
-					<bean class="converters.PaperToStringConverter" />
+
+		<bean class="converters.PaperToStringConverter" />
 		<bean class="converters.StringToPaperConverter" />
+
+		<bean class="converters.RegistrationToStringConverter" />
+		<bean class="converters.StringToRegistrationConverter" />
 
 
 

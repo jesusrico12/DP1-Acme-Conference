@@ -3,6 +3,8 @@ C:\Documents and Settings\Student\Desktop\SEPTIEMBRE\DP1-Acme-Conference\.metada
 \Acme-Conference\src\main\java
 C:\Documents and Settings\Student\Desktop\SEPTIEMBRE\DP1-Acme-Conference\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\8012051.index
 \Acme-Conference\src\main\java
+C:\Documents and Settings\Student\Desktop\SEPTIEMBRE\DP1-Acme-Conference\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2948822621.index
+\Acme-Conference\src\main\java
 C:\Documents and Settings\Student\Desktop\SEPTIEMBRE\DP1-Acme-Conference\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2395025497.index
 \Acme-Conference\src\main\java
 C:\Documents and Settings\Student\Desktop\SEPTIEMBRE\DP1-Acme-Conference\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3462847650.index

@@ -271,6 +271,14 @@ public class SystemConfigurationService {
 		return res;
 
 	}
-
+	public Collection<String> makesSystem(){
+		
+		Collection<String> res= new ArrayList<String>();
+		for(String s:this.findMySystemConfiguration().getCreditCardMakes().split(",")){
+			res.add(s);
+		}
+		return res;
+		
+	}
 
 }

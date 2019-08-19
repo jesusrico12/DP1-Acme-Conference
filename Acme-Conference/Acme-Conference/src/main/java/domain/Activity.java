@@ -16,7 +16,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.NumberFormat;
+
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -57,7 +57,8 @@ public class Activity extends DomainEntity{
 			this.startMoment = startMoment;
 		}
 		@Range(min=1,message="Min. 1")
-		@Digits(integer=10, fraction=0)
+		@Digits(integer=10, fraction=0,message="No decimal")
+		@NotNull
 		public Integer getDuration() {
 			return duration;
 		}

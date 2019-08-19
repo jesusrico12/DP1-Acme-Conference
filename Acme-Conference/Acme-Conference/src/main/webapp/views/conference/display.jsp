@@ -121,8 +121,6 @@
 				</jstl:out></td>
 		</tr>
 
-
-
 	</table>
 
 	<input type="button" name="back"
@@ -311,4 +309,20 @@
 			onclick="redirect: location.href = 'tutorial/create.do?conferenceId=${conference.id}';" />
 	</jstl:if>
 
+</security:authorize>
+
+<security:authorize access="hasRole('ADMIN')">
+		
+		<jstl:if test="${isTimeToDecisionMaking}">		
+				
+<form:form action="conference/decisionMaking.do?conferenceId=${conference.id}" mehtod="POST">
+		      
+	
+        <input type="submit" name="conference" id="conference" value='<spring:message
+						code="conference.decisionMaking" /> '/>
+        
+
+      </form:form>
+			
+		</jstl:if>
 </security:authorize>

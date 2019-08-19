@@ -2,7 +2,7 @@ package services;
 
 import java.util.Collection;
 import java.util.Date;
-import java.util.LinkedList;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ import org.springframework.util.Assert;
 import domain.Activity;
 import domain.Actor;
 import domain.Conference;
-import domain.Presentation;
+
 import domain.Section;
 import domain.Tutorial;
 

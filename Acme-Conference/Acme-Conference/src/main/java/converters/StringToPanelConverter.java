@@ -31,7 +31,7 @@ import domain.Panel;
 				if (StringUtils.isEmpty(text))
 					result = null;
 				else {
-					id = Integer.valueOf(text);
+		 			id = Integer.valueOf(text);
 					result = this.panelRepository.findOne(id);
 				}
 			} catch (final Throwable oops) {

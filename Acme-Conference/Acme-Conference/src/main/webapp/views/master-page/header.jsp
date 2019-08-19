@@ -65,16 +65,41 @@
 								code="master.page.conference.list" /></a></li>
 									<li><a href="conference/finder.do"><spring:message
 								code="master.page.conference.finder" /></a></li>
-	
+								
 	
 				</ul></li>
 
 		
+	<security:authorize access="hasRole('REVIEWER')">
+	<li><a class="fNiv"><spring:message
+						code="master.page.reports" /></a>
+				<ul>
+					<li class="arrow"></li>
+					
+							
+								<li><a href="report/list.do"><spring:message
+								code="master.page.report.list" /></a></li>
+								
+	
+				</ul></li>
 
 
+		</security:authorize>
+	<security:authorize access="hasRole('AUTHOR')">
+	<li><a class="fNiv"><spring:message
+						code="master.page.registrations" /></a>
+				<ul>
+					<li class="arrow"></li>
+					
+							
+								<li><a href="registration/list.do"><spring:message
+								code="master.page.registration.list" /></a></li>
+								
+	
+				</ul></li>
 
-		
 
+		</security:authorize>
 		<security:authorize access="isAnonymous()">
 			<li><a class="fNiv" href="security/login.do"><spring:message
 						code="master.page.login" /></a></li>

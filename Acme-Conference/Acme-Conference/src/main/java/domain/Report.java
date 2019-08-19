@@ -9,6 +9,7 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
@@ -27,21 +28,30 @@ public class Report extends DomainEntity {
 	private List<String> comments;
 	private Reviewer reviewer;
 	
-	@Range(min=0,max=10,message="0-10")
+
+	@Range(min=(long) 0.0,max=10,message="0.0-10.0")
+	@NotNull
+	@Digits(integer=10, fraction=2,message="Decimal")
 	public Double getOriginalityScore() {
 		return originalityScore;
 	}
 	public void setOriginalityScore(Double originalityScore) {
 		this.originalityScore = originalityScore;
 	}
-	@Range(min=0,max=10,message="0-10")
+	
+	@NotNull
+	@Range(min=(long) 0.0,max=10,message="0.0-10.0")
+	@Digits(integer=10, fraction=2,message="Decimal")
 	public Double getQualityScore() {
 		return qualityScore;
 	}
 	public void setQualityScore(Double qualityScore) {
 		this.qualityScore = qualityScore;
 	}
-	@Range(min=0,max=10,message="0-10")
+
+	@NotNull
+	@Range(min=(long) 0.0,max=10,message="0.0-10.0")
+	@Digits(integer=10, fraction=2,message="Decimal")
 	public Double getReadabilityScore() {
 		return readabilityScore;
 	}

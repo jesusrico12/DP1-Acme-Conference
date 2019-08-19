@@ -20,8 +20,8 @@
 		<value>/views/author/messages</value>
 		<value>/views/reviewer/messages</value>
 		<value>/views/report/messages</value>
-		
-		
+
+
 
 
 		<!-- Admin messages -->
@@ -33,7 +33,8 @@
 		<value>/views/panel/messages</value>
 		<value>/views/presentation/messages</value>
 		<value>/views/section/messages</value>
-			<value>/views/tutorial/messages</value>
+		<value>/views/tutorial/messages</value>
+		<value>/views/registration/messages</value>
 
 	</util:list>
 
