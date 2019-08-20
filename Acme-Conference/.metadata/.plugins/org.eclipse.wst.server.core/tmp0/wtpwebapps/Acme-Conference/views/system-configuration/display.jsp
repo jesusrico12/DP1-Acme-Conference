@@ -18,10 +18,6 @@
 		</jstl:when>
 		<jstl:otherwise>
 		
-		<jstl:if test="${AlreadyRebranded==false}">
-			<div><a href="sysconfig/administrator/rebrand.do"><spring:message code="anuncio" /></a></div>
-			
-			</jstl:if>
 			<table class="displayStyle">
 
 				<tr>
@@ -35,29 +31,18 @@
 								value="${sysConfig.banner}" /></a></td>
 				</tr>
 
-				<tr>
-					<td><spring:message code="system.resultscached" />:</td>
-					<td><jstl:out value="${sysConfig.timeResultsCached}" /></td>
-				</tr>
-
-				<tr>
-					<td><spring:message code="system.resultspersearch" />:</td>
-					<td><jstl:out value="${sysConfig.maxResults}" /></td>
-				</tr>
 
 				<tr>
 					<td><spring:message code="system.countrycode" />:</td>
 					<td><jstl:out value="${sysConfig.countryCode}" /></td>
 				</tr>
 				
-				<tr>
-					<td><spring:message code="system.VATTax" />:</td>
-					<td><jstl:out value="${sysConfig.VATTax}" /></td>
-				</tr>
+
 				
-				<tr>
-					<td><spring:message code="system.flat" />:</td>
-					<td><jstl:out value="${sysConfig.flatRate}" /></td>
+			
+					<tr>
+					<td><spring:message code="system.makes" />:</td>
+					<td><jstl:out value="${sysConfig.creditCardMakes}" /></td>
 				</tr>
 			</table>
 
@@ -76,23 +61,23 @@
 							</display:table></td>
 				</table>
 			</div>
-
-			<div>
+					<div>
 				<table class="displayStyle">
 					<tr>
 						<td><display:table pagesize="5" class="displaytag"
-								name="breachNotification"
+								name="topics"
 								requestURI="sysconfig/administrator/display.do"
-								id="breachNotification">
+								id="topics">
 
-								<display:column titleKey="system.breachNotification"
-									sortable="true">
-									<jstl:out value="${breachNotification}" />
+								<display:column titleKey="system.topics" sortable="true">
+									<jstl:out value="${topics}" />
 								</display:column>
 
 							</display:table></td>
 				</table>
 			</div>
+
+	
 
 			<input type="button" name="edit"
 				value='<spring:message code="system.edit"/>'

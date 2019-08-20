@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.instrument.classloading.tomcat.TomcatLoadTimeWeaver;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -153,7 +154,9 @@ public class ConferenceController extends AbstractController{
 		return result;
 	}
 
+	
 
+	
 	@RequestMapping(value = "/list" , method = RequestMethod.GET)
 	public ModelAndView list(){
 		ModelAndView result;
@@ -169,10 +172,12 @@ public class ConferenceController extends AbstractController{
 		boolean isNotification = false;
 		boolean isCamera = false;
 		boolean isStart = false;
+		
+		boolean isMakeSubmission = false;
 
 		result = new ModelAndView("conference/list");
 
-		//Non authorized 
+		//Non authorized and author,reviewer
 		Collection<Conference> forthcoming = this.conferenceService.getForthcoming();
 		Collection<Conference> past = this.conferenceService.getPast();
 		Collection<Conference> running = this.conferenceService.getRunning();
@@ -244,12 +249,15 @@ public class ConferenceController extends AbstractController{
 			
 			result.addObject("conferences", conferences);
 		}
+		
+		
 
 		result.addObject("isSubmission", isSubmission);
 		result.addObject("isNotification", isNotification);
 		result.addObject("isCamera", isCamera);
 		result.addObject("isStart", isStart);
 		result.addObject("isAll", isAll);
+	
 		
 		
 		
@@ -259,6 +267,28 @@ public class ConferenceController extends AbstractController{
 		return result;
 	}
 
+	
+	@RequestMapping(value="/listSubmission", method = RequestMethod.GET)
+	public ModelAndView listMakeSubmission(){
+		ModelAndView result;
+		
+		boolean isToMakeSubmission = false;
+		
+		Collection<Conference> conferencesToMakeSubmission = this.conferenceService.getToMakeSubmission();
+		
+		result = new ModelAndView("conference/listSubmission");
+		
+		if(!conferencesToMakeSubmission.isEmpty()){
+			result.addObject("conferencesToMakeSubmission", conferencesToMakeSubmission);
+			
+			isToMakeSubmission = true;
+		}
+		
+		result.addObject("isToMakeSubmission", isToMakeSubmission);
+		
+		return result;
+
+	}
 	
 	//FINDER 
 	
@@ -290,6 +320,7 @@ public class ConferenceController extends AbstractController{
 		
 		return result;
 	
+
 	}
 
 	

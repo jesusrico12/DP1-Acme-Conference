@@ -16,9 +16,8 @@
 <jsp:useBean id="date" class="java.util.Date" />
 
 <hr />
-<div><a href="terms.do"><spring:message
-								code="terms" /></a></div>
+
 								
 <b>Copyright &copy; <fmt:formatDate value="${date}" pattern="yyyy" />
-	Acme-Rookies Co., Inc.
+	Acme-Conference Co., Inc.
 </b>

@@ -11,13 +11,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 
+<security:authorize access="hasAnyRole('AUTHOR','REVIEWER')">
 
-<security:authorize access="isAnonymous()">
 	<jstl:if test="${isForthcoming == true}">
 
 		<spring:message code="forthcoming.title" var="fortitle" />
-
-
 
 		<h3>
 			<jstl:out value="${fortitle}"></jstl:out>
@@ -213,7 +211,15 @@
 
 </security:authorize>
 
-<security:authorize access = "hasAnyRole('AUTHOR','REVIEWER')">
+<security:authorize access="hasRole('AUTHOR')">
+	<a  href="conference/listSubmission.do"> <spring:message
+			code="conference.listToSubmission" />
+	</a>
+</security:authorize>
+
+
+
+<security:authorize access="isAnonymous()">
 	<jstl:if test="${isForthcoming == true}">
 
 		<spring:message code="forthcoming.title" var="fortitle" />
@@ -466,6 +472,7 @@
 				</a>
 
 			</display:column>
+
 
 		</display:table>
 
@@ -734,6 +741,20 @@
 			<display:column>
 				<a href="conference/display.do?conferenceId=${row.id}"> <spring:message
 						code="conference.display" />
+				</a>
+
+			</display:column>
+			
+			<display:column>
+				<a href="submission/administrator/list.do?conferenceId=${row.id}"> <spring:message
+						code="conference.submission.list" />
+				</a>
+
+			</display:column>
+			
+			<display:column>
+				<a href="submission/administrator/autoAssignReviewer.do?conferenceId=${row.id}"> <spring:message
+						code="conference.assign.reviewer" />
 				</a>
 
 			</display:column>

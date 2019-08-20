@@ -256,4 +256,10 @@ public class ConferenceService {
 		return this.conferenceRepository.conferencesNotStarted();
 	}
 	
+	public Collection<Conference> getToMakeSubmission(){
+		Collection<Conference> result = this.conferenceRepository.getToMakeSubmission();
+		
+		return result;
+	}
+	
 }

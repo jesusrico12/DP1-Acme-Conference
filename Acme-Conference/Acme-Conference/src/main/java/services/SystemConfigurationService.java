@@ -112,18 +112,18 @@ public class SystemConfigurationService {
 		res.setSystemName(systemConfiguration.getSystemName());
 		res.setBanner(systemConfiguration.getBanner());
 		res.setCountryCode(systemConfiguration.getCountryCode());
-		
+
 		//CC
-		
+
 		res.setCreditCardMakes(systemConfiguration.getCreditCardMakes());
-		
+
 		//Topics
-		
+
 		res.setTopics(new HashMap<String, String>());
 
 		res.getTopics().put("Español", topicsES);
 		res.getTopics().put("English", topicsEN);
-		
+
 		res.setWelcomeMessage(new HashMap<String, String>());
 
 		res.getWelcomeMessage().put("Español", nameES);
@@ -164,7 +164,7 @@ public class SystemConfigurationService {
 			binding.rejectValue("creditCardMakes", "makes.error");
 		}
 
-	
+
 
 
 
@@ -196,17 +196,17 @@ public class SystemConfigurationService {
 		res.setCountryCode(systemConfiguration.getCountryCode());
 
 		//Topics
-		
-		
-		
+
+
+
 		res.setTopics(new HashMap<String, String>());
 
 		res.getTopics().put("Español", topicsES);
 		res.getTopics().put("English", topicsEN);
-		
+
 		//CC
 		res.setCreditCardMakes(systemConfiguration.getCreditCardMakes());
-		
+
 		res.setWelcomeMessage(new HashMap<String, String>());
 
 		res.getWelcomeMessage().put("Español", nameES);
@@ -252,9 +252,9 @@ public class SystemConfigurationService {
 			errMessages.add("cc.error");
 		}
 
-	
 
-	
+
+
 
 		wA.put(res, errMessages);
 		this.validator.validate(res, binding);
@@ -271,14 +271,27 @@ public class SystemConfigurationService {
 		return res;
 
 	}
+
+
+	public Collection<Map<String,String>> getTopics(){
+		Collection<Map<String,String>> result = this.getTopics();
+
+
+
+
+		return result;
+	}		
+
 	public Collection<String> makesSystem(){
-		
+
 		Collection<String> res= new ArrayList<String>();
 		for(String s:this.findMySystemConfiguration().getCreditCardMakes().split(",")){
 			res.add(s);
 		}
 		return res;
-		
-	}
 
+
+
+
+	}
 }

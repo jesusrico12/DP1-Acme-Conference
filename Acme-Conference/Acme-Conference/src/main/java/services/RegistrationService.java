@@ -104,3 +104,4 @@ public class RegistrationService {
 		return this.registrationRepository.registrationPerAuthor(authorId);
 	}
 }
+

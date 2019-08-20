@@ -34,6 +34,10 @@ JpaRepository<Conference, Integer>{
 	@Query("select c from Conference c where (datediff(c.startDate, CURRENT_DATE) <= 5) and (c.startDate >= CURRENT_DATE)")
 	Collection<Conference> getStartLess5();
 	
+
+	@Query("select c from Conference c where c.submissionDeadline >= CURRENT_DATE and c.isDraft = false")
+	Collection<Conference> getToMakeSubmission();
+
 	@Query("select c from Conference c join c.activities a where a.id= ?1")
 	Conference ConferenceOwn(int panelId);
 	@Query("select c from Conference c where c.isDraft = 0 and ( c.title like %?1% or c.venue like %?1% or c.summary like %?1% )")
@@ -55,4 +59,5 @@ JpaRepository<Conference, Integer>{
 	
 	@Query("select c from Conference c where c.startDate > CURRENT_DATE")
 	Collection<Conference> conferencesNotStarted();
+
 }

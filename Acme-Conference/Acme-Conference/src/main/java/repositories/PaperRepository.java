@@ -1,3 +1,4 @@
+
 package repositories;
 
 import java.util.Collection;
@@ -15,3 +16,4 @@ public interface PaperRepository extends JpaRepository<Paper, Integer>{
 	Collection<Paper> paperReadys();
 
 }
+

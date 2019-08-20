@@ -18,3 +18,4 @@ import domain.Registration;;
 		Collection<Registration> registrationPerAuthor(int authorId);
 	}
 
+

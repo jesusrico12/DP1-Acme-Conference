@@ -16,14 +16,33 @@
 		<value>/views/misc/tiles.xml</value>
 		<value>/views/security/tiles.xml</value>
 		<value>/views/welcome/tiles.xml</value>
+		<value>/views/author/tiles.xml</value>
+		<value>/views/reviewer/tiles.xml</value>
 
 		<!-- Admin views -->
 		<value>/views/administrator/tiles.xml</value>
 		<value>/views/system-configuration/tiles.xml</value>
 
-		
+
 		<!-- Conference views -->
 		<value>/views/conference/tiles.xml</value>
+		<value>/views/panel/tiles.xml</value>
+		<value>/views/presentation/tiles.xml</value>
+		<value>/views/tutorial/tiles.xml</value>
+		<value>/views/section/tiles.xml</value>
+		<value>/views/report/tiles.xml</value>
+		<value>/views/registration/tiles.xml</value>
+
+		<!-- Paper views -->
+		<value>/views/paper/tiles.xml</value>
+
+		<!-- Paper views -->
+		<value>/views/message/tiles.xml</value>
+		
+		
+		<!-- Submission views -->
+		<value>/views/submission/tiles.xml</value>
+		
 
 	</util:list>
 

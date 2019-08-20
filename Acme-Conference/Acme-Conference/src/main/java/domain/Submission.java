@@ -37,7 +37,7 @@ public class Submission extends DomainEntity{
 	private Collection<Report> reports;
 	
 	@NotBlank
-	@Column(unique = true)
+	//@Column(unique = true)
 	//@Pattern(regexp = "^[A-Z]{4}-\\d{4}$")
 	public String getTicker() {
 		return ticker;
@@ -69,8 +69,8 @@ public class Submission extends DomainEntity{
 		this.toReview = toReview;
 	}
 	@Valid
-	@NotNull
 	@OneToOne
+	@NotNull
 	public Paper getPaper() {
 		return paper;
 	}
