@@ -519,7 +519,7 @@
 
 
 	<bean id="submission3" class="domain.Submission">
-		<property name="ticker" value="AL-1F3E" />
+		<property name="ticker" value="CRC-1F3E" />
 		<property name="madeMoment" value="2019/11/05 05:32:14" />
 		<property name="status" value="ACCEPTED" />
 		<property name="toReview" value="true" />

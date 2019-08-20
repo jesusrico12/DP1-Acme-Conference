@@ -49,4 +49,9 @@ JpaRepository<Submission, Integer>{
 	
 	@Query("select s from Submission s join s.conference  c join s.reports r where c.notificationDeadline > CURRENT_DATE and c.submissionDeadline < CURRENT_DATE and  r.id= ?1")
 	Submission reportTimeToComment(int reportId);
+	@Query("select s from Submission s where s.ticker like '?1'")
+	Submission isSubUnique(String res);
+	
 }
+
+

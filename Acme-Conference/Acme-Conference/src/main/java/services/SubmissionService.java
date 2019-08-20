@@ -33,6 +33,9 @@ public class SubmissionService {
 	
 	@Autowired
 	private PaperService paperService;
+	
+	@Autowired
+	private UtilityService utilityService;
 
 	//CRUD Methods ----------------
 
@@ -48,7 +51,7 @@ public class SubmissionService {
 		result.setAuthor(principal);
 		result.setConference(new Conference());
 		result.setToReview(false);
-		result.setTicker("ss");
+		result.setTicker(this.utilityService.getTicker());
 		
 		return result;
 	}
@@ -128,13 +131,7 @@ public class SubmissionService {
 	
 	
 
-/*	public Collection<Submission> submissionAccepted(){
-		Collection<Submission> res;
-		
-		res= this.submissionRepository.submissionAccepted();
-		return res;
-		
-	}*/
+
 	
 	
 	public Collection<Submission> submissionsOfReviewer(int reviewerId){
@@ -156,5 +153,10 @@ public class SubmissionService {
 		return this.submissionRepository.reportTimeToComment(reportId);
 	}
 
+	
+	public Submission isSubUnique(String res){
+		
+		return this.submissionRepository.isSubUnique(res);
+	}
 
 }
