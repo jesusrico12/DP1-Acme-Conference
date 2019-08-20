@@ -16,22 +16,22 @@
 			class="converters.Class1ToClass2" /> -->
 		<bean class="converters.ActorToStringConverter" />
 		<bean class="converters.StringToActorConverter" />
-		
+
 		<bean class="converters.AdministratorToStringConverter" />
 		<bean class="converters.StringToAdministratorConverter" />
 
 
 		<bean class="converters.StringToConferenceConverter" />
 		<bean class="converters.ConferenceToStringConverter" />
-		
+
 		<bean class="converters.StringToActivityConverter" />
 		<bean class="converters.ActivityToStringConverter" />
-	
 
-		
+
+
 		<bean class="converters.AuthorToStringConverter" />
 		<bean class="converters.StringToAuthorConverter" />
-		
+
 		<bean class="converters.ReviewerToStringConverter" />
 		<bean class="converters.StringToReviewerConverter" />
 
@@ -39,6 +39,27 @@
 
 		<bean class="converters.SystemConfigurationToStringConverter" />
 		<bean class="converters.StringToSystemConfigurationConverter" />
+
+		<bean class="converters.SectionTostringConverter" />
+		<bean class="converters.StringToSectionConverter" />
+
+		<bean class="converters.PanelToStringConverter" />
+		<bean class="converters.StringToPanelConverter" />
+
+		<bean class="converters.PresentationToStringConverter" />
+		<bean class="converters.StringToPresentationConverter" />
+
+		<bean class="converters.TutorialToStringConverter" />
+		<bean class="converters.StringToTutorialConverter" />
+
+		<bean class="converters.PaperToStringConverter" />
+		<bean class="converters.StringToPaperConverter" />
+
+		<bean class="converters.RegistrationToStringConverter" />
+		<bean class="converters.StringToRegistrationConverter" />
+
+
+
 
 	</util:list>
 

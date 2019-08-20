@@ -1,6 +1,8 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedList;
 
 import javax.validation.Valid;
 
@@ -18,6 +20,9 @@ import services.ConferenceService;
 import domain.Activity;
 import domain.Administrator;
 import domain.Conference;
+import domain.Panel;
+import domain.Presentation;
+import domain.Tutorial;
 
 @Controller
 @RequestMapping(value = "/conference")
@@ -52,13 +57,44 @@ public class ConferenceController extends AbstractController{
 		ModelAndView result;
 		Conference conference = this.conferenceService.findOne(conferenceId);
 		boolean isActivity = false;
+		boolean isPanel=false;
+		boolean isTutorial=false;
+		boolean isPresentation=false;
 		Collection<Activity> activities = conference.getActivities();
+		boolean isTimeToDecisionMaking=false;
 		
 		result = new ModelAndView("conference/display");
 		
+		if(this.conferenceService.conferencesBetweenSubDeadlineNotifDeadline().contains(conference)){
+			isTimeToDecisionMaking=true;
+			
+		}
+		result.addObject("isTimeToDecisionMaking",isTimeToDecisionMaking);
 		if(!activities.isEmpty()){
 			result.addObject("activities", activities);
 			isActivity = true;
+			Collection<Activity> panels= new ArrayList<Activity>();
+			Collection<Activity> pres= new ArrayList<Activity>();
+			Collection<Activity> tuts= new ArrayList<Activity>();
+			for(Activity i: activities){
+			if(i instanceof Panel){
+				panels.add(i);
+				result.addObject("panels", panels);
+				isPanel = true;
+				result.addObject("isPanel", isPanel);
+			}else if(i instanceof Presentation){
+				pres.add(i);
+				result.addObject("presentations", pres);
+				isPresentation = true;
+				result.addObject("isPresentation", isPresentation);
+			}else if(i instanceof Tutorial){
+				tuts.add(i);
+				result.addObject("tutorials", tuts);
+			
+				isTutorial = true;
+				result.addObject("isTutorial", isTutorial);
+			}
+			}
 		}
 		
 		result.addObject("conference", conference);
@@ -224,8 +260,13 @@ public class ConferenceController extends AbstractController{
 	
 		
 		
+		
+		
+		
+		
 		return result;
 	}
+
 	
 	@RequestMapping(value="/listSubmission", method = RequestMethod.GET)
 	public ModelAndView listMakeSubmission(){
@@ -246,8 +287,56 @@ public class ConferenceController extends AbstractController{
 		result.addObject("isToMakeSubmission", isToMakeSubmission);
 		
 		return result;
+
+	}
+	
+	//FINDER 
+	
+	@RequestMapping(value = "/finder" , method = RequestMethod.POST)
+	public ModelAndView finder(@RequestParam String keyword){
+		ModelAndView result;
+		
+		Collection<Conference> conferencesFinder=new LinkedList<>();
+		if(!keyword.isEmpty()){
+			conferencesFinder=this.conferenceService.conferencesFinder(keyword);
+		}
+		result = new ModelAndView("conference/finder");
+		result.addObject("conferencesFinder",conferencesFinder);
+		result.addObject("conferencesFinals", this.conferenceService.conferencesFinals());
+		
+		return result;
+	
+	}
+	
+	//DECISIONMAKING
+	@RequestMapping(value = "/decisionMaking" , method = RequestMethod.POST)
+	public ModelAndView decisionMaking(@RequestParam int conferenceId){
+		ModelAndView result;
+		
+		this.conferenceService.decisionMaking(conferenceId);
+	
+		result = new ModelAndView("redirect:list.do");
+		
+		
+		return result;
+	
+
 	}
 
+	
+	@RequestMapping(value = "/finder" , method = RequestMethod.GET)
+	public ModelAndView finder(){
+		ModelAndView result;
+		
+		result = new ModelAndView("conference/finder");
+		
+		
+		result.addObject("conferencesFinals", this.conferenceService.conferencesFinals());
+		
+		
+		return result;
+		
+	}
 
 	protected ModelAndView createEditModelAndView(Conference conference) {
 		ModelAndView result;

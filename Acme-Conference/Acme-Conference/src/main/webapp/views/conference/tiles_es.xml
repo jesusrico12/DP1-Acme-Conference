@@ -25,6 +25,15 @@
 		<put-attribute name="body" value="/views/conference/listSubmission.jsp" />
 	</definition>
 	
+
+		<definition name="conference/finder" extends="master.page">
+		<put-attribute name="title" value="Búsqueda" />
+		<put-attribute name="body" value="/views/conference/finder.jsp" />
+	</definition>
+	
+
+	
+
 	<definition name="conference/display" extends="master.page">
 		<put-attribute name="title" value="Mostrar conferencia" />
 		<put-attribute name="body" value="/views/conference/display.jsp" />

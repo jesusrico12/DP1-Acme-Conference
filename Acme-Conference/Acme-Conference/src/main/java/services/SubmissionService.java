@@ -1,5 +1,6 @@
 package services;
 
+
 import java.util.Collection;
 import java.util.Date;
 
@@ -79,11 +80,7 @@ public class SubmissionService {
 
 	}
 	
-	public Submission findOne(int id){
-		Submission result = this.submissionRepository.findOne(id);
-		
-		return result;
-	}
+
 
 	public Collection<Submission> findAll(){
 		Collection<Submission> result = this.submissionRepository.findAll();
@@ -130,4 +127,34 @@ public class SubmissionService {
 	}
 	
 	
+
+/*	public Collection<Submission> submissionAccepted(){
+		Collection<Submission> res;
+		
+		res= this.submissionRepository.submissionAccepted();
+		return res;
+		
+	}*/
+	
+	
+	public Collection<Submission> submissionsOfReviewer(int reviewerId){
+		return this.submissionRepository.submissionsOfReviewer(reviewerId);
+	}
+	public Submission findOne(int id){
+		return this.submissionRepository.findOne(id);
+	}
+	
+	public void  saveForce(Submission submission){
+		this.submissionRepository.save(submission);
+	}
+	
+	public Collection<Submission> submissionsPerConferenceDecisionMaking(int conferenceId){
+		return this.submissionRepository.submissionsPerConferenceDecisionMaking(conferenceId);
+		
+	}
+	public Submission reportTimeToComment(int reportId){
+		return this.submissionRepository.reportTimeToComment(reportId);
+	}
+
+
 }

@@ -81,7 +81,6 @@ INDEX VERSION 1.126+C:\Documents and Settings\Student\Desktop\DP1-Acme-Conferenc
 452480385.index
 1047271605.index
 829659721.index
-2308464920.index
 4253697275.index
 3310682016.index
 1012337571.index

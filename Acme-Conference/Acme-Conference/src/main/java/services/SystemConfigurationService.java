@@ -272,10 +272,25 @@ public class SystemConfigurationService {
 
 	}
 
+
 	public Collection<Map<String,String>> getTopics(){
 		Collection<Map<String,String>> result = this.getTopics();
 
+
+
+
 		return result;
+	}		
+
+	public Collection<String> makesSystem(){
+
+		Collection<String> res= new ArrayList<String>();
+		for(String s:this.findMySystemConfiguration().getCreditCardMakes().split(",")){
+			res.add(s);
+		}
+		return res;
+
+
 
 
 	}

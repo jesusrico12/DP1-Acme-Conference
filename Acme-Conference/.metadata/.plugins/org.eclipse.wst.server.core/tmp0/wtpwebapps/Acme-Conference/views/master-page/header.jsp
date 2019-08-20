@@ -56,13 +56,53 @@
 				</ul></li>
 
 		</security:authorize>
+		
+		<li><a class="fNiv"><spring:message
+						code="master.page.conference" /></a>
+				<ul>
+					<li class="arrow"></li>
+					<li><a href="conference/list.do"><spring:message
+								code="master.page.conference.list" /></a></li>
+									<li><a href="conference/finder.do"><spring:message
+								code="master.page.conference.finder" /></a></li>
+								
+	
+				</ul></li>
+
+
+		
+	<security:authorize access="hasRole('REVIEWER')">
+	<li><a class="fNiv"><spring:message
+						code="master.page.reports" /></a>
+				<ul>
+					<li class="arrow"></li>
+					
+							
+								<li><a href="report/list.do"><spring:message
+								code="master.page.report.list" /></a></li>
+								
+	
+				</ul></li>
 
 
 
+		</security:authorize>
+	<security:authorize access="hasRole('AUTHOR')">
+	<li><a class="fNiv"><spring:message
+						code="master.page.registrations" /></a>
+				<ul>
+					<li class="arrow"></li>
+					
+							
+								<li><a href="registration/list.do"><spring:message
+								code="master.page.registration.list" /></a></li>
+								
+	
+				</ul></li>
 
 
 
-
+		</security:authorize>
 		<security:authorize access="isAnonymous()">
 			<li><a class="fNiv" href="security/login.do"><spring:message
 						code="master.page.login" /></a></li>
@@ -130,7 +170,6 @@
 		alt="EN"></a> <span>|</span> <a href="?language=es"><img
 		style="width: 20px; height: 15px;"
 		src="http://www.ahb.es/m/100150RES.jpg" alt="ES"></a>
-
 </div>
 <security:authorize access="isAuthenticated()">
 

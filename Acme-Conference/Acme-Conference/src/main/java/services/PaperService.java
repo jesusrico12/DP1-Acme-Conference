@@ -1,5 +1,7 @@
 package services;
 
+import java.util.Collection;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,4 +62,9 @@ public class PaperService {
 		return result;
 	}
 	
+	public Collection<Paper> paperReadys(){
+		Collection<Paper> res= this.paperRepository.paperReadys();
+		return res;
+	}
 }
+

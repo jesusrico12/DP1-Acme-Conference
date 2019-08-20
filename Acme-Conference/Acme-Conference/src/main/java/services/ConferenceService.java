@@ -1,6 +1,7 @@
 package services;
 
 import java.util.Collection;
+import java.util.LinkedList;
 
 import javax.transaction.Transactional;
 
@@ -9,8 +10,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import repositories.ConferenceRepository;
+import domain.Activity;
 import domain.Administrator;
 import domain.Conference;
+import domain.Report;
+import domain.Submission;
+
 
 @Transactional
 @Service
@@ -25,6 +30,9 @@ public class ConferenceService {
 
 	@Autowired
 	private ActorService actorService;
+	
+	@Autowired
+	private SubmissionService submissionService;
 
 
 	//Create
@@ -34,6 +42,9 @@ public class ConferenceService {
 		Conference result = new Conference();
 
 		Administrator principal = (Administrator) this.actorService.findByPrincipal();
+		
+		Collection<Activity> actis= new LinkedList<>();
+		result.setActivities(actis);
 
 		result.setAdministrator(principal);
 		result.setIsDraft(true);
@@ -172,6 +183,77 @@ public class ConferenceService {
 		Collection<Conference> result = this.conferenceRepository.getStartLess5();
 		
 		return result;
+	}
+	public 	Conference ConferenceOwn(int panelId){
+		Conference cof=this.conferenceRepository.ConferenceOwn(panelId);
+		return cof;
+	}
+
+	public Conference saveForce(Conference conference) {
+		
+		return this.conferenceRepository.save(conference);
+		
+	}
+	public Collection<Conference> conferencesFinder(String keyword){
+		
+		Collection<Conference> res= this.conferenceRepository.conferencesFinder(keyword);
+		return res;
+	}
+	public  Double[] submissionsPerConference(){
+		return this.conferenceRepository.submissionsPerConference();
+	}
+	
+	
+	public Double[] registrationsPerConference(){
+		return this.conferenceRepository.registrationsPerConference();
+	}
+	
+	
+	public Double[] feesPerConference(){
+		return this.conferenceRepository.feesPerConference();
+	}
+	
+	
+	public Double[] numberOfDaysPerConference(){
+		return this.conferenceRepository.numberOfDaysPerConference();
+	}
+	
+	public Collection<Conference> conferencesFinals(){
+		return this.conferenceRepository.conferencesFinals();
+	}
+	
+	
+	public void decisionMaking (int conferenceId){
+		Collection<Submission> subs=this.submissionService.submissionsPerConferenceDecisionMaking(conferenceId);
+		
+		for (Submission s:subs){
+			int aceptado=0;
+			int rechazado=0;
+			
+			for(Report r : s.getReports()){
+				
+				if(r.getDecision().toString().equals("ACCEPT")){
+					aceptado++;
+				}else if(r.getDecision().toString().equals("RECJECT")){
+					rechazado++;
+				}			
+				
+			}	
+			if(rechazado>aceptado){
+				s.setStatus("REJECTED");
+			}else{
+				s.setStatus("ACCEPTED");
+			}
+		
+			this.submissionService.saveForce(s);
+		}
+	}
+	
+	public Collection<Conference> conferencesBetweenSubDeadlineNotifDeadline(){
+		return this.conferenceRepository.conferencesBetweenSubDeadlineNotifDeadline();
+	}
+	public Collection<Conference> conferencesNotStarted(){
+		return this.conferenceRepository.conferencesNotStarted();
 	}
 	
 	public Collection<Conference> getToMakeSubmission(){

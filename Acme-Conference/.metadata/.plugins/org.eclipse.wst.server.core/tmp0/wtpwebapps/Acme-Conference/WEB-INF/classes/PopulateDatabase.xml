@@ -237,7 +237,7 @@
 	<bean id="creditCard1" class="domain.CreditCard">
 		<property name="holder" value="José Gamiz Redondo" />
 		<property name="make" value="VISA" />
-		<property name="number" value="4764042457713154" />
+		<property name="number" value="4863174561976557" />
 		<property name="expirationMonth" value="02" />
 		<property name="expirationYear" value="22" />
 		<property name="CVV" value="177" />
@@ -246,7 +246,7 @@
 	<bean id="creditCard2" class="domain.CreditCard">
 		<property name="holder" value="Carlos Albalat Heredia" />
 		<property name="make" value="MASTER" />
-		<property name="number" value="4544963188930321" />
+		<property name="number" value="4798021716234426" />
 		<property name="expirationMonth" value="11" />
 		<property name="expirationYear" value="20" />
 		<property name="CVV" value="366" />
@@ -254,7 +254,7 @@
 	<bean id="creditCard3" class="domain.CreditCard">
 		<property name="holder" value="Rosa Bosque Heredia" />
 		<property name="make" value="AMEX" />
-		<property name="number" value="4544963086930071" />
+		<property name="number" value="4703832951273752" />
 		<property name="expirationMonth" value="11" />
 		<property name="expirationYear" value="20" />
 		<property name="CVV" value="386" />
@@ -499,7 +499,7 @@
 				<value>Antonio</value>
 			</list>
 		</property>
-		<property name="startMoment" value="2019/01/15 05:32:14" />
+		<property name="startMoment" value="2020/01/15 05:32:14" />
 		<property name="duration" value="30" />
 
 		<property name="room" value="Aula Magna" />
@@ -524,7 +524,7 @@
 		<property name="status" value="ACCEPTED" />
 		<property name="toReview" value="true" />
 
-		<property name="paper" ref="paper2" />
+		<property name="paper" ref="paper3" />
 
 		<property name="author" ref="author3" />
 
@@ -745,6 +745,7 @@
 		<property name="creditCard" ref="creditCard1" />
 
 		<property name="conference" ref="conference1" />
+		<property name="author" ref="author1" />
 
 	</bean>
 		
@@ -753,6 +754,7 @@
 		<property name="creditCard" ref="creditCard2" />
 
 		<property name="conference" ref="conference1" />
+		<property name="author" ref="author2" />
 
 	</bean>
 	
@@ -762,6 +764,7 @@
 		<property name="creditCard" ref="creditCard3" />
 
 		<property name="conference" ref="conference2" />
+		<property name="author" ref="author3" />
 
 	</bean>
 	

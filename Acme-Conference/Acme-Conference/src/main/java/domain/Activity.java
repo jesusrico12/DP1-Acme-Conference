@@ -9,12 +9,14 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
+
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -55,6 +57,8 @@ public class Activity extends DomainEntity{
 			this.startMoment = startMoment;
 		}
 		@Range(min=1,message="Min. 1")
+		@Digits(integer=10, fraction=0,message="No decimal")
+		@NotNull
 		public Integer getDuration() {
 			return duration;
 		}

@@ -10,7 +10,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
+
 <security:authorize access="hasAnyRole('AUTHOR','REVIEWER')">
+
 	<jstl:if test="${isForthcoming == true}">
 
 		<spring:message code="forthcoming.title" var="fortitle" />

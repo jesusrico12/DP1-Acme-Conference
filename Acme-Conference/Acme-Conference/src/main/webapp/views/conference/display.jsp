@@ -121,8 +121,6 @@
 				</jstl:out></td>
 		</tr>
 
-
-
 	</table>
 
 	<input type="button" name="back"
@@ -340,19 +338,9 @@
 			<td><jstl:out value="${conference.isDraft}"></jstl:out></td>
 		</tr>
 
-		<jstl:if test="${isActivity == true}">
-			<tr>
-				<td><strong> <spring:message
-							code="conference.activities" /> :
-				</strong></td>
 
 
-				<td><jstl:forEach items="${activities}" var="x">
-						<jstl:out value="${x.title}"></jstl:out>
-					</jstl:forEach></td>
 
-			</tr>
-		</jstl:if>
 		<tr>
 			<td><strong> <spring:message
 						code="conference.administrator" /> :
@@ -367,17 +355,98 @@
 
 
 	</table>
-
+<jstl:if test="${isPresentation == true}">
+	<display:table pagesize="10" class="displaytag" name="presentations"
+			 id="row" >
+			 	<display:column titleKey="presentation.display"  >
+				<input type="button" value="<jstl:out value="${row.title}"/>"
+								onclick="redirect: location.href = 'presentation/display.do?presentationId=${row.id}';" />
+			</display:column>
+			<display:column titleKey="presentation.room"  >
+					<jstl:out value="${row.room}" />
+				</display:column>
+				<display:column titleKey="presentation.startMoment"  >
+					<jstl:out value="${row.startMoment}" />
+				</display:column>
+			 
+			 </display:table>
+</jstl:if>
+<jstl:if test="${isPanel == true}">
+<table class="displayStyle">
+		<display:table pagesize="10" class="displaytag" name="panels"
+			 id="row">
+			 	<display:column titleKey="panel.display"  >
+				<input type="button" value="<jstl:out value="${row.title}"/>"
+								onclick="redirect: location.href = 'panel/display.do?panelId=${row.id}';" />
+			</display:column>
+				<display:column titleKey="presentation.room"  >
+					<jstl:out value="${row.room}" />
+				</display:column>
+				<display:column titleKey="presentation.startMoment"  >
+					<jstl:out value="${row.startMoment}" />
+				</display:column>
+			 
+			 </display:table>
+			 </table>
+</jstl:if>
+	
+<jstl:if test="${isTutorial == true}">
+	<table class="displayStyle">
+			<display:table pagesize="10" class="displaytag" name="tutorials"
+			 id="row">
+			 
+			 	<display:column titleKey="tutorial.display"  >
+				<input type="button" value="<jstl:out value="${row.title}"/>"
+								onclick="redirect: location.href = 'tutorial/display.do?tutorialId=${row.id}';" />
+			</display:column>
+				<display:column titleKey="presentation.room"  >
+					<jstl:out value="${row.room}" />
+				</display:column>
+				<display:column titleKey="presentation.startMoment"  >
+					<jstl:out value="${row.startMoment}" />
+				</display:column>
+			 </display:table>
+		</table>
+</jstl:if>
+		
+		
 	<jstl:if test="${conference.isDraft}">
 		<input type="button" name="edit"
 			value="<spring:message code="conference.edit"	/>"
 			onclick="redirect: location.href = 'conference/edit.do?conferenceId=${conference.id}';" />
 
 	</jstl:if>
+	
+	
 
 	<input type="button" name="back"
-		value="<spring:message code="conference.back" />"
-		onclick="window.history.back()" />
+		value="<spring:message code="conference.atras" />"
+		onclick="redirect: location.href = 'conference/list.do';" />
+	<jstl:if test="${ not conference.isDraft}">
+		<input type="button" value="<spring:message code="panel.create"	/>"
+			onclick="redirect: location.href = 'panel/create.do?conferenceId=${conference.id}';" />
+		<input type="button"
+			value="<spring:message code="presentation.create"	/>"
+			onclick="redirect: location.href = 'presentation/create.do?conferenceId=${conference.id}';" />
+				<input type="button"
+			value="<spring:message code="tutorial.create"	/>"
+			onclick="redirect: location.href = 'tutorial/create.do?conferenceId=${conference.id}';" />
+	</jstl:if>
 
+</security:authorize>
 
+<security:authorize access="hasRole('ADMIN')">
+		
+		<jstl:if test="${isTimeToDecisionMaking}">		
+				
+<form:form action="conference/decisionMaking.do?conferenceId=${conference.id}" mehtod="POST">
+		      
+	
+        <input type="submit" name="conference" id="conference" value='<spring:message
+						code="conference.decisionMaking" /> '/>
+        
+
+      </form:form>
+			
+		</jstl:if>
 </security:authorize>

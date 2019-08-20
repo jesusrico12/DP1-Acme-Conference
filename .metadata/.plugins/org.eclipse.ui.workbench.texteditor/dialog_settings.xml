@@ -2,29 +2,37 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="237" key="DIALOG_WIDTH"/>
-		<item value="136" key="DIALOG_Y_ORIGIN"/>
+		<item value="276" key="DIALOG_Y_ORIGIN"/>
+		<item value="914" key="DIALOG_X_ORIGIN"/>
 		<item value="362" key="DIALOG_HEIGHT"/>
-		<item value="699" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
+		<item value="true" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="drop" key="selection"/>
+		<item value="activities" key="selection"/>
 		<list key="findhistory">
-			<item value="drop"/>
-			<item value="creditCa"/>
-			<item value="Domain.Con"/>
-			<item value="domain.Con"/>
-			<item value="domain.C"/>
-			<item value="395"/>
-			<item value="domain.Actor"/>
-			<item value="author1"/>
+			<item value="activities"/>
+			<item value="panel"/>
+			<item value="Panel"/>
+			<item value="acti"/>
+			<item value="create"/>
+			<item value="banner.error"/>
+			<item value="El nomb"/>
+			<item value="El nombnre"/>
 		</list>
 		<list key="replacehistory">
+			<item value="presentation"/>
+			<item value="Presentation"/>
+			<item value="reviewer"/>
+			<item value="Reviewer"/>
+			<item value="REVIEWER"/>
+			<item value="authority"/>
+			<item value="Authority"/>
+			<item value="author"/>
 		</list>
 	</section>
 </section>

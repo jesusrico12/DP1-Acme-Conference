@@ -16,6 +16,8 @@ public class Registration  extends DomainEntity{
 	private CreditCard creditCard;
 	
 	private Conference conference;
+	
+	private Author author;
 
 	@Valid 
 	@NotNull
@@ -37,6 +39,18 @@ public class Registration  extends DomainEntity{
 	public void setConference(Conference conference) {
 		this.conference = conference;
 	}
+	@Valid 
+	@NotNull
+	@ManyToOne(optional=false)
+	public Author getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(Author author) {
+		this.author = author;
+	}
+	
+	
 
 
 }
