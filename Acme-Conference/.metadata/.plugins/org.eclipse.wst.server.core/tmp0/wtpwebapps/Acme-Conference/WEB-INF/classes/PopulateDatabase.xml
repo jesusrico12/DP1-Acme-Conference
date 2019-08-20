@@ -112,7 +112,7 @@
 		<property name="surname" value="Gamiz Redondo" />
 		<property name="middleName" value="Josito" />
 		<property name="photo"
-			value="https://ih1.redbubble.net/image.376305132.3400/flat,550x550,075,f.u1.jpg" />
+			value="https://www.dropbox.com/h?preview=iaGFDaddwthd.jpg" />
 		<property name="email" value="josgamred@mail.com" />
 		<property name="phoneNumber" value="+34611987654" />
 		<property name="address" value="C/ Atlántica sex, 1 (Málaga)" />
@@ -124,7 +124,7 @@
 		<property name="surname" value="Albalat Heredia" />
 		<property name="middleName" value="Carl" />
 		<property name="photo"
-			value="https://ih1.redbubble.net/ima76305daddfsj132.340aaaa0/flat,5.u1.jpg" />
+			value="https://www.dropbox.com/h?preview=iaGFDgfddwthd.jpg" />
 		<property name="email" value="carlo12@mail.com" />
 		<property name="phoneNumber" value="+34611987622" />
 		<property name="address" value="C/ Rota" />
@@ -137,7 +137,7 @@
 		<property name="surname" value="Lago" />
 		<property name="middleName" value="Toni" />
 		<property name="photo"
-			value="https://ih1.redbubble.net/ima76305daddfsj132.340aaaa0/flat,5.u1.jpg" />
+			value="https://www.dropbox.com/h?preview=iafsdfddwthd.jpg" />
 		<property name="email" value="toni12@mail.com" />
 		<property name="phoneNumber" value="+34611987622" />
 		<property name="address" value="C/ Lebrija 12" />
@@ -150,7 +150,7 @@
 		<property name="surname" value="Bosque Heredia" />
 		<property name="middleName" value="Carl" />
 		<property name="photo"
-			value="https://ih1.redbubble.net/ima76305daddfsj132.340aaaa0/flat,5.u1.jpg" />
+			value="https://www.dropbox.com/h?preview=isSDaGFDgfddwthd.jpg" />
 		<property name="email" value="carlo1dsa2@mail.com" />
 		<property name="phoneNumber" value="+34611987622" />
 		<property name="address" value="C/ Utrera 23" />
@@ -162,7 +162,7 @@
 		<property name="surname" value="Rico Heredia" />
 		<property name="middleName" value="Carl" />
 		<property name="photo"
-			value="https://ih1.redbubble.net/ima76305daddfsj132.340aaaa0/flat,5.u1.jpg" />
+			value="https://www.dropbox.com/h?preview=PSiaGFDgfddwthd.jpg" />
 		<property name="email" value="carla12@mail.com" />
 		<property name="phoneNumber" value="+34611987622" />
 		<property name="address" value="C/Sanchez Perrier" />
@@ -174,7 +174,7 @@
 		<property name="surname" value="Lago" />
 		<property name="middleName" value="Rosi" />
 		<property name="photo"
-			value="https://ih1.redbubble.net/ima76305daddfsj132.340aaaa0/flat,5.u1.jpg" />
+			value="https://www.dropbox.com/h?preview=iathd.jpg" />
 		<property name="email" value="rosi12@mail.com" />
 		<property name="phoneNumber" value="+34611987612" />
 		<property name="address" value="C/ Cordoba 12" />
@@ -196,7 +196,7 @@
 		<property name="surname" value="Rios " />
 		<property name="middleName" value="Carl" />
 		<property name="photo"
-			value="https://ih1.redbubble.net/ima76305daddfsj132.340aaaa0/flat,5.u1.jpg" />
+			value="https://www.dropbox.com/h?preview=iaGFsdfsdgfddwthd.jpg" />
 		<property name="email" value="carlo1dsa2@mail.com" />
 		<property name="phoneNumber" value="+34611987622" />
 		<property name="address" value="C/ Carmona 23" />
@@ -216,7 +216,7 @@
 		<property name="surname" value="Botella Heredia" />
 		<property name="middleName" value="Raul" />
 		<property name="photo"
-			value="https://ih1.redbubble.net/ima76305daddfsj132.340aaaa0/flat,5.u1.jpg" />
+			value="https://www.dropbox.com/h?preview=iaGhd.jpg" />
 		<property name="email" value="carla12@mail.com" />
 		<property name="phoneNumber" value="+34611987622" />
 		<property name="address" value="C/Sanchez Perrier" />
@@ -300,7 +300,16 @@
 		<property name="body"
 			value="No entiendo que quieres decir en el primer párrafo." />
 
-		<property name="topic" value="INQUIRY" />
+		<property name="topic">
+			<util:map id="utilmap1" map-class="java.util.HashMap"
+				key-type="java.lang.String" value-type="java.lang.String">
+				<entry key="Español"
+					value="INVESTIGACION" />
+				<entry key="English"
+					value="INQUIRY" />
+
+			</util:map>
+		</property>
 
 		<property name="sender">
 			<ref bean="reviewer1" />
@@ -317,7 +326,16 @@
 		<property name="subject" value="Conferencia Dia 16" />
 		<property name="body" value="Se puede cambiar la fecha de la conferencia?" />
 
-		<property name="topic" value="TOPICS" />
+		<property name="topic">
+			<util:map id="utilmap2" map-class="java.util.HashMap"
+				key-type="java.lang.String" value-type="java.lang.String">
+				<entry key="Español"
+					value="TEMAS" />
+				<entry key="English"
+					value="TOPICS" />
+
+			</util:map>
+		</property>
 
 		<property name="sender">
 			<ref bean="author1" />
@@ -335,7 +353,16 @@
 		<property name="body"
 			value="Creo que el datos que has dado al principio es erróneo." />
 
-		<property name="topic" value="REBUTTAL" />
+		<property name="topic">
+			<util:map id="utilmap3" map-class="java.util.HashMap"
+				key-type="java.lang.String" value-type="java.lang.String">
+				<entry key="Español"
+					value="OTROS" />
+				<entry key="English"
+					value="OTHER" />
+
+			</util:map>
+		</property>
 
 		<property name="sender">
 			<ref bean="reviewer1" />

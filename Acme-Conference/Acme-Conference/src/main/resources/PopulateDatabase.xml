@@ -300,7 +300,16 @@
 		<property name="body"
 			value="No entiendo que quieres decir en el primer párrafo." />
 
-		<property name="topic" value="INQUIRY" />
+		<property name="topic">
+			<util:map id="utilmap1" map-class="java.util.HashMap"
+				key-type="java.lang.String" value-type="java.lang.String">
+				<entry key="Español"
+					value="INVESTIGACION" />
+				<entry key="English"
+					value="INQUIRY" />
+
+			</util:map>
+		</property>
 
 		<property name="sender">
 			<ref bean="reviewer1" />
@@ -317,7 +326,16 @@
 		<property name="subject" value="Conferencia Dia 16" />
 		<property name="body" value="Se puede cambiar la fecha de la conferencia?" />
 
-		<property name="topic" value="TOPICS" />
+		<property name="topic">
+			<util:map id="utilmap2" map-class="java.util.HashMap"
+				key-type="java.lang.String" value-type="java.lang.String">
+				<entry key="Español"
+					value="TEMAS" />
+				<entry key="English"
+					value="TOPICS" />
+
+			</util:map>
+		</property>
 
 		<property name="sender">
 			<ref bean="author1" />
@@ -335,7 +353,16 @@
 		<property name="body"
 			value="Creo que el datos que has dado al principio es erróneo." />
 
-		<property name="topic" value="REBUTTAL" />
+		<property name="topic">
+			<util:map id="utilmap3" map-class="java.util.HashMap"
+				key-type="java.lang.String" value-type="java.lang.String">
+				<entry key="Español"
+					value="OTROS" />
+				<entry key="English"
+					value="OTHER" />
+
+			</util:map>
+		</property>
 
 		<property name="sender">
 			<ref bean="reviewer1" />

@@ -32,4 +32,7 @@ JpaRepository<Conference, Integer>{
 	
 	@Query("select c from Conference c where (datediff(c.startDate, CURRENT_DATE) <= 5) and (c.startDate >= CURRENT_DATE)")
 	Collection<Conference> getStartLess5();
+	
+	@Query("select c from Conference c where c.submissionDeadline >= CURRENT_DATE and c.isDraft = false")
+	Collection<Conference> getToMakeSubmission();
 }

@@ -16,7 +16,11 @@
 		<value>/views/misc/messages</value>
 		<value>/views/security/messages</value>
 		<value>/views/welcome/messages</value>
-
+		<value>/views/tiles/messages</value>
+		<value>/views/author/messages</value>
+		<value>/views/reviewer/messages</value>
+		
+		
 
 
 		<!-- Admin messages -->
@@ -25,6 +29,15 @@
 
 		<!-- Conference messages -->
 		<value>/views/conference/messages</value>
+		
+		<!-- Paper messages -->
+		<value>/views/paper/messages</value>
+		
+		<!-- Paper messages -->
+		<value>/views/message/messages</value>
+		
+		<!-- Submission messages -->
+		<value>/views/submission/messages</value>
 
 	</util:list>
 

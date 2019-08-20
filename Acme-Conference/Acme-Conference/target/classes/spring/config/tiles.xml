@@ -23,9 +23,20 @@
 		<value>/views/administrator/tiles.xml</value>
 		<value>/views/system-configuration/tiles.xml</value>
 
-		
+
 		<!-- Conference views -->
 		<value>/views/conference/tiles.xml</value>
+
+		<!-- Paper views -->
+		<value>/views/paper/tiles.xml</value>
+
+		<!-- Paper views -->
+		<value>/views/message/tiles.xml</value>
+		
+		
+		<!-- Submission views -->
+		<value>/views/submission/tiles.xml</value>
+		
 
 	</util:list>
 

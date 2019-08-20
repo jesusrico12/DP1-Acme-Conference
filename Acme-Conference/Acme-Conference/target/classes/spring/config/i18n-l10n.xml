@@ -29,6 +29,15 @@
 
 		<!-- Conference messages -->
 		<value>/views/conference/messages</value>
+		
+		<!-- Paper messages -->
+		<value>/views/paper/messages</value>
+		
+		<!-- Paper messages -->
+		<value>/views/message/messages</value>
+		
+		<!-- Submission messages -->
+		<value>/views/submission/messages</value>
 
 	</util:list>
 

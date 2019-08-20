@@ -269,6 +269,9 @@ public class AdministratorService {
 	public void flush() {
 		this.administratorRepository.flush();
 	}
-
+	
+	public void autoAssignReviewers(){
+		
+	}
 
 }

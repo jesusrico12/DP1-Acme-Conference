@@ -17,7 +17,7 @@
 
 		<form:hidden path="id" />
 		<form:hidden path="version" />
-		<form:hidden path="alreadyRebranded" />
+		
 
 		<acme:textbox code="system.name" path="systemName" />
 		<br>
@@ -27,29 +27,16 @@
 		<br>
 		<br>
 
-		<acme:textbox code="system.resultscached" path="timeResultsCached"
-			size="5%" codeErr="timeErr" />
-		<br>
-		<br>
 
-		<acme:textbox code="system.resultspersearch" path="maxResults"
-			size="5%" codeErr="maxErr" />
-		<br>
-		<br>
 
 		<acme:textbox code="system.countrycode" path="countryCode" />
 		<br>
 		<br>
-
-		<acme:textbox code="system.VATTax" path="VATTax" />
-		<form:errors path="VATTax" cssClass="error" />
+			<acme:textarea code="system.makes" path="creditCardMakes" />
 		<br>
 		<br>
 
-		<acme:textbox code="system.flat" path="flatRate" />
-		<form:errors path="flatRate" cssClass="error" />
-		<br>
-		<br>
+
 
 		<p>
 			<spring:message code="wel.name.es" />
@@ -73,30 +60,35 @@
 		<form:errors cssClass="error" path="welcomeMessage" />
 		<br />
 		<br />
-
-		<!-- BRECHA -->
-		<p>
-			<spring:message code="breachNotification.name.es" />
+				<p>
+			<spring:message code="topics.name.es" />
 		</p>
-		<input type="text" name="nEs" id="nEs" size="100%"
-			value="${sysConfig.breachNotification.get('Español')}">
+		<input type="text" name="topicsES" id="topicsES" size="100%"
+			value="${sysConfig.topics.get('Español')}"
+			placeholder="<spring:message code='sysconfig.edit.topics.es' />"
+			required>
 
-		<form:errors cssClass="error" path="breachNotification" />
+		<form:errors cssClass="error" path="topics" />
 		<br />
 		<br />
 
 		<p>
-			<spring:message code="breachNotification.name.en" />
+			<spring:message code="topics.name.en" />
 		</p>
-		<input type="text" name="nEn" id="nEn" size="100%"
-			value="${sysConfig.breachNotification.get('English')}">
-		<form:errors cssClass="error" path="breachNotification" />
+		<input type="text" name="topicsEN" id="topicsEN" size="100%"
+			value="${sysConfig.topics.get('English')}"
+			placeholder="<spring:message code='sysconfig.edit.topics.en' />"
+			required>
+		<form:errors cssClass="error" path="topics" />
 		<br />
 		<br />
 
+		
+		
 		<acme:submit code="system.save" name="save" />&nbsp;
 		<acme:cancel code="system.cancel"
 			url="sysconfig/administrator/display.do" />
+
 		<br />
 		<br />
 

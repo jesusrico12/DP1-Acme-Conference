@@ -174,4 +174,10 @@ public class ConferenceService {
 		return result;
 	}
 	
+	public Collection<Conference> getToMakeSubmission(){
+		Collection<Conference> result = this.conferenceRepository.getToMakeSubmission();
+		
+		return result;
+	}
+	
 }
