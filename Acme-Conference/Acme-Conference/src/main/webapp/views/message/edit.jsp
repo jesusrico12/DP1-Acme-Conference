@@ -42,21 +42,25 @@
 			<br>
 			<br>
 			
-			<jstl:out value="${allEsp}"></jstl:out>
+			<form:label path="topic">
+			<spring:message code="message.topic" /> :
+	</form:label>
+	
 			<jstl:if test="${language==español}">
-
-			
-			</jstl:if>
-
-			<jstl:if test="${language==english}">
 
 				<form:select path="topic" style="width:400px;">
 					<jstl:forEach var="x" items="${topics}">
-						<form:options value="${x.get('English')}" />
+						<form:option value="${x}" label="${x.get('Español')}" />
 					</jstl:forEach>
 
 				</form:select>
+
+				<form:errors cssClass="error" path="topic" />
+				<br />
+				<br />
+
 			</jstl:if>
+
 
 
 			<jstl:if test="${mensaje.id == 0}">

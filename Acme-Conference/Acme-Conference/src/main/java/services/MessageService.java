@@ -3,18 +3,21 @@ package services;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
 
 import repositories.MessageRepository;
 import domain.Actor;
+import domain.Author;
 import domain.Message;
+import domain.Registration;
+import domain.Submission;
 
 @Transactional
 @Service
@@ -33,10 +36,19 @@ public class MessageService {
 
 	@Autowired
 	private Validator validator;
-
+	
+	@Autowired
+	private SubmissionService submissionService;
 
 	@Autowired
 	private SystemConfigurationService systemConfigurationService;
+	
+	@Autowired
+	private RegistrationService registrationService;
+	
+	
+	@Autowired
+	private AuthorService authorService;
 
 	// CRUD METHODS
 
@@ -119,79 +131,214 @@ public class MessageService {
 		return result;
 	}
 
-//	public void broadcast(final Message m) {
-//		Actor principal;
-//		String subject, priority, body, tags;
-//		Date sentMoment;
-//		boolean isSpam;
-//		MessageBox outBoxAdmin;
-//		Collection<MessageBox> allBoxes, boxes, notificationBoxes;
-//		Message saved;
-//		Collection<Actor> recipients;
-//
-//		allBoxes = new ArrayList<MessageBox>();
-//		notificationBoxes = new ArrayList<MessageBox>();
-//		boxes = new ArrayList<MessageBox>();
-//		recipients = new ArrayList<Actor>();
-//
-//		recipients = this.actorService.findAll();
-//
-//		principal = this.actorService.findByPrincipal();
-//		Assert.notNull(principal);
-//		Assert.isTrue(this.actorService.checkAuthority(principal,
-//				"ADMINISTRATOR"));
-//
-//		Assert.notNull(m);
-//
-//		subject = m.getSubject();
-//		body = m.getBody();
-//		priority = m.getPriority();
-//		tags = m.getTag();
-//		isSpam = false;
-//		sentMoment = new Date(System.currentTimeMillis() - 1);
-//
-//		for (Actor a : recipients) {
-//			if (!(this.actorService.checkAuthority(a, "ADMIN"))) {
-//				notificationBoxes.add(this.messageBoxService.findByName(
-//						principal.getId(), "Notification box"));
-//			}
-//
-//		}
-//
-//		outBoxAdmin = this.messageBoxService.findByName(principal.getId(),
-//				"Out box");
-//		Assert.notNull(outBoxAdmin);
-//
-//		final Message message = new Message();
-//		message.setSubject(subject);
-//		message.setBody(body);
-//		message.setSendMoment(sentMoment);
-//		message.setPriority(priority);
-//		message.setTag(tags);
-//		message.setIsSpam(isSpam);
-//		message.setReceiver(principal);
-//		message.setSender(principal);
-//
-//		boxes.add(outBoxAdmin);
-//		boxes.addAll(notificationBoxes);
-//
-//		message.setMessageBoxes(boxes);
-//
-//		saved = this.messageRepository.save(message);
-//
-//		for (MessageBox notBox : notificationBoxes) {
-//			notBox.getMessages().add(saved);
-//		}
-//		
-//		outBoxAdmin.getMessages().add(saved);
-//
-//	}
-//
-//	
-//
-//	
+	public void broadcast(final Message m) {
+		Actor principal;
+		String subject, body;
+		Date sentMoment;
+		Message saved;
+		Collection<Actor> recipients;
+
+		
+		recipients = new ArrayList<Actor>();
+
+		recipients = this.actorService.findAll();
+
+		principal = this.actorService.findByPrincipal();
+		Assert.notNull(principal);
+		Assert.isTrue(this.actorService.checkAuthority(principal,
+				"ADMIN"));
+
+		Assert.notNull(m);
+
+		subject = m.getSubject();
+		body = m.getBody();
+		Map<String,String> topic = m.getTopic();
+		
+		
+		sentMoment = new Date(System.currentTimeMillis() - 1);
+		
+		for (Actor a : recipients) {
+			final Message message = new Message();
+			message.setSubject(subject);
+			message.setBody(body);
+			message.setSendMoment(sentMoment);
+			message.setTopic(topic);
+
+			message.setReceiver(a);
+			message.setSender(principal);
+			
+			saved = this.messageRepository.save(message);
+				
+			}
+
+		
+
+
+		
+
+		
+
+	}
 
 	
+	public void broadcastAuthorsSubmission(final Message m) {
+		Actor principal;
+		String subject, body;
+		Date sentMoment;
+		Message saved;
+		
+
+		
+		
+		principal = this.actorService.findByPrincipal();
+		Assert.notNull(principal);
+		Assert.isTrue(this.actorService.checkAuthority(principal,
+				"ADMIN"));
+
+		Assert.notNull(m);
+
+		subject = m.getSubject();
+		body = m.getBody();
+		Map<String,String> topic = m.getTopic();
+		
+		
+		sentMoment = new Date(System.currentTimeMillis() - 1);
+		
+		Collection<Submission> submissions = this.submissionService.findAll();
+		
+		for (Submission s : submissions) {
+			final Message message = new Message();
+			message.setSubject(subject);
+			message.setBody(body);
+			message.setSendMoment(sentMoment);
+			message.setTopic(topic);
+
+			message.setReceiver(s.getAuthor());
+			message.setSender(principal);
+			
+			saved = this.messageRepository.save(message);
+				
+			}
+
+		
+		
+
+		
+
+		
+
+	}
+	
+	public void notificateAuthors(Submission submission){
+		Message message = this.create();
+		
+		message.setSubject("Your submission have been :" + submission.getStatus());
+		message.setBody("Your submission have been :" + submission.getStatus());
+		
+		
+		message.setReceiver(submission.getAuthor());
+		
+		this.messageRepository.save(message);
+		
+	}
+	
+
+	public void broadcastAuthorsRegistration(final Message m) {
+		Actor principal;
+		String subject, body;
+		Date sentMoment;
+		Message saved;
+		
+
+		
+		
+		principal = this.actorService.findByPrincipal();
+		Assert.notNull(principal);
+		Assert.isTrue(this.actorService.checkAuthority(principal,
+				"ADMIN"));
+
+		Assert.notNull(m);
+
+		subject = m.getSubject();
+		body = m.getBody();
+		Map<String,String> topic = m.getTopic();
+		
+		
+		sentMoment = new Date(System.currentTimeMillis() - 1);
+		
+		Collection<Registration> registrations = this.registrationService.findAll();
+		
+		for (Registration r : registrations) {
+			final Message message = new Message();
+			message.setSubject(subject);
+			message.setBody(body);
+			message.setSendMoment(sentMoment);
+			message.setTopic(topic);
+
+			message.setReceiver(r.getAuthor());
+			message.setSender(principal);
+			
+			saved = this.messageRepository.save(message);
+				
+			}
+
+		
+
+
+		
+
+		
+
+	}
+	
+	
+	public void broadcastAuthors(final Message m) {
+		Actor principal;
+		String subject, body;
+		Date sentMoment;
+		Message saved;
+		
+
+		
+		
+		principal = this.actorService.findByPrincipal();
+		Assert.notNull(principal);
+		Assert.isTrue(this.actorService.checkAuthority(principal,
+				"ADMIN"));
+
+		Assert.notNull(m);
+
+		subject = m.getSubject();
+		body = m.getBody();
+		Map<String,String> topic = m.getTopic();
+		
+		
+		sentMoment = new Date(System.currentTimeMillis() - 1);
+		
+		Collection<Author> authors = this.authorService.findAll();
+		
+		for (Author a : authors) {
+			final Message message = new Message();
+			message.setSubject(subject);
+			message.setBody(body);
+			message.setSendMoment(sentMoment);
+			message.setTopic(topic);
+
+			message.setReceiver(a);
+			message.setSender(principal);
+			
+			saved = this.messageRepository.save(message);
+				
+			}
+
+		
+
+
+		
+
+		
+
+	}
 	
 	public Collection<Message> getAllByOwner(int id){
 		Collection<Message> result = this.messageRepository.getMessagesByOwner(id);

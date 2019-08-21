@@ -103,7 +103,21 @@ public class SubmissionAdminController extends AbstractController{
 		
 
 		
-		
+		@RequestMapping(value="/AutoAssignReviewer" , method = RequestMethod.GET)
+		public ModelAndView autoAssign(@RequestParam int conferenceId){
+			ModelAndView result;
+			
+			Collection<Submission> submissions = this.submissionService.getSubmissionToAssign(conferenceId);
+			
+			this.submissionService.autoAssignReviewers(submissions);
+			
+			result = new ModelAndView("redirect:/welcome/index.do");
+			
+			return result;
+			
+			
+			
+		}
 		
 		
 		

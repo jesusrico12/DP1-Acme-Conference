@@ -379,7 +379,7 @@ public class MessageController extends AbstractController {
 	result.addObject("message", messageError);
 	result.addObject("recipients", recipients);
 
-	result.addObject("topics", allEsp);
+	result.addObject("topics", topics);
 
 	return result;
 }

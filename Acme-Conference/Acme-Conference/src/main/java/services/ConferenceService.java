@@ -34,6 +34,9 @@ public class ConferenceService {
 	@Autowired
 	private SubmissionService submissionService;
 
+	
+	@Autowired
+	private MessageService messageService;
 
 	//Create
 
@@ -246,7 +249,13 @@ public class ConferenceService {
 			}
 		
 			this.submissionService.saveForce(s);
+			
+			this.messageService.notificateAuthors(s);
+			
+			
 		}
+		
+	
 	}
 	
 	public Collection<Conference> conferencesBetweenSubDeadlineNotifDeadline(){

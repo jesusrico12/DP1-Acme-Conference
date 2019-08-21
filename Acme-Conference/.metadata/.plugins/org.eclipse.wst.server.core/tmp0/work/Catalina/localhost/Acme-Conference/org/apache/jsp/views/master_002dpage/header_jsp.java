@@ -146,9 +146,7 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\tstyle=\"width: 20px; height: 15px;\"\n");
       out.write("\t\tsrc=\"http://www.ahb.es/m/100150RES.jpg\" alt=\"ES\"></a>\n");
       out.write("</div>\n");
-      if (_jspx_meth_security_005fauthorize_005f9(_jspx_page_context))
-        return;
-      out.write('\n');
+      out.write("\n");
     } catch (java.lang.Throwable t) {
       if (!(t instanceof javax.servlet.jsp.SkipPageException)){
         out = _jspx_out;
@@ -741,12 +739,9 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\t\t\t\t</ul>\n");
-      out.write("\t\t\t<li><a href=\"conference/list.do\">");
-      if (_jspx_meth_spring_005fmessage_005f22(_jspx_th_security_005fauthorize_005f5, _jspx_page_context))
-        return true;
-      out.write(" </a></li>\n");
+      out.write("\t\t\t\n");
       out.write("\t\t\t<li><a href=\"j_spring_security_logout\">");
-      if (_jspx_meth_spring_005fmessage_005f23(_jspx_th_security_005fauthorize_005f5, _jspx_page_context))
+      if (_jspx_meth_spring_005fmessage_005f22(_jspx_th_security_005fauthorize_005f5, _jspx_page_context))
         return true;
       out.write(" </a></li>\n");
       out.write("\t\t");
@@ -1139,7 +1134,7 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.springframework.web.servlet.tags.MessageTag _jspx_th_spring_005fmessage_005f22 = (org.springframework.web.servlet.tags.MessageTag) _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.get(org.springframework.web.servlet.tags.MessageTag.class);
     _jspx_th_spring_005fmessage_005f22.setPageContext(_jspx_page_context);
     _jspx_th_spring_005fmessage_005f22.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_security_005fauthorize_005f5);
-    // /views/master-page/header.jsp(156,36) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /views/master-page/header.jsp(157,42) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005fmessage_005f22.setCode("master.page.logout");
     int[] _jspx_push_body_count_spring_005fmessage_005f22 = new int[] { 0 };
     try {
@@ -1155,56 +1150,6 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_th_spring_005fmessage_005f22.doFinally();
       _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.reuse(_jspx_th_spring_005fmessage_005f22);
     }
-    return false;
-  }
-
-  private boolean _jspx_meth_spring_005fmessage_005f23(javax.servlet.jsp.tagext.JspTag _jspx_th_security_005fauthorize_005f5, javax.servlet.jsp.PageContext _jspx_page_context)
-          throws java.lang.Throwable {
-    javax.servlet.jsp.PageContext pageContext = _jspx_page_context;
-    javax.servlet.jsp.JspWriter out = _jspx_page_context.getOut();
-    //  spring:message
-    org.springframework.web.servlet.tags.MessageTag _jspx_th_spring_005fmessage_005f23 = (org.springframework.web.servlet.tags.MessageTag) _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.get(org.springframework.web.servlet.tags.MessageTag.class);
-    _jspx_th_spring_005fmessage_005f23.setPageContext(_jspx_page_context);
-    _jspx_th_spring_005fmessage_005f23.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_security_005fauthorize_005f5);
-    // /views/master-page/header.jsp(158,42) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_spring_005fmessage_005f23.setCode("master.page.logout");
-    int[] _jspx_push_body_count_spring_005fmessage_005f23 = new int[] { 0 };
-    try {
-      int _jspx_eval_spring_005fmessage_005f23 = _jspx_th_spring_005fmessage_005f23.doStartTag();
-      if (_jspx_th_spring_005fmessage_005f23.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-        return true;
-      }
-    } catch (java.lang.Throwable _jspx_exception) {
-      while (_jspx_push_body_count_spring_005fmessage_005f23[0]-- > 0)
-        out = _jspx_page_context.popBody();
-      _jspx_th_spring_005fmessage_005f23.doCatch(_jspx_exception);
-    } finally {
-      _jspx_th_spring_005fmessage_005f23.doFinally();
-      _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.reuse(_jspx_th_spring_005fmessage_005f23);
-    }
-    return false;
-  }
-
-  private boolean _jspx_meth_security_005fauthorize_005f9(javax.servlet.jsp.PageContext _jspx_page_context)
-          throws java.lang.Throwable {
-    javax.servlet.jsp.PageContext pageContext = _jspx_page_context;
-    javax.servlet.jsp.JspWriter out = _jspx_page_context.getOut();
-    //  security:authorize
-    org.springframework.security.taglibs.authz.JspAuthorizeTag _jspx_th_security_005fauthorize_005f9 = (org.springframework.security.taglibs.authz.JspAuthorizeTag) _005fjspx_005ftagPool_005fsecurity_005fauthorize_0026_005faccess.get(org.springframework.security.taglibs.authz.JspAuthorizeTag.class);
-    _jspx_th_security_005fauthorize_005f9.setPageContext(_jspx_page_context);
-    _jspx_th_security_005fauthorize_005f9.setParent(null);
-    // /views/master-page/header.jsp(174,0) name = access type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_security_005fauthorize_005f9.setAccess("isAuthenticated()");
-    int _jspx_eval_security_005fauthorize_005f9 = _jspx_th_security_005fauthorize_005f9.doStartTag();
-    if (_jspx_eval_security_005fauthorize_005f9 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      out.write('\n');
-      out.write('\n');
-    }
-    if (_jspx_th_security_005fauthorize_005f9.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _005fjspx_005ftagPool_005fsecurity_005fauthorize_0026_005faccess.reuse(_jspx_th_security_005fauthorize_005f9);
-      return true;
-    }
-    _005fjspx_005ftagPool_005fsecurity_005fauthorize_0026_005faccess.reuse(_jspx_th_security_005fauthorize_005f9);
     return false;
   }
 }

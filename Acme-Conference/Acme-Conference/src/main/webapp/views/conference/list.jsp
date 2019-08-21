@@ -753,7 +753,7 @@
 			</display:column>
 			
 			<display:column>
-				<a href="submission/administrator/autoAssignReviewer.do?conferenceId=${row.id}"> <spring:message
+				<a href="submission/administrator/AutoAssignReviewer.do?conferenceId=${row.id}"> <spring:message
 						code="conference.assign.reviewer" />
 				</a>
 

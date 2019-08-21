@@ -153,8 +153,7 @@
 
 
 				</ul>
-			<li><a href="conference/list.do"><spring:message
-						code="master.page.logout" /> </a></li>
+			
 			<li><a href="j_spring_security_logout"><spring:message
 						code="master.page.logout" /> </a></li>
 		</security:authorize>
@@ -171,6 +170,4 @@
 		style="width: 20px; height: 15px;"
 		src="http://www.ahb.es/m/100150RES.jpg" alt="ES"></a>
 </div>
-<security:authorize access="isAuthenticated()">
 
-</security:authorize>
