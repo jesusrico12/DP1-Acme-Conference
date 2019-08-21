@@ -56,8 +56,11 @@
 						<tr>
 			<td><strong> <spring:message code="presentation.attachments" />
 					:
-			</strong></td>
-			<td><img class="picture" src="<jstl:out value="${presentation.attachments}"/>" /></td>
+			</strong><td>
+			<jstl:forEach items="${presentation.attachments}" var="attachment">
+			<a href="${attachment}"><jstl:out value="${attachment}"></jstl:out></a>
+			</jstl:forEach>
+			</td>
 		</tr>
 			
 	
@@ -89,7 +92,8 @@
 			<td><strong> <spring:message code="presentation.paper.document" />
 					:
 			</strong></td>
-			<td><jstl:out value="${presentation.paper.document}"></jstl:out></td>
+	
+			<td><a href="${presentation.paper.document}"><jstl:out value="${presentation.paper.document}"></jstl:out></a></td>
 		</tr>
 		
 		

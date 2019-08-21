@@ -29,10 +29,14 @@
 			<td><jstl:out value="${section.summary}"></jstl:out></td>
 		</tr>
 						<tr>
-			<td><strong> <spring:message code="section.pictures" />
-					:
+			<td><strong> <spring:message code="section.pictures" />:
+					
 			</strong></td>
-			<td><img class="picture" src="<jstl:out value="${section.pictures}"/>" /></td>
+			<td>
+			<jstl:forEach items="${section.pictures}" var="picture">
+			<img class="picture" src="<jstl:out value="${picture}"/>" />
+			</jstl:forEach>
+			</td>
 		</tr>
 		
 

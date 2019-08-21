@@ -53,27 +53,27 @@
 
 </display:table>
       	<display:table pagesize="10" class="displaytag" name="conferencesFinals"
-			 id="row">
+			 id="row" requestURI="conference/finder.do">
 			 
 
 			<display:column titleKey="conference.total" >
 				<input type="button" value="<jstl:out value="${row.title}"/>"
 								onclick="redirect: location.href = 'conference/display.do?conferenceId=${row.id}';" />
 			</display:column>
-			<display:column titleKey="conference.acronym">
+			<display:column titleKey="conference.acronym" sortable="true">
 				<jstl:out value="${row.acronym}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.venue">
+			<display:column titleKey="conference.venue" sortable="true">
 				<jstl:out value="${row.venue}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.startDate">
+			<display:column titleKey="conference.startDate" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.startDate}" />
 			</display:column>
 
-			<display:column titleKey="conference.endDate">
+			<display:column titleKey="conference.endDate" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.endDate}" />
 

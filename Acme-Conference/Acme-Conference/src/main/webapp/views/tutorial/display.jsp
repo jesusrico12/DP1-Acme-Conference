@@ -56,8 +56,11 @@
 						<tr>
 			<td><strong> <spring:message code="tutorial.attachments" />
 					:
-			</strong></td>
-			<td><img class="picture" src="<jstl:out value="${tutorial.attachments}"/>" /></td>
+			</strong>			<td>
+			<jstl:forEach items="${tutorial.attachments}" var="attachment">
+			<a href="${attachment}"><jstl:out value="${attachment}"></jstl:out></a>
+			</jstl:forEach>
+			</td>
 		</tr>
 		
 

@@ -82,7 +82,7 @@
 	<br/>
 	<acme:textbox code="reviewer.email" path="email" />
 	<br/>
-	<acme:textbox code="reviewer.picture" path="photo" />
+	<acme:textbox code="reviewer.picture" path="photo" placeholder='picture.url'/>
 	<br/>
 	<acme:textbox code="reviewer.phoneNumber" path="phoneNumber" />
 	<br/>

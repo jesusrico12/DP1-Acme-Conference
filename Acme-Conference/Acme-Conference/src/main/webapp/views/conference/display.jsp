@@ -357,15 +357,15 @@
 	</table>
 <jstl:if test="${isPresentation == true}">
 	<display:table pagesize="10" class="displaytag" name="presentations"
-			 id="row" >
+			 id="row" requestURI="conference/display.do?conferenceId=${conference.id}">
 			 	<display:column titleKey="presentation.display"  >
 				<input type="button" value="<jstl:out value="${row.title}"/>"
 								onclick="redirect: location.href = 'presentation/display.do?presentationId=${row.id}';" />
 			</display:column>
-			<display:column titleKey="presentation.room"  >
+			<display:column titleKey="presentation.room"  sortable="true" >
 					<jstl:out value="${row.room}" />
 				</display:column>
-				<display:column titleKey="presentation.startMoment"  >
+				<display:column titleKey="presentation.startMoment"   sortable="true" >
 					<jstl:out value="${row.startMoment}" />
 				</display:column>
 			 
@@ -374,15 +374,15 @@
 <jstl:if test="${isPanel == true}">
 <table class="displayStyle">
 		<display:table pagesize="10" class="displaytag" name="panels"
-			 id="row">
+			 id="row" requestURI="conference/display.do?conferenceId=${conference.id}">
 			 	<display:column titleKey="panel.display"  >
 				<input type="button" value="<jstl:out value="${row.title}"/>"
 								onclick="redirect: location.href = 'panel/display.do?panelId=${row.id}';" />
 			</display:column>
-				<display:column titleKey="presentation.room"  >
+				<display:column titleKey="presentation.room"  sortable="true"  >
 					<jstl:out value="${row.room}" />
 				</display:column>
-				<display:column titleKey="presentation.startMoment"  >
+				<display:column titleKey="presentation.startMoment"  sortable="true"  >
 					<jstl:out value="${row.startMoment}" />
 				</display:column>
 			 
@@ -393,16 +393,16 @@
 <jstl:if test="${isTutorial == true}">
 	<table class="displayStyle">
 			<display:table pagesize="10" class="displaytag" name="tutorials"
-			 id="row">
+			 id="row" requestURI="conference/display.do?conferenceId=${conference.id}">
 			 
 			 	<display:column titleKey="tutorial.display"  >
 				<input type="button" value="<jstl:out value="${row.title}"/>"
 								onclick="redirect: location.href = 'tutorial/display.do?tutorialId=${row.id}';" />
 			</display:column>
-				<display:column titleKey="presentation.room"  >
+				<display:column titleKey="presentation.room"  sortable="true"  >
 					<jstl:out value="${row.room}" />
 				</display:column>
-				<display:column titleKey="presentation.startMoment"  >
+				<display:column titleKey="presentation.startMoment"   sortable="true" >
 					<jstl:out value="${row.startMoment}" />
 				</display:column>
 			 </display:table>

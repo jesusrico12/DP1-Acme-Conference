@@ -21,13 +21,13 @@
 
 
 
-			<display:column titleKey="submission.ticker">
+			<display:column titleKey="submission.ticker" sortable="true">
 				<jstl:out value="${row.ticker}"></jstl:out>
 			</display:column>
 
 		
 
-			<display:column titleKey="submission.madeMoment">
+			<display:column titleKey="submission.madeMoment" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.madeMoment}" />
 			</display:column>
@@ -57,7 +57,7 @@
 
 
 
-			<display:column titleKey="report.decision">
+			<display:column titleKey="report.decision" sortable="true" >
 				<jstl:out value="${row.decision}"></jstl:out>
 			</display:column>
 

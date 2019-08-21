@@ -73,7 +73,8 @@
 				
 		<input type="button" name="back"
 			value="<spring:message code="report.back" />"
-			onclick="window.history.back()" />
+			onclick="redirect: location.href = 'report/list.do';" />
+			
 	</form:form>
 </security:authorize>
 

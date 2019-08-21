@@ -41,7 +41,7 @@
 			<td><strong> <spring:message code="paper.document" />
 					:
 			</strong></td>
-			<td><jstl:out value="${paper.document}"></jstl:out></td>
+			<td><a href=" ${paper.document}"><jstl:out value="${paper.document}"></jstl:out></a></td>
 		</tr>
 
 		

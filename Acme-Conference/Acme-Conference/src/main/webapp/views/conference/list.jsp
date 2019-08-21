@@ -23,12 +23,12 @@
 
 
 		<display:table pagesize="10" class="displaytag" name="forthcoming"
-			requestURI="conference/list.do" id="row">
+			requestURI="conference/list.do" id="row" >
 
 
 
-			<display:column titleKey="conference.title">
-				<jstl:out value="${row.title}"></jstl:out>
+			<display:column titleKey="conference.title" >
+				<jstl:out value="${row.title}" ></jstl:out>
 			</display:column>
 
 			<display:column titleKey="conference.acronym">

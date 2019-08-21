@@ -21,22 +21,22 @@
 
 
 
-			<display:column titleKey="conference.title">
+			<display:column titleKey="conference.title" sortable="true">
 				<jstl:out value="${row.title}"></jstl:out>
 			</display:column>
 
 		
 
-			<display:column titleKey="conference.startDate">
+			<display:column titleKey="conference.startDate" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.startDate}" />
 			</display:column>
-			<display:column titleKey="conference.endDate">
+			<display:column titleKey="conference.endDate" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.endDate}" />
 			</display:column>
 			
-			<display:column titleKey="conference.fee">
+			<display:column titleKey="conference.fee" sortable="true">
 				<jstl:out value="${row.fee}"></jstl:out>
 			</display:column>
 			
@@ -64,13 +64,13 @@
 
 
 
-			<display:column titleKey="conference.title">
+			<display:column titleKey="conference.title" sortable="true">
 				<jstl:out value="${row.conference.title}"></jstl:out>
 			</display:column>
-	<display:column titleKey="registration.number">
+	<display:column titleKey="registration.number" sortable="true">
 				<jstl:out value="${row.creditCard.number}"></jstl:out>
 			</display:column>
-				<display:column titleKey="registration.make">
+				<display:column titleKey="registration.make" sortable="true">
 				<jstl:out value="${row.creditCard.make}"></jstl:out>
 			</display:column>
 		

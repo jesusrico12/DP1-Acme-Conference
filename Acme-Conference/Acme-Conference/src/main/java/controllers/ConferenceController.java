@@ -2,7 +2,9 @@ package controllers;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Set;
 
 import javax.validation.Valid;
 
@@ -69,13 +71,13 @@ public class ConferenceController extends AbstractController{
 			isTimeToDecisionMaking=true;
 			
 		}
-		result.addObject("isTimeToDecisionMaking",isTimeToDecisionMaking);
+	 	result.addObject("isTimeToDecisionMaking",isTimeToDecisionMaking);
 		if(!activities.isEmpty()){
 			result.addObject("activities", activities);
 			isActivity = true;
-			Collection<Activity> panels= new ArrayList<Activity>();
-			Collection<Activity> pres= new ArrayList<Activity>();
-			Collection<Activity> tuts= new ArrayList<Activity>();
+			Set<Activity>  panels= new HashSet<Activity>();
+			Set<Activity>  pres= new HashSet<Activity>();
+			Set<Activity>  tuts= new HashSet<Activity>();
 			for(Activity i: activities){
 			if(i instanceof Panel){
 				panels.add(i);

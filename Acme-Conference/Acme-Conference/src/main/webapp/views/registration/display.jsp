@@ -63,4 +63,8 @@
 
 </table>
 
+	<input type="button" name="back"
+			value="<spring:message code="registration.back" />"
+			onclick="redirect: location.href = 'registration/list.do';" />
+
 </security:authorize>

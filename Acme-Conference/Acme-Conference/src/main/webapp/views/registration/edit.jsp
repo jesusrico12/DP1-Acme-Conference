@@ -81,9 +81,9 @@
 		<input type="submit" name="save"
 			value="<spring:message code="resgitration.save"/>" />&nbsp;
 				
-		<input type="button" name="back"
+	<input type="button" name="back"
 			value="<spring:message code="registration.back" />"
-			onclick="window.history.back()" />
+			onclick="redirect: location.href = 'registration/list.do';" />
 	</form:form>
 </security:authorize>
 
