@@ -12,12 +12,16 @@
 
 <jstl:if test="${possible == true && mensaje.id==0 && (!broadcast)}">
 	<jstl:if test="${(mensaje.id == 0) && (!broadcast)}">
-		<form:form action="message/actor/edit.do" modelAttribute="mensaje">
+		<form:form action="message/actor/edit.do" modelAttribute="mensaje" method="POST">
 
 			<form:hidden path="id" />
 			<form:hidden path="version" />
 			<form:hidden path="sendMoment" />
 			<form:hidden path="sender" />
+
+
+
+
 
 			<form:label path="receiver">
 				<spring:message code="message.receiver.userAccount" />:
@@ -42,21 +46,41 @@
 			<br>
 			<br>
 			
-			<jstl:out value="${allEsp}"></jstl:out>
+			<form:label path="topic">
+			<spring:message code="message.topic" /> :
+	</form:label>
+	
 			<jstl:if test="${language==español}">
-
-			
-			</jstl:if>
-
-			<jstl:if test="${language==english}">
-
-				<form:select path="topic" style="width:400px;">
-					<jstl:forEach var="x" items="${topics}">
-						<form:options value="${x.get('English')}" />
+	<form:select path="topic" style="width:400px;" name="topic" id="topic" >
+					<jstl:forEach var="x" items="${allEsp}">
+						<form:option value="${x}" label="${x}" name="topic" id="topic" />
 					</jstl:forEach>
 
 				</form:select>
+
+				<form:errors cssClass="error" path="topic" />
+				<br />
+				<br />
+
+
 			</jstl:if>
+			
+		<jstl:if test="${language==english}">
+	<form:select path="topic" style="width:400px;" name="topic" id="topic" >
+					<jstl:forEach var="x" items="${allEn}">
+						<form:option value="${x}" label="${x}" name="topic" id="topic" />
+					</jstl:forEach>
+
+				</form:select>
+
+				<form:errors cssClass="error" path="topic" />
+				<br />
+				<br />
+
+
+			</jstl:if>
+
+
 
 
 			<jstl:if test="${mensaje.id == 0}">

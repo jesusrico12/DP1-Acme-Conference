@@ -1,6 +1,7 @@
 package services;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
@@ -13,6 +14,7 @@ import org.springframework.util.Assert;
 import repositories.SubmissionRepository;
 import domain.Author;
 import domain.Conference;
+import domain.Reviewer;
 import domain.Submission;
 
 @Transactional
@@ -36,6 +38,9 @@ public class SubmissionService {
 	
 	@Autowired
 	private UtilityService utilityService;
+	
+	@Autowired
+	private ReviewerService reviewerService;
 
 	//CRUD Methods ----------------
 
@@ -47,10 +52,9 @@ public class SubmissionService {
 		
 		result.setMadeMoment(new Date(System.currentTimeMillis()-1));
 		result.setStatus("UNDER-REVIEW");
-		result.setToReview(false);
+		result.setToReview(true);
 		result.setAuthor(principal);
 		result.setConference(new Conference());
-		result.setToReview(false);
 		result.setTicker(this.utilityService.getTicker());
 		
 		return result;
@@ -81,6 +85,32 @@ public class SubmissionService {
 
 		return submission;
 
+	}
+	
+	public void autoAssignReviewers(Collection<Submission> submissions){
+		Collection<Reviewer> reviewers = this.reviewerService.findAll();
+		
+		
+		for(Submission s : submissions){
+			
+			if(s.getReviewers().size() == 2){
+				break;
+			}
+			for(Reviewer r : reviewers){
+				Collection<String> keyWords = new ArrayList<String>();
+				
+				keyWords = r.getKeywords();
+				
+				for(String key : keyWords){
+					if(s.getConference().getTitle().contains(key) || 
+							s.getConference().getSummary().contains(key)){
+						s.getReviewers().add(r);
+					}
+				}
+				
+				
+			}
+		}
 	}
 	
 
@@ -157,6 +187,12 @@ public class SubmissionService {
 	public Submission isSubUnique(String res){
 		
 		return this.submissionRepository.isSubUnique(res);
+	}
+	
+	public Collection<Submission> getSubmissionToAssign(int conferenceId){
+		Collection<Submission> result = this.submissionRepository.getSubmissionToAssign(conferenceId);
+		
+		return result;
 	}
 
 }

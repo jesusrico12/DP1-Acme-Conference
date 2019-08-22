@@ -257,18 +257,18 @@ public class MessageController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
-	public ModelAndView save(@Valid Message mensaje, final BindingResult binding) {
+	public ModelAndView save(@RequestParam(required=false) String topic,@Valid Message mensaje, final BindingResult binding) {
 		ModelAndView result;
 		
-
+		this.messageService.topicsFound(topic, mensaje);
 		
 
-		if (binding.hasErrors())
-			result = this.createEditModelAndView(mensaje);
+		if (binding.hasErrors()&& mensaje.getTopic()==null)
+			result = this.createEditModelAndView(mensaje,null);
 		else
 			try {
 				this.messageService.save(mensaje);
-				result = new ModelAndView("redirect:/messagebox/list.do");
+				result = new ModelAndView("redirect:/message/list.do");
 			} catch (final Throwable oops) {
 				result = this.createEditModelAndView(mensaje,
 						"message.commit.error");
@@ -292,7 +292,7 @@ public class MessageController extends AbstractController {
 		else
 			try {
 				this.messageService.delete(mensaje);
-				result = new ModelAndView("redirect:/messagebox/list.do");
+				result = new ModelAndView("redirect:/message/list.do");
 
 			} catch (final Throwable oops) {
 				result = this.createEditModelAndView(mensaje,
@@ -366,7 +366,11 @@ public class MessageController extends AbstractController {
 	for(String s : topicEsParsed){
 		allEsp.add(s);
 	}
+	Collection<String> allEn = new ArrayList<String>();
 	
+	for(String s : topics.get("English").split(",")){
+		allEn.add(s);
+	}
 	result = new ModelAndView("message/edit");
 	result.addObject("sentMoment", sentMoment);
 	
@@ -378,8 +382,9 @@ public class MessageController extends AbstractController {
 	result.addObject("broadcast", false);
 	result.addObject("message", messageError);
 	result.addObject("recipients", recipients);
-
-	result.addObject("topics", allEsp);
+	result.addObject("allEsp",allEsp);
+	result.addObject("allEn",allEn);
+	result.addObject("topics", topics);
 
 	return result;
 }

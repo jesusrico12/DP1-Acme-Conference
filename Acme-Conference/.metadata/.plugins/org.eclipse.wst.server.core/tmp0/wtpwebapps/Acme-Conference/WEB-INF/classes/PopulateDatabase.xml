@@ -390,7 +390,7 @@
 		<property name="summary"
 			value="Este año se conmemora el 50 aniversario del inicio de  los estudios de Biología en España." />
 		<property name="fee" value="15.00" />
-		<property name="isDraft" value="true" />
+		<property name="isDraft" value="false" />
 		<property name="durationDays" value="3" />
 		<property name="administrator" ref="administrator1" />
 		<property name="activities">
@@ -445,7 +445,7 @@
 				<value>Mario Rico</value>
 			</list>
 		</property>
-		<property name="startMoment" value="2019/01/15 15:32:14" />
+		<property name="startMoment" value="2020/01/15 15:32:14" />
 		<property name="duration" value="100" />
 
 		<property name="room" value="Aula Magna" />
@@ -519,7 +519,7 @@
 
 
 	<bean id="submission3" class="domain.Submission">
-		<property name="ticker" value="AL-1F3E" />
+		<property name="ticker" value="CRC-1F3E" />
 		<property name="madeMoment" value="2019/11/05 05:32:14" />
 		<property name="status" value="ACCEPTED" />
 		<property name="toReview" value="true" />

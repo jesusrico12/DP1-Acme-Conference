@@ -64,11 +64,7 @@ the corresponding initial is “X”*/
 		
 		String C=principal.getSurname().trim().substring(0, 1);
 		
-		res=A+B+C+this.randomString();
-		
-		if(this.submissionService.isSubUnique(res)!=null){
-			this.getTicker();
-		}
+		res=A+B+C+"-"+this.randomString();
 		
 		
 		return res;

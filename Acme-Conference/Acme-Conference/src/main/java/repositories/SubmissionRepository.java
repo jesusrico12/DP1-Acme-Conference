@@ -52,6 +52,9 @@ JpaRepository<Submission, Integer>{
 	@Query("select s from Submission s where s.ticker like '?1'")
 	Submission isSubUnique(String res);
 	
+	@Query("select s from Submission s where s.conference.id = ?1 and s.status = 'UNDER-REVIEW'")
+	Collection<Submission> getSubmissionToAssign(int conferenceId);
+	
 }
 
 

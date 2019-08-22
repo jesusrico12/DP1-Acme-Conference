@@ -81,7 +81,7 @@
 	<br/>
 	<acme:textbox code="administrator.email" path="email" />
 	<br/>
-	<acme:textbox code="administrator.picture" path="photo" />
+	<acme:textbox code="administrator.picture" path="photo" placeholder='picture.url' />
 	<br/>
 	<acme:textbox code="administrator.phoneNumber" path="phoneNumber" />
 	<br/>
