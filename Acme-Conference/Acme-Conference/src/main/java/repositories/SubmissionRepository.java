@@ -47,7 +47,7 @@ JpaRepository<Submission, Integer>{
 	@Query("select s from Submission s join s.conference c where c.notificationDeadline > CURRENT_DATE and c.submissionDeadline < CURRENT_DATE and s.conference.id = ?1")
 	Collection<Submission> submissionsPerConferenceDecisionMaking(int conferenceId);
 	
-	@Query("select s from Submission s join s.conference  c join s.reports r where c.notificationDeadline > CURRENT_DATE and c.submissionDeadline < CURRENT_DATE and  r.id= ?1")
+	@Query("select s from Submission s join s.conference  c join s.reports r where c.notificationDeadline > CURRENT_DATE and c.submissionDeadline < CURRENT_DATE and  r.id= ?1 and s.toAuthor = 0")
 	Submission reportTimeToComment(int reportId);
 	@Query("select s from Submission s where s.ticker like '?1'")
 	Submission isSubUnique(String res);
@@ -55,6 +55,12 @@ JpaRepository<Submission, Integer>{
 	@Query("select s from Submission s where s.conference.id = ?1 and s.status = 'UNDER-REVIEW'")
 	Collection<Submission> getSubmissionToAssign(int conferenceId);
 	
+	@Query("select s from Submission s where s.toAuthor = 1 and s.author.id=?1")
+	Collection<Submission> submissionsToAuthor(int authorId);
+	
+	
+	@Query("select s from Submission s join s.reports r where s.toAuthor = 1 and r.id= ?1 and s.author.id= ?2")
+	Submission SubDisplayReportAuthor(int  reportId,int authorId);
 }
 
 

@@ -16,11 +16,15 @@
 	</definition>
 	
 	<definition name="report/list" extends="master.page">
-		<put-attribute name="title" value="Reports" />
+		<put-attribute name="title" value="Informes" />
 		<put-attribute name="body" value="/views/report/list.jsp" />
 	</definition>
 	
-
+	<definition name="report/toAuthor" extends="master.page">
+		<put-attribute name="title" value="Informes" />
+		<put-attribute name="body" value="/views/report/toAuthor.jsp" />
+	</definition>
+	
 	
 	<definition name="report/display" extends="master.page">
 		<put-attribute name="title" value="Mostrar informe" />

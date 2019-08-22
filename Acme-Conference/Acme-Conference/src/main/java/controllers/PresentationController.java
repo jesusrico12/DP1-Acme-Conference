@@ -2,6 +2,7 @@ package controllers;
 
 import javax.validation.Valid;
 
+import org.aspectj.weaver.patterns.ThisOrTargetAnnotationPointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
@@ -58,7 +59,7 @@ public class PresentationController extends AbstractController {
 		result = this.createEditModelAndView(presentation,c);
 		
 		result.addObject("conferenceId", this.conferenceService.findOne(conferenceId));
-		result.addObject("papers", this.paperService.paperReadys());
+		result.addObject("papers", this.paperService.paperReadys(conferenceId));
 		return result;
 
 
@@ -72,7 +73,7 @@ public class PresentationController extends AbstractController {
 		Assert.notNull(presentation);
 		c=this.conferenceService.ConferenceOwn(presentationId);
 		result = this.createEditModelAndView(presentation,c);
-		result.addObject("papers", this.paperService.paperReadys());
+		result.addObject("papers", this.paperService.paperReadys(c.getId()));
 
 		return result;
 	}
@@ -160,7 +161,7 @@ public class PresentationController extends AbstractController {
 		result.addObject("presentation", presentation);
 		result.addObject("conference", c);
 		result.addObject("message", messageCode);
-		result.addObject("papers", this.paperService.paperReadys());
+		result.addObject("papers", this.paperService.paperReadys(c.getId()));
 
 		return result;
 	}

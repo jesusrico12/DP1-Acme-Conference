@@ -97,6 +97,7 @@
 								<li><a href="registration/list.do"><spring:message
 								code="master.page.registration.list" /></a></li>
 								
+								
 	
 				</ul></li>
 
@@ -139,6 +140,8 @@
 
 						<li><a href="author/edit.do"><spring:message
 									code="master.page.actor.edit" /></a></li>
+									<li><a href="report/list.do"><spring:message
+								code="master.page.report.list" /></a></li>
 
 					</security:authorize>
 					<security:authorize access="hasRole('REVIEWER')">

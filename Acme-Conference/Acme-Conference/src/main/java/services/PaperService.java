@@ -62,8 +62,8 @@ public class PaperService {
 		return result;
 	}
 	
-	public Collection<Paper> paperReadys(){
-		Collection<Paper> res= this.paperRepository.paperReadys();
+	public Collection<Paper> paperReadys(int conferenceId){
+		Collection<Paper> res= this.paperRepository.paperReadys(conferenceId);
 		return res;
 	}
 }

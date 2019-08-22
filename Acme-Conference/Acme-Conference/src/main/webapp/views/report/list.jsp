@@ -32,17 +32,15 @@
 					value="${row.madeMoment}" />
 			</display:column>
 
-			<!-- poner display de momento pongo create para probar 
-			<display:column>
-				<a href="submission/display.do?submissionId=${row.id}"> <spring:message
-						code="submission.display" />
+				<display:column>
+				<a href="submission/author/display.do?submissionId=${row.id}" > <spring:message
+						code="submission.s" />
 				</a>
 
 			</display:column>
-			-->
 				<display:column>
 				<a href="report/create.do?submissionId=${row.id}"> <spring:message
-						code="submission.display" />
+						code="submission.do" />
 				</a>
 
 			</display:column>
@@ -76,5 +74,41 @@
 	
 
 </security:authorize>
-	
+	<security:authorize access="hasRole('AUTHOR')">
 
+			<h3> <spring:message
+						code="submission.reports.do" /></h3>
+		<display:table pagesize="10" class="displaytag" name="submissionsToAuthor"
+			requestURI="report/list.do" id="row">
+
+
+
+			<display:column titleKey="submission.ticker" sortable="true">
+				<jstl:out value="${row.ticker}"></jstl:out>
+			</display:column>
+
+		
+
+			<display:column titleKey="submission.madeMoment" sortable="true">
+				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
+					value="${row.madeMoment}" />
+			</display:column>
+
+		
+			<display:column>
+				<a href="submission/author/display.do?submissionId=${row.id}"> <spring:message
+						code="submission.display" />
+				</a>
+
+			</display:column>
+			
+			<display:column>
+				<a href="report/toAuthor.do?submissionId=${row.id}"> <spring:message
+						code="submission.toAuthor" />
+				</a>
+
+			</display:column>
+		
+</display:table>
+	
+</security:authorize>

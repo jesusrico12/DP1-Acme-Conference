@@ -523,7 +523,8 @@
 		<property name="madeMoment" value="2019/11/05 05:32:14" />
 		<property name="status" value="ACCEPTED" />
 		<property name="toReview" value="true" />
-
+		
+		<property name="toAuthor" value="true" />
 		<property name="paper" ref="paper3" />
 
 		<property name="author" ref="author3" />
@@ -559,7 +560,7 @@
 		<property name="madeMoment" value="2019/12/05 05:32:14" />
 		<property name="status" value="UNDER-REVIEW" />
 		<property name="toReview" value="false" />
-
+		<property name="toAuthor" value="false" />
 		<property name="paper" ref="paper1" />
 
 		<property name="author" ref="author1" />
@@ -592,7 +593,7 @@
 		<property name="madeMoment" value="2019/12/04 05:32:14" />
 		<property name="status" value="UNDER-REVIEW" />
 		<property name="toReview" value="false" />
-
+		<property name="toAuthor" value="false" />
 		<property name="paper" ref="paper2" />
 
 		<property name="author" ref="author2" />
