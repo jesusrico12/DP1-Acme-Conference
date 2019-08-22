@@ -86,7 +86,7 @@
 
 	<input type="button" name="back"
 		value="<spring:message code="tutorial.back" />"
-		onclick="window.history.back()" />
+		onclick="redirect: location.href = 'conference/display.do?conferenceId=${conference.id}';" />
 		<input type="button" value="<spring:message code="section.create"	/>"
 			onclick="redirect: location.href = 'section/create.do?tutorialId=${tutorial.id}';" />
 

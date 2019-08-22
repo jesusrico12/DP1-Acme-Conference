@@ -111,6 +111,6 @@
 
 	<input type="button" name="back"
 		value="<spring:message code="presentation.back" />"
-		onclick="window.history.back()" />
+		onclick="redirect: location.href = 'conference/display.do?conferenceId=${conference.id}';" />
 
 

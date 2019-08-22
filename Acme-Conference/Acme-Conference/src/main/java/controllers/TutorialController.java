@@ -39,6 +39,7 @@ public class TutorialController extends AbstractController {
 		result = new ModelAndView("tutorial/display");
 		result.addObject("tutorial",tutorial );
 		result.addObject("sections",tutorial.getSections());
+		result.addObject("conference",this.conferenceService.ConferenceOwn(tutorialId));
 
 		return result;
 	}

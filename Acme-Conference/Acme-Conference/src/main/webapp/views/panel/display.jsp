@@ -77,7 +77,7 @@
 
 	<input type="button" name="back"
 		value="<spring:message code="panel.back" />"
-		onclick="window.history.back()" />
+		onclick="redirect: location.href = 'conference/display.do?conferenceId=${conference.id}';" />
 
 
 

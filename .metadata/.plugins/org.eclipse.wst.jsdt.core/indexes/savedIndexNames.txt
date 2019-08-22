@@ -1,6 +1,5 @@
 INDEX VERSION 1.122+C:\Documents and Settings\Student\Desktop\SEPTIEMBRE\DP1-Acme-Conference\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
 8012051.index
-3462847650.index
 307964989.index
 3897164923.index
 2395025497.index

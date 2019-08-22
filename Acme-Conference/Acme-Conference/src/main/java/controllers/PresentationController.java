@@ -43,7 +43,7 @@ public class PresentationController extends AbstractController {
 		Presentation presentation=this.presentationService.findOne(presentationId);
 		result = new ModelAndView("presentation/display");
 		result.addObject("presentation",presentation );
-
+		result.addObject("conference",this.conferenceService.ConferenceOwn(presentationId));
 		return result;
 	}
 	//Create

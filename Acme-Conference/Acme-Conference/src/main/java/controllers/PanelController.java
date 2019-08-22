@@ -43,7 +43,7 @@ public class PanelController extends AbstractController {
 		Panel panel=this.panelService.findOne(panelId);
 		result = new ModelAndView("panel/display");
 		result.addObject("panel",panel );
-
+		result.addObject("conference",this.conferenceService.ConferenceOwn(panelId));
 		return result;
 	}
 	//Create
