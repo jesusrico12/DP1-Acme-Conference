@@ -237,7 +237,12 @@ public class MessageService {
 		
 		message.setSubject("Your submission have been :" + submission.getStatus());
 		message.setBody("Your submission have been :" + submission.getStatus());
+		Map<String,String> topic = new HashMap<String,String>();
 		
+		topic.put("Español", "OTRO");
+		topic.put("English", "OTHER");
+		
+		message.setTopic(topic);
 		
 		message.setReceiver(submission.getAuthor());
 		
@@ -372,7 +377,8 @@ public class MessageService {
 			if(pos!=-1){
 			
 				Map<String,String> t =new HashMap<String,String>();
-				t.put(topic, listaEn.get(pos));
+				t.put("Español", topic);
+				t.put("English", listaEn.get(pos));
 				mensaje.setTopic(t);
 				}
 			}
@@ -383,7 +389,8 @@ public class MessageService {
 			if(pos!=-1){
 			
 				Map<String,String> t =new HashMap<String,String>();
-				t.put(listaEs.get(pos), topic);
+				t.put("Español", listaEs.get(pos));
+				t.put("English", topic);				
 				mensaje.setTopic(t);
 				}
 			}

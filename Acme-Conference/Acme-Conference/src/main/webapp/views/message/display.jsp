@@ -23,7 +23,7 @@
 <jstl:out value="${message0.sender.userAccount.username}" />
 <br />
 
-<b><spring:message code="message.actor.recipient" />: </b>
+<b><spring:message code="message.actor.receiver" />: </b>
 <jstl:out value="${message0.receiver.userAccount.username}" />
 <br />
 

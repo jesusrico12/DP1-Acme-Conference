@@ -11,7 +11,7 @@
 
 
 <jstl:if test="${possible == true && mensaje.id==0 && (!broadcast)}">
-	<jstl:if test="${(mensaje.id == 0) && (!broadcast)}">
+
 		<form:form action="message/actor/edit.do" modelAttribute="mensaje" method="POST">
 
 			<form:hidden path="id" />
@@ -97,8 +97,6 @@
 			<br />
 		</form:form>
 	</jstl:if>
-</jstl:if>
-
 
 
 

@@ -13,7 +13,7 @@
 <security:authorize access="isAuthenticated()">
 	<jstl:if test="${isAll == true}">
 
-		<spring:message code="all.title" var="all" />
+		<spring:message code="all.messages.title" var="all" />
 
 		<h3>
 			<jstl:out value="${all}"></jstl:out>
@@ -30,9 +30,13 @@
 			</display:column>
 
 			<jstl:if test="${language==español }">
+
+
 				<display:column titleKey="message.topic">
 					<jstl:out value="${row.topic.get('Español')}"></jstl:out>
 				</display:column>
+
+
 			</jstl:if>
 
 			<jstl:if test="${language==english}">
@@ -45,6 +49,13 @@
 			<display:column>
 				<a href="message/actor/display.do?messageId=${row.id}"> <spring:message
 						code="message.display" />
+				</a>
+
+			</display:column>
+			
+			<display:column>
+				<a href="message/actor/delete.do?messageId=${row.id}"> <spring:message
+						code="message.delete" />
 				</a>
 
 			</display:column>

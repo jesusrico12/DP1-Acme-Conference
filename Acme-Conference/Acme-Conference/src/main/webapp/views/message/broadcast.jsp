@@ -7,15 +7,20 @@
 <%@taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
+<%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
-<security:authorize access="hasRole('ADMINISTRATOR')">
+<security:authorize access="hasRole('ADMIN')">
 	<jstl:if test="${(mensaje.id == 0) && (possible) && (broadcast)}">
 
 		<h3>Broadcast Message</h3>
-		<form:form action="message/administrator/broadcast.do"
+		<form:form action="message/actor/broadcast.do"
 			modelAttribute="mensaje">
 
 			<form:hidden path="id" />
+			<form:hidden path="version" />
+			<form:hidden path="sendMoment" />
+			<form:hidden path="sender" />
+			<form:hidden path="receiver" />
 
 			<form:label path="subject">
 				<spring:message code="message.subject" />:
@@ -34,25 +39,49 @@
 			<br>
 
 
-
-			<form:label path="priority">
-				<spring:message code="message.priority" />:
+			<form:label path="topic">
+				<spring:message code="message.topic" /> :
 	</form:label>
-			<form:select path="priority" >
-				<form:options items="${priorities}" />
-			</form:select>
-			<form:errors cssClass="error" path="priority" />
-			<br />
-			<br />
-			
+
+			<jstl:if test="${language==español}">
+				<form:select path="topic" style="width:400px;" name="topic"
+					id="topic">
+					<jstl:forEach var="x" items="${allEsp}">
+						<form:option value="${x}" label="${x}" name="topic" id="topic" />
+					</jstl:forEach>
+
+				</form:select>
+
+				<form:errors cssClass="error" path="topic" />
+				<br />
+				<br />
+
+
+			</jstl:if>
+
+			<jstl:if test="${language==english}">
+				<form:select path="topic" style="width:400px;" name="topic"
+					id="topic">
+					<jstl:forEach var="x" items="${allEn}">
+						<form:option value="${x}" label="${x}" name="topic" id="topic" />
+					</jstl:forEach>
+
+				</form:select>
+
+				<form:errors cssClass="error" path="topic" />
+				<br />
+				<br />
+
+
+			</jstl:if>
+
+
 
 			<input type="submit" name="save"
 				value="<spring:message code="message.broadcast"/>" />&nbsp;
 		
 
-			<input type="button" name="cancel"
-				value="<spring:message code="message.cancel" />"
-				onclick="javascript: relativeRedir('/box/actor/list.do');" />
+			<acme:cancel code="message.cancel" url="message/actor/list.do" />
 
 			<br />
 
