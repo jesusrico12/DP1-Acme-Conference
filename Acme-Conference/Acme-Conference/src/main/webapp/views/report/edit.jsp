@@ -21,7 +21,7 @@
 		<form:label path="originalityScore">
 			<spring:message code="report.originalityScore" /> :
 	</form:label>
-		<form:input path="originalityScore" />
+		<form:input path="originalityScore"  step="0.1" type="number" />
 		<form:errors cssClass="error" path="originalityScore" />
 		<br />
 		<br />
@@ -29,7 +29,7 @@
 		<form:label path="qualityScore">
 			<spring:message code="report.qualityScore" /> :
 	</form:label>
-		<form:input path="qualityScore" />
+		<form:input path="qualityScore"  step="0.1" type="number"/>
 		<form:errors cssClass="error" path="qualityScore" />
 		<br />
 		<br />
@@ -38,7 +38,7 @@
 		<form:label path="readabilityScore">
 			<spring:message code="report.readabilityScore" /> :
 	</form:label>
-		<form:input path="readabilityScore" />
+		<form:input path="readabilityScore" step="0.1" type="number"/>
 		<form:errors cssClass="error" path="readabilityScore" />
 		<br />
 		<br />

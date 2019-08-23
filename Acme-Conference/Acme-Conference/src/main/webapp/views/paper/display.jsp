@@ -51,18 +51,18 @@
 			<td><strong> <spring:message code="paper.authors" />
 					:
 			</strong></td>
+			<td>
+		
 
-			<jstl:forEach items="${paper.authors}" var="x">
-
-				<td><jstl:out value="${x}"></jstl:out></td>
-			</jstl:forEach>
-
+				<jstl:out value="${paper.authors}"></jstl:out>
+			
+			</td>
 		</tr>
 
 	</table>
 
 	<input type="button" name="back"
-		value="<spring:message code="paper.back" />"
+		value="<spring:message code="paper.b" />"
 		onclick="window.history.back()" />
 
 

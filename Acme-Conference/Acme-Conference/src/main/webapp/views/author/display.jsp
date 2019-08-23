@@ -67,8 +67,7 @@
 			</div>
 
 			<div style="float: right;">
-				<img style="width: 200px; height: 200px" src="${author.photo}"
-					alt="User photo">
+				<img class="picture"   src="${author.photo}">
 			</div>
 
 		</fieldset>

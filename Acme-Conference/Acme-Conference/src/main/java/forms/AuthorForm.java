@@ -84,6 +84,7 @@ public class AuthorForm {
 		}
 
 		@SafeHtml(whitelistType = WhiteListType.NONE)
+		@NotBlank
 		public String getSurname() {
 			return surname;
 		}

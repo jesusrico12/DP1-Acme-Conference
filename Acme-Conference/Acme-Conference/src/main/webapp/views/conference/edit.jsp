@@ -95,7 +95,7 @@
 		<form:label path="fee">
 			<spring:message code="conference.fee" /> :
 	</form:label>
-		<form:input path="fee" min="0" />
+		<form:input path="fee" min="0" placeholder="10.0" step="0.1" type="number"/>
 		<form:errors cssClass="error" path="fee" />
 		<br />
 		<br />

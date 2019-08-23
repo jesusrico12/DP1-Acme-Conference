@@ -138,6 +138,7 @@ public class Conference extends DomainEntity{
 		this.summary = summary;
 	}
 	@Range(min=0,message="Min. 0.0")
+	@NotNull
 	public Double getFee() {
 		return fee;
 	}

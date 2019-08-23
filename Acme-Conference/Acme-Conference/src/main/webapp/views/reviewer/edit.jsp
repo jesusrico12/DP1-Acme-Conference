@@ -88,7 +88,7 @@
 	<br/>
 	<acme:textbox code="reviewer.address" path="address" />
 	<br/>
-	<acme:textarea code="reviewer.keywords" path="keywords" />
+	<acme:textbox code="reviewer.keywords" path="keywords" placeholder='placeholder.keywords' />
 	<br/>
 
 

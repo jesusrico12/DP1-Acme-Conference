@@ -44,18 +44,18 @@
 
 
 		<acme:submit code="section.save" name="save" />&nbsp;
-		<jstl:if test="${section.id != 0 }">
+		
 		<acme:cancel
 			url="tutorial/display.do?tutorialId=${tutorial.id }"
 			code="section.cancel" />
-</jstl:if>
-		
+
 		<jstl:if test="${section.id != 0 }">
 			<input type="submit" name="delete"
 				value="<spring:message code="section.delete"/>" />
 
 		</jstl:if>
 	</form:form>
+	
 </security:authorize>
 
 

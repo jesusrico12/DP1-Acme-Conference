@@ -46,7 +46,7 @@
 		<form:label path="duration">
 			<spring:message code="presentation.duration" /> :
 	</form:label>
-		<form:input path="duration" />
+		<form:input path="duration" step="1" type="number"/>
 		<form:errors cssClass="error" path="duration" />
 		<br />
 		<br />

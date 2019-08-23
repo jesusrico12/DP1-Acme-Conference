@@ -20,7 +20,7 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <div>
-	<a href="#"><img src="${banner}" alt="Acme-Rookie Co., Inc."
+	<a href="#"><img src="${banner}" alt="Acme-Conference Co., Inc."
 		style="margin-bottom: 0.5em;" /></a>
 </div>
 

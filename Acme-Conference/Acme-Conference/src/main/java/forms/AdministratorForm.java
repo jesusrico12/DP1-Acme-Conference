@@ -92,6 +92,7 @@ public class AdministratorForm {
 	}
 
 	@SafeHtml(whitelistType = WhiteListType.NONE)
+	@NotBlank
 	public String getSurname() {
 		return surname;
 	}

@@ -51,7 +51,7 @@
 	</form:label>
 	
 			<jstl:if test="${language==español}">
-	<form:select path="topic" style="width:400px;" name="topic" id="topic" >
+	<form:select multiple="false" path="topic" style="width:400px;" name="topic" id="topic" >
 					<jstl:forEach var="x" items="${allEsp}">
 						<form:option value="${x}" label="${x}" name="topic" id="topic" />
 					</jstl:forEach>
@@ -66,7 +66,7 @@
 			</jstl:if>
 			
 		<jstl:if test="${language==english}">
-	<form:select path="topic" style="width:400px;" name="topic" id="topic" >
+	<form:select multiple="false" path="topic" style="width:400px;" name="topic" id="topic" >
 					<jstl:forEach var="x" items="${allEn}">
 						<form:option value="${x}" label="${x}" name="topic" id="topic" />
 					</jstl:forEach>

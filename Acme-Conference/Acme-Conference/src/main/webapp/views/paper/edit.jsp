@@ -7,7 +7,7 @@
 <%@taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
-
+<%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <security:authorize access="hasRole('AUTHOR')">
 	<jstl:if test="${paper.id == 0}">
@@ -26,13 +26,9 @@
 			<br />
 			<br />
 
-			<form:label path="authors">
-				<spring:message code="paper.authors" /> :
-	</form:label>
-			<form:input path="authors" />
-			<form:errors cssClass="error" path="authors" />
-			<br />
-			<br />
+	<acme:textbox code="paper.authors" path="authors" placeholder='sub.authors' />
+	
+	<br />
 
 			<form:label path="summary">
 				<spring:message code="paper.summary" /> :
@@ -42,14 +38,9 @@
 			<br />
 			<br />
 
-			<form:label path="document">
-				<spring:message code="paper.document" /> :
-	</form:label>
-			<form:input path="document" />
-			<form:errors cssClass="error" path="document" />
+		<acme:textbox code="paper.document" path="document" placeholder='sub.document' />
+	<br />
 			<br />
-			<br />
-
 			<input type="submit" name="save"
 				value="<spring:message code="paper.save"/>" />&nbsp;
 	
@@ -81,14 +72,9 @@
 			<br />
 			<br />
 
-			<form:label path="authors">
-				<spring:message code="paper.authors" /> :
-	</form:label>
-			<form:input path="authors" />
-			<form:errors cssClass="error" path="authors" />
-			<br />
-			<br />
 
+			<acme:textbox code="paper.authors" path="authors" placeholder='sub.authors' />
+		<br />
 			<form:label path="summary">
 				<spring:message code="paper.summary" /> :
 	</form:label>
@@ -97,14 +83,11 @@
 			<br />
 			<br />
 
-			<form:label path="document">
-				<spring:message code="paper.document" /> :
-	</form:label>
-			<form:input path="document" />
-			<form:errors cssClass="error" path="document" />
-			<br />
-			<br />
 
+			
+	<acme:textbox code="paper.document" path="document" placeholder='sub.document' />
+		<br />
+			<br />
 			<input type="submit" name="save"
 				value="<spring:message code="paper.save"/>" />&nbsp;
 	

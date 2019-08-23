@@ -121,4 +121,6 @@
 	
 	</jstl:if>
 
-
+	<input type="button" name="back"
+			value="<spring:message code="report.back" />"
+			onclick="redirect: location.href = 'report/list.do';" />
