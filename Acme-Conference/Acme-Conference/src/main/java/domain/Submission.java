@@ -30,6 +30,7 @@ public class Submission extends DomainEntity{
 	private Date madeMoment;
 	private String status;
 	private Boolean toReview;
+	private Boolean toAuthor;
 	private Paper paper;
 	private Author author;
 	private Conference conference;
@@ -112,6 +113,13 @@ public class Submission extends DomainEntity{
 	}
 	public void setReports(Collection<Report> reports) {
 		this.reports = reports;
+	}
+	
+	public Boolean getToAuthor() {
+		return toAuthor;
+	}
+	public void setToAuthor(Boolean toAuthor) {
+		this.toAuthor = toAuthor;
 	}
 	
 	

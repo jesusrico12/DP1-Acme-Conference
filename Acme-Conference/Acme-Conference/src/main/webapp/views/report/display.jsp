@@ -74,3 +74,51 @@
 
 
 </security:authorize>
+	<jstl:if test="${permissionAuthor}">
+	
+	<table class="displayStyle">
+		<tr>
+			<td><strong> <spring:message code="report.decision" />
+					:
+			</strong></td>
+			<td><jstl:out value="${report.decision}"></jstl:out></td>
+		</tr>
+		<tr>
+			<td><strong> <spring:message code="report.originalityScore" />
+					:
+			</strong></td>
+			<td><jstl:out value="${report.originalityScore}"></jstl:out></td>
+		</tr>
+				<tr>
+			<td><strong> <spring:message code="report.qualityScore" />
+					:
+			</strong></td>
+			<td><jstl:out value="${report.qualityScore}"></jstl:out></td>
+		</tr>
+			<tr>
+			<td><strong> <spring:message code="report.readabilityScore" />
+					:
+			</strong></td>
+			<td><jstl:out value="${report.readabilityScore}"></jstl:out></td>
+		</tr>
+	
+		<jstl:forEach items="${report.comments}" var="comment">
+		
+		<tr>
+			<td><strong> <spring:message code="report.comment" />
+					:
+			</strong></td>
+			<td><jstl:out value="${comment}"></jstl:out></td>
+		</tr>
+		
+		</jstl:forEach>
+	
+
+
+
+		</table>
+		
+	
+	</jstl:if>
+
+

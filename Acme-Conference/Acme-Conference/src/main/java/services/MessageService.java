@@ -191,7 +191,7 @@ public class MessageService {
 		Message saved;
 		
 
-		
+
 		
 		principal = this.actorService.findByPrincipal();
 		Assert.notNull(principal);
@@ -246,7 +246,10 @@ public class MessageService {
 		
 		message.setReceiver(submission.getAuthor());
 		
+		
 		this.messageRepository.save(message);
+		submission.setToAuthor(true);
+		this.submissionService.saveForce(submission);
 		
 	}
 	

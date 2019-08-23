@@ -18,6 +18,7 @@
 		<form:hidden path="madeMoment" />
 		<form:hidden path="status" />
 		<form:hidden path="toReview" />
+		<form:hidden path="toAuthor" />
 		<form:hidden path="author" />
 		<form:hidden path="conference" />
 		<form:hidden path="reviewers" />

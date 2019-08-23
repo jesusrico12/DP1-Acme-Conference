@@ -12,8 +12,9 @@ import domain.Paper;
 @Repository
 public interface PaperRepository extends JpaRepository<Paper, Integer>{
 	
-	@Query("select p from Paper p where p.isCameraReady= '1'")
-	Collection<Paper> paperReadys();
+//	@Query("select p from Paper p where p.isCameraReady= '1'")
+	@Query("select s.paper from Submission s join s.conference c  where s.paper.isCameraReady = 1 and c.id= ?1")
+	Collection<Paper> paperReadys(int conferenceId);
 
 }
 

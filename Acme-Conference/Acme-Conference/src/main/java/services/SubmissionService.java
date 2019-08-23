@@ -56,6 +56,7 @@ public class SubmissionService {
 		result.setAuthor(principal);
 		result.setConference(new Conference());
 		result.setTicker(this.utilityService.getTicker());
+		result.setToAuthor(false);
 		
 		return result;
 	}
@@ -194,5 +195,12 @@ public class SubmissionService {
 		
 		return result;
 	}
-
+	public 	Collection<Submission> submissionsToAuthor(int authorId){
+		return this.submissionRepository.submissionsToAuthor(authorId);
+}
+	
+	
+	public Submission SubDisplayReportAuthor(int  reportId,int authorId){
+		return this.submissionRepository.SubDisplayReportAuthor(reportId, authorId);
+	}
 }
