@@ -758,6 +758,13 @@
 				</a>
 
 			</display:column>
+			
+			<display:column>
+				<a href="message/actor/broadcast.do?conferenceId=${row.id}"> <spring:message
+						code="broadcast.conference" />
+				</a>
+
+			</display:column>
 
 		</display:table>
 

@@ -13,7 +13,7 @@
 	<jstl:if test="${(mensaje.id == 0) && (possible) && (broadcast)}">
 
 		<h3>Broadcast Message</h3>
-		<form:form action="message/actor/broadcast.do"
+		<form:form action="message/actor/broadcast.do?conferenceId=${conferenceId}"
 			modelAttribute="mensaje">
 
 			<form:hidden path="id" />
@@ -80,7 +80,17 @@
 			<input type="submit" name="save"
 				value="<spring:message code="message.broadcast"/>" />&nbsp;
 		
-
+			<input type="submit" name="saveAuthorsSubmission"
+				value="<spring:message code="message.broadcast.authors.submission"/>" />&nbsp;
+			
+			
+			<input type="submit" name="saveAuthorsRegistration"
+				value="<spring:message code="message.broadcast.authors.registration"/>" />&nbsp;
+			
+			<input type="submit" name="saveAuthors"
+				value="<spring:message code="message.broadcast.authors"/>" />&nbsp;
+		
+		
 			<acme:cancel code="message.cancel" url="message/actor/list.do" />
 
 			<br />

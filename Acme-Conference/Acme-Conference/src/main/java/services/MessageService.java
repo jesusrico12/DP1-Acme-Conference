@@ -184,7 +184,7 @@ public class MessageService {
 	}
 
 	
-	public void broadcastAuthorsSubmission(final Message m) {
+	public void broadcastAuthorsSubmission(final Message m,Collection<Submission> submissions) {
 		Actor principal;
 		String subject, body;
 		Date sentMoment;
@@ -207,7 +207,7 @@ public class MessageService {
 		
 		sentMoment = new Date(System.currentTimeMillis() - 1);
 		
-		Collection<Submission> submissions = this.submissionService.findAll();
+	
 		
 		for (Submission s : submissions) {
 			final Message message = new Message();
@@ -254,7 +254,7 @@ public class MessageService {
 	}
 	
 
-	public void broadcastAuthorsRegistration(final Message m) {
+	public void broadcastAuthorsRegistration(final Message m,Collection<Registration> registrations) {
 		Actor principal;
 		String subject, body;
 		Date sentMoment;
@@ -277,8 +277,7 @@ public class MessageService {
 		
 		sentMoment = new Date(System.currentTimeMillis() - 1);
 		
-		Collection<Registration> registrations = this.registrationService.findAll();
-		
+	
 		for (Registration r : registrations) {
 			final Message message = new Message();
 			message.setSubject(subject);

@@ -16,6 +16,10 @@ import domain.Registration;;
 		
 		@Query("select r from Registration r where r.author.id= ?1")
 		Collection<Registration> registrationPerAuthor(int authorId);
+		
+		@Query("select r from Registration r where r.conference.id = ?1")
+		Collection<Registration> getRegistrationByConference(int conferenceId);
+		
 	}
 
 

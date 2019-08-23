@@ -203,4 +203,10 @@ public class SubmissionService {
 	public Submission SubDisplayReportAuthor(int  reportId,int authorId){
 		return this.submissionRepository.SubDisplayReportAuthor(reportId, authorId);
 	}
+	
+	public Collection<Submission> getSubmissionByConference(int id){
+		Collection<Submission> result = this.submissionRepository.getSubmissionsByConference(id);
+		
+		return result;
+	}
 }

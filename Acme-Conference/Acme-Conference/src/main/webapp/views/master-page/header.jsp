@@ -56,52 +56,67 @@
 				</ul></li>
 
 		</security:authorize>
-		
+
 		<li><a class="fNiv"><spring:message
-						code="master.page.conference" /></a>
-				<ul>
-					<li class="arrow"></li>
-					<li><a href="conference/list.do"><spring:message
-								code="master.page.conference.list" /></a></li>
-									<li><a href="conference/finder.do"><spring:message
-								code="master.page.conference.finder" /></a></li>
-								
-	
-				</ul></li>
+					code="master.page.conference" /></a>
+			<ul>
+				<li class="arrow"></li>
+				<li><a href="conference/list.do"><spring:message
+							code="master.page.conference.list" /></a></li>
+				<li><a href="conference/finder.do"><spring:message
+							code="master.page.conference.finder" /></a></li>
 
 
-		
-	<security:authorize access="hasRole('REVIEWER')">
-	<li><a class="fNiv"><spring:message
+			</ul></li>
+
+
+
+		<security:authorize access="hasRole('REVIEWER')">
+			<li><a class="fNiv"><spring:message
 						code="master.page.reports" /></a>
 				<ul>
 					<li class="arrow"></li>
-					
-							
-								<li><a href="report/list.do"><spring:message
+
+
+					<li><a href="report/list.do"><spring:message
 								code="master.page.report.list" /></a></li>
-								
-	
+
+
 				</ul></li>
 
 
 
 		</security:authorize>
-	<security:authorize access="hasRole('AUTHOR')">
-	<li><a class="fNiv"><spring:message
+		<security:authorize access="hasRole('AUTHOR')">
+			<li><a class="fNiv"><spring:message
 						code="master.page.registrations" /></a>
 				<ul>
 					<li class="arrow"></li>
-					
-							
-								<li><a href="registration/list.do"><spring:message
+
+
+					<li><a href="registration/list.do"><spring:message
 								code="master.page.registration.list" /></a></li>
-								
-								
-	
+
+
+
 				</ul></li>
 
+			<li><a class="fNiv"><spring:message
+						code="master.page.author.submissions" /></a>
+				<ul>
+					<li class="arrow"></li>
 
+
+					<li><a href="submission/author/list.do"><spring:message
+								code="master.page.author.submission.list" /></a></li>
+
+					<li class="arrow"></li>
+
+
+					<li><a href="submission/author/listUpload.do"><spring:message
+								code="master.page.author.submissions.upload" /></a></li>
+
+				</ul></li>
 
 		</security:authorize>
 		<security:authorize access="isAnonymous()">
@@ -140,8 +155,8 @@
 
 						<li><a href="author/edit.do"><spring:message
 									code="master.page.actor.edit" /></a></li>
-									<li><a href="report/list.do"><spring:message
-								code="master.page.report.list" /></a></li>
+						<li><a href="report/list.do"><spring:message
+									code="master.page.report.list" /></a></li>
 
 					</security:authorize>
 					<security:authorize access="hasRole('REVIEWER')">
@@ -153,10 +168,29 @@
 									code="master.page.actor.edit" /></a></li>
 
 					</security:authorize>
-
-
+					
+					
+				
 				</ul>
-			
+				
+				<li><a class="fNiv"><spring:message
+						code="master.page.message" /></a>
+				<ul>
+					<li class="arrow"></li>
+
+
+					<li><a href="message/actor/create.do"><spring:message
+								code="master.page.message.create" /></a></li>
+
+					<li class="arrow"></li>
+
+
+					<li><a href="message/actor/list.do"><spring:message
+								code="master.page.message.list" /></a></li>
+								
+
+				</ul></li>
+				
 			<li><a href="j_spring_security_logout"><spring:message
 						code="master.page.logout" /> </a></li>
 		</security:authorize>

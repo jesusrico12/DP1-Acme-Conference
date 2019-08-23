@@ -103,5 +103,10 @@ public class RegistrationService {
 	public Collection<Registration> registrationPerAuthor(int authorId){
 		return this.registrationRepository.registrationPerAuthor(authorId);
 	}
+	
+	public Collection<Registration> getRegistrationByConference(int id){
+		return this.registrationRepository.getRegistrationByConference(id);
+		
+	}
 }
 

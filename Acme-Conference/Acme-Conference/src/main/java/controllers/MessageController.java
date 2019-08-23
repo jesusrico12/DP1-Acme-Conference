@@ -3,7 +3,6 @@ package controllers;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
@@ -22,9 +21,13 @@ import org.springframework.web.servlet.ModelAndView;
 import security.Authority;
 import services.ActorService;
 import services.MessageService;
+import services.RegistrationService;
+import services.SubmissionService;
 import services.SystemConfigurationService;
 import domain.Actor;
 import domain.Message;
+import domain.Registration;
+import domain.Submission;
 import domain.SystemConfiguration;
 
 @Controller
@@ -42,6 +45,12 @@ public class MessageController extends AbstractController {
 
 	@Autowired
 	private Validator validator;
+	
+	@Autowired
+	private SubmissionService submissionService;
+	
+	@Autowired
+	private RegistrationService registrationService;
 
 	// Create
 	// ----------------------------------------------------------------------
@@ -310,7 +319,7 @@ public class MessageController extends AbstractController {
 
 
 	@RequestMapping(value = "/broadcast", method = RequestMethod.GET)
-	public ModelAndView broadcast(final Locale locale) {
+	public ModelAndView broadcast(@RequestParam int conferenceId,final Locale locale) {
 		final ModelAndView result;
 		Message mensaje;
 		
@@ -336,7 +345,7 @@ public class MessageController extends AbstractController {
 		result.addObject("español", español);
 		result.addObject("english", english);
 		result.addObject("broadcast", true);
-	
+		result.addObject("conferenceId", conferenceId);
 	
 		
 		return result;
@@ -348,7 +357,7 @@ public class MessageController extends AbstractController {
 			@Valid final Message mensaje,
 			final BindingResult binding) {
 		ModelAndView result;
-
+		
 		this.messageService.topicsFound(topic, mensaje);
 		
 		if (binding.hasErrors() && mensaje.getTopic()==null) {
@@ -356,6 +365,82 @@ public class MessageController extends AbstractController {
 		} else {
 			try {
 				this.messageService.broadcast(mensaje);
+				result = new ModelAndView("redirect:list.do");
+				
+				
+			} catch (final Throwable oops) {
+				result = this.createEditModelAndView(mensaje,
+						"message.commit.error");
+			}
+		}
+		return result;
+	}
+	
+	@RequestMapping(value = "/broadcast", method = RequestMethod.POST, params = "saveAuthorsSubmission")
+	public ModelAndView broadcastAuthorsSubmission(@RequestParam(required=false) String topic,@RequestParam int conferenceId,
+			@Valid final Message mensaje,
+			final BindingResult binding) {
+		ModelAndView result;
+		
+		this.messageService.topicsFound(topic, mensaje);
+		
+		Collection<Submission> submissions = this.submissionService.getSubmissionByConference(conferenceId);
+		
+		if (binding.hasErrors() && mensaje.getTopic()==null) {
+			result = this.createEditModelAndView(mensaje);
+		} else {
+			try {
+				this.messageService.broadcastAuthorsSubmission(mensaje,submissions);
+				result = new ModelAndView("redirect:list.do");
+				
+				
+			} catch (final Throwable oops) {
+				result = this.createEditModelAndView(mensaje,
+						"message.commit.error");
+			}
+		}
+		return result;
+	}
+	
+	@RequestMapping(value = "/broadcast", method = RequestMethod.POST, params = "saveAuthorsRegistration")
+	public ModelAndView broadcastAuthorsRegistration(@RequestParam(required=false) String topic,@RequestParam int conferenceId,
+			@Valid final Message mensaje,
+			final BindingResult binding) {
+		ModelAndView result;
+
+		this.messageService.topicsFound(topic, mensaje);
+		
+		Collection<Registration> registrations = this.registrationService.getRegistrationByConference(conferenceId);
+		
+		if (binding.hasErrors() && mensaje.getTopic()==null) {
+			result = this.createEditModelAndView(mensaje);
+		} else {
+			try {
+				this.messageService.broadcastAuthorsRegistration(mensaje,registrations);
+				result = new ModelAndView("redirect:list.do");
+				
+				
+			} catch (final Throwable oops) {
+				result = this.createEditModelAndView(mensaje,
+						"message.commit.error");
+			}
+		}
+		return result;
+	}
+	
+	@RequestMapping(value = "/broadcast", method = RequestMethod.POST, params = "saveAuthors")
+	public ModelAndView broadcastAuthors(@RequestParam(required=false) String topic,
+			@Valid final Message mensaje,
+			final BindingResult binding) {
+		ModelAndView result;
+
+		this.messageService.topicsFound(topic, mensaje);
+		
+		if (binding.hasErrors() && mensaje.getTopic()==null) {
+			result = this.createEditModelAndView(mensaje);
+		} else {
+			try {
+				this.messageService.broadcastAuthors(mensaje);
 				result = new ModelAndView("redirect:list.do");
 				
 				
