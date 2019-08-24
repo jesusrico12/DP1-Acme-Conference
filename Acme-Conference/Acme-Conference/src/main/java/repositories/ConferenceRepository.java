@@ -22,16 +22,16 @@ JpaRepository<Conference, Integer>{
 	@Query("select c from Conference c where (CURRENT_DATE between c.startDate and c.endDate) and (c.isDraft = false)")
 	Collection<Conference> getRunning();
 	
-	@Query("select c from Conference c where (datediff(c.submissionDeadline, CURRENT_DATE) <= 5) and (c.submissionDeadline <= CURRENT_DATE)")
+	@Query("select c from Conference c where DATEDIFF(CURRENT_DATE, c.submissionDeadline)< 5 and DATEDIFF(CURRENT_DATE, c.submissionDeadline) > 0")
 	Collection<Conference> getSubmissionLast5();
 	
-	@Query("select c from Conference c where (datediff(c.notificationDeadline, CURRENT_DATE) <= 5) and (c.submissionDeadline >= CURRENT_DATE)")
+	@Query("select c from Conference c where DATEDIFF(c.notificationDeadline, CURRENT_DATE) < 5 and DATEDIFF(CURRENT_DATE, c.notificationDeadline) < 0")
 	Collection<Conference> getNotificationLess5();
 	
-	@Query("select c from Conference c where (datediff(c.cameraReadyDeadline, CURRENT_DATE) <= 5) and (c.cameraReadyDeadline >= CURRENT_DATE)")
+	@Query("select c from Conference c where DATEDIFF(c.cameraReadyDeadline, CURRENT_DATE) < 5 and DATEDIFF(CURRENT_DATE, c.cameraReadyDeadline) < 0")
 	Collection<Conference> getCameraLess5();
 	
-	@Query("select c from Conference c where (datediff(c.startDate, CURRENT_DATE) <= 5) and (c.startDate >= CURRENT_DATE)")
+	@Query("select c from Conference c where DATEDIFF(c.startDate, CURRENT_DATE) < 5 and DATEDIFF(CURRENT_DATE, c.startDate) < 0 ")
 	Collection<Conference> getStartLess5();
 	
 
