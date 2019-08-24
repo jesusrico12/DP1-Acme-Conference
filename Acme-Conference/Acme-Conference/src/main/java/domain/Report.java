@@ -59,7 +59,7 @@ public class Report extends DomainEntity {
 		this.readabilityScore = readabilityScore;
 	}
 	@NotBlank
-	@Pattern(regexp = "\\b(RECJECT|ACCEPT|BORDER-LINE)\\b")
+	@Pattern(regexp = "\\b(REJECT|ACCEPT|BORDER-LINE)\\b")
 	public String getDecision() {
 		return decision;
 	}

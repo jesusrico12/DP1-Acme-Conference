@@ -237,7 +237,7 @@ public class ConferenceService {
 				
 				if(r.getDecision().toString().equals("ACCEPT")){
 					aceptado++;
-				}else if(r.getDecision().toString().equals("RECJECT")){
+				}else if(r.getDecision().toString().equals("REJECT")){
 					rechazado++;
 				}			
 				

@@ -169,7 +169,6 @@ public class Conference extends DomainEntity{
 		this.administrator = administrator;
 	}
 	@Valid
-	@ElementCollection
 	@OneToMany(orphanRemoval=true,fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	public Collection<Activity> getActivities() {
 		return activities;

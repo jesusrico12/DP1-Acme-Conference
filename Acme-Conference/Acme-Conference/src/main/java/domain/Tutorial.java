@@ -20,7 +20,6 @@ public class Tutorial extends Activity{
 
 
 	@Valid
-	@ElementCollection
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	public Collection<Section> getSections() {
 		return sections;

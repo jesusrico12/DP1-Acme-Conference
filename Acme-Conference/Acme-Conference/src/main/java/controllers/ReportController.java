@@ -59,7 +59,7 @@ public class ReportController extends AbstractController{
 		Assert.isTrue(this.actorService.checkAuthority(principal, "REVIEWER"));
 		Report report = this.reportService.create();
 		Collection<String> decisions=new ArrayList<String>();
-		decisions.add("RECJECT");
+		decisions.add("REJECT");
 		decisions.add("ACCEPT");
 		decisions.add("BORDER-LINE");
 		result = this.createEditModelAndView(report);

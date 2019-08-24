@@ -97,7 +97,6 @@ public class Submission extends DomainEntity{
 		this.conference = conference;
 	}
 	@Valid
-	@ElementCollection
 	@ManyToMany
 	public Collection<Reviewer> getReviewers() {
 		return reviewers;
@@ -106,7 +105,6 @@ public class Submission extends DomainEntity{
 		this.reviewers = reviewers;
 	}
 	@Valid
-	@ElementCollection
 	@OneToMany
 	public Collection<Report> getReports() {
 		return reports;
