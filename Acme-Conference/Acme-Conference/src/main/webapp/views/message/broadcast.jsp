@@ -14,7 +14,7 @@
 
 		<h3>Broadcast Message</h3>
 		<form:form action="message/actor/broadcast.do?conferenceId=${conferenceId}"
-			modelAttribute="mensaje">
+			modelAttribute="mensaje" method="POST">
 
 			<form:hidden path="id" />
 			<form:hidden path="version" />

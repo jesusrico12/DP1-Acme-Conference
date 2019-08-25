@@ -8,7 +8,7 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
-
+<jstl:set var="localeCode" value="${pageContext.response.locale}"/>
 
 <jstl:if test="${possible == true && mensaje.id==0 && (!broadcast)}">
 
@@ -49,10 +49,11 @@
 			<form:label path="topic">
 			<spring:message code="message.topic" /> :
 	</form:label>
-	
-			<jstl:if test="${language==español}">
-	<form:select multiple="false" path="topic" style="width:400px;" name="topic" id="topic" >
+
+				<jstl:if test="${localeCode == 'es'}">
+	<form:select multiple="false" path="topic" style="width:400px;" name="topic" id="topic"  >
 					<jstl:forEach var="x" items="${allEsp}">
+					
 						<form:option value="${x}" label="${x}" name="topic" id="topic" />
 					</jstl:forEach>
 
@@ -65,7 +66,7 @@
 
 			</jstl:if>
 			
-		<jstl:if test="${language==english}">
+		<jstl:if test="${localeCode == 'en'}">
 	<form:select multiple="false" path="topic" style="width:400px;" name="topic" id="topic" >
 					<jstl:forEach var="x" items="${allEn}">
 						<form:option value="${x}" label="${x}" name="topic" id="topic" />

@@ -275,9 +275,10 @@ public class MessageController extends AbstractController {
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@RequestParam(required=false) String topic,@Valid Message mensaje, final BindingResult binding) {
 		ModelAndView result;
-
+		try{
+		Assert.isTrue(topic.split(",").length>0,"topic.error");
 		this.messageService.topicsFound(topic, mensaje);
-
+	
 
 		if (binding.hasErrors()&& mensaje.getTopic()==null)
 			result = this.createEditModelAndView(mensaje,null);
@@ -291,6 +292,12 @@ public class MessageController extends AbstractController {
 				result = this.createEditModelAndView(mensaje,
 						"message.commit.error");
 			}
+		
+		}catch(final Throwable oops){
+			result = this.createEditModelAndView(mensaje,
+					oops.getMessage());
+		}
+		
 		return result;
 
 	}
