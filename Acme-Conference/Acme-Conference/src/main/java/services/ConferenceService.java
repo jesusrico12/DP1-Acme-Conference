@@ -187,8 +187,8 @@ public class ConferenceService {
 		
 		return result;
 	}
-	public 	Conference ConferenceOwn(int panelId){
-		Conference cof=this.conferenceRepository.ConferenceOwn(panelId);
+	public 	Conference ConferenceOwn(int activityId){
+		Conference cof=this.conferenceRepository.ConferenceOwn(activityId);
 		return cof;
 	}
 

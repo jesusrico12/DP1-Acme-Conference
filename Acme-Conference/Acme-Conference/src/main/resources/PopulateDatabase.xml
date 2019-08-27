@@ -420,8 +420,7 @@
 		<property name="activities">
 
 			<list>
-				<ref bean="panel1" />
-				<ref bean="tutorial1" />
+				
 			</list>
 
 		</property>
@@ -447,7 +446,7 @@
 		<property name="activities">
 
 			<list>
-		<ref bean="panel2" />
+		
 			</list>
 
 		</property>
@@ -560,112 +559,7 @@
 
 	</bean>
 
-	<!-- TUTORIAL -->
-
-
-	<bean id="tutorial1" class="domain.Tutorial">
-		<property name="title" value="Plantas" />
-		<property name="speakers">
-
-			<list>
-				<value>Antonio Lago</value>
-				<value>Antonio Rico</value>
-				<value>Mario Rico</value>
-			</list>
-		</property>
-		<property name="startMoment" value="2020/01/15 15:32:14" />
-		<property name="duration" value="100" />
-
-		<property name="room" value="Aula Magna" />
-		<property name="summary" value="Cloroplastos" />
-		<property name="attachments">
-
-			<list>
-
-				<value>https://www.dropbox.com/h?preview=iaGFD"dwthd.jpg</value>
-			</list>
-		</property>
-		<property name="sections">
-			<list>
-				<ref bean="section1" />
-				<ref bean="section2" />
-			</list>
-		</property>
-	</bean>
-	<!-- SECTIONS -->
-
-	<bean id="section1" class="domain.Section">
-		<property name="title" value="Savia bruta" />
-		<property name="summary"
-			value=" El transporte de esta savia se produce desde las raíces de la planta hasta las hojas por los tubos leñosos. En el siglo XX ha existido una gran controversia acerca del mecanismo de transporte de la savia bruta en la planta" />
-		<property name="pictures">
-
-			<list>
-				<value>https://www.dropbox.com/h?preview=ia243432dhd.jpg</value>
-				<value>https://www.dropbox.com/h?preview=wrerw2.jpg</value>
-			</list>
-		</property>
-	</bean>
-	<bean id="section2" class="domain.Section">
-		<property name="title" value="Composición Hojas" />
-		<property name="summary"
-			value="La savia elaborada es transportada por el floema de forma basípeta (desde su lugar de formación, hojas y tallos verdes, hacia la raíz) y está compuesta principalmente por agua, azúcares, fitorreguladores y minerales disueltos" />
-		<property name="pictures">
-
-			<list>
-				<value>https://www.dropbox.com/h?preview=ia243432dhd.jpg</value>
-				<value>https://www.dropbox.com/h?preview=wrerw2.jpg</value>
-			</list>
-		</property>
-	</bean>
-	<!-- PANEL -->
-	<bean id="panel1" class="domain.Panel">
-		<property name="title" value="Conferencia Bilogía" />
-		<property name="speakers">
-
-			<list>
-				<value>Antonio</value>
-			</list>
-		</property>
-		<property name="startMoment" value="2020/01/15 05:32:14" />
-		<property name="duration" value="30" />
-
-		<property name="room" value="Aula Magna" />
-		<property name="summary" value="Fotosíntesis" />
-		<property name="attachments">
-
-			<list>
-				<value>https://www.dropbox.com/h?preview=iadhd.jpg</value>
-				<value>https://www.dropbox.com/h?preview=iadwthd.jpg</value>
-			</list>
-		</property>
-
-
-	</bean>
-	<bean id="panel2" class="domain.Panel">
-		<property name="title" value="Conferencia SW" />
-		<property name="speakers">
-
-			<list>
-				<value>Jesús Sánchez</value>
-				<value>Antonio Sánchez</value>
-			</list>
-		</property>
-		<property name="startMoment" value="2018/01/16 05:32:14" />
-		<property name="duration" value="60" />
-
-		<property name="room" value="Aula Magna" />
-		<property name="summary" value="ITIL y Metodologías ágiles" />
-		<property name="attachments">
-
-			<list>
-				<value>https://www.dropbox.com/h?preview=1238d.jpg</value>
-				<value>https://www.dropbox.com/h?preview=12sahd.jpg</value>
-			</list>
-		</property>
-
-
-	</bean>
+	
 	<!-- SUBMISSION -->
 
 

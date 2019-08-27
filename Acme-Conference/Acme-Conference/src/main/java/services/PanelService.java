@@ -3,6 +3,9 @@ package services;
 import java.util.Collection;
 import java.util.Date;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -44,9 +47,10 @@ public class PanelService {
 	
 	public Panel save(Panel panel,Conference conference){
 	
-		
-			
-			Panel copy=new Panel();
+			Actor principal=this.actorService.findByPrincipal();
+			Assert.isTrue(conference.getAdministrator()==principal,"commit.error");
+			 	
+			//Panel copy=new Panel();
 			Date currentMoment;
 			Assert.isTrue(panel.getStartMoment().before(conference.getEndDate())&&panel.getStartMoment().after(conference.getStartDate()),"date.error");
 			currentMoment = new Date(System.currentTimeMillis() - 1);
@@ -55,44 +59,49 @@ public class PanelService {
 				Assert.isTrue(i.startsWith("https://www.dropbox.com")||i.startsWith("https://www.flickr.com"),"url.error");
 			}
 			}
-			Actor principal = this.actorService.findByPrincipal();
+			
 			Assert.isTrue(this.actorService.checkAuthority(principal, "ADMIN"),
 					"not.allowed");
 			Assert.isTrue(panel.getStartMoment().after(currentMoment),"invalid.date");
 			
 			if(panel.getId()!=0){
-				copy=this.findOne(panel.getId());
-				copy.setAttachments(panel.getAttachments());
-				copy.setRoom(panel.getRoom());
-				copy.setSpeakers(panel.getSpeakers());
-				copy.setStartMoment(panel.getStartMoment());
-
-				copy.setSummary(panel.getSummary());
-				copy.setTitle(panel.getTitle());
-				copy.setDuration(panel.getDuration());
-				
-				this.panelRepository.save(copy);
+//				copy=this.findOne(panel.getId());
+//				copy.setAttachments(panel.getAttachments());
+//				copy.setRoom(panel.getRoom());
+//				copy.setSpeakers(panel.getSpeakers());
+//				copy.setStartMoment(panel.getStartMoment());
+//
+//				copy.setSummary(panel.getSummary());
+//				copy.setTitle(panel.getTitle());
+//				copy.setDuration(panel.getDuration());
+				Assert.isTrue(this.findOne(panel.getId())!=null,"commit.error");
+				this.panelRepository.save(panel);
 				
 			}else{
 				
-				copy.setAttachments(panel.getAttachments());
-				copy.setRoom(panel.getRoom());
-				copy.setSpeakers(panel.getSpeakers());
-				copy.setStartMoment(panel.getStartMoment());
-				copy.setSummary(panel.getSummary());
-				copy.setTitle(panel.getTitle());
-				copy.setDuration(panel.getDuration());
+//				copy.setAttachments(panel.getAttachments());
+//				copy.setRoom(panel.getRoom());
+//				copy.setSpeakers(panel.getSpeakers());
+//				copy.setStartMoment(panel.getStartMoment());
+//				copy.setSummary(panel.getSummary());
+//				copy.setTitle(panel.getTitle());
+//				copy.setDuration(panel.getDuration());
 				
-				//this.panelRepository.save(copy);
-				
-				conference.getActivities().add(copy);
+			
+				panel=this.panelRepository.save(panel);
+				Set<Activity> actis= new HashSet<Activity>();
+				for(Activity a :conference.getActivities()){
+					actis.add(a);
+				}
+				actis.add(panel);
+				conference.setActivities(actis);
 				
 				conferenceService.saveForce(conference);
 			}
 			
 			
 			
-			return copy;
+			return panel;
 
 		}
 
@@ -102,8 +111,12 @@ public class PanelService {
 			Actor principal = this.actorService.findByPrincipal();
 			Assert.isTrue(this.actorService.checkAuthority(principal, "ADMIN"),
 					"not.allowed");
+			Assert.isTrue(this.findOne(panel.getId())!=null,"commit.error");
 			
-			//conference.getActivities().remove(panel);
+			Assert.isTrue(conference.getAdministrator()==principal,"commit.error");
+
+			
+	
 			Collection<Activity> col= conference.getActivities();
 			col.remove(panel);
 			conference.setActivities(col);

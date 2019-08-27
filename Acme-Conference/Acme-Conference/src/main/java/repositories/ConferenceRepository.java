@@ -39,7 +39,7 @@ JpaRepository<Conference, Integer>{
 	Collection<Conference> getToMakeSubmission();
 
 	@Query("select c from Conference c join c.activities a where a.id= ?1")
-	Conference ConferenceOwn(int panelId);
+	Conference ConferenceOwn(int activityId);
 	@Query("select c from Conference c where c.isDraft = 0 and ( c.title like %?1% or c.venue like %?1% or c.summary like %?1% )")
 	Collection<Conference> conferencesFinder(String keyword);
 	
@@ -59,5 +59,7 @@ JpaRepository<Conference, Integer>{
 	
 	@Query("select c from Conference c where c.startDate > CURRENT_DATE")
 	Collection<Conference> conferencesNotStarted();
+	
+
 
 }

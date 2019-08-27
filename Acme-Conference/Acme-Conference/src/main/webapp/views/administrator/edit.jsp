@@ -95,6 +95,7 @@
 		<input type="submit" name="save"
 			value="<spring:message code="administrator.save" />"
 			onclick="if(!/^(\+[0-9]{1,3}[ ]{0,1}(\([0-9]{1,3}\)[ ]{0,1}){0,1}){0,1}[0-9]{1}[0-9 ]{3,}$/.test(document.getElementById('phoneNumber').value)) { return confirm('<spring:message code="administrator.confirm.phoneNumber" />')}" />
+	<acme:cancel code="message.cancel" url="welcome/index.do" />
 	</jstl:if>
 
 	<jstl:if test="${administratorForm.id == 0}">

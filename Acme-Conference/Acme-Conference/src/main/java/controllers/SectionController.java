@@ -11,9 +11,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import services.ActorService;
+import services.ConferenceService;
 import services.TutorialService;
 import services.SectionService;
 
+import domain.Actor;
 import domain.Tutorial;
 import domain.Section;
 @Controller
@@ -26,7 +29,11 @@ public class SectionController extends AbstractController{
 	@Autowired
 	private TutorialService tutorialService;
 
+	@Autowired
+	private ConferenceService conferenceService;
 	
+	@Autowired
+	private ActorService actorService;
 	
 	//DISPLAY
 	
@@ -45,6 +52,10 @@ public class SectionController extends AbstractController{
 	@RequestMapping(value = "section/create", method = RequestMethod.GET)
 	public ModelAndView create(@RequestParam final int tutorialId){
 		ModelAndView result;
+		try{
+			//SEGURIDAD
+		Actor principal=this.actorService.findByPrincipal();
+		Assert.isTrue(this.conferenceService.ConferenceOwn(tutorialId).getAdministrator()==principal,"commit.error");
 		Section section = this.sectionService.create();
 		Tutorial c=this.tutorialService.findOne(tutorialId);
 		
@@ -52,7 +63,9 @@ public class SectionController extends AbstractController{
 		result = this.createEditModelAndView(section,c);
 		
 		result.addObject("tutorialId", this.tutorialService.findOne(tutorialId));
-		
+		}catch(Throwable oops){
+			result = new ModelAndView("redirect:/welcome/index.do");
+		}
 		return result;
 
 
@@ -61,13 +74,20 @@ public class SectionController extends AbstractController{
 	@RequestMapping(value = "section/edit", method = RequestMethod.GET)
 	public ModelAndView edit(@RequestParam final int sectionId) {
 		ModelAndView result;
-		Section section;
+		
+		try{
+			Section section;
+		
 		Tutorial c;
+		Actor principal=this.actorService.findByPrincipal();
 		section = this.sectionService.findOne(sectionId);
 		Assert.notNull(section);
 		c=this.tutorialService.TutorialOwn(sectionId);
+		Assert.isTrue(this.conferenceService.ConferenceOwn(c.getId()).getAdministrator()==principal,"commit.error");
 		result = this.createEditModelAndView(section,c);
-		
+		}catch(Throwable oops){
+			result = new ModelAndView("redirect:/welcome/index.do");
+		}
 
 		return result;
 	}
@@ -85,12 +105,7 @@ public class SectionController extends AbstractController{
 		}else{
 		try {
 			
-			/*
-			if (section.getId() != 0) {
-				Assert.isTrue(c.getActivities()
-						.contains(section),"no.permission");
-				
-			}*/
+		
 	
 			this.sectionService.save(section,tutorial);
 			result = new ModelAndView("redirect:/tutorial/display.do?tutorialId="+tutorial.getId());
@@ -107,8 +122,6 @@ public class SectionController extends AbstractController{
 	public ModelAndView delete(final Section section, final BindingResult binding) {
 		ModelAndView result;
 		Tutorial tutorial;
-//		Administrator admin= this.administratorService.findByPrincipal();
-//		Assert.isTrue();
 
 		try {
 			tutorial = this.tutorialService.TutorialOwn(section.getId());

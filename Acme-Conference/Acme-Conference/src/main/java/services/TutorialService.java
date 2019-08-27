@@ -2,6 +2,8 @@ package services;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,11 +70,12 @@ public Tutorial save(Tutorial tutorial,Conference conference){
 	if(tutorial.getAttachments().size()>0){
 	for(String i : tutorial.getAttachments() ){
 		Assert.isTrue(i.startsWith("https://www.dropbox.com")||i.startsWith("https://www.flickr.com"),"url.error");
-	}
+	} 
 	}
 	Actor principal = this.actorService.findByPrincipal();
 	Assert.isTrue(this.actorService.checkAuthority(principal, "ADMIN"),
 			"not.allowed");
+	Assert.isTrue(conference.getAdministrator()==principal,"commit.error");
 	Assert.isTrue(tutorial.getStartMoment().after(currentMoment),"invalid.date");
 	Tutorial copy= new Tutorial();
 	if(tutorial.getId()!=0){
@@ -82,13 +85,13 @@ public Tutorial save(Tutorial tutorial,Conference conference){
 		copy.setSpeakers(tutorial.getSpeakers());
 		copy.setStartMoment(tutorial.getStartMoment());
 		Collection<Section> cols= tutorial.getSections();
-		
+		 
 		
 		copy.setSections(cols);
 		copy.setSummary(tutorial.getSummary());
 		copy.setTitle(tutorial.getTitle());
 		copy.setDuration(tutorial.getDuration());
-		
+		Assert.isTrue(this.findOne(tutorial.getId())!=null,"commit.error");
 		this.tutorialRepository.save(copy);
 		
 	}else{
@@ -103,8 +106,14 @@ public Tutorial save(Tutorial tutorial,Conference conference){
 		copy.setDuration(tutorial.getDuration());
 		
 
+		tutorial=this.tutorialRepository.save(copy);
+		Set<Activity> actis= new HashSet<Activity>();
+		for(Activity a :conference.getActivities()){
+			actis.add(a);
+		}
+		actis.add(tutorial);
 		
-		conference.getActivities().add(copy);
+		conference.setActivities(actis);
 		
 		conferenceService.saveForce(conference);
 	}
@@ -118,8 +127,12 @@ public void delete(Tutorial tutorial,Conference conference){
 	Actor principal = this.actorService.findByPrincipal();
 	Assert.isTrue(this.actorService.checkAuthority(principal, "ADMIN"),
 			"not.allowed");
+	Assert.isTrue(this.findOne(tutorial.getId())!=null,"commit.error");
 	
-	//conference.getActivities().remove(panel);
+	Assert.isTrue(conference.getAdministrator()==principal,"commit.error");
+
+	
+
 	Collection<Activity> col= conference.getActivities();
 	col.remove(tutorial);
 	conference.setActivities(col);

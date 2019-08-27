@@ -9,17 +9,21 @@ import java.util.Set;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.instrument.classloading.tomcat.TomcatLoadTimeWeaver;
+
+
 import org.springframework.stereotype.Controller;
+import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import services.ActorService;
 import services.ConferenceService;
 import domain.Activity;
+import domain.Actor;
 import domain.Administrator;
 import domain.Conference;
 import domain.Panel;
@@ -37,6 +41,8 @@ public class ConferenceController extends AbstractController{
 
 	@Autowired
 	private ActorService actorService;
+	
+
 
 
 	//Create
@@ -58,6 +64,19 @@ public class ConferenceController extends AbstractController{
 	public ModelAndView display(@RequestParam int conferenceId){
 		ModelAndView result;
 		Conference conference = this.conferenceService.findOne(conferenceId);
+
+		boolean permission=false;
+		boolean Autheticated=true;
+		try{
+		Actor principal=this.actorService.findByPrincipal();
+		if(this.conferenceService.findOne(conferenceId).getAdministrator()==principal){
+			permission=true;
+		
+		}
+		}catch(Throwable oops){
+			Autheticated=false;
+		}
+
 		boolean isActivity = false;
 		boolean isPanel=false;
 		boolean isTutorial=false;
@@ -101,7 +120,8 @@ public class ConferenceController extends AbstractController{
 		
 		result.addObject("conference", conference);
 		result.addObject("isActivity", isActivity);
-		
+		result.addObject("permission",permission);
+		result.addObject("Autheticated",Autheticated);
 		return result;
 		
 	}
