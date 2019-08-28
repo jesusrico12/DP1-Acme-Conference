@@ -1,6 +1,8 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import domain.Actor;
 import domain.Conference;
 
 import domain.Registration;
@@ -67,9 +70,17 @@ public class RegistrationController  extends AbstractController {
 
 		
 		result = new ModelAndView("registration/list");
-
-
-		result.addObject("conferencesNotStarted",this.conferenceService.conferencesNotStarted());
+		
+		
+		List<Conference> conferencesNotStarted= new ArrayList<Conference>();
+		for(Conference c:this.conferenceService.conferencesNotStarted()){
+			if(!this.registrationService.conferencesInRegistration((this.actorService.findByPrincipal().getId())).contains(c)){
+				conferencesNotStarted.add(c);
+			}
+			
+		}
+		
+		result.addObject("conferencesNotStarted",conferencesNotStarted);
 		result.addObject("registrationsPerAuthor",this.registrationService.registrationPerAuthor(this.actorService.findByPrincipal().getId()));
 		
 		return result;

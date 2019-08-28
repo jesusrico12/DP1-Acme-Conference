@@ -108,5 +108,9 @@ public class RegistrationService {
 		return this.registrationRepository.getRegistrationByConference(id);
 		
 	}
+	
+	public Collection<Conference> conferencesInRegistration(int authorId){
+		return this.registrationRepository.conferencesInRegistration(authorId);
+	}
 }
 

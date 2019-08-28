@@ -64,7 +64,7 @@ public class SubmissionService {
 	public Submission save(Submission submission){
 
 		Author principal = (Author) this.actorService.findByPrincipal();
-
+		Submission result;
 
 		if(submission.getId() != 0){
 
@@ -82,9 +82,9 @@ public class SubmissionService {
 		}
 
 
-		this.submissionRepository.saveAndFlush(submission);
+		result=this.submissionRepository.saveAndFlush(submission);
 
-		return submission;
+		return result;
 
 	}
 

@@ -1,5 +1,4 @@
 INDEX VERSION 1.122+C:\Documents and Settings\Student\Desktop\SEPTIEMBRE\DP1-Acme-Conference\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-8012051.index
 3462847650.index
 307964989.index
 3897164923.index
@@ -12,12 +11,9 @@ INDEX VERSION 1.122+C:\Documents and Settings\Student\Desktop\SEPTIEMBRE\DP1-Acm
 1443707241.index
 2011739646.index
 323436631.index
-1794094402.index
 2030550112.index
 2979247128.index
-553639033.index
 2905398087.index
-3601028658.index
 1791487771.index
 2606696167.index
 2948822621.index
