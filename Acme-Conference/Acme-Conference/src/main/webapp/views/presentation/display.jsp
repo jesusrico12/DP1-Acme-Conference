@@ -100,12 +100,14 @@
 	</table>
 
 <security:authorize access="hasRole('ADMIN')">
+<jstl:if test="${permission}">
 	<tr><td>
 		<input type="button" name="edit"
 			value="<spring:message code="presentation.edit"	/>"
 			onclick="redirect: location.href = 'presentation/edit.do?presentationId=${presentation.id}';" />
 </td>
 </tr>
+</jstl:if>
 
 </security:authorize>
 

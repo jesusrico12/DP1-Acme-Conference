@@ -39,12 +39,24 @@ public class TutorialController extends AbstractController {
 	@RequestMapping(value = "tutorial/display", method = RequestMethod.GET)
 	public ModelAndView display(@RequestParam int tutorialId) {
 		ModelAndView result;
+		boolean permission=false;
+		
 		Tutorial tutorial=this.tutorialService.findOne(tutorialId);
+		try{
+			Actor principal=this.actorService.findByPrincipal();
+			if(this.conferenceService.ConferenceOwn(tutorial.getId()).getAdministrator()==principal){
+				permission=true;
+			
+			}
+			}catch(Throwable oops){
+				
+			}
+		
 		result = new ModelAndView("tutorial/display");
 		result.addObject("tutorial",tutorial );
 		result.addObject("sections",tutorial.getSections());
 		result.addObject("conference",this.conferenceService.ConferenceOwn(tutorialId));
-
+		result.addObject("permission",permission);
 		return result;
 	}
 	//Create

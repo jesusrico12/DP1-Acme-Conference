@@ -20,12 +20,13 @@
 					:
 			</strong></td>
 			<td><jstl:out value="${panel.title}"></jstl:out></td>
+			
 		</tr>		
 		<tr>
 			<td><strong> <spring:message code="panel.speakers" />
 					:
 			</strong></td>
-			<td><jstl:out value="${panel.speakers}"></jstl:out></td>
+			<td><jstl:out value="${speakers}"></jstl:out></td>
 		</tr>
 	<tr>
 			<td><strong> <spring:message code="panel.startMoment" />
@@ -58,7 +59,7 @@
 					:
 			</strong></td>
 			<td>
-			<jstl:forEach items="${panel.attachments}" var="attachment">
+			<jstl:forEach items="${attachments}" var="attachment">
 			<a href="${attachment}"><jstl:out value="${attachment}"></jstl:out></a>
 			</jstl:forEach>
 			</td>
@@ -66,13 +67,14 @@
 		
 
 
-
+<jstl:if test="${permission}">
 	<tr><td>
 		<input type="button" name="edit"
 			value="<spring:message code="panel.edit"	/>"
 			onclick="redirect: location.href = 'panel/edit.do?panelId=${panel.id}';" />
 </td>
 </tr>
+</jstl:if>
 </table>
 
 	<input type="button" name="back"

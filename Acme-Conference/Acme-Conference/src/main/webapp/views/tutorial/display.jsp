@@ -64,7 +64,7 @@
 		</tr>
 		
 
-
+<jstl:if test="${permission}">
 
 	<tr><td>
 		<input type="button" name="edit"
@@ -72,6 +72,7 @@
 			onclick="redirect: location.href = 'tutorial/edit.do?tutorialId=${tutorial.id}';" />
 </td>
 </tr>
+</jstl:if>
 </table>
 
 <display:table pagesize="10" class="displaytag" name="sections"
@@ -91,8 +92,9 @@
 	<input type="button" name="back"
 		value="<spring:message code="tutorial.back" />"
 		onclick="redirect: location.href = 'conference/display.do?conferenceId=${conference.id}';" />
+		<jstl:if test="${permission}">
 		<input type="button" value="<spring:message code="section.create"	/>"
 			onclick="redirect: location.href = 'section/create.do?tutorialId=${tutorial.id}';" />
-
+</jstl:if>
 
 

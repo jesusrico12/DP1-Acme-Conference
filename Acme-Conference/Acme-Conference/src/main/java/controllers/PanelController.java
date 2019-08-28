@@ -43,11 +43,28 @@ public class PanelController extends AbstractController {
 	
 	@RequestMapping(value = "panel/display", method = RequestMethod.GET)
 	public ModelAndView display(@RequestParam int panelId) {
-		ModelAndView result;
+	 	ModelAndView result;
+		boolean permission=false;
 		Panel panel=this.panelService.findOne(panelId);
+		boolean Autheticated=true;
+		
+		try{
+			Actor principal=this.actorService.findByPrincipal();
+			if(this.conferenceService.ConferenceOwn(panel.getId()).getAdministrator()==principal){
+				permission=true;
+			
+			}
+			}catch(Throwable oops){
+				Autheticated=false;
+			}
+		
 		result = new ModelAndView("panel/display");
 		result.addObject("panel",panel );
 		result.addObject("conference",this.conferenceService.ConferenceOwn(panelId));
+		result.addObject("permission",permission);
+		result.addObject("Autheticated",Autheticated);
+		result.addObject("speakers",panel.getSpeakers());
+		result.addObject("attachments",panel.getAttachments());
 		return result;
 	}
 	//Create

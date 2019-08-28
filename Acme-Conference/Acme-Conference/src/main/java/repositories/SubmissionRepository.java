@@ -34,7 +34,7 @@ JpaRepository<Submission, Integer>{
 	Collection<Submission> getSubmissionToUpload();
 	
 	
-	@Query("select s from Submission s join s.conference c join s.reviewers r where r.id= ?1 and c.notificationDeadline > CURRENT_DATE and c.submissionDeadline < CURRENT_DATE and s.status like 'UNDER-REVIEW'")
+	@Query("select s from Submission s join s.conference c join s.reviewers r where r.id= ?1 and c.notificationDeadline > CURRENT_DATE and c.submissionDeadline < CURRENT_DATE and  s.toAuthor = 0 and s.status like 'UNDER-REVIEW'")
 	Collection<Submission> submissionsOfReviewer(int reviewerId);
 	
 	@Query("select s from Submission s join s.conference c where c.notificationDeadline < CURRENT_DATE and s.author.id = ?1")

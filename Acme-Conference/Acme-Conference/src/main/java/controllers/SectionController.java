@@ -41,9 +41,20 @@ public class SectionController extends AbstractController{
 	public ModelAndView display(@RequestParam int sectionId) {
 		ModelAndView result;
 		Section section=this.sectionService.findOne(sectionId);
+		Tutorial c=this.tutorialService.TutorialOwn(sectionId);
+		boolean permission=false;
+		try{
+			Actor principal=this.actorService.findByPrincipal();
+			if(this.conferenceService.ConferenceOwn(c.getId()).getAdministrator()==principal){
+				permission=true;
+			
+			}
+			}catch(Throwable oops){
+				
+			}
 		result = new ModelAndView("section/display");
 		result.addObject("section",section );
-		
+		result.addObject("permission",permission);
 
 		return result;
 	}
