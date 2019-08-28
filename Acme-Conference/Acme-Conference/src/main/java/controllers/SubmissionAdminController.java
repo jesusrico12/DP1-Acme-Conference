@@ -43,12 +43,11 @@ public class SubmissionAdminController extends AbstractController{
 			boolean isAccepted = false;
 			boolean isRejected = false;
 			boolean isUnder = false;
-			boolean isBorder = false;
 			
 			Collection<Submission> accepted = this.submissionService.getAcceptedByConference(conferenceId);
 			Collection<Submission> rejected = this.submissionService.getRejectedByConference(conferenceId);
 			Collection<Submission> under = this.submissionService.getUnderByConference(conferenceId);
-			Collection<Submission>  border = this.submissionService.getBorderByConference(conferenceId);
+			
 			
 			if(!accepted.isEmpty()){
 				result.addObject("accepted", accepted);
@@ -68,17 +67,13 @@ public class SubmissionAdminController extends AbstractController{
 				isUnder = true;
 			}
 			
-			if(!border.isEmpty()){
-				result.addObject("border", border);
-				
-				isBorder = true;
-			}
+			
 			
 			
 			result.addObject("isAccepted", isAccepted);
 			result.addObject("isRejected", isRejected);
 			result.addObject("isUnder", isUnder);
-			result.addObject("isBorder", isBorder);
+			
 			
 			
 			return result;

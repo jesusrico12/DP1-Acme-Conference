@@ -32,7 +32,7 @@
 			<jstl:if test="${language==español }">
 
 
-				<display:column titleKey="message.topic">
+				<display:column titleKey="message.topic" sortable="true">
 					<jstl:out value="${row.topic.get('Español')}"></jstl:out>
 				</display:column>
 
@@ -40,7 +40,7 @@
 			</jstl:if>
 
 			<jstl:if test="${language==english}">
-				<display:column titleKey="message.topic">
+				<display:column titleKey="message.topic" sortable="true">
 					<jstl:out value="${row.topic.get('English')}"></jstl:out>
 				</display:column>
 			</jstl:if>
@@ -103,21 +103,14 @@
 
 
 
+			<display:column titleKey="message.sender">
+				<jstl:out value="${row.sender.userAccount.username}"></jstl:out>
+			</display:column>
+
 			<display:column titleKey="message.subject">
 				<jstl:out value="${row.subject}"></jstl:out>
 			</display:column>
-
-			<jstl:if test="${language==español }">
-				<display:column titleKey="message.topic">
-					<jstl:out value="${row.topic.get('Español')}"></jstl:out>
-				</display:column>
-			</jstl:if>
-
-			<jstl:if test="${language==english}">
-				<display:column titleKey="message.topic">
-					<jstl:out value="${row.topic.get('English')}"></jstl:out>
-				</display:column>
-			</jstl:if>
+			
 
 
 			<display:column>
@@ -165,21 +158,13 @@
 
 
 
+			<display:column titleKey="message.sender">
+				<jstl:out value="${row.sender.userAccount.username}"></jstl:out>
+			</display:column>
+
 			<display:column titleKey="message.subject">
 				<jstl:out value="${row.subject}"></jstl:out>
 			</display:column>
-
-			<jstl:if test="${language==español }">
-				<display:column titleKey="message.topic">
-					<jstl:out value="${row.topic.get('Español')}"></jstl:out>
-				</display:column>
-			</jstl:if>
-
-			<jstl:if test="${language==english}">
-				<display:column titleKey="message.topic">
-					<jstl:out value="${row.topic.get('English')}"></jstl:out>
-				</display:column>
-			</jstl:if>
 
 
 			<display:column>
@@ -226,21 +211,13 @@
 
 
 
+			<display:column titleKey="message.sender">
+				<jstl:out value="${row.sender.userAccount.username}"></jstl:out>
+			</display:column>
+
 			<display:column titleKey="message.subject">
 				<jstl:out value="${row.subject}"></jstl:out>
 			</display:column>
-
-			<jstl:if test="${language==español }">
-				<display:column titleKey="message.topic">
-					<jstl:out value="${row.topic.get('Español')}"></jstl:out>
-				</display:column>
-			</jstl:if>
-
-			<jstl:if test="${language==english}">
-				<display:column titleKey="message.topic">
-					<jstl:out value="${row.topic.get('English')}"></jstl:out>
-				</display:column>
-			</jstl:if>
 
 
 			<display:column>
@@ -292,21 +269,13 @@
 
 
 
+			<display:column titleKey="message.actor.receiver">
+				<jstl:out value="${row.receiver.userAccount.username}"></jstl:out>
+			</display:column>
+
 			<display:column titleKey="message.subject">
 				<jstl:out value="${row.subject}"></jstl:out>
 			</display:column>
-
-			<jstl:if test="${language==español }">
-				<display:column titleKey="message.topic">
-					<jstl:out value="${row.topic.get('Español')}"></jstl:out>
-				</display:column>
-			</jstl:if>
-
-			<jstl:if test="${language==english}">
-				<display:column titleKey="message.topic">
-					<jstl:out value="${row.topic.get('English')}"></jstl:out>
-				</display:column>
-			</jstl:if>
 
 
 			<display:column>
@@ -353,21 +322,13 @@
 
 
 
+			<display:column titleKey="message.actor.receiver">
+				<jstl:out value="${row.receiver.userAccount.username}"></jstl:out>
+			</display:column>
+
 			<display:column titleKey="message.subject">
 				<jstl:out value="${row.subject}"></jstl:out>
 			</display:column>
-
-			<jstl:if test="${language==español }">
-				<display:column titleKey="message.topic">
-					<jstl:out value="${row.topic.get('Español')}"></jstl:out>
-				</display:column>
-			</jstl:if>
-
-			<jstl:if test="${language==english}">
-				<display:column titleKey="message.topic">
-					<jstl:out value="${row.topic.get('English')}"></jstl:out>
-				</display:column>
-			</jstl:if>
 
 
 			<display:column>
@@ -415,21 +376,13 @@
 
 
 
+			<display:column titleKey="message.actor.receiver">
+				<jstl:out value="${row.receiver.userAccount.username}"></jstl:out>
+			</display:column>
+
 			<display:column titleKey="message.subject">
 				<jstl:out value="${row.subject}"></jstl:out>
 			</display:column>
-
-			<jstl:if test="${language==español }">
-				<display:column titleKey="message.topic">
-					<jstl:out value="${row.topic.get('Español')}"></jstl:out>
-				</display:column>
-			</jstl:if>
-
-			<jstl:if test="${language==english}">
-				<display:column titleKey="message.topic">
-					<jstl:out value="${row.topic.get('English')}"></jstl:out>
-				</display:column>
-			</jstl:if>
 
 
 			<display:column>

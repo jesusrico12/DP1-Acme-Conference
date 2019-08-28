@@ -30,8 +30,8 @@ JpaRepository<Submission, Integer>{
 	@Query("select s from Submission s where s.author.id = ?1")
 	Collection<Submission> getSubmissionByOwner(int id);
 	
-	@Query("select s from Submission s where (s.toReview = true and (s.status = 'ACCEPTED') and (s.paper.isCameraReady = false) and (s.conference.cameraReadyDeadline >= CURRENT_DATE))")
-	Collection<Submission> getSubmissionToUpload();
+	@Query("select s from Submission s where (s.toReview = true and (s.status = 'ACCEPTED') and (s.paper.isCameraReady = false) and (s.conference.cameraReadyDeadline >= CURRENT_DATE) and (s.author.id = ?1))")
+	Collection<Submission> getSubmissionToUpload(int authorId);
 	
 	
 	@Query("select s from Submission s join s.conference c join s.reviewers r where r.id= ?1 and c.notificationDeadline > CURRENT_DATE and c.submissionDeadline < CURRENT_DATE and  s.toAuthor = 0 and s.status like 'UNDER-REVIEW'")

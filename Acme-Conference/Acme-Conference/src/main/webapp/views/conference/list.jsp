@@ -11,7 +11,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 
-<security:authorize access="hasAnyRole('AUTHOR','REVIEWER')">
+
 
 	<jstl:if test="${isForthcoming == true}">
 
@@ -118,7 +118,14 @@
 					value="${row.endDate}" />
 
 			</display:column>
+			
+			<display:column>
+				<a href="conference/display.do?conferenceId=${row.id}"> <spring:message
+						code="conference.display" />
+				</a>
 
+			</display:column>
+			
 		</display:table>
 
 	</jstl:if>
@@ -183,82 +190,7 @@
 					value="${row.endDate}" />
 
 			</display:column>
-
-		</display:table>
-
-	</jstl:if>
-
-
-	<jstl:if test="${isPast == false}">
-
-		<spring:message code="running.title" var="runtitle" />
-
-
-
-		<h3>
-			<jstl:out value="${runtitle}"></jstl:out>
-		</h3>
-
-
-		<spring:message code="conference.zero" var="zero" />
-
-		<p>
-			<jstl:out value="${zero}"></jstl:out>
-		</p>
-
-	</jstl:if>
-
-
-</security:authorize>
-
-<security:authorize access="hasRole('AUTHOR')">
-	<a  href="conference/listSubmission.do"> <spring:message
-			code="conference.listToSubmission" />
-	</a>
-</security:authorize>
-
-
-
-<security:authorize access="isAnonymous()">
-	<jstl:if test="${isForthcoming == true}">
-
-		<spring:message code="forthcoming.title" var="fortitle" />
-
-
-
-		<h3>
-			<jstl:out value="${fortitle}"></jstl:out>
-		</h3>
-
-
-		<display:table pagesize="10" class="displaytag" name="forthcoming"
-			requestURI="conference/list.do" id="row">
-
-
-
-			<display:column titleKey="conference.title">
-				<jstl:out value="${row.title}"></jstl:out>
-			</display:column>
-
-			<display:column titleKey="conference.acronym">
-				<jstl:out value="${row.acronym}"></jstl:out>
-			</display:column>
-
-			<display:column titleKey="conference.venue">
-				<jstl:out value="${row.venue}"></jstl:out>
-			</display:column>
-
-			<display:column titleKey="conference.startDate">
-				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
-					value="${row.startDate}" />
-			</display:column>
-
-			<display:column titleKey="conference.endDate">
-				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
-					value="${row.endDate}" />
-
-			</display:column>
-
+			
 			<display:column>
 				<a href="conference/display.do?conferenceId=${row.id}"> <spring:message
 						code="conference.display" />
@@ -271,134 +203,7 @@
 	</jstl:if>
 
 
-	<jstl:if test="${isForthcoming == false}">
-
-		<spring:message code="forthcoming.title" var="fortitle" />
-
-
-
-		<h3>
-			<jstl:out value="${fortitle}"></jstl:out>
-		</h3>
-
-		<spring:message code="conference.zero" var="zero" />
-
-		<p>
-			<jstl:out value="${zero}"></jstl:out>
-		</p>
-
-	</jstl:if>
-
-	<jstl:if test="${isPast == true}">
-
-		<spring:message code="past.title" var="pastitle" />
-
-
-
-		<h3>
-			<jstl:out value="${pastitle}"></jstl:out>
-		</h3>
-
-
-		<display:table pagesize="10" class="displaytag" name="past"
-			requestURI="conference/list.do" id="row">
-
-
-
-			<display:column titleKey="conference.title">
-				<jstl:out value="${row.title}"></jstl:out>
-			</display:column>
-
-			<display:column titleKey="conference.acronym">
-				<jstl:out value="${row.acronym}"></jstl:out>
-			</display:column>
-
-			<display:column titleKey="conference.venue">
-				<jstl:out value="${row.venue}"></jstl:out>
-			</display:column>
-
-			<display:column titleKey="conference.startDate">
-				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
-					value="${row.startDate}" />
-			</display:column>
-
-			<display:column titleKey="conference.endDate">
-				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
-					value="${row.endDate}" />
-
-			</display:column>
-
-		</display:table>
-
-	</jstl:if>
-
-
-	<jstl:if test="${isPast == false}">
-
-		<spring:message code="past.title" var="pastitle" />
-
-
-
-		<h3>
-			<jstl:out value="${pastitle}"></jstl:out>
-		</h3>
-
-
-		<spring:message code="conference.zero" var="zero" />
-
-		<p>
-			<jstl:out value="${zero}"></jstl:out>
-		</p>
-
-	</jstl:if>
-
-
-	<jstl:if test="${isRunning == true}">
-
-		<spring:message code="running.title" var="runtitle" />
-
-
-
-		<h3>
-			<jstl:out value="${runtitle}"></jstl:out>
-		</h3>
-
-
-		<display:table pagesize="10" class="displaytag" name="past"
-			requestURI="conference/list.do" id="row">
-
-
-
-			<display:column titleKey="conference.title">
-				<jstl:out value="${row.title}"></jstl:out>
-			</display:column>
-
-
-			<display:column titleKey="conference.acronym">
-				<jstl:out value="${row.acronym}"></jstl:out>
-			</display:column>
-
-			<display:column titleKey="conference.venue">
-				<jstl:out value="${row.venue}"></jstl:out>
-			</display:column>
-
-			<display:column titleKey="conference.startDate">
-				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
-					value="${row.startDate}" />
-			</display:column>
-
-			<display:column titleKey="conference.endDate">
-				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
-					value="${row.endDate}" />
-
-			</display:column>
-
-		</display:table>
-
-	</jstl:if>
-
-
-	<jstl:if test="${isPast == false}">
+	<jstl:if test="${isRunning == false}">
 
 		<spring:message code="running.title" var="runtitle" />
 
@@ -418,7 +223,16 @@
 	</jstl:if>
 
 
+
+
+<security:authorize access="hasRole('AUTHOR')">
+	<a  href="conference/listSubmission.do"> <spring:message
+			code="conference.listToSubmission" />
+	</a>
 </security:authorize>
+
+
+
 
 <security:authorize access="hasRole('ADMIN')">
 	<jstl:if test="${isSubmission == true}">

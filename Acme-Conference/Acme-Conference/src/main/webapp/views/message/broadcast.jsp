@@ -8,12 +8,14 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
+<jstl:set var="localeCode" value="${pageContext.response.locale}" />
 
 <security:authorize access="hasRole('ADMIN')">
 	<jstl:if test="${(mensaje.id == 0) && (possible) && (broadcast)}">
 
 		<h3>Broadcast Message</h3>
-		<form:form action="message/actor/broadcast.do?conferenceId=${conferenceId}"
+		<form:form
+			action="message/actor/broadcast.do?conferenceId=${conferenceId}"
 			modelAttribute="mensaje" method="POST">
 
 			<form:hidden path="id" />
@@ -22,31 +24,46 @@
 			<form:hidden path="sender" />
 			<form:hidden path="receiver" />
 
-			<form:label path="subject">
-				<spring:message code="message.subject" />:
-	</form:label>
-			<form:input path="subject" />
-			<form:errors cssClass="error" path="subject" />
+
+			<spring:message code="subject.notBlank" var="subNB"></spring:message>
+			<jstl:if test="${isSubject}">
+				<h4 style="color: red;">
+					<jstl:out value="${subNB}" />
+				</h4>
+			</jstl:if>
+			<acme:textbox code="message.subject" path="subject" />
 			<br>
 			<br>
 
-			<form:label path="body">
-				<spring:message code="message.body" />:
-	</form:label>
-			<form:textarea path="body" />
-			<form:errors cssClass="error" path="body" />
+			<spring:message code="body.notBlank" var="bodNB"></spring:message>
+			<jstl:if test="${isBody}">
+				<h4 style="color: red;">
+					<jstl:out value="${bodNB}" />
+				</h4>
+			</jstl:if>
+
+			<spring:message code="message.body" />
+			<br />
+			<form:textarea code="message.body" path="body" />
 			<br>
 			<br>
 
+			<spring:message code="topic.notNull" var="topicNN"></spring:message>
+			<jstl:if test="${isTopic}">
+				<h4 style="color: red;">
+					<jstl:out value="${topicNN}" />
+				</h4>
+			</jstl:if>
 
 			<form:label path="topic">
 				<spring:message code="message.topic" /> :
 	</form:label>
 
-			<jstl:if test="${language==español}">
-				<form:select path="topic" style="width:400px;" name="topic"
-					id="topic">
+			<jstl:if test="${localeCode == 'es'}">
+				<form:select multiple="false" path="topic" style="width:400px;"
+					name="topic" id="topic">
 					<jstl:forEach var="x" items="${allEsp}">
+
 						<form:option value="${x}" label="${x}" name="topic" id="topic" />
 					</jstl:forEach>
 
@@ -59,9 +76,9 @@
 
 			</jstl:if>
 
-			<jstl:if test="${language==english}">
-				<form:select path="topic" style="width:400px;" name="topic"
-					id="topic">
+			<jstl:if test="${localeCode == 'en'}">
+				<form:select multiple="false" path="topic" style="width:400px;"
+					name="topic" id="topic">
 					<jstl:forEach var="x" items="${allEn}">
 						<form:option value="${x}" label="${x}" name="topic" id="topic" />
 					</jstl:forEach>

@@ -80,6 +80,18 @@
 			</list>
 		</property>
 	</bean>
+	
+		<bean id="userReviewer4" class="security.UserAccount">
+		<property name="username" value="reviewer4" />
+		<property name="password" value="5293e8663cbb7c157ff83eeae25177d3" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="REVIEWER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
 	<bean id="userReviewer2" class="security.UserAccount">
 		<property name="username" value="reviewer2" />
 		<property name="password" value="2693b57f0f59df94caacefb811e99851" />
@@ -173,8 +185,7 @@
 		<property name="name" value="Rosa" />
 		<property name="surname" value="Lago" />
 		<property name="middleName" value="Rosi" />
-		<property name="photo"
-			value="https://www.dropbox.com/h?preview=iathd.jpg" />
+		<property name="photo" value="https://www.dropbox.com/h?preview=iathd.jpg" />
 		<property name="email" value="rosi12@mail.com" />
 		<property name="phoneNumber" value="+34611987612" />
 		<property name="address" value="C/ Cordoba 12" />
@@ -185,6 +196,26 @@
 			<list>
 				<value>Biología</value>
 				<value>Química</value>
+				<value>Informática</value>
+			</list>
+		</property>
+
+	</bean>
+	<bean id="reviewer4" class="domain.Reviewer">
+		<property name="name" value="Antonio" />
+		<property name="surname" value="Lago" />
+		<property name="middleName" value="Lago" />
+		<property name="photo" value="https://www.dropbox.com/h?preview=iat094hd.jpg" />
+		<property name="email" value="lago12@mail.com" />
+		<property name="phoneNumber" value="+34611987682" />
+		<property name="address" value="C/ Plaza 12" />
+
+		<property name="userAccount" ref="userReviewer4" />
+
+		<property name="keywords">
+			<list>
+				<value>Software</value>
+				<value>Angular</value>
 				<value>Informática</value>
 			</list>
 		</property>
@@ -215,8 +246,7 @@
 		<property name="name" value="Raul" />
 		<property name="surname" value="Botella Heredia" />
 		<property name="middleName" value="Raul" />
-		<property name="photo"
-			value="https://www.dropbox.com/h?preview=iaGhd.jpg" />
+		<property name="photo" value="https://www.dropbox.com/h?preview=iaGhd.jpg" />
 		<property name="email" value="carla12@mail.com" />
 		<property name="phoneNumber" value="+34611987622" />
 		<property name="address" value="C/Sanchez Perrier" />
@@ -303,10 +333,8 @@
 		<property name="topic">
 			<util:map id="utilmap1" map-class="java.util.HashMap"
 				key-type="java.lang.String" value-type="java.lang.String">
-				<entry key="Español"
-					value="INVESTIGACION" />
-				<entry key="English"
-					value="INQUIRY" />
+				<entry key="Español" value="INVESTIGACION" />
+				<entry key="English" value="INQUIRY" />
 
 			</util:map>
 		</property>
@@ -329,10 +357,8 @@
 		<property name="topic">
 			<util:map id="utilmap2" map-class="java.util.HashMap"
 				key-type="java.lang.String" value-type="java.lang.String">
-				<entry key="Español"
-					value="TEMAS" />
-				<entry key="English"
-					value="TOPICS" />
+				<entry key="Español" value="TEMAS" />
+				<entry key="English" value="TOPICS" />
 
 			</util:map>
 		</property>
@@ -356,10 +382,8 @@
 		<property name="topic">
 			<util:map id="utilmap3" map-class="java.util.HashMap"
 				key-type="java.lang.String" value-type="java.lang.String">
-				<entry key="Español"
-					value="OTROS" />
-				<entry key="English"
-					value="OTHER" />
+				<entry key="Español" value="OTROS" />
+				<entry key="English" value="OTHER" />
 
 			</util:map>
 		</property>
@@ -414,23 +438,127 @@
 		<property name="cameraReadyDeadline" value="2019/12/12 05:32:14" />
 		<property name="startDate" value="2020/01/04 05:32:14" />
 		<property name="endDate" value="2020/01/17 15:32:14" />
-		<property name="summary" value="Conferencia en la que se expondran distintas técnicas de programación." />
-		<property name="fee" value="15.00" />
+		<property name="summary"
+			value="Conferencia en la que se expondran distintas técnicas de programación." />
+		<property name="fee" value="25.00" />
 		<property name="isDraft" value="false" />
 		<property name="durationDays" value="7" />
 		<property name="administrator" ref="administrator1" />
 		<property name="activities">
 
 			<list>
-
+		<ref bean="panel2" />
 			</list>
 
 		</property>
 
 
 	</bean>
+	<bean id="conference3" class="domain.Conference">
+		<property name="title" value="Software" />
+		<property name="acronym" value="SW" />
+		<property name="venue" value="La cartuja" />
+
+		<property name="submissionDeadline" value="2018/12/12 05:32:14" />
+		<property name="notificationDeadline" value="2018/01/08 05:32:14" />
+		<property name="cameraReadyDeadline" value="2018/01/12 05:32:14" />
+		<property name="startDate" value="2018/01/14 05:32:14" />
+		<property name="endDate" value="2018/01/20 15:32:14" />
+		<property name="summary"
+			value="Este año se conmemora el 50 aniversario del inicio del Software" />
+		<property name="fee" value="5.00" />
+		<property name="isDraft" value="false" />
+		<property name="durationDays" value="7" />
+		<property name="administrator" ref="administrator2" />
+		<property name="activities">
+
+			<list>
+				
+			</list>
+
+		</property>
 
 
+	</bean>
+		<bean id="conference4" class="domain.Conference">
+		<property name="title" value="Hardware" />
+		<property name="acronym" value="HW" />
+		<property name="venue" value="La cartuja" />
+
+		<property name="submissionDeadline" value="2019/07/12 05:32:14" />
+		<property name="notificationDeadline" value="2019/08/08 05:32:14" />
+		<property name="cameraReadyDeadline" value="2019/10/12 05:32:14" />
+		<property name="startDate" value="2020/01/14 05:32:14" />
+		<property name="endDate" value="2020/01/24 15:32:14" />
+		<property name="summary"
+			value="Este año se conmemora el 50 aniversario del inicio del Hardware" />
+		<property name="fee" value="23.00" />
+		<property name="isDraft" value="false" />
+		<property name="durationDays" value="11" />
+		<property name="administrator" ref="administrator2" />
+		<property name="activities">
+
+			<list>
+				
+			</list>
+
+		</property>
+
+
+	</bean>
+	
+			<bean id="conference5" class="domain.Conference">
+		<property name="title" value="Química avanzada" />
+		<property name="acronym" value="QA" />
+		<property name="venue" value="La cartuja" />
+
+		<property name="submissionDeadline" value="2019/08/08 05:32:14" />
+		<property name="notificationDeadline" value="2019/10/12 05:32:14" />
+		<property name="cameraReadyDeadline" value="2019/12/12 05:32:14" />
+		<property name="startDate" value="2020/01/14 05:32:14" />
+		<property name="endDate" value="2020/01/24 15:32:14" />
+		<property name="summary"
+			value="Química la gran olvidada" />
+		<property name="fee" value="0.00" />
+		<property name="isDraft" value="false" />
+		<property name="durationDays" value="11" />
+		<property name="administrator" ref="administrator1" />
+		<property name="activities">
+
+			<list>
+				
+			</list>
+
+		</property>
+
+
+	</bean>
+			<bean id="conference6" class="domain.Conference">
+		<property name="title" value="MISCELLANEOUS" />
+		<property name="acronym" value="MISC" />
+		<property name="venue" value="La cartuja" />
+
+		<property name="submissionDeadline" value="2019/08/08 05:32:14" />
+		<property name="notificationDeadline" value="2019/10/12 05:32:14" />
+		<property name="cameraReadyDeadline" value="2019/12/12 05:32:14" />
+		<property name="startDate" value="2020/01/14 05:32:14" />
+		<property name="endDate" value="2020/01/24 15:32:14" />
+		<property name="summary"
+			value="Química la gran olvidada" />
+		<property name="fee" value="0.00" />
+		<property name="isDraft" value="false" />
+		<property name="durationDays" value="11" />
+		<property name="administrator" ref="administrator1" />
+		<property name="activities">
+
+			<list>
+				
+			</list>
+
+		</property>
+
+
+	</bean>
 
 	<!-- TUTORIAL -->
 
@@ -514,16 +642,150 @@
 
 
 	</bean>
+	<bean id="panel2" class="domain.Panel">
+		<property name="title" value="Conferencia SW" />
+		<property name="speakers">
+
+			<list>
+				<value>Jesús Sánchez</value>
+				<value>Antonio Sánchez</value>
+			</list>
+		</property>
+		<property name="startMoment" value="2018/01/16 05:32:14" />
+		<property name="duration" value="60" />
+
+		<property name="room" value="Aula Magna" />
+		<property name="summary" value="ITIL y Metodologías ágiles" />
+		<property name="attachments">
+
+			<list>
+				<value>https://www.dropbox.com/h?preview=1238d.jpg</value>
+				<value>https://www.dropbox.com/h?preview=12sahd.jpg</value>
+			</list>
+		</property>
+
+
+	</bean>
 	<!-- SUBMISSION -->
 
 
 
+
+<bean id="submission4" class="domain.Submission">
+		<property name="ticker" value="CRC-100E" />
+		<property name="madeMoment" value="2018/12/11 05:32:14" />
+		<property name="status" value="ACCEPTED" />
+		<property name="toReview" value="true" />
+
+		<property name="toAuthor" value="true" />
+		<property name="paper" ref="paper4" />
+
+		<property name="author" ref="author3" />
+
+		<property name="conference" ref="conference3" />
+
+
+
+		<property name="reviewers">
+
+			<list>
+
+				<ref bean="reviewer1" />
+				
+			</list>
+
+		</property>
+		<property name="reports">
+
+			<list>
+				<ref bean="report4" />
+			</list>
+
+		</property>
+
+
+	</bean>
+	
+	
+<bean id="submission5" class="domain.Submission">
+		<property name="ticker" value="CRH-MP0E" />
+		<property name="madeMoment" value="2019/06/30 05:32:14" />
+		<property name="status" value="ACCEPTED" />
+		<property name="toReview" value="true" />
+
+		<property name="toAuthor" value="true" />
+		<property name="paper" ref="paper5" />
+
+		<property name="author" ref="author1" />
+
+		<property name="conference" ref="conference4" />
+
+
+
+		<property name="reviewers">
+
+			<list>
+
+				<ref bean="reviewer1" />
+				
+			</list>
+
+		</property>
+		<property name="reports">
+
+			<list>
+				<ref bean="report5" />
+			</list>
+
+		</property>
+
+
+	</bean>
+	
+	<bean id="submission6" class="domain.Submission">
+		<property name="ticker" value="CRH-M12E" />
+		<property name="madeMoment" value="2019/05/30 05:32:14" />
+		<property name="status" value="UNDER-REVIEW" />
+		<property name="toReview" value="true" />
+
+		<property name="toAuthor" value="true" />
+		<property name="paper" ref="paper6" />
+
+		<property name="author" ref="author1" />
+
+		<property name="conference" ref="conference5" />
+
+
+
+		<property name="reviewers">
+
+			<list>
+
+				<ref bean="reviewer1" />
+				<ref bean="reviewer2" />
+				<ref bean="reviewer3" />
+				
+			</list>
+
+		</property>
+		<property name="reports">
+
+			<list>
+				<ref bean="report6" />
+				<ref bean="report7" />
+				<ref bean="report8" />
+			</list>
+
+		</property>
+
+
+	</bean>
 	<bean id="submission3" class="domain.Submission">
 		<property name="ticker" value="CRC-1F3E" />
 		<property name="madeMoment" value="2019/11/05 05:32:14" />
 		<property name="status" value="ACCEPTED" />
 		<property name="toReview" value="true" />
-		
+
 		<property name="toAuthor" value="true" />
 		<property name="paper" ref="paper3" />
 
@@ -545,7 +807,7 @@
 		<property name="reports">
 
 			<list>
-							<ref bean="report1" />
+				<ref bean="report1" />
 				<ref bean="report2" />
 				<ref bean="report3" />
 			</list>
@@ -556,7 +818,7 @@
 	</bean>
 
 	<bean id="submission1" class="domain.Submission">
-		<property name="ticker" value="CRH-1F3E" />
+		<property name="ticker" value="CRH-123E" />
 		<property name="madeMoment" value="2019/12/05 05:32:14" />
 		<property name="status" value="UNDER-REVIEW" />
 		<property name="toReview" value="false" />
@@ -589,7 +851,7 @@
 
 
 	<bean id="submission2" class="domain.Submission">
-		<property name="ticker" value="CBH-1F3E" />
+		<property name="ticker" value="CBH-1F3P" />
 		<property name="madeMoment" value="2019/12/04 05:32:14" />
 		<property name="status" value="UNDER-REVIEW" />
 		<property name="toReview" value="false" />
@@ -622,13 +884,47 @@
 
 	</bean>
 
+
+	<bean id="submission9" class="domain.Submission">
+		<property name="ticker" value="CBH-111P" />
+		<property name="madeMoment" value="2019/04/04 05:32:14" />
+		<property name="status" value="UNDER-REVIEW" />
+		<property name="toReview" value="true" />
+		<property name="toAuthor" value="false" />
+		<property name="paper" ref="paper9" />
+
+		<property name="author" ref="author1" />
+
+		<property name="conference" ref="conference6" />
+
+
+
+		<property name="reviewers">
+
+			<list>
+
+
+
+			</list>
+
+		</property>
+		<property name="reports">
+
+			<list>
+
+			</list>
+
+		</property>
+
+
+	</bean>
+
 	<!-- REPORT -->
 
 	<bean id="report1" class="domain.Report">
 
 		<property name="originalityScore" value="5.8" />
-		<property name="qualityScore"
-			value="5.32" />
+		<property name="qualityScore" value="5.32" />
 		<property name="readabilityScore" value="4.5" />
 		<property name="decision" value="BORDER-LINE" />
 		<property name="comments">
@@ -639,15 +935,107 @@
 		</property>
 		<property name="reviewer" ref="reviewer2" />
 
-		
+
 
 
 	</bean>
-		<bean id="report2" class="domain.Report">
+	
+		<bean id="report5" class="domain.Report">
 
 		<property name="originalityScore" value="5.8" />
-		<property name="qualityScore"
-			value="8.32" />
+		<property name="qualityScore" value="5.32" />
+		<property name="readabilityScore" value="9.5" />
+		<property name="decision" value="ACCEPT" />
+		<property name="comments">
+			<list>
+
+				<value>Buen contenido</value>
+			</list>
+		</property>
+		<property name="reviewer" ref="reviewer1" />
+
+
+
+
+	</bean>
+			<bean id="report6" class="domain.Report">
+
+		<property name="originalityScore" value="5.8" />
+		<property name="qualityScore" value="5.32" />
+		<property name="readabilityScore" value="9.5" />
+		<property name="decision" value="ACCEPT" />
+		<property name="comments">
+			<list>
+
+				<value>Buen contenido</value>
+			</list>
+		</property>
+		<property name="reviewer" ref="reviewer1" />
+
+
+
+
+	</bean>
+	
+			<bean id="report7" class="domain.Report">
+
+		<property name="originalityScore" value="5.8" />
+		<property name="qualityScore" value="5.32" />
+		<property name="readabilityScore" value="2.5" />
+		<property name="decision" value="REJECT" />
+		<property name="comments">
+			<list>
+
+				<value>Regulero</value>
+			</list>
+		</property>
+		<property name="reviewer" ref="reviewer2" />
+
+
+
+
+	</bean>
+				<bean id="report8" class="domain.Report">
+
+		<property name="originalityScore" value="5.8" />
+		<property name="qualityScore" value="5.32" />
+		<property name="readabilityScore" value="2.5" />
+		<property name="decision" value="BORDER-LINE" />
+		<property name="comments">
+			<list>
+
+				<value>Regulero</value>
+			</list>
+		</property>
+		<property name="reviewer" ref="reviewer3" />
+
+
+
+
+	</bean>
+		<bean id="report4" class="domain.Report">
+
+		<property name="originalityScore" value="9.8" />
+		<property name="qualityScore" value="5.32" />
+		<property name="readabilityScore" value="7.5" />
+		<property name="decision" value="ACCEPT" />
+		<property name="comments">
+			<list>
+
+				<value>Gran aporte a la comunidad</value>
+				<value>Muy bien explicado</value>
+			</list>
+		</property>
+		<property name="reviewer" ref="reviewer4" />
+
+
+
+
+	</bean>
+	<bean id="report2" class="domain.Report">
+
+		<property name="originalityScore" value="5.8" />
+		<property name="qualityScore" value="8.32" />
 		<property name="readabilityScore" value="4.5" />
 		<property name="decision" value="ACCEPT" />
 		<property name="comments">
@@ -658,15 +1046,14 @@
 		</property>
 		<property name="reviewer" ref="reviewer1" />
 
-		
+
 
 
 	</bean>
-		<bean id="report3" class="domain.Report">
+	<bean id="report3" class="domain.Report">
 
 		<property name="originalityScore" value="5.8" />
-		<property name="qualityScore"
-			value="8.32" />
+		<property name="qualityScore" value="8.32" />
 		<property name="readabilityScore" value="9.5" />
 		<property name="decision" value="ACCEPT" />
 		<property name="comments">
@@ -677,7 +1064,7 @@
 		</property>
 		<property name="reviewer" ref="reviewer3" />
 
-		
+
 
 
 	</bean>
@@ -701,6 +1088,76 @@
 
 
 	</bean>
+	
+		<bean id="paper4" class="domain.Paper">
+
+		<property name="isCameraReady" value="true" />
+		<property name="summary"
+			value="Desde sus inicios en la década de 1940, escribir software ha evolucionado hasta convertirse en una profesión que se ocupa de cómo crear software y maximizar su calidad. La calidad puede referirse a cuán mantenible es el software y su estabilidad" />
+		<property name="document" value="https://www.dropbox.com/h?preview=ia0239hd.jpg" />
+		<property name="title" value="La evolución del Softwafe" />
+		<property name="authors">
+			<list>
+
+				<value>Antonio Albalat</value>
+			</list>
+		</property>
+
+
+	</bean>
+	<bean id="paper9" class="domain.Paper">
+
+		<property name="isCameraReady" value="false" />
+		<property name="summary"
+			value="Misc resumido" />
+		<property name="document" value="https://www.dropbox.com/h?preview=ia02qw39hd.jpg" />
+		<property name="title" value="Misc title" />
+		<property name="authors">
+			<list>
+
+				<value>Toni Albalat</value>
+			</list>
+		</property>
+
+
+	</bean>
+	
+	<bean id="paper5" class="domain.Paper">
+
+		<property name="isCameraReady" value="false" />
+		<property name="summary"
+			value="Desde sus inicios en la década de 1940, construir hardware ha evolucionado hasta convertirse en una profesión que se ocupa de cómo crear HW y maximizar su calidad." />
+		<property name="document" value="https://www.dropbox.com/h?preview=ia009hd.jpg" />
+		<property name="title" value="La evolución del HW" />
+		<property name="authors">
+			<list>
+
+				<value>Antonio Albalat</value>
+				<value>Antonio Trujillo</value>
+			</list>
+		</property>
+
+
+	</bean>
+	
+		<bean id="paper6" class="domain.Paper">
+
+		<property name="isCameraReady" value="false" />
+		<property name="summary"
+			value="En el documento adjunto se explica mejor" />
+		<property name="document" value="https://www.dropbox.com/h?preview=ia009hd.jpg" />
+		<property name="title" value="Termodinámica" />
+		<property name="authors">
+			<list>
+
+				<value>Antonio Rico</value>
+				
+			</list>
+		</property>
+
+
+	</bean>
+	
 
 	<bean id="paper1" class="domain.Paper">
 
@@ -736,11 +1193,11 @@
 
 
 	</bean>
-	
+
 	<!-- REDISTRATION -->
-	
-	
-	
+
+
+
 	<bean id="registration1" class="domain.Registration">
 
 		<property name="creditCard" ref="creditCard1" />
@@ -749,7 +1206,7 @@
 		<property name="author" ref="author1" />
 
 	</bean>
-		
+
 	<bean id="registration2" class="domain.Registration">
 
 		<property name="creditCard" ref="creditCard2" />
@@ -758,8 +1215,8 @@
 		<property name="author" ref="author2" />
 
 	</bean>
-	
-		
+
+
 	<bean id="registration3" class="domain.Registration">
 
 		<property name="creditCard" ref="creditCard3" />
@@ -768,10 +1225,10 @@
 		<property name="author" ref="author3" />
 
 	</bean>
-	
-	
-	
-	
-	
+
+
+
+
+
 
 </beans>
