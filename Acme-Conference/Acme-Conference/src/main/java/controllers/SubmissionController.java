@@ -67,8 +67,9 @@ public class SubmissionController extends AbstractController{
 	public ModelAndView listUpload(){
 		ModelAndView result;
 		
+		Author principal = (Author) this.actorService.findByPrincipal();
 		
-		Collection<Submission> submissions = this.submissionService.getSubmissionToUpload();
+		Collection<Submission> submissions = this.submissionService.getSubmissionToUpload(principal.getId());
 		
 		
 		result = new ModelAndView("submission/listUpload");

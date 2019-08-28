@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="===" key="selection"/>
+		<item value="Decision" key="selection"/>
 		<list key="findhistory">
-			<item value="==="/>
-			<item value="/edit"/>
-			<item value="edit"/>
-			<item value="delete"/>
 			<item value="decision"/>
-			<item value="recip"/>
+			<item value="listSubmi"/>
+			<item value="Anon"/>
+			<item value="Authenti"/>
+			<item value="no"/>
+			<item value="conference"/>
 			<item value="save"/>
-			<item value="act"/>
+			<item value="==="/>
 		</list>
 		<list key="replacehistory">
 			<item value="notification"/>

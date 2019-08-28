@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,7 +31,10 @@ import domain.SystemConfiguration;
 
 @Controller
 @RequestMapping("message/actor")
-public class MessageController extends AbstractController {
+public class MessageController extends AbstractController{
+
+
+	//Services
 
 	@Autowired
 	private MessageService messageService;
@@ -43,17 +45,15 @@ public class MessageController extends AbstractController {
 	@Autowired
 	private SystemConfigurationService systemConfigurationService;
 
-	@Autowired
-	private Validator validator;
-	
+
 	@Autowired
 	private SubmissionService submissionService;
-	
+
 	@Autowired
 	private RegistrationService registrationService;
 
-	// Create
-	// ----------------------------------------------------------------------
+	// Create =======================================================================
+
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView create(final Locale locale) {
@@ -79,6 +79,8 @@ public class MessageController extends AbstractController {
 		return result;
 	}
 
+	//Listing =======================================================================
+
 	@RequestMapping(value="/list" , method = RequestMethod.GET)
 	public ModelAndView list(final Locale locale){
 		ModelAndView result;
@@ -103,9 +105,10 @@ public class MessageController extends AbstractController {
 		boolean isReceiverReviewer = false;
 
 
+
 		result = new ModelAndView("message/list");
 
-		Collection<Message> all = this.messageService.findAll();
+		Collection<Message> all = this.messageService.getAllByOwner(principal.getId());
 
 		Collection<Message> senderAdmin = new ArrayList<Message>();
 		Collection<Message> senderAuthor = new ArrayList<Message>();
@@ -151,6 +154,8 @@ public class MessageController extends AbstractController {
 			if(receiverAuthority.getAuthority().equals("REVIEWER")){
 				receiverReviewer.add(m);
 			}
+
+
 
 
 		}
@@ -216,7 +221,7 @@ public class MessageController extends AbstractController {
 		return result;
 	}
 
-	// Edition
+	// Display =======================================================================
 
 	@RequestMapping(value = "display", method = RequestMethod.GET)
 	public ModelAndView display(@RequestParam final int messageId,
@@ -243,65 +248,41 @@ public class MessageController extends AbstractController {
 		return result;
 	}
 
-	@RequestMapping(value = "edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam final int messageId,
-			final Locale locale) {
 
-		ModelAndView result;
-		Message message;
 
-		String language;
-		String español;
-		String english;
-		español = "es";
-		english = "en";
-
-		language = locale.getLanguage();
-
-		message = this.messageService.findOne(messageId);
-
-		result = this.createEditModelAndView(message);
-
-		result.addObject("language", language);
-		result.addObject("español", español);
-		result.addObject("english", english);
-		result.addObject("broadcast", false);
-		
-		return result;
-
-	}
-
+	//Save =======================================================================
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@RequestParam(required=false) String topic,@Valid Message mensaje, final BindingResult binding) {
 		ModelAndView result;
-		try{
-		Assert.isTrue(topic.split(",").length>0,"topic.error");
+
+		//Assert.isTrue(topic.split(",").length>0,"topic.error");
 		this.messageService.topicsFound(topic, mensaje);
-	
+
 
 		if (binding.hasErrors()&& mensaje.getTopic()==null)
-			result = this.createEditModelAndView(mensaje,null);
+			result = this.createEditModelAndView(mensaje,"binding");
 		else
 			try {
 				this.messageService.save(mensaje);
 				result = new ModelAndView("redirect:list.do");
-				
-				result.addObject("broadcast", false);
+
+
 			} catch (final Throwable oops) {
 				result = this.createEditModelAndView(mensaje,
 						"message.commit.error");
 			}
-		
-		}catch(final Throwable oops){
-			result = this.createEditModelAndView(mensaje,
-					oops.getMessage());
-		}
-		
+
+
+
+
 		return result;
 
 	}
 
+
+
+	//Delete =======================================================================
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public ModelAndView delete(@RequestParam int messageId) {
@@ -324,12 +305,13 @@ public class MessageController extends AbstractController {
 		return result;
 	}
 
+	//Broadcast ======================================================================= 
 
 	@RequestMapping(value = "/broadcast", method = RequestMethod.GET)
 	public ModelAndView broadcast(@RequestParam int conferenceId,final Locale locale) {
 		final ModelAndView result;
 		Message mensaje;
-		
+
 
 		String language;
 		String español;
@@ -339,76 +321,81 @@ public class MessageController extends AbstractController {
 
 		language = locale.getLanguage();
 
-		
+
 		mensaje = this.messageService.create();
-		
-		
-		
+
+
+
 		mensaje.setReceiver(this.actorService.findByPrincipal());
-		
+
 		result = this.createEditModelAndView(mensaje);
-		
+
 		result.addObject("language", language);
 		result.addObject("español", español);
 		result.addObject("english", english);
-		result.addObject("broadcast", true);
 		result.addObject("conferenceId", conferenceId);
-	
-		
+
+
 		return result;
 	}
 
-	
+
 	@RequestMapping(value = "/broadcast", method = RequestMethod.POST, params = "save")
 	public ModelAndView broadcast(@RequestParam(required=false) String topic,
 			@Valid final Message mensaje,
 			final BindingResult binding) {
 		ModelAndView result;
-		
+
 		this.messageService.topicsFound(topic, mensaje);
-		
+
 		if (binding.hasErrors() && mensaje.getTopic()==null) {
-			result = this.createEditModelAndView(mensaje);
+			result = this.createEditModelAndView(mensaje,"binding");
+
+
 		} else {
 			try {
 				this.messageService.broadcast(mensaje);
 				result = new ModelAndView("redirect:list.do");
-				
-				
+
+
 			} catch (final Throwable oops) {
 				result = this.createEditModelAndView(mensaje,
 						"message.commit.error");
+
+
 			}
 		}
 		return result;
 	}
-	
+
 	@RequestMapping(value = "/broadcast", method = RequestMethod.POST, params = "saveAuthorsSubmission")
 	public ModelAndView broadcastAuthorsSubmission(@RequestParam(required=false) String topic,@RequestParam int conferenceId,
 			@Valid final Message mensaje,
 			final BindingResult binding) {
 		ModelAndView result;
-		
+
 		this.messageService.topicsFound(topic, mensaje);
-		
+
 		Collection<Submission> submissions = this.submissionService.getSubmissionByConference(conferenceId);
-		
+
 		if (binding.hasErrors() && mensaje.getTopic()==null) {
-			result = this.createEditModelAndView(mensaje);
+			result = this.createEditModelAndView(mensaje,"binding");
+			result.addObject("conferenceId", conferenceId);
 		} else {
 			try {
 				this.messageService.broadcastAuthorsSubmission(mensaje,submissions);
 				result = new ModelAndView("redirect:list.do");
 				
-				
+
 			} catch (final Throwable oops) {
 				result = this.createEditModelAndView(mensaje,
 						"message.commit.error");
+				result.addObject("conferenceId", conferenceId);
 			}
 		}
 		return result;
 	}
-	
+
 	@RequestMapping(value = "/broadcast", method = RequestMethod.POST, params = "saveAuthorsRegistration")
 	public ModelAndView broadcastAuthorsRegistration(@RequestParam(required=false) String topic,@RequestParam int conferenceId,
 			@Valid final Message mensaje,
@@ -416,25 +403,27 @@ public class MessageController extends AbstractController {
 		ModelAndView result;
 
 		this.messageService.topicsFound(topic, mensaje);
-		
+
 		Collection<Registration> registrations = this.registrationService.getRegistrationByConference(conferenceId);
-		
+
 		if (binding.hasErrors() && mensaje.getTopic()==null) {
-			result = this.createEditModelAndView(mensaje);
+			result = this.createEditModelAndView(mensaje,"binding");
+			result.addObject("conferenceId", conferenceId);
 		} else {
 			try {
 				this.messageService.broadcastAuthorsRegistration(mensaje,registrations);
 				result = new ModelAndView("redirect:list.do");
-				
-				
+
+
 			} catch (final Throwable oops) {
 				result = this.createEditModelAndView(mensaje,
 						"message.commit.error");
+				result.addObject("conferenceId", conferenceId);
 			}
 		}
 		return result;
 	}
-	
+
 	@RequestMapping(value = "/broadcast", method = RequestMethod.POST, params = "saveAuthors")
 	public ModelAndView broadcastAuthors(@RequestParam(required=false) String topic,
 			@Valid final Message mensaje,
@@ -442,15 +431,16 @@ public class MessageController extends AbstractController {
 		ModelAndView result;
 
 		this.messageService.topicsFound(topic, mensaje);
-		
+
 		if (binding.hasErrors() && mensaje.getTopic()==null) {
-			result = this.createEditModelAndView(mensaje);
+			result = this.createEditModelAndView(mensaje,"binding");
+			
 		} else {
 			try {
 				this.messageService.broadcastAuthors(mensaje);
 				result = new ModelAndView("redirect:list.do");
-				
-				
+
+
 			} catch (final Throwable oops) {
 				result = this.createEditModelAndView(mensaje,
 						"message.commit.error");
@@ -484,7 +474,19 @@ public class MessageController extends AbstractController {
 
 		SystemConfiguration sysConfg = this.systemConfigurationService.findMySystemConfiguration();
 
+		if(mensaje.getSender().equals(mensaje.getReceiver())){
+			result = new ModelAndView("message/broadcast");
+			result.addObject("broadcast", true);
+		}else{
+			result = new ModelAndView("message/edit");
+			result.addObject("broadcast", false);
+		}
+		
 
+		result.addObject("isSubject", false);
+		result.addObject("isBody", false);
+		result.addObject("isReceiver", false);
+		result.addObject("isTopic", false);
 
 		principal = this.actorService.findByPrincipal();
 		Assert.notNull(principal);
@@ -493,10 +495,32 @@ public class MessageController extends AbstractController {
 		recipients = new ArrayList<Actor>();
 
 
-
-
-
-
+		if(messageError!=null){
+			if(messageError.equals("binding")){
+				if(mensaje.getBody().equals("")){
+					result.addObject("bodyNB", "message.body.notBlank");
+					result.addObject("isBody", true);
+				}
+				
+				if(mensaje.getSubject().equals("")){
+					result.addObject("subjectNB", "message.subject.notBlank");
+					result.addObject("isSubject", true);
+					
+				}
+				
+				if(mensaje.getReceiver() == null){
+					result.addObject("receiverNN", "message.receiver.notNull");
+					result.addObject("isReceiver", true);
+				}
+				
+				if(mensaje.getTopic() == null){
+					result.addObject("topicNN", "message.topic.notNull");
+					result.addObject("isTopic", true);
+				}
+			}
+		}
+		
+		
 
 		if (mensaje.getSender().equals(principal)){
 			possible = true;
@@ -528,12 +552,7 @@ public class MessageController extends AbstractController {
 		for(String s : topics.get("English").split(",")){
 			allEn.add(s);
 		}
-		
-		if(mensaje.getSender().equals(mensaje.getReceiver())){
-			result = new ModelAndView("message/broadcast");
-		}else{
-			result = new ModelAndView("message/edit");
-		}
+
 		
 		result.addObject("sentMoment", sentMoment);
 

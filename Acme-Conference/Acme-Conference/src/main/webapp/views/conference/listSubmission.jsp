@@ -41,6 +41,12 @@
 					value="${row.endDate}" />
 
 			</display:column>
+			
+			<display:column titleKey="conference.submissionDL">
+				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
+					value="${row.submissionDeadline}" />
+
+			</display:column>
 
 			<display:column>
 				<a href="paper/create.do?conferenceId=${row.id}"> <spring:message
