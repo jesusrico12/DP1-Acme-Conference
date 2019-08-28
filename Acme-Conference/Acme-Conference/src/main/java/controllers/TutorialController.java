@@ -11,12 +11,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import domain.Actor;
 import domain.Conference;
 import domain.Tutorial;
 
 
 
 
+import services.ActorService;
 import services.ConferenceService;
 import services.TutorialService;
 
@@ -29,6 +31,8 @@ public class TutorialController extends AbstractController {
 	@Autowired
 	private ConferenceService conferenceService;
 	
+	@Autowired
+	private ActorService actorService;
 	
 	//DISPLAY
 	
@@ -48,6 +52,10 @@ public class TutorialController extends AbstractController {
 	@RequestMapping(value = "tutorial/create", method = RequestMethod.GET)
 	public ModelAndView create(@RequestParam final int conferenceId){
 		ModelAndView result;
+		try{
+			//SEGURIDAD
+		Actor principal=this.actorService.findByPrincipal();
+		Assert.isTrue(principal==this.conferenceService.findOne(conferenceId).getAdministrator());
 		Tutorial tutorial = this.tutorialService.create();
 		Conference c=this.conferenceService.findOne(conferenceId);
 		
@@ -55,6 +63,9 @@ public class TutorialController extends AbstractController {
 		result = this.createEditModelAndView(tutorial,c);
 		
 		result.addObject("conferenceId", this.conferenceService.findOne(conferenceId));
+		}catch(Throwable oops){
+			result = new ModelAndView("redirect:/welcome/index.do");
+		}
 		
 		return result;
 
@@ -64,13 +75,19 @@ public class TutorialController extends AbstractController {
 	@RequestMapping(value = "tutorial/edit", method = RequestMethod.GET)
 	public ModelAndView edit(@RequestParam final int tutorialId) {
 		ModelAndView result;
+		try{
+			//SEGURIDAD
 		Tutorial tutorial;
 		Conference c;
+		Actor principal=this.actorService.findByPrincipal();
 		tutorial = this.tutorialService.findOne(tutorialId);
 		Assert.notNull(tutorial);
+		Assert.isTrue(principal==this.conferenceService.ConferenceOwn(tutorialId).getAdministrator());
 		c=this.conferenceService.ConferenceOwn(tutorialId);
 		result = this.createEditModelAndView(tutorial,c);
-		
+		}catch(Throwable oops){
+			result = new ModelAndView("redirect:/welcome/index.do");
+		}
 
 		return result;
 	}
@@ -87,13 +104,6 @@ public class TutorialController extends AbstractController {
 			result = this.createEditModelAndView(tutorial,c, null);
 		}else{
 		try {
-			
-			/*
-			if (tutorial.getId() != 0) {
-				Assert.isTrue(c.getActivities()
-						.contains(tutorial),"no.permission");
-				
-			}*/
 	
 			this.tutorialService.save(tutorial,c);
 			result = new ModelAndView("redirect:/tutorial/display.do?tutorialId="+tutorial.getId());
@@ -120,14 +130,13 @@ public class TutorialController extends AbstractController {
 	}
 	
 	@RequestMapping(value = "tutorial/edit", method = RequestMethod.POST, params = "delete")
-	public ModelAndView delete(final Tutorial tutorial, final BindingResult binding) {
+	public ModelAndView delete(@RequestParam final int conferenceId,final Tutorial tutorial, final BindingResult binding) {
 		ModelAndView result;
 		Conference c;
-//		Administrator admin= this.administratorService.findByPrincipal();
-//		Assert.isTrue();
+
 
 		try {
-			c = this.conferenceService.ConferenceOwn(tutorial.getId());
+			c = this.conferenceService.findOne(conferenceId);
 			Assert.isTrue(c!=null,"commit.error");
 			this.tutorialService.delete(tutorial, c);
 			result = new ModelAndView("redirect:/conference/display.do?conferenceId="+c.getId());

@@ -66,5 +66,9 @@ public class PaperService {
 		Collection<Paper> res= this.paperRepository.paperReadys(conferenceId);
 		return res;
 	}
+	public Collection<Paper> findAll(){
+		Collection<Paper> res= this.paperRepository.findAll();
+		return res;
+	}
 }
 

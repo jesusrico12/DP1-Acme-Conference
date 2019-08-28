@@ -76,6 +76,9 @@
 	
 		<acme:select items="${papers}" itemLabel="title"
 				code="presentation.paper.title" path="paper" />
+				<jstl:if test="${ empty papers }">
+				<h3 class="error"><spring:message code="papers.empty" /> </h3>
+				</jstl:if>
 				
 
 
@@ -91,7 +94,7 @@
 			code="presentation.cancel" />
 </jstl:if>
 		<jstl:if test="${presentation.id != 0 }">
-			<input type="submit" name="delete"
+			<input type="submit" name="delete" 
 				value="<spring:message code="presentation.delete"/>" />
 
 		</jstl:if>

@@ -1,4 +1,5 @@
 #./src/main/resources/Entities.map
+<<<<<<< HEAD
 #Wed Aug 28 12:50:18 CEST 2019
 message3=318
 tutorial1=321
@@ -58,3 +59,59 @@ sysConf=315
 author3=310
 author2=309
 author1=308
+=======
+#Tue Aug 27 20:25:41 CEST 2019
+message3=278
+message2=277
+message1=276
+registration3=302
+registration2=301
+registration1=300
+administrator2=267
+administrator1=266
+report8=289
+report7=288
+report6=287
+submission9=309
+report5=286
+report4=290
+paper9=295
+report3=292
+reviewer4=272
+submission6=305
+report2=291
+conference6=284
+reviewer3=274
+submission5=304
+report1=285
+conference5=283
+reviewer2=273
+submission4=303
+paper6=297
+conference4=282
+reviewer1=271
+submission3=306
+paper5=296
+conference3=281
+submission2=308
+paper4=294
+conference2=280
+submission1=307
+paper3=293
+conference1=279
+paper2=299
+paper1=298
+userAdmin2=258
+userAdmin1=257
+userAuthor3=261
+userAuthor2=260
+userReviewer4=263
+userAuthor1=259
+userReviewer3=265
+userReviewer2=264
+userReviewer1=262
+sysConf=275
+author3=270
+author2=269
+author1=268
+>>>>>>> 73a02e0e8e41f27e7f4917147cd89db67017d7dd

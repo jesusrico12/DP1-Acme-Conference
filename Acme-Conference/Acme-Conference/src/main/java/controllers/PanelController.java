@@ -15,10 +15,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import domain.Actor;
 import domain.Conference;
 import domain.Panel;
 
 
+import services.ActorService;
 import services.ConferenceService;
 import services.PanelService;
 
@@ -32,6 +34,8 @@ public class PanelController extends AbstractController {
 	@Autowired
 	private ConferenceService conferenceService;
 	
+	@Autowired
+	private ActorService actorService;
 
 	
 	
@@ -51,6 +55,10 @@ public class PanelController extends AbstractController {
 	@RequestMapping(value = "panel/create", method = RequestMethod.GET)
 	public ModelAndView create(@RequestParam final int conferenceId){
 		ModelAndView result;
+		try{
+			//SEGURIDAD
+		Actor principal=this.actorService.findByPrincipal();
+		Assert.isTrue(principal==this.conferenceService.findOne(conferenceId).getAdministrator());
 		Panel panel = this.panelService.create();
 		Conference c=this.conferenceService.findOne(conferenceId);
 		
@@ -58,6 +66,10 @@ public class PanelController extends AbstractController {
 		result = this.createEditModelAndView(panel,c);
 		
 		result.addObject("conferenceId", this.conferenceService.findOne(conferenceId));
+		}catch(Throwable oops){
+			result = new ModelAndView("redirect:/welcome/index.do");
+		}
+		
 
 		return result;
 
@@ -66,13 +78,22 @@ public class PanelController extends AbstractController {
 	@RequestMapping(value = "panel/edit", method = RequestMethod.GET)
 	public ModelAndView edit(@RequestParam final int panelId) {
 		ModelAndView result;
+		try{
+			//SEGURIDAD
 		Panel panel;
-		Conference c;
+		Actor principal=this.actorService.findByPrincipal();
 		panel = this.panelService.findOne(panelId);
+		Assert.isTrue(principal==this.conferenceService.ConferenceOwn(panelId).getAdministrator());
+		
+		Conference c;
+		
 		Assert.notNull(panel);
 		c=this.conferenceService.ConferenceOwn(panelId);
 		result = this.createEditModelAndView(panel,c);
-
+		}catch(Throwable oops){
+			result = new ModelAndView("redirect:/welcome/index.do");
+		}
+		
 		return result;
 	}
 
@@ -83,6 +104,7 @@ public class PanelController extends AbstractController {
 		Conference c;
 		if(panel.getId()!=0){
 		 c=this.conferenceService.ConferenceOwn(panel.getId());
+		 c=this.conferenceService.findOne(c.getId());
 		}else {
 			 c = this.conferenceService.findOne(conferenceId);
 		}
@@ -91,12 +113,14 @@ public class PanelController extends AbstractController {
 		}else{
 		try {
 			
-			/*
+			
 			if (panel.getId() != 0) {
-				Assert.isTrue(c.getActivities()
-						.contains(panel),"no.permission");
+			
+				Assert.isTrue(this.panelService.findOne(panel.getId())!=null,"commit.error");
 				
-			}*/
+			}
+			
+			
 	
 			this.panelService.save(panel,c);
 			if(panel.getId()!=0){
@@ -121,15 +145,15 @@ public class PanelController extends AbstractController {
 	}
 	
 	@RequestMapping(value = "panel/edit", method = RequestMethod.POST, params = "delete")
-	public ModelAndView delete(final Panel panel, final BindingResult binding) {
+	public ModelAndView delete(@RequestParam final int conferenceId,final Panel panel, final BindingResult binding) {
 		ModelAndView result;
 		Conference c;
-//		Administrator admin= this.administratorService.findByPrincipal();
-//		Assert.isTrue();
+
 
 		try {
-			c = this.conferenceService.ConferenceOwn(panel.getId());
+			c = this.conferenceService.findOne(conferenceId);
 			Assert.isTrue(c!=null,"commit.error");
+			
 			this.panelService.delete(panel, c);
 			result = new ModelAndView("redirect:/conference/display.do?conferenceId="+c.getId());
 		} catch (final Throwable oops) {
@@ -167,5 +191,5 @@ public class PanelController extends AbstractController {
 	
 	
 	
-	//COMPROBAR QUE AL CREAR COJA LA CONFERENCE Y MIRE LAS FECHAS PA SABER SI EL STRARTMOMENT ESTA EN ESE RANGO POR ELR EQUEST PARAM
+
 }

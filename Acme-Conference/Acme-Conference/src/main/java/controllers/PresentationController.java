@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import domain.Actor;
 import domain.Conference;
 import domain.Presentation;
 
 
+import services.ActorService;
 import services.ConferenceService;
 import services.PaperService;
 import services.PresentationService;
@@ -32,6 +34,9 @@ public class PresentationController extends AbstractController {
 	
 	@Autowired
 	private PaperService paperService;
+	
+	@Autowired
+	private ActorService actorService;
 	
 
 	
@@ -52,6 +57,9 @@ public class PresentationController extends AbstractController {
 	@RequestMapping(value = "presentation/create", method = RequestMethod.GET)
 	public ModelAndView create(@RequestParam final int conferenceId){
 		ModelAndView result;
+		try{
+		Actor principal=this.actorService.findByPrincipal();
+		Assert.isTrue(principal==this.conferenceService.findOne(conferenceId).getAdministrator());
 		Presentation presentation = this.presentationService.create();
 		Conference c=this.conferenceService.findOne(conferenceId);
 		
@@ -60,6 +68,9 @@ public class PresentationController extends AbstractController {
 		
 		result.addObject("conferenceId", this.conferenceService.findOne(conferenceId));
 		result.addObject("papers", this.paperService.paperReadys(conferenceId));
+		}catch(Throwable oops){
+			result = new ModelAndView("redirect:/welcome/index.do");
+		}
 		return result;
 
 
@@ -67,14 +78,19 @@ public class PresentationController extends AbstractController {
 	@RequestMapping(value = "presentation/edit", method = RequestMethod.GET)
 	public ModelAndView edit(@RequestParam final int presentationId) {
 		ModelAndView result;
+		try{
 		Presentation presentation;
 		Conference c;
+		Actor principal=this.actorService.findByPrincipal();
 		presentation = this.presentationService.findOne(presentationId);
 		Assert.notNull(presentation);
+		Assert.isTrue(principal==this.conferenceService.ConferenceOwn(presentationId).getAdministrator());
 		c=this.conferenceService.ConferenceOwn(presentationId);
 		result = this.createEditModelAndView(presentation,c);
 		result.addObject("papers", this.paperService.paperReadys(c.getId()));
-
+		}catch(Throwable oops){
+			result = new ModelAndView("redirect:/welcome/index.do");
+		}
 		return result;
 	}
 
@@ -93,17 +109,12 @@ public class PresentationController extends AbstractController {
 		}else{
 		try {
 			
-			/*
-			if (presentation.getId() != 0) {
-				Assert.isTrue(c.getActivities()
-						.contains(presentation),"no.permission");
-				
-			}*/
 	
 			this.presentationService.save(presentation,c);
 			
 			if(presentation.getId()!=0){
 				result = new ModelAndView("redirect:/presentation/display.do?presentationId="+presentation.getId());
+				
 			}
 			else{
 				result = new ModelAndView("redirect:/conference/display.do?conferenceId="+c.getId());
@@ -124,14 +135,13 @@ public class PresentationController extends AbstractController {
 	}
 	
 	@RequestMapping(value = "presentation/edit", method = RequestMethod.POST, params = "delete")
-	public ModelAndView delete(final Presentation presentation, final BindingResult binding) {
+	public ModelAndView delete(@RequestParam final int conferenceId,final Presentation presentation, final BindingResult binding) {
 		ModelAndView result;
 		Conference c;
-//		Administrator admin= this.administratorService.findByPrincipal();
-//		Assert.isTrue();
+
 
 		try {
-			c = this.conferenceService.ConferenceOwn(presentation.getId());
+			c = this.conferenceService.findOne(conferenceId);
 			Assert.isTrue(c!=null,"commit.error");
 			this.presentationService.delete(presentation, c);
 			result = new ModelAndView("redirect:/conference/display.do?conferenceId="+c.getId());

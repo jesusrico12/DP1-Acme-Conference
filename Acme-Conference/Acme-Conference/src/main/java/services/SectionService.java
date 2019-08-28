@@ -30,6 +30,9 @@ public class SectionService {
 	@Autowired
 	private TutorialService tutorialService;
 	
+	@Autowired
+	private ConferenceService conferenceService;
+	
 	
 public Section create(){
 		
@@ -44,7 +47,8 @@ public Section create(){
 	
 	public Section save(Section section,Tutorial tutorial){
 		
-		
+		Actor principal=this.actorService.findByPrincipal();
+		Assert.isTrue(this.conferenceService.ConferenceOwn(tutorial.getId()).getAdministrator()==principal,"commit.error");
 		Section copy= new Section();
 		
 		
@@ -53,7 +57,7 @@ public Section create(){
 			Assert.isTrue(i.startsWith("https://www.dropbox.com")||i.startsWith("https://www.flickr.com"),"url.error");
 		}
 		}
-		Actor principal = this.actorService.findByPrincipal();
+		
 		Assert.isTrue(this.actorService.checkAuthority(principal, "ADMIN"),
 				"not.allowed");
 		
@@ -64,7 +68,7 @@ public Section create(){
 			copy.setSummary(section.getSummary());
 			copy.setTitle(section.getTitle());
 	
-			
+			Assert.isTrue(this.findOne(section.getId())!=null,"commit.error");
 			this.sectionRepository.save(copy);
 			
 		}else{
@@ -90,6 +94,10 @@ public Section create(){
 		Actor principal = this.actorService.findByPrincipal();
 		Assert.isTrue(this.actorService.checkAuthority(principal, "ADMIN"),
 				"not.allowed");
+		Assert.isTrue(this.findOne(section.getId())!=null,"commit.error");
+		
+		Assert.isTrue(this.conferenceService.ConferenceOwn(tutorial.getId()).getAdministrator()==principal,"commit.error");
+
 		
 	
 		Collection<Section> col= tutorial.getSections();

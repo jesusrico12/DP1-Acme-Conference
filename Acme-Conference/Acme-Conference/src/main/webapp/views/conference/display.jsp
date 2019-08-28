@@ -10,7 +10,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<security:authorize access="isAnonymous()">
+
 
 	<table class="displayStyle">
 		<tr>
@@ -89,258 +89,10 @@
 			</strong></td>
 			<td><jstl:out value="${conference.fee}"></jstl:out></td>
 		</tr>
-
-		<tr>
-			<td><strong> <spring:message code="conference.isDraft" />
-					:
-			</strong></td>
-			<td><jstl:out value="${conference.isDraft}"></jstl:out></td>
-		</tr>
-
-		<jstl:if test="${isActivity == true}">
-			<tr>
-				<td><strong> <spring:message
-							code="conference.activities" /> :
-				</strong></td>
-
-
-				<td><jstl:forEach items="${activities}" var="x">
-						<jstl:out value="${x.title}"></jstl:out>
-					</jstl:forEach></td>
-
-			</tr>
-		</jstl:if>
-		<tr>
-			<td><strong> <spring:message
-						code="conference.administrator" /> :
-			</strong></td>
-
-			<td><jstl:out
-					value="${conference.administrator.userAccount.username}">
-
-				</jstl:out></td>
-		</tr>
-
-	</table>
-
-	<input type="button" name="back"
-		value="<spring:message code="conference.back" />"
-		onclick="window.history.back()" />
-</security:authorize>
-
-
-<security:authorize access="hasAnyRole('AUTHOR','REVIEWER')">
-
-	<table class="displayStyle">
-		<tr>
-			<td><strong> <spring:message code="conference.title" />
-					:
-			</strong></td>
-			<td><jstl:out value="${conference.title}"></jstl:out></td>
-		</tr>
-
-		<tr>
-			<td><strong> <spring:message code="conference.acronym" />
-					:
-			</strong></td>
-			<td><jstl:out value="${conference.acronym}"></jstl:out></td>
-		</tr>
-
-		<tr>
-			<td><strong> <spring:message code="conference.venue" />
-					:
-			</strong></td>
-			<td><jstl:out value="${conference.venue}"></jstl:out></td>
-		</tr>
-
-		<tr>
-			<td><strong> <spring:message
-						code="conference.submissionDL" /> :
-			</strong></td>
-
-			<td><fmt:formatDate type="both" dateStyle="short"
-					timeStyle="short" value="${conference.submissionDeadline}" /></td>
-		</tr>
-
-		<tr>
-			<td><strong> <spring:message
-						code="conference.notificationDL" /> :
-			</strong></td>
-			<td><fmt:formatDate type="both" dateStyle="short"
-					timeStyle="short" value="${conference.notificationDeadline}" /></td>
-
-		</tr>
-
-		<tr>
-			<td><strong> <spring:message
-						code="conference.cameraReadyDL" /> :
-			</strong></td>
-			<td><fmt:formatDate type="both" dateStyle="short"
-					timeStyle="short" value="${conference.cameraReadyDeadline}" /></td>
-		</tr>
-
-		<tr>
-			<td><strong> <spring:message
-						code="conference.startDate" /> :
-			</strong></td>
-			<td><fmt:formatDate type="both" dateStyle="short"
-					timeStyle="short" value="${conference.startDate}" /></td>
-		</tr>
-
-		<tr>
-			<td><strong> <spring:message code="conference.endDate" />
-					:
-			</strong></td>
-			<td><fmt:formatDate type="both" dateStyle="short"
-					timeStyle="short" value="${conference.endDate}" /></td>
-		</tr>
-
-		<tr>
-			<td><strong> <spring:message code="conference.summary" />
-					:
-			</strong></td>
-			<td><jstl:out value="${conference.summary}"></jstl:out></td>
-		</tr>
-
-		<tr>
-			<td><strong> <spring:message code="conference.fee" />
-					:
-			</strong></td>
-			<td><jstl:out value="${conference.fee}"></jstl:out></td>
-		</tr>
-
-		<tr>
-			<td><strong> <spring:message code="conference.isDraft" />
-					:
-			</strong></td>
-			<td><jstl:out value="${conference.isDraft}"></jstl:out></td>
-		</tr>
-
-		<jstl:if test="${isActivity == true}">
-			<tr>
-				<td><strong> <spring:message
-							code="conference.activities" /> :
-				</strong></td>
-
-
-				<td><jstl:forEach items="${activities}" var="x">
-						<jstl:out value="${x.title}"></jstl:out>
-					</jstl:forEach></td>
-
-			</tr>
-		</jstl:if>
-		<tr>
-			<td><strong> <spring:message
-						code="conference.administrator" /> :
-			</strong></td>
-
-			<td><jstl:out
-					value="${conference.administrator.userAccount.username}">
-
-				</jstl:out></td>
-		</tr>
-
-
-
-	</table>
-
-	<input type="button" name="back"
-		value="<spring:message code="conference.back" />"
-		onclick="window.history.back()" />
 
 	
 
-</security:authorize>
-
-<security:authorize access="hasRole('ADMIN')">
-	<table class="displayStyle">
-		<tr>
-			<td><strong> <spring:message code="conference.title" />
-					:
-			</strong></td>
-			<td><jstl:out value="${conference.title}"></jstl:out></td>
-		</tr>
-
-		<tr>
-			<td><strong> <spring:message code="conference.acronym" />
-					:
-			</strong></td>
-			<td><jstl:out value="${conference.acronym}"></jstl:out></td>
-		</tr>
-
-		<tr>
-			<td><strong> <spring:message code="conference.venue" />
-					:
-			</strong></td>
-			<td><jstl:out value="${conference.venue}"></jstl:out></td>
-		</tr>
-
-		<tr>
-			<td><strong> <spring:message
-						code="conference.submissionDL" /> :
-			</strong></td>
-
-			<td><fmt:formatDate type="both" dateStyle="short"
-					timeStyle="short" value="${conference.submissionDeadline}" /></td>
-		</tr>
-
-		<tr>
-			<td><strong> <spring:message
-						code="conference.notificationDL" /> :
-			</strong></td>
-			<td><fmt:formatDate type="both" dateStyle="short"
-					timeStyle="short" value="${conference.notificationDeadline}" /></td>
-
-		</tr>
-
-		<tr>
-			<td><strong> <spring:message
-						code="conference.cameraReadyDL" /> :
-			</strong></td>
-			<td><fmt:formatDate type="both" dateStyle="short"
-					timeStyle="short" value="${conference.cameraReadyDeadline}" /></td>
-		</tr>
-
-		<tr>
-			<td><strong> <spring:message
-						code="conference.startDate" /> :
-			</strong></td>
-			<td><fmt:formatDate type="both" dateStyle="short"
-					timeStyle="short" value="${conference.startDate}" /></td>
-		</tr>
-
-		<tr>
-			<td><strong> <spring:message code="conference.endDate" />
-					:
-			</strong></td>
-			<td><fmt:formatDate type="both" dateStyle="short"
-					timeStyle="short" value="${conference.endDate}" /></td>
-		</tr>
-
-		<tr>
-			<td><strong> <spring:message code="conference.summary" />
-					:
-			</strong></td>
-			<td><jstl:out value="${conference.summary}"></jstl:out></td>
-		</tr>
-
-		<tr>
-			<td><strong> <spring:message code="conference.fee" />
-					:
-			</strong></td>
-			<td><jstl:out value="${conference.fee}"></jstl:out></td>
-		</tr>
-
-		<tr>
-			<td><strong> <spring:message code="conference.isDraft" />
-					:
-			</strong></td>
-			<td><jstl:out value="${conference.isDraft}"></jstl:out></td>
-		</tr>
-
-
-
-
+	
 		<tr>
 			<td><strong> <spring:message
 						code="conference.administrator" /> :
@@ -352,9 +104,10 @@
 				</jstl:out></td>
 		</tr>
 
-
-
 	</table>
+
+	
+
 <jstl:if test="${isPresentation == true}">
 	<display:table pagesize="10" class="displaytag" name="presentations"
 			 id="row" requestURI="conference/display.do?conferenceId=${conference.id}">
@@ -410,7 +163,7 @@
 </jstl:if>
 		
 		
-	<jstl:if test="${conference.isDraft}">
+	<jstl:if test="${conference.isDraft and permission}">
 		<input type="button" name="edit"
 			value="<spring:message code="conference.edit"	/>"
 			onclick="redirect: location.href = 'conference/edit.do?conferenceId=${conference.id}';" />
@@ -422,7 +175,7 @@
 	<input type="button" name="back"
 		value="<spring:message code="conference.atras" />"
 		onclick="redirect: location.href = 'conference/list.do';" />
-	<jstl:if test="${ not conference.isDraft}">
+	<jstl:if test="${ not conference.isDraft and permission}">
 		<input type="button" value="<spring:message code="panel.create"	/>"
 			onclick="redirect: location.href = 'panel/create.do?conferenceId=${conference.id}';" />
 		<input type="button"
@@ -433,11 +186,11 @@
 			onclick="redirect: location.href = 'tutorial/create.do?conferenceId=${conference.id}';" />
 	</jstl:if>
 
-</security:authorize>
+
 
 <security:authorize access="hasRole('ADMIN')">
 		
-		<jstl:if test="${isTimeToDecisionMaking}">		
+		<jstl:if test="${isTimeToDecisionMaking and permission}">		
 				
 <form:form action="conference/decisionMaking.do?conferenceId=${conference.id}" mehtod="POST">
 		      

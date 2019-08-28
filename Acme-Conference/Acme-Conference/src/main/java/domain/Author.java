@@ -16,7 +16,6 @@ public class Author extends Actor {
 	private String email;
 
 	@NotBlank
-	@SafeHtml
 	@Pattern(regexp = "^([A-z0-9 ]+[ ]<[A-z0-9]+@([A-z0-9]+\\.{0,1})+[A-z0-9]+>|[A-z0-9]+@([A-z0-9]+\\.{0,1})+[A-z0-9]+)$")
 	public String getEmail() {
 		return this.email;

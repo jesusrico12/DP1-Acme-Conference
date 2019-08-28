@@ -82,6 +82,10 @@
 				<input type="button" value="<jstl:out value="${row.title}"/>"
 								onclick="redirect: location.href = 'section/display.do?sectionId=${row.id}';" />
 			</display:column>
+			<display:column titleKey="section.summary" >
+				<jstl:out value="${row.summary}"></jstl:out>
+			</display:column>
+			
 </display:table>
 
 	<input type="button" name="back"
