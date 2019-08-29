@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="63" version="2.0">
+<workbench progressCount="65" version="2.0">
 <workbenchAdvisor/>
-<window height="679" maximized="true" width="783" x="2" y="1">
+<window height="632" maximized="true" width="697" x="8" y="2">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -13,7 +13,7 @@
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="160" y="22"/>
 <coolItem id="org.eclipse.jst.j2ee.J2eeMainActionSet" itemType="typeToolBarContribution" x="88" y="22"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="98" y="22"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="131" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="62" y="22"/>
 <coolItem id="org.eclipse.wst.server.ui.internal.webbrowser.actionSet" itemType="typeToolBarContribution" x="39" y="22"/>
 <coolItem id="org.eclipse.wst.ws.explorer.explorer" itemType="typeToolBarContribution" x="39" y="22"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -21,6 +21,7 @@
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="183" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.jpt.jpa.ui.internal.editors.PersistenceEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.m2e.editor.MavenPomEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.server.ui.editor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.PropertiesFileEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -33,8 +34,8 @@
 </coolbarLayout>
 <page aggregateWorkingSetId="Aggregate for window 1565636745114" focus="true" label="Workspace - Java EE">
 <editors>
-<editorArea activeWorkbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<info part="org.eclipse.ui.internal.EditorStack@2e618502">
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
@@ -55,151 +56,95 @@
 <part id="15"/>
 <part id="16"/>
 <part id="17"/>
-<part id="18"/>
-<part id="19"/>
-<part id="20"/>
-<part id="21"/>
-<part id="22"/>
-<part id="23"/>
-<part id="24"/>
-<part id="25"/>
-<part id="26"/>
-<part id="27"/>
-<part id="28"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Activity.java" partName="Activity.java" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/java/domain/Activity.java" title="Activity.java" tooltip="Acme-Conference/src/main/java/domain/Activity.java" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/java/domain/Activity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="15" selectionTopPixel="0"/>
+<editor id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="tiles_es.xml" partName="tiles_es.xml" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/webapp/views/administrator/tiles_es.xml" title="tiles_es.xml" tooltip="Acme-Conference/src/main/webapp/views/administrator/tiles_es.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/webapp/views/administrator/tiles_es.xml"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PresentationController.java" partName="PresentationController.java" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/java/controllers/PresentationController.java" title="PresentationController.java" tooltip="Acme-Conference/src/main/java/controllers/PresentationController.java" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/java/controllers/PresentationController.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4839" selectionTopPixel="2200"/>
+<editor id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="tiles.xml" partName="tiles.xml" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/webapp/views/administrator/tiles.xml" title="tiles.xml" tooltip="Acme-Conference/src/main/webapp/views/administrator/tiles.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/webapp/views/administrator/tiles.xml"/>
 </editor>
-<editor id="org.eclipse.jst.jsp.core.jspsource.source" name="display.jsp" partName="display.jsp" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/webapp/views/presentation/display.jsp" title="display.jsp" tooltip="Acme-Conference/src/main/webapp/views/presentation/display.jsp" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/webapp/views/presentation/display.jsp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2641" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RegistrationController.java" partName="RegistrationController.java" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/java/controllers/RegistrationController.java" title="RegistrationController.java" tooltip="Acme-Conference/src/main/java/controllers/RegistrationController.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/java/controllers/RegistrationController.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4574" selectionTopPixel="1870"/>
 </editor>
-<editor id="org.eclipse.jst.jsp.core.jspsource.source" name="edit.jsp" partName="edit.jsp" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/webapp/views/presentation/edit.jsp" title="edit.jsp" tooltip="Acme-Conference/src/main/webapp/views/presentation/edit.jsp" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/webapp/views/presentation/edit.jsp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2426" selectionTopPixel="1113"/>
-</editor>
-<editor id="org.eclipse.jst.jsp.core.jspsource.source" name="display.jsp" partName="display.jsp" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/webapp/views/panel/display.jsp" title="display.jsp" tooltip="Acme-Conference/src/main/webapp/views/panel/display.jsp" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/webapp/views/panel/display.jsp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1570" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="tiles_es.xml" partName="tiles_es.xml" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/webapp/views/presentation/tiles_es.xml" title="tiles_es.xml" tooltip="Acme-Conference/src/main/webapp/views/presentation/tiles_es.xml" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/webapp/views/presentation/tiles_es.xml"/>
-</editor>
-<editor id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="tiles.xml" partName="tiles.xml" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/webapp/views/presentation/tiles.xml" title="tiles.xml" tooltip="Acme-Conference/src/main/webapp/views/presentation/tiles.xml" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/webapp/views/presentation/tiles.xml"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SubmissionRepository.java" partName="SubmissionRepository.java" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/java/repositories/SubmissionRepository.java" title="SubmissionRepository.java" tooltip="Acme-Conference/src/main/java/repositories/SubmissionRepository.java" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/java/repositories/SubmissionRepository.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="481" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jst.jsp.core.jspsource.source" name="display.jsp" partName="display.jsp" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/webapp/views/conference/display.jsp" title="display.jsp" tooltip="Acme-Conference/src/main/webapp/views/conference/display.jsp" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/webapp/views/conference/display.jsp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7400" selectionTopPixel="4372"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages_es.properties" partName="messages_es.properties" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/webapp/views/conference/messages_es.properties" title="messages_es.properties" tooltip="Acme-Conference/src/main/webapp/views/conference/messages_es.properties" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/webapp/views/conference/messages_es.properties"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2064" selectionTopPixel="309"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages.properties" partName="messages.properties" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/webapp/views/conference/messages.properties" title="messages.properties" tooltip="Acme-Conference/src/main/webapp/views/conference/messages.properties" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/webapp/views/conference/messages.properties"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="465" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="tiles.xml" partName="tiles.xml" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/resources/spring/config/tiles.xml" title="tiles.xml" tooltip="Acme-Conference/src/main/resources/spring/config/tiles.xml" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/resources/spring/config/tiles.xml"/>
-</editor>
-<editor id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="i18n-l10n.xml" partName="i18n-l10n.xml" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/resources/spring/config/i18n-l10n.xml" title="i18n-l10n.xml" tooltip="Acme-Conference/src/main/resources/spring/config/i18n-l10n.xml" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/resources/spring/config/i18n-l10n.xml"/>
-</editor>
-<editor id="org.eclipse.jst.jsp.core.jspsource.source" name="edit.jsp" partName="edit.jsp" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/webapp/views/panel/edit.jsp" title="edit.jsp" tooltip="Acme-Conference/src/main/webapp/views/panel/edit.jsp" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
+<editor id="org.eclipse.jst.jsp.core.jspsource.source" name="edit.jsp" partName="edit.jsp" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/webapp/views/panel/edit.jsp" title="edit.jsp" tooltip="Acme-Conference/src/main/webapp/views/panel/edit.jsp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/webapp/views/panel/edit.jsp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="654" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PresentationToStringConverter.java" partName="PresentationToStringConverter.java" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/java/converters/PresentationToStringConverter.java" title="PresentationToStringConverter.java" tooltip="Acme-Conference/src/main/java/converters/PresentationToStringConverter.java" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/java/converters/PresentationToStringConverter.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StringToPresentationConverter.java" partName="StringToPresentationConverter.java" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/java/converters/StringToPresentationConverter.java" title="StringToPresentationConverter.java" tooltip="Acme-Conference/src/main/java/converters/StringToPresentationConverter.java" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/java/converters/StringToPresentationConverter.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="672" selectionTopPixel="0"/>
+<editor id="org.eclipse.jst.jsp.core.jspsource.source" name="display.jsp" partName="display.jsp" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/webapp/views/panel/display.jsp" title="display.jsp" tooltip="Acme-Conference/src/main/webapp/views/panel/display.jsp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/webapp/views/panel/display.jsp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="41" selectionOffset="1661" selectionTopPixel="870"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StringToPanelConverter.java" partName="StringToPanelConverter.java" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/java/converters/StringToPanelConverter.java" title="StringToPanelConverter.java" tooltip="Acme-Conference/src/main/java/converters/StringToPanelConverter.java" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/java/converters/StringToPanelConverter.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages_es.properties" partName="messages_es.properties" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/webapp/views/panel/messages_es.properties" title="messages_es.properties" tooltip="Acme-Conference/src/main/webapp/views/panel/messages_es.properties" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/webapp/views/panel/messages_es.properties"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="789" selectionTopPixel="60"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StringToReviewerConverter.java" partName="StringToReviewerConverter.java" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/java/converters/StringToReviewerConverter.java" title="StringToReviewerConverter.java" tooltip="Acme-Conference/src/main/java/converters/StringToReviewerConverter.java" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/java/converters/StringToReviewerConverter.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages.properties" partName="messages.properties" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/webapp/views/panel/messages.properties" title="messages.properties" tooltip="Acme-Conference/src/main/webapp/views/panel/messages.properties" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/webapp/views/panel/messages.properties"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="356" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StringToSystemConfigurationConverter.java" partName="StringToSystemConfigurationConverter.java" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/java/converters/StringToSystemConfigurationConverter.java" title="StringToSystemConfigurationConverter.java" tooltip="Acme-Conference/src/main/java/converters/StringToSystemConfigurationConverter.java" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/java/converters/StringToSystemConfigurationConverter.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editor id="org.eclipse.jst.jsp.core.jspsource.source" name="display.jsp" partName="display.jsp" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/webapp/views/tutorial/display.jsp" title="display.jsp" tooltip="Acme-Conference/src/main/webapp/views/tutorial/display.jsp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/webapp/views/tutorial/display.jsp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="9" selectionOffset="2027" selectionTopPixel="666"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StringToTutorialConverter.java" partName="StringToTutorialConverter.java" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/java/converters/StringToTutorialConverter.java" title="StringToTutorialConverter.java" tooltip="Acme-Conference/src/main/java/converters/StringToTutorialConverter.java" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/java/converters/StringToTutorialConverter.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editor id="org.eclipse.jst.jsp.core.jspsource.source" name="display.jsp" partName="display.jsp" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/webapp/views/presentation/display.jsp" title="display.jsp" tooltip="Acme-Conference/src/main/webapp/views/presentation/display.jsp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/webapp/views/presentation/display.jsp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="54" selectionOffset="1746" selectionTopPixel="816"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SystemConfigurationToStringConverter.java" partName="SystemConfigurationToStringConverter.java" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/java/converters/SystemConfigurationToStringConverter.java" title="SystemConfigurationToStringConverter.java" tooltip="Acme-Conference/src/main/java/converters/SystemConfigurationToStringConverter.java" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/java/converters/SystemConfigurationToStringConverter.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editor id="org.eclipse.jst.jsp.core.jspsource.source" name="display.jsp" partName="display.jsp" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/webapp/views/section/display.jsp" title="display.jsp" tooltip="Acme-Conference/src/main/webapp/views/section/display.jsp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/webapp/views/section/display.jsp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1153" selectionTopPixel="368"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StringToAuthorConverter.java" partName="StringToAuthorConverter.java" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/java/converters/StringToAuthorConverter.java" title="StringToAuthorConverter.java" tooltip="Acme-Conference/src/main/java/converters/StringToAuthorConverter.java" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/java/converters/StringToAuthorConverter.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editor id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="PopulateDatabase.xml" partName="PopulateDatabase.xml" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/resources/PopulateDatabase.xml" title="PopulateDatabase.xml" tooltip="Acme-Conference/src/main/resources/PopulateDatabase.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/resources/PopulateDatabase.xml"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StringToConferenceConverter.java" partName="StringToConferenceConverter.java" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/java/converters/StringToConferenceConverter.java" title="StringToConferenceConverter.java" tooltip="Acme-Conference/src/main/java/converters/StringToConferenceConverter.java" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/java/converters/StringToConferenceConverter.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ConferenceService.java" partName="ConferenceService.java" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/java/services/ConferenceService.java" title="ConferenceService.java" tooltip="Acme-Conference/src/main/java/services/ConferenceService.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/java/services/ConferenceService.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6728" selectionTopPixel="3978"/>
 </editor>
-<editor id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="converters.xml" partName="converters.xml" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/resources/spring/config/converters.xml" title="converters.xml" tooltip="Acme-Conference/src/main/resources/spring/config/converters.xml" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/resources/spring/config/converters.xml"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RegistrationService.java" partName="RegistrationService.java" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/java/services/RegistrationService.java" title="RegistrationService.java" tooltip="Acme-Conference/src/main/java/services/RegistrationService.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/java/services/RegistrationService.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1907" selectionTopPixel="595"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PresentationService.java" partName="PresentationService.java" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/java/services/PresentationService.java" title="PresentationService.java" tooltip="Acme-Conference/src/main/java/services/PresentationService.java" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/java/services/PresentationService.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="724" selectionTopPixel="0"/>
+<editor id="org.eclipse.jst.jsp.core.jspsource.source" name="edit.jsp" partName="edit.jsp" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/webapp/views/registration/edit.jsp" title="edit.jsp" tooltip="Acme-Conference/src/main/webapp/views/registration/edit.jsp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/webapp/views/registration/edit.jsp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2212" selectionTopPixel="1080"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PanelRepository.java" partName="PanelRepository.java" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/java/repositories/PanelRepository.java" title="PanelRepository.java" tooltip="Acme-Conference/src/main/java/repositories/PanelRepository.java" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/java/repositories/PanelRepository.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="258" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages_es.properties" partName="messages_es.properties" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/webapp/views/registration/messages_es.properties" title="messages_es.properties" tooltip="Acme-Conference/src/main/webapp/views/registration/messages_es.properties" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/webapp/views/registration/messages_es.properties"/>
+<editorState selectionHorizontalPixel="0" selectionLength="105" selectionOffset="759" selectionTopPixel="162"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SubmissionService.java" partName="SubmissionService.java" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/java/services/SubmissionService.java" title="SubmissionService.java" tooltip="Acme-Conference/src/main/java/services/SubmissionService.java" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/java/services/SubmissionService.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1055" selectionTopPixel="347"/>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages.properties" partName="messages.properties" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/webapp/views/registration/messages.properties" title="messages.properties" tooltip="Acme-Conference/src/main/webapp/views/registration/messages.properties" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/webapp/views/registration/messages.properties"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="788" selectionTopPixel="162"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ConferenceController.java" partName="ConferenceController.java" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/java/controllers/ConferenceController.java" title="ConferenceController.java" tooltip="Acme-Conference/src/main/java/controllers/ConferenceController.java" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/java/controllers/ConferenceController.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1981" selectionTopPixel="544"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RegistrationRepository.java" partName="RegistrationRepository.java" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/java/repositories/RegistrationRepository.java" title="RegistrationRepository.java" tooltip="Acme-Conference/src/main/java/repositories/RegistrationRepository.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/java/repositories/RegistrationRepository.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="901" selectionTopPixel="102"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Submission.java" partName="Submission.java" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/java/domain/Submission.java" title="Submission.java" tooltip="Acme-Conference/src/main/java/domain/Submission.java" workbook="org.eclipse.ui.internal.EditorStack@2e618502">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/java/domain/Submission.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="6" selectionOffset="834" selectionTopPixel="68"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CreditCard.java" partName="CreditCard.java" path="C:/Documents and Settings/Student/Desktop/SEPTIEMBRE/DP1-Acme-Conference/Acme-Conference/Acme-Conference/src/main/java/domain/CreditCard.java" title="CreditCard.java" tooltip="Acme-Conference/src/main/java/domain/CreditCard.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Conference/src/main/java/domain/CreditCard.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1034" selectionTopPixel="540"/>
 </editor>
 </editors>
 <views>
+<view id="org.eclipse.ui.views.ProgressView" partName="Progress">
+<viewState/>
+</view>
 <view id="org.eclipse.search.ui.views.SearchView" partName="Search">
 <viewState isPinned="false">
 <view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
 <view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
 </viewState>
 </view>
-<view id="org.eclipse.jdt.callhierarchy.view" partName="Call Hierarchy">
-<viewState search_scope_type="1"/>
-</view>
 <view id="org.eclipse.debug.ui.DebugView" partName="Debug">
 <viewState/>
 </view>
-<view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints">
-<viewState/>
-</view>
-<view id="org.eclipse.debug.ui.VariableView" partName="Variables">
-<viewState/>
+<view id="org.eclipse.jdt.callhierarchy.view" partName="Call Hierarchy">
+<viewState search_scope_type="1"/>
 </view>
 <view id="org.eclipse.ui.views.TaskList" partName="Tasks">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.completionField" categoryGroup="none" markerContentGenerator="org.eclipse.ui.ide.tasksGenerator" partName="Tasks">
@@ -212,6 +157,12 @@
 <visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
 </viewState>
+</view>
+<view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints">
+<viewState/>
+</view>
+<view id="org.eclipse.debug.ui.VariableView" partName="Variables">
+<viewState/>
 </view>
 <view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
 <viewState/>
@@ -242,7 +193,7 @@
 <viewState CommonNavigator.LINKING_ENABLED="0"/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jst.j2ee.J2EEPerspective">
+<perspectives activePart="org.eclipse.ui.navigator.ProjectExplorer" activePerspective="org.eclipse.jst.j2ee.J2EEPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jst.j2ee.internal.perspective.J2EEPerspective" id="org.eclipse.jst.j2ee.J2EEPerspective" label="Java EE"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
@@ -306,9 +257,10 @@
 <view id="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator"/>
 <view id="org.eclipse.wst.common.snippets.internal.ui.SnippetsView"/>
 <view id="org.eclipse.search.ui.views.SearchView"/>
-<view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.debug.ui.DebugView"/>
 <view id="org.eclipse.jdt.callhierarchy.view"/>
+<view id="org.eclipse.ui.views.ProgressView"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.ui.navigator.ProjectExplorer"/>
 <fastViewBars>
 <fastViewBar fastViewLocation="131072" id="topRight" orientation="512" selectedTabId="org.eclipse.ui.views.ContentOutline" style="0">
@@ -319,7 +271,7 @@
 </fastViewBar>
 <fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@25d8ea1e" orientation="512" selectedTabId="org.eclipse.wst.server.ui.ServersView" style="0">
 <fastViews>
-<view id="org.eclipse.wst.server.ui.ServersView" ratio="0.3238167"/>
+<view id="org.eclipse.wst.server.ui.ServersView" ratio="0.25770098"/>
 </fastViews>
 </fastViewBar>
 </fastViewBars>
@@ -336,7 +288,7 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@25d8ea1e" ratio="0.750753" ratioLeft="997" ratioRight="331" relationship="2" relative="topLeft">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@25d8ea1e" ratio="0.92018074" ratioLeft="1222" ratioRight="106" relationship="2" relative="topLeft">
 <folder appearance="2" expanded="0">
 <page content="org.eclipse.wst.server.ui.ServersView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
@@ -350,21 +302,21 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.20105422" ratioLeft="267" ratioRight="1061" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottomRight" ratio="0.949827" ratioLeft="549" ratioRight="29" relationship="4" relative="org.eclipse.ui.editorss">
+<info part="org.eclipse.ui.editorss" ratio="0.27786145" ratioLeft="369" ratioRight="959" relationship="2" relative="topLeft"/>
+<info folder="true" part="bottomRight" ratio="0.47577855" ratioLeft="275" ratioRight="303" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.AllMarkersView" label="Markers"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
 <page content="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator" label="Data Source Explorer"/>
 <page content="org.eclipse.wst.common.snippets.internal.ui.SnippetsView" label="Snippets"/>
 <page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
-<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
 <page content="org.eclipse.jdt.callhierarchy.view" label="Call Hierarchy"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.ui.views.ProgressView" label="Progress"/>
 <page content="org.eclipse.ui.views.ProblemView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.TaskList" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
-<page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
@@ -372,15 +324,22 @@
 <part id="3"/>
 <part id="4"/>
 <part id="5"/>
-<part id="6"/>
 <part id="7"/>
+<part id="6"/>
+<part id="8"/>
 </presentation>
 </folder>
 </info>
 <info folder="true" part="topRight" ratio="0.8038674" ratioLeft="873" ratioRight="213" relationship="2" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.mylyn.tasks.ui.views.tasks" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@25cbf193" ratio="0.9369565" ratioLeft="431" ratioRight="29" relationship="4" relative="org.eclipse.ui.editorss">
+<folder appearance="2" expanded="0">
+<page content="org.eclipse.eclemma.ui.CoverageView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
@@ -428,6 +387,7 @@
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <view id="org.eclipse.debug.ui.DebugView"/>
 <view id="org.eclipse.wst.server.ui.ServersView"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.debug.ui.VariableView"/>
 <fastViewBars>
 <fastViewBar fastViewLocation="131072" id="org.eclipse.debug.internal.ui.ToolsFolderView" orientation="256" selectedTabId="org.eclipse.debug.ui.BreakpointView" style="0">
@@ -435,11 +395,10 @@
 <view id="org.eclipse.debug.ui.BreakpointView" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
-<fastViewBar fastViewLocation="1024" id="org.eclipse.debug.internal.ui.ConsoleFolderView" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="0">
+<fastViewBar fastViewLocation="1024" id="org.eclipse.debug.internal.ui.ConsoleFolderView" orientation="256" selectedTabId="org.eclipse.search.ui.views.SearchView" style="0">
 <fastViews>
-<view id="org.eclipse.ui.console.ConsoleView" ratio="0.4354561"/>
 <view id="org.eclipse.ui.views.TaskList" ratio="0.29948366"/>
-<view id="org.eclipse.search.ui.views.SearchView" ratio="0.29948366"/>
+<view id="org.eclipse.search.ui.views.SearchView" ratio="0.767642"/>
 </fastViews>
 </fastViewBar>
 <fastViewBar fastViewLocation="131072" id="org.eclipse.debug.internal.ui.OutlineFolderView" orientation="512" selectedTabId="org.eclipse.ui.views.ContentOutline" style="0">
@@ -451,7 +410,7 @@
 <layout>
 <mainWindow>
 <info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="org.eclipse.wst.server.ui.ServersView" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
 <page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
 <page content="org.eclipse.wst.server.ui.ServersView" label="Servers"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
@@ -463,12 +422,45 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@626fee55" ratio="0.6340361" ratioLeft="842" ratioRight="486" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@288b326c" ratio="0.79668677" ratioLeft="1058" ratioRight="270" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
 <folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">
 <page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 </presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@11ab4842" ratio="0.92018074" ratioLeft="1222" ratioRight="106" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder appearance="2" expanded="0">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@16c420da" ratio="0.7439759" ratioLeft="988" ratioRight="340" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder appearance="2" expanded="0">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@193beddd" ratio="0.92018074" ratioLeft="1222" ratioRight="106" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder appearance="2" expanded="0">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@6d9bf7a1" ratio="0.949827" ratioLeft="549" ratioRight="29" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@cbb7f8d" ratio="0.7409639" ratioLeft="984" ratioRight="344" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder appearance="2" expanded="0">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@626fee55" ratio="0.84186745" ratioLeft="1118" ratioRight="210" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder appearance="2" expanded="0">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="978" ratioRight="326" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
@@ -480,7 +472,6 @@
 </info>
 <info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.71280277" ratioLeft="412" ratioRight="166" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
 <folder appearance="2" expanded="0">
-<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.TaskList" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="LabelNotFound"/>
@@ -492,7 +483,7 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.05017301" ratioLeft="29" ratioRight="549" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
+<info part="org.eclipse.ui.editorss" ratio="0.15186246" ratioLeft="53" ratioRight="296" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
 <info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.9217712" ratioLeft="1249" ratioRight="106" relationship="2" relative="org.eclipse.ui.editorss">
 <folder appearance="2" expanded="0">
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
@@ -515,169 +506,167 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-Conference/src/main/java/controllers/ConferenceController.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/Acme-Conference/src/main/webapp/views/presentation/tiles_es.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/Acme-Conference/src/main/webapp/views/presentation/tiles.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-Conference/src/main/java/controllers/PresentationController.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-Conference/src/main/java/services/SubmissionService.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-Conference/src/main/java/services/RegistrationService.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-Conference/src/main/java/repositories/RegistrationRepository.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-Conference/src/main/java/controllers/RegistrationController.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" path="/Acme-Conference/src/main/webapp/views/registration/messages_es.properties"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" path="/Acme-Conference/src/main/webapp/views/registration/messages.properties"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-Conference/src/main/java/domain/Registration.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-Conference/src/main/java/domain/CreditCard.java"/>
 <editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=Acme-Conference/C:\/Documents and Settings\/Student\/.m2\/repository\/org\/springframework\/spring-core\/4.0.0.RELEASE\/spring-core-4.0.0.RELEASE.jar&lt;org.springframework.cglib.proxy(MethodProxy.class"/>
-<editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=Acme-Conference/C:\/Documents and Settings\/Student\/.m2\/repository\/org\/springframework\/spring-aop\/4.0.0.RELEASE\/spring-aop-4.0.0.RELEASE.jar&lt;org.springframework.aop.framework(CglibAopProxy.class"/>
-<editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=Acme-Conference/C:\/Documents and Settings\/Student\/.m2\/repository\/org\/springframework\/spring-aop\/4.0.0.RELEASE\/spring-aop-4.0.0.RELEASE.jar&lt;org.springframework.aop.framework(ReflectiveMethodInvocation.class"/>
-<editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=Acme-Conference/C:\/Documents and Settings\/Student\/.m2\/repository\/org\/springframework\/spring-tx\/4.0.0.RELEASE\/spring-tx-4.0.0.RELEASE.jar&lt;org.springframework.transaction.interceptor(TransactionInterceptor.class"/>
 <editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=Acme-Conference/C:\/Documents and Settings\/Student\/.m2\/repository\/org\/springframework\/spring-tx\/4.0.0.RELEASE\/spring-tx-4.0.0.RELEASE.jar&lt;org.springframework.transaction.interceptor(TransactionAspectSupport.class"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Acme-Conference/src/main/webapp/views/presentation/edit.jsp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-Conference/src/main/java/domain/Submission.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-Conference/src/main/java/repositories/SubmissionRepository.java"/>
+<editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=Acme-Conference/C:\/Program Files\/Java\/jdk1.7.0_13\/jre\/lib\/rt.jar&lt;java.util.concurrent(ThreadPoolExecutor.class"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Acme-Conference/src/main/webapp/views/registration/edit.jsp"/>
 </editors>
-<item historyLabel="ConferenceController.java" index="0">
-<position info="not_deleted" x="2225" y="0"/>
+<item historyLabel="Registration.java" index="5">
+<position info="not_deleted" x="353" y="0"/>
 </item>
-<item historyLabel="ConferenceController.java" index="0">
-<position info="not_deleted" x="2415" y="0"/>
+<item historyLabel="CreditCard.java" index="6">
+<position info="not_deleted" x="508" y="10"/>
 </item>
-<item historyLabel="ConferenceController.java" index="0">
-<position info="not_deleted" x="2452" y="0"/>
+<item historyLabel="Registration.java" index="5">
+<position info="not_deleted" x="353" y="0"/>
 </item>
-<item historyLabel="tiles_es.xml" index="1">
-<position info="not_deleted" x="504" y="17"/>
+<item historyLabel="RegistrationRepository.java" index="1">
+<position info="not_deleted" x="839" y="64"/>
 </item>
-<item historyLabel="tiles.xml" index="2">
-<position info="not_deleted" x="603" y="0"/>
+<item historyLabel="messages_es.properties" index="3">
+<position info="not_deleted" x="751" y="16"/>
 </item>
-<item historyLabel="ConferenceController.java" index="0">
-<position info="not_deleted" x="2452" y="0"/>
+<item historyLabel="RegistrationRepository.java" index="1">
+<position info="not_deleted" x="839" y="64"/>
 </item>
-<item historyLabel="tiles.xml" index="2">
-<position info="not_deleted" x="689" y="0"/>
+<item historyLabel="RegistrationRepository.java" index="1">
+<position info="not_deleted" x="909" y="37"/>
 </item>
-<item historyLabel="PresentationController.java" index="3">
-<position info="not_deleted" x="4836" y="0"/>
+<item historyLabel="RegistrationService.java" index="0">
+<position info="not_deleted" x="1765" y="0"/>
 </item>
-<item historyLabel="SubmissionService.java" index="4">
-<position info="not_deleted" x="955" y="18"/>
+<item historyLabel="RegistrationService.java" index="0">
+<position info="not_deleted" x="4144" y="0"/>
 </item>
-<item historyLabel="SubmissionService.java" index="4">
-<position info="not_deleted" x="1069" y="0"/>
+<item historyLabel="RegistrationService.java" index="0">
+<position info="not_deleted" x="1765" y="0"/>
 </item>
-<item historyLabel="PresentationController.java" index="3">
-<position info="not_deleted" x="4836" y="0"/>
+<item historyLabel="RegistrationService.java" index="0">
+<position info="not_deleted" x="1751" y="13"/>
 </item>
-<item historyLabel="MethodProxy.class" index="5">
+<item historyLabel="messages_es.properties" index="3">
+<position info="not_deleted" x="314" y="33"/>
+</item>
+<item historyLabel="messages.properties" index="4">
+<position info="not_deleted" x="355" y="0"/>
+</item>
+<item historyLabel="messages_es.properties" index="3">
+<position info="not_deleted" x="300" y="47"/>
+</item>
+<item historyLabel="messages.properties" index="4">
+<position info="not_deleted" x="355" y="0"/>
+</item>
+<item historyLabel="messages_es.properties" index="3">
+<position info="not_deleted" x="300" y="47"/>
+</item>
+<item historyLabel="messages.properties" index="4">
+<position info="not_deleted" x="355" y="0"/>
+</item>
+<item historyLabel="messages_es.properties" index="3">
+<position info="not_deleted" x="347" y="0"/>
+</item>
+<item historyLabel="messages.properties" index="4">
+<position info="not_deleted" x="355" y="0"/>
+</item>
+<item historyLabel="RegistrationController.java" index="2">
+<position info="not_deleted" x="4574" y="0"/>
+</item>
+<item historyLabel="RegistrationService.java" index="0">
+<position info="not_deleted" x="1751" y="13"/>
+</item>
+<item historyLabel="RegistrationService.java" index="0">
+<position info="not_deleted" x="1527" y="0"/>
+</item>
+<item historyLabel="RegistrationService.java" index="0">
+<position info="not_deleted" x="1435" y="0"/>
+</item>
+<item historyLabel="RegistrationService.java" index="0">
+<position info="not_deleted" x="1514" y="0"/>
+</item>
+<item historyLabel="RegistrationService.java" index="0">
+<position info="not_deleted" x="1578" y="0"/>
+</item>
+<item historyLabel="RegistrationService.java" index="0">
+<position info="not_deleted" x="1650" y="0"/>
+</item>
+<item historyLabel="RegistrationService.java" index="0">
+<position info="not_deleted" x="1578" y="0"/>
+</item>
+<item historyLabel="RegistrationService.java" index="0">
+<position info="not_deleted" x="1671" y="0"/>
+</item>
+<item historyLabel="RegistrationService.java" index="0">
+<position info="not_deleted" x="1699" y="0"/>
+</item>
+<item historyLabel="RegistrationService.java" index="0">
+<position info="not_deleted" x="4131" y="0"/>
+</item>
+<item historyLabel="RegistrationRepository.java" index="1">
+<position info="not_deleted" x="922" y="9"/>
+</item>
+<item historyLabel="RegistrationService.java" index="0">
+<position info="not_deleted" x="4131" y="0"/>
+</item>
+<item historyLabel="RegistrationService.java" index="0">
+<position info="not_deleted" x="4089" y="0"/>
+</item>
+<item historyLabel="MethodProxy.class" index="7">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="CglibAopProxy.class" index="6">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="TransactionAspectSupport.class" index="8">
+<position info="not_deleted" x="11081" y="0"/>
 </item>
-<item historyLabel="ReflectiveMethodInvocation.class" index="7">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="TransactionAspectSupport.class" index="8">
+<position info="not_deleted" x="11142" y="0"/>
 </item>
-<item historyLabel="TransactionInterceptor.class" index="8">
-<position info="not_deleted" x="3871" y="0"/>
+<item historyLabel="RegistrationService.java" index="0">
+<position info="not_deleted" x="4133" y="0"/>
 </item>
-<item historyLabel="TransactionAspectSupport.class" index="9">
-<position info="not_deleted" x="11027" y="0"/>
+<item historyLabel="RegistrationRepository.java" index="1">
+<position info="not_deleted" x="901" y="0"/>
 </item>
-<item historyLabel="PresentationController.java" index="3">
-<position info="not_deleted" x="1933" y="0"/>
+<item historyLabel="RegistrationService.java" index="0">
+<position info="not_deleted" x="1435" y="0"/>
 </item>
-<item historyLabel="ConferenceController.java" index="0">
-<position info="not_deleted" x="1981" y="0"/>
+<item historyLabel="RegistrationService.java" index="0">
+<position info="not_deleted" x="4089" y="0"/>
 </item>
-<item historyLabel="PresentationController.java" index="3">
-<position info="not_deleted" x="4776" y="0"/>
+<item historyLabel="RegistrationController.java" index="2">
+<position info="not_deleted" x="4574" y="0"/>
 </item>
-<item historyLabel="SubmissionService.java" index="4">
-<position info="not_deleted" x="919" y="0"/>
+<item historyLabel="CreditCard.java" index="6">
+<position info="not_deleted" x="1029" y="0"/>
 </item>
-<item historyLabel="PresentationController.java" index="3">
-<position info="not_deleted" x="4418" y="0"/>
+<item historyLabel="ThreadPoolExecutor.class" index="9">
+<position info="not_deleted" x="44969" y="0"/>
 </item>
-<item historyLabel="edit.jsp" index="10">
-<position info="not_deleted" x="2687" y="0"/>
+<item historyLabel="CreditCard.java" index="6">
+<position info="not_deleted" x="1034" y="0"/>
 </item>
-<item historyLabel="edit.jsp" index="10">
-<position info="not_deleted" x="724" y="0"/>
+<item historyLabel="RegistrationService.java" index="0">
+<position info="not_deleted" x="1435" y="0"/>
 </item>
-<item historyLabel="edit.jsp" index="10">
-<position info="not_deleted" x="2407" y="0"/>
+<item historyLabel="RegistrationService.java" index="0">
+<position info="not_deleted" x="4089" y="0"/>
 </item>
-<item historyLabel="PresentationController.java" index="3">
-<position info="not_deleted" x="4776" y="0"/>
-</item>
-<item historyLabel="PresentationController.java" index="3">
-<position info="not_deleted" x="4859" y="0"/>
-</item>
-<item historyLabel="PresentationController.java" index="3">
-<position info="not_deleted" x="4355" y="0"/>
+<item historyLabel="RegistrationService.java" index="0">
+<position info="not_deleted" x="1907" y="0"/>
 </item>
 <item historyLabel="edit.jsp" index="10">
-<position info="not_deleted" x="2370" y="0"/>
+<position info="not_deleted" x="2212" y="0"/>
 </item>
-<item historyLabel="edit.jsp" index="10">
-<position info="not_deleted" x="2429" y="0"/>
+<item historyLabel="messages_es.properties" index="3">
+<position info="not_deleted" x="759" y="105"/>
 </item>
-<item historyLabel="edit.jsp" index="10">
-<position info="not_deleted" x="2487" y="0"/>
-</item>
-<item historyLabel="edit.jsp" index="10">
-<position info="not_deleted" x="2489" y="0"/>
-</item>
-<item historyLabel="edit.jsp" index="10">
-<position info="not_deleted" x="2405" y="0"/>
-</item>
-<item historyLabel="PresentationController.java" index="3">
-<position info="not_deleted" x="4776" y="0"/>
-</item>
-<item historyLabel="edit.jsp" index="10">
-<position info="not_deleted" x="2370" y="0"/>
-</item>
-<item historyLabel="edit.jsp" index="10">
-<position info="not_deleted" x="2407" y="0"/>
-</item>
-<item historyLabel="edit.jsp" index="10">
-<position info="not_deleted" x="2365" y="0"/>
-</item>
-<item historyLabel="Submission.java" index="11">
-<position info="not_deleted" x="944" y="0"/>
-</item>
-<item historyLabel="edit.jsp" index="10">
-<position info="not_deleted" x="2365" y="0"/>
-</item>
-<item historyLabel="PresentationController.java" index="3">
-<position info="not_deleted" x="4776" y="0"/>
-</item>
-<item historyLabel="edit.jsp" index="10">
-<position info="not_deleted" x="2426" y="0"/>
-</item>
-<item historyLabel="SubmissionService.java" index="4">
-<position info="not_deleted" x="919" y="0"/>
-</item>
-<item historyLabel="ConferenceController.java" index="0">
-<position info="not_deleted" x="1981" y="0"/>
-</item>
-<item historyLabel="edit.jsp" index="10">
-<position info="not_deleted" x="2426" y="0"/>
-</item>
-<item historyLabel="SubmissionService.java" index="4">
-<position info="not_deleted" x="951" y="0"/>
-</item>
-<item historyLabel="Submission.java" index="11">
-<position info="not_deleted" x="834" y="6"/>
-</item>
-<item historyLabel="edit.jsp" index="10">
-<position info="not_deleted" x="2426" y="0"/>
-</item>
-<item historyLabel="PresentationController.java" index="3">
-<position info="not_deleted" x="4839" y="0"/>
-</item>
-<item historyLabel="SubmissionService.java" index="4">
-<position info="not_deleted" x="955" y="18"/>
-</item>
-<item historyLabel="SubmissionService.java" index="4">
-<position info="not_deleted" x="1055" y="0"/>
-</item>
-<item active="true" historyLabel="SubmissionRepository.java" index="12">
-<position info="not_deleted" x="457" y="18"/>
+<item active="true" historyLabel="messages.properties" index="4">
+<position info="not_deleted" x="355" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -696,6 +685,11 @@
 <trimItem IMemento.internal.id="bottomRight"/>
 <trimItem IMemento.internal.id="org.eclipse.debug.internal.ui.OutlineFolderView"/>
 <trimItem IMemento.internal.id="org.eclipse.debug.internal.ui.ToolsFolderView"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@626fee55"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@cbb7f8d"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@193beddd"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@16c420da"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@11ab4842"/>
 </trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
@@ -706,51 +700,50 @@
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
 <trimItem IMemento.internal.id="org.eclipse.debug.internal.ui.ConsoleFolderView"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@25cbf193"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@6d9bf7a1"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Submission.java" tooltip="Acme-Conference/src/main/java/domain/Submission.java">
-<persistable path="/Acme-Conference/src/main/java/domain/Submission.java"/>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="ThreadPoolExecutor.class" tooltip="java.util.concurrent.ThreadPoolExecutor">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=Acme-Conference/C:\/Program Files\/Java\/jdk1.7.0_13\/jre\/lib\/rt.jar&lt;java.util.concurrent(ThreadPoolExecutor.class"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ConferenceController.java" tooltip="Acme-Conference/src/main/java/controllers/ConferenceController.java">
-<persistable path="/Acme-Conference/src/main/java/controllers/ConferenceController.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CreditCard.java" tooltip="Acme-Conference/src/main/java/domain/CreditCard.java">
+<persistable path="/Acme-Conference/src/main/java/domain/CreditCard.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RegistrationRepository.java" tooltip="Acme-Conference/src/main/java/repositories/RegistrationRepository.java">
+<persistable path="/Acme-Conference/src/main/java/repositories/RegistrationRepository.java"/>
 </file>
 <file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="MethodProxy.class" tooltip="org.springframework.cglib.proxy.MethodProxy">
 <persistable org.eclipse.jdt.ui.ClassFileIdentifier="=Acme-Conference/C:\/Documents and Settings\/Student\/.m2\/repository\/org\/springframework\/spring-core\/4.0.0.RELEASE\/spring-core-4.0.0.RELEASE.jar&lt;org.springframework.cglib.proxy(MethodProxy.class"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SubmissionService.java" tooltip="Acme-Conference/src/main/java/services/SubmissionService.java">
-<persistable path="/Acme-Conference/src/main/java/services/SubmissionService.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages.properties" tooltip="Acme-Conference/src/main/webapp/views/registration/messages.properties">
+<persistable path="/Acme-Conference/src/main/webapp/views/registration/messages.properties"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages_es.properties" tooltip="Acme-Conference/src/main/webapp/views/registration/messages_es.properties">
+<persistable path="/Acme-Conference/src/main/webapp/views/registration/messages_es.properties"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Registration.java" tooltip="Acme-Conference/src/main/java/domain/Registration.java">
+<persistable path="/Acme-Conference/src/main/java/domain/Registration.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="edit.jsp" tooltip="Acme-Conference/src/main/webapp/views/registration/edit.jsp">
+<persistable path="/Acme-Conference/src/main/webapp/views/registration/edit.jsp"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="NativeMethodAccessorImpl.class" tooltip="sun.reflect.NativeMethodAccessorImpl">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=Acme-Conference/C:\/Program Files\/Java\/jdk1.7.0_13\/jre\/lib\/rt.jar&lt;sun.reflect(NativeMethodAccessorImpl.class"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RegistrationService.java" tooltip="Acme-Conference/src/main/java/services/RegistrationService.java">
+<persistable path="/Acme-Conference/src/main/java/services/RegistrationService.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ConferenceRepository.java" tooltip="Acme-Conference/src/main/java/repositories/ConferenceRepository.java">
 <persistable path="/Acme-Conference/src/main/java/repositories/ConferenceRepository.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PanelRepository.java" tooltip="Acme-Conference/src/main/java/repositories/PanelRepository.java">
-<persistable path="/Acme-Conference/src/main/java/repositories/PanelRepository.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ConferenceService.java" tooltip="Acme-Conference/src/main/java/services/ConferenceService.java">
+<persistable path="/Acme-Conference/src/main/java/services/ConferenceService.java"/>
 </file>
-<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="ThreadPoolExecutor.class" tooltip="java.util.concurrent.ThreadPoolExecutor">
-<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=Acme-Conference/C:\/Program Files\/Java\/jdk1.7.0_13\/jre\/lib\/rt.jar&lt;java.util.concurrent(ThreadPoolExecutor.class"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PresentationService.java" tooltip="Acme-Conference/src/main/java/services/PresentationService.java">
-<persistable path="/Acme-Conference/src/main/java/services/PresentationService.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="converters.xml" tooltip="Acme-Conference/src/main/resources/spring/config/converters.xml">
-<persistable path="/Acme-Conference/src/main/resources/spring/config/converters.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StringToConferenceConverter.java" tooltip="Acme-Conference/src/main/java/converters/StringToConferenceConverter.java">
-<persistable path="/Acme-Conference/src/main/java/converters/StringToConferenceConverter.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StringToAuthorConverter.java" tooltip="Acme-Conference/src/main/java/converters/StringToAuthorConverter.java">
-<persistable path="/Acme-Conference/src/main/java/converters/StringToAuthorConverter.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SystemConfigurationToStringConverter.java" tooltip="Acme-Conference/src/main/java/converters/SystemConfigurationToStringConverter.java">
-<persistable path="/Acme-Conference/src/main/java/converters/SystemConfigurationToStringConverter.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StringToTutorialConverter.java" tooltip="Acme-Conference/src/main/java/converters/StringToTutorialConverter.java">
-<persistable path="/Acme-Conference/src/main/java/converters/StringToTutorialConverter.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StringToSystemConfigurationConverter.java" tooltip="Acme-Conference/src/main/java/converters/StringToSystemConfigurationConverter.java">
-<persistable path="/Acme-Conference/src/main/java/converters/StringToSystemConfigurationConverter.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="PopulateDatabase.xml" tooltip="Acme-Conference/src/main/resources/PopulateDatabase.xml">
+<persistable path="/Acme-Conference/src/main/resources/PopulateDatabase.xml"/>
 </file>
 </mruList>
 </workbench>

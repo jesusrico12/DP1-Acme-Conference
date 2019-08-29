@@ -23,16 +23,7 @@ public class UtilityService {
 	@Autowired
 	private SubmissionService submissionService;
 
-	/**
-	 * 
-	 * Checks if the date of the credit card is expired
-	 * 
-	 * @param expirationMonth
-	 * @param expirationYear
-	 * 
-	 * @return boolean
-	 * @throws ParseException
-	 **/
+
 
 
 	/* [+]\d{3} */
@@ -54,15 +45,15 @@ the corresponding initial is “X”*/
 	public String getTicker(){
 		String res;
 		Author principal = (Author) this.actorService.findByPrincipal();
-		String A=principal.getName().trim().substring(0, 1);
+		String A=principal.getName().trim().substring(0, 1).toUpperCase();
 		String B;
-		if(principal.getMiddleName()!=null){
-			 B=principal.getMiddleName().trim().substring(0, 1);	
+		if(principal.getMiddleName()!=null||!principal.getMiddleName().trim().isEmpty()){
+			 B=principal.getMiddleName().trim().substring(0, 1).toUpperCase();	
 		}else{
 			 B="X";
 		}
 		
-		String C=principal.getSurname().trim().substring(0, 1);
+		String C=principal.getSurname().trim().substring(0, 1).toUpperCase();
 		
 		res=A+B+C+"-"+this.randomString();
 		
