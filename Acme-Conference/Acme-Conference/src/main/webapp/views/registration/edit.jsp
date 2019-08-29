@@ -8,6 +8,33 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 <%@ taglib prefix="acme" tagdir="/WEB-INF/tags"%>
+<style>
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
+
+
 
 <security:authorize access="hasRole('AUTHOR')">
 
@@ -39,10 +66,11 @@
 		<br />
 		<br />
 
-		<form:label path="creditCard.number">
+		<form:label path="creditCard.number" class="tooltip">
+		<span class="tooltiptext"><spring:message code="registration.format" /> </span>
 			<spring:message code="registration.number" /> :
 	</form:label>
-		<form:input path="creditCard.number" placeholder="4387749971680407"/>
+		<form:input path="creditCard.number" placeholder="4703832951273752"/>
 		<form:errors cssClass="error" path="creditCard.number" />
 		<br />
 		<br />

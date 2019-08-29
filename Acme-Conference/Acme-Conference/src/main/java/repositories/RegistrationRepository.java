@@ -24,6 +24,9 @@ import domain.Registration;;
 		@Query("select r.conference from Registration r where r.author.id= ?1")
 		Collection<Conference> conferencesInRegistration(int authorId);
 		
+		@Query("select r from Registration r where r.creditCard.number like ?1")
+		Registration uniqueReg(String number);
+		
 	}
 
 

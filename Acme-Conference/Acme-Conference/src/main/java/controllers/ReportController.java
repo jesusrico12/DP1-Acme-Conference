@@ -220,17 +220,21 @@ public class ReportController extends AbstractController{
 		boolean timeToComment=false;
 		boolean permissionAuthor=false;
 		Actor principal; 
+	try{
 		if(this.submissionService.reportTimeToComment(reportId)!=null){
 			timeToComment=true;
 		}
 		principal = this.actorService.findByPrincipal();
 
-
-
-
+		
 
 
 		Report report=this.reportService.findOne(reportId);
+		
+		if(this.actorService.checkAuthority(principal, "REVIEWER")){
+			Assert.isTrue(report.getReviewer()==principal);
+			
+		}
 		result = new ModelAndView("report/display");
 		result.addObject("report",report );
 
@@ -239,6 +243,11 @@ public class ReportController extends AbstractController{
 			permissionAuthor=true;
 		}
 		result.addObject("permissionAuthor",permissionAuthor);
+	}catch(Throwable opps){
+		
+		result = new ModelAndView("redirect:/welcome/index.do");
+		
+	}
 		return result;
 	}
 

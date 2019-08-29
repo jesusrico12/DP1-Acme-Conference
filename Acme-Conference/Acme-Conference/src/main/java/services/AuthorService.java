@@ -51,29 +51,35 @@ public class AuthorService {
 		Author result, saved;
 		final UserAccount logedUserAccount;
 		Authority authority;
+		
 		Md5PasswordEncoder encoder;
 		
-	/*	if(author.getId() == 0) {
-			UserAccount adminUserAccount = LoginService.getPrincipal();
-			Assert.isTrue(adminUserAccount.getAuthorities().iterator().next().getAuthority().equals("AUTHOR"));
-		}*/
+
 
 		encoder = new Md5PasswordEncoder();
 		authority = new Authority();
+		
 		authority.setAuthority("AUTHOR");
+		
 		Assert.notNull(author, "author.not.null");
+		
 		Pattern pattern0 = Pattern.compile("^([A-z0-9 ]+[ ]<[A-z0-9]+@(([A-z0-9]+\\.)+[A-z0-9]+){0,}>|[A-z0-9]+@(([A-z0-9]+\\.)+[A-z0-9]+){0,})$");
 		Assert.isTrue(pattern0.matcher(author.getEmail()).find());
+		
 
 		if (this.exists(author.getId())) {
 			logedUserAccount = LoginService.getPrincipal();
+			
 			Assert.notNull(logedUserAccount, "author.notLogged ");
 			int string1 = logedUserAccount.getId();
+			
 			int string2 = author.getUserAccount().getId();
+			
 			Assert.isTrue(string1 == string2, "author.notEqual.userAccount");
 
 			saved = this.authorRepository.findOne(author.getId());
 			Assert.notNull(saved, "author.not.null");
+			
 			Assert.isTrue(saved.getUserAccount().getUsername().equals(author.getUserAccount().getUsername()), "author.notEqual.username");
 		} else {
 			author.getUserAccount().setPassword(encoder.encodePassword(author.getUserAccount().getPassword(), null));
@@ -81,6 +87,7 @@ public class AuthorService {
 		}
 
 		result = this.authorRepository.save(author);
+		
 
 		return result;
 	}
@@ -88,15 +95,19 @@ public class AuthorService {
 	public Author create() {
 		Author result;
 		UserAccount userAccount;
+		
 		Authority authority;
 
 		result = new Author();
+		
 		userAccount = new UserAccount();
 		authority = new Authority();
+		
 
 		
 
 		authority.setAuthority("AUTHOR");
+		
 		userAccount.addAuthority(authority);
 
 
@@ -114,9 +125,12 @@ public class AuthorService {
 		UserAccount userAccount;
 
 		userAccount = LoginService.getPrincipal();
+		
 		Assert.notNull(userAccount);
 		result = this.findByUserAccount(userAccount);
+		
 		Assert.notNull(result);
+		
 
 		return result;
 	}
@@ -124,23 +138,28 @@ public class AuthorService {
 	public Author findByUserAccount(UserAccount userAccount) {
 		Assert.notNull(userAccount);
 		Author result;
+		
 		result = this.authorRepository.findByUserAccountId(userAccount.getId());
 		return result;
 	}
 
 	public AuthorForm construct(Author author) {
 		AuthorForm result = new AuthorForm();
+		
 		result.setName(author.getName());
 		result.setSurname(author.getSurname());
+		
 		result.setMiddleName(author.getMiddleName());
 		result.setPhoto(author.getPhoto());
 		
 		result.setPhoneNumber(author.getPhoneNumber());
 		result.setAddress(author.getAddress());
+		
 	
 		result.setEmail(author.getEmail());
 
 		result.setUsername(author.getUserAccount().getUsername());
+		
 		result.setId(author.getId());
 
 	
@@ -157,8 +176,10 @@ public class AuthorService {
 			result = (Author) this.actorService.findByActorId(form.getId());
 
 		result.setName(form.getName());
+		
 		result.setSurname(form.getSurname());
 		result.setPhoto(form.getPhoto());
+		
 		result.setEmail(form.getEmail());
 		result.setMiddleName(form.getMiddleName());
 
@@ -167,6 +188,7 @@ public class AuthorService {
 		if (!StringUtils.isEmpty(form.getPhoneNumber())) {
 
 			Pattern pattern = Pattern.compile("^\\d{4,}$", Pattern.CASE_INSENSITIVE);
+			
 			Matcher matcher = pattern.matcher(form.getPhoneNumber());
 
 			if (matcher.matches())
@@ -174,14 +196,18 @@ public class AuthorService {
 		}
 
 		result.setPhoneNumber(form.getPhoneNumber());
+		
 		result.setAddress(form.getAddress());
 		String s1 = form.getUsername();
+		
 		String s2 = result.getUserAccount().getUsername();
 
 		if (!s1.equals(s2) || s2 == null)
 			if (!this.userAccountRepository.findUserAccountsByUsername(form.getUsername()).isEmpty())
 				binding.rejectValue("username", "author.validator.username", "This username already exists");
+		
 		result.getUserAccount().setUsername(form.getUsername());
+		
 		result.getUserAccount().setPassword(form.getNewPassword());
 
 		if (form.getNewPassword().trim().length() < 5)
@@ -202,10 +228,13 @@ public class AuthorService {
 		String passwordConfirm = form.getNewPassword();
 		if (form.getId() != 0) {
 			UserAccount ua = this.actorService.findByPrincipal().getUserAccount();
+			
 			if (form.getNewPassword() == "" && form.getOldPassword() == "" && form.getConfirmPassword() == "") {
 				form.setOldPassword(ua.getPassword());
+				
 				form.setNewPassword(ua.getPassword());
 				form.setConfirmPassword(ua.getPassword());
+				
 				Assert.isTrue(form.getOldPassword().equals(ua.getPassword()), "error.password.incorrectOld");
 			} else
 				Assert.isTrue(encoder.encodePassword(form.getOldPassword(), null).equals(ua.getPassword()), "error.password.incorrectOld");
@@ -213,6 +242,7 @@ public class AuthorService {
 
 		String s1 = form.getConfirmPassword();
 		String s2 = form.getNewPassword();
+		
 		Assert.isTrue(s1.equals(s2), "error.password.notMatching");
 
 		Author temp = this.reconstruct(form, binding);

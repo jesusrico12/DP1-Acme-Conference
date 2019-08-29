@@ -54,6 +54,7 @@
 			</strong></td>
 			<td><jstl:out value="${panel.summary}"></jstl:out></td>
 		</tr>
+		<jstl:if test="${not empty attachments}">
 						<tr>
 			<td><strong> <spring:message code="panel.attachments" />
 					:
@@ -64,7 +65,7 @@
 			</jstl:forEach>
 			</td>
 		</tr>
-		
+		</jstl:if>
 
 
 <jstl:if test="${permission}">

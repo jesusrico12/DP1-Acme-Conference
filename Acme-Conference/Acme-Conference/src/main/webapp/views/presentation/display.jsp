@@ -53,6 +53,7 @@
 			</strong></td>
 			<td><jstl:out value="${presentation.summary}"></jstl:out></td>
 		</tr>
+		<jstl:if test="${not empty presentation.attachments}">
 						<tr>
 			<td><strong> <spring:message code="presentation.attachments" />
 					:
@@ -63,7 +64,7 @@
 			</td>
 		</tr>
 			
-	
+	</jstl:if>
 
 
 </table>

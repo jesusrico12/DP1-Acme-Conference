@@ -53,6 +53,7 @@
 			</strong></td>
 			<td><jstl:out value="${tutorial.summary}"></jstl:out></td>
 		</tr>
+		<jstl:if test="${not empty tutorial.attachments}">
 						<tr>
 			<td><strong> <spring:message code="tutorial.attachments" />
 					:
@@ -62,7 +63,7 @@
 			</jstl:forEach>
 			</td>
 		</tr>
-		
+		</jstl:if>
 
 <jstl:if test="${permission}">
 
@@ -76,14 +77,14 @@
 </table>
 
 <display:table pagesize="10" class="displaytag" name="sections"
-			 id="row">
+			 id="row" requestURI="tutorial/display.do?tutorialId=${tutorial.id}">
 			 
 
 			<display:column titleKey="section.display" >
 				<input type="button" value="<jstl:out value="${row.title}"/>"
 								onclick="redirect: location.href = 'section/display.do?sectionId=${row.id}';" />
 			</display:column>
-			<display:column titleKey="section.summary" >
+			<display:column titleKey="section.summary" sortable="true">
 				<jstl:out value="${row.summary}"></jstl:out>
 			</display:column>
 			

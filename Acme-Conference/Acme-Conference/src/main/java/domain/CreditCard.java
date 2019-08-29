@@ -46,7 +46,7 @@ public class CreditCard {
 
 	@NotBlank
 	@CreditCardNumber
-	@Pattern(regexp="[\\d]{16}")
+	//@Pattern(regexp="[\\d]{16}")
 	@NumberFormat
 	public String getNumber() {
 		return number;
