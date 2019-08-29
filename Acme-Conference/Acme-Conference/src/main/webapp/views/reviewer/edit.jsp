@@ -98,6 +98,7 @@
 		<input type="submit" name="save"
 			value="<spring:message code="reviewer.save" />"
 			onclick="if(!/^(\+[0-9]{1,3}[ ]{0,1}(\([0-9]{1,3}\)[ ]{0,1}){0,1}){0,1}[0-9]{1}[0-9 ]{3,}$/.test(document.getElementById('phoneNumber').value)) { return confirm('<spring:message code="reviewer.confirm.phoneNumber" />')}" />
+	<acme:cancel code="message.cancel" url="welcome/index.do" />
 	</jstl:if>
 
 	<jstl:if test="${reviewerForm.id == 0}">

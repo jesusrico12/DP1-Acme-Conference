@@ -642,7 +642,7 @@
 		<property name="status" value="UNDER-REVIEW" />
 		<property name="toReview" value="true" />
 
-		<property name="toAuthor" value="true" />
+		<property name="toAuthor" value="false" />
 		<property name="paper" ref="paper6" />
 
 		<property name="author" ref="author1" />

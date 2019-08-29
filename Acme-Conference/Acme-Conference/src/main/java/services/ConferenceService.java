@@ -285,6 +285,7 @@ public class ConferenceService {
 		return result;
 	}
 	
+
 	public Collection<Conference> getAdminConferences(int id){
 		Collection<Conference> result = this.conferenceRepository.adminConferences(id);
 		
@@ -296,5 +297,6 @@ public class ConferenceService {
 		
 		return result;
 	}
+
 	
 }

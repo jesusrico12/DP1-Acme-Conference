@@ -28,6 +28,7 @@
 			</strong></td>
 			<td><jstl:out value="${section.summary}"></jstl:out></td>
 		</tr>
+		<jstl:if test="${not empty section.pictures}">
 						<tr>
 			<td><strong> <spring:message code="section.pictures" />:
 					
@@ -38,16 +39,17 @@
 			</jstl:forEach>
 			</td>
 		</tr>
-		
+		</jstl:if>
 
 
-
+<jstl:if test="${permission}">
 	<tr><td>
 		<input type="button" name="edit"
 			value="<spring:message code="section.edit"	/>"
 			onclick="redirect: location.href = 'section/edit.do?sectionId=${section.id}';" />
 </td>
 </tr>
+</jstl:if>
 </table>
 
 	<input type="button" name="back"

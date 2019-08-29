@@ -53,6 +53,7 @@
 			</strong></td>
 			<td><jstl:out value="${presentation.summary}"></jstl:out></td>
 		</tr>
+		<jstl:if test="${not empty presentation.attachments}">
 						<tr>
 			<td><strong> <spring:message code="presentation.attachments" />
 					:
@@ -63,7 +64,7 @@
 			</td>
 		</tr>
 			
-	
+	</jstl:if>
 
 
 </table>
@@ -100,12 +101,14 @@
 	</table>
 
 <security:authorize access="hasRole('ADMIN')">
+<jstl:if test="${permission}">
 	<tr><td>
 		<input type="button" name="edit"
 			value="<spring:message code="presentation.edit"	/>"
 			onclick="redirect: location.href = 'presentation/edit.do?presentationId=${presentation.id}';" />
 </td>
 </tr>
+</jstl:if>
 
 </security:authorize>
 

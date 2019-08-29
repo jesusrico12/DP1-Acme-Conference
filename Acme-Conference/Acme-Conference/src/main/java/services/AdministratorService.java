@@ -65,26 +65,33 @@ public class AdministratorService {
 
 	public Administrator save(Administrator administrator) {
 		Administrator result, saved;
+		
 		final UserAccount logedUserAccount;
 		Authority authority;
 		Md5PasswordEncoder encoder;
 
 		encoder = new Md5PasswordEncoder();
 		authority = new Authority();
+		
 		authority.setAuthority("ADMIN");
 		Assert.notNull(administrator, "administrator.not.null");
+		
 		Pattern pattern0 = Pattern.compile("^([A-z0-9 ]+[ ]<[A-z0-9]+@(([A-z0-9]+\\.)+[A-z0-9]+){0,}>|[A-z0-9]+@(([A-z0-9]+\\.)+[A-z0-9]+){0,})$");
 		Assert.isTrue(pattern0.matcher(administrator.getEmail()).find());
 		
 		if (this.exists(administrator.getId())) {
 			logedUserAccount = LoginService.getPrincipal();
+			
 			Assert.notNull(logedUserAccount, "administrator.notLogged ");
 			int string1 = logedUserAccount.getId();
 			int string2 = administrator.getUserAccount().getId();
+			
 			Assert.isTrue(string1 == string2, "administrator.notEqual.userAccount");
 
 			saved = this.administratorRepository.findOne(administrator.getId());
+			
 			Assert.notNull(saved, "administrator.not.null");
+			
 			Assert.isTrue(saved.getUserAccount().getUsername().equals(administrator.getUserAccount().getUsername()), "administrator.notEqual.username");
 		} else {
 			administrator.getUserAccount().setPassword(encoder.encodePassword(administrator.getUserAccount().getPassword(), null));
@@ -98,10 +105,12 @@ public class AdministratorService {
 
 	public Administrator create() {
 		Administrator result;
+		
 		UserAccount userAccount;
 		Authority authority;
 
 		result = new Administrator();
+		
 		userAccount = new UserAccount();
 		authority = new Authority();
 
@@ -123,10 +132,12 @@ public class AdministratorService {
 
 	public Administrator findByPrincipal() {
 		Administrator result;
+		
 		UserAccount userAccount;
 
 		userAccount = LoginService.getPrincipal();
 		Assert.notNull(userAccount);
+		
 		result = this.findByUserAccount(userAccount);
 		Assert.notNull(result);
 
@@ -136,14 +147,19 @@ public class AdministratorService {
 	public Administrator findByUserAccount(UserAccount userAccount) {
 		Assert.notNull(userAccount);
 		Administrator result;
+		
 		result = this.administratorRepository.findByUserAccountId(userAccount.getId());
+		
 		return result;
 	}
 
 	public AdministratorForm construct(Administrator admin) {
+		
 		AdministratorForm result = new AdministratorForm();
 		result.setName(admin.getName());
+		
 		result.setSurname(admin.getSurname());
+		
 		result.setMiddleName(admin.getMiddleName());
 		result.setPhoto(admin.getPhoto());
 		result.setPhoneNumber(admin.getPhoneNumber());
@@ -169,8 +185,10 @@ public class AdministratorService {
 
 		result.setName(form.getName());
 		result.setSurname(form.getSurname());
+		
 		result.setMiddleName(form.getMiddleName());
 		result.setPhoto(form.getPhoto());
+		
 		result.setEmail(form.getEmail());
 
 
@@ -179,24 +197,30 @@ public class AdministratorService {
 		if (!StringUtils.isEmpty(form.getPhoneNumber())) {
 
 			Pattern pattern = Pattern.compile("^\\d{4,}$", Pattern.CASE_INSENSITIVE);
+			
 			Matcher matcher = pattern.matcher(form.getPhoneNumber());
 
 			if (matcher.matches())
+				
 				form.setPhoneNumber(this.systemConfigurationService.findMySystemConfiguration().getCountryCode() + form.getPhoneNumber());
 		}
 
 
 		result.setPhoneNumber(form.getPhoneNumber());
 		result.setAddress(form.getAddress());
+		
 		String s1 = form.getUsername();
+		
 		String s2 = result.getUserAccount().getUsername();
 
 		if (!s1.equals(s2) || s2 == null)
+			
 			if (!this.userAccountRepository.findUserAccountsByUsername(form.getUsername()).isEmpty())
 				binding.rejectValue("username", "administrator.validator.username", "This username already exists");
 		
 	
 		result.getUserAccount().setUsername(form.getUsername());
+		
 		result.getUserAccount().setPassword(form.getNewPassword());
 
 		if (form.getNewPassword().trim().length() < 5)
@@ -213,25 +237,38 @@ public class AdministratorService {
 
 	public Administrator verifyAndSave(AdministratorForm form, BindingResult binding) {
 		Md5PasswordEncoder encoder = new Md5PasswordEncoder();
+		
+		
 
 		String passwordConfirm = form.getNewPassword();
+		
 		if (form.getId() != 0) {
+			
 			UserAccount ua = this.actorService.findByPrincipal().getUserAccount();
+			
 			if (form.getNewPassword() == "" && form.getOldPassword() == "" && form.getConfirmPassword() == "") {
+				
 				form.setOldPassword(ua.getPassword());
+				
 				form.setNewPassword(ua.getPassword());
+				
 				form.setConfirmPassword(ua.getPassword());
+				
 				Assert.isTrue(form.getOldPassword().equals(ua.getPassword()), "error.password.incorrectOld");
 			} else
 				Assert.isTrue(encoder.encodePassword(form.getOldPassword(), null).equals(ua.getPassword()), "error.password.incorrectOld");
 		}
 
 		String s1 = form.getConfirmPassword();
+		
 		String s2 = form.getNewPassword();
+		
 		Assert.isTrue(s1.equals(s2), "error.password.notMatching");
 
 		Administrator temp = this.reconstruct(form, binding);
+		
 		if (!passwordConfirm.equals("") && form.getId() > 0)
+			
 			temp.getUserAccount().setPassword(encoder.encodePassword(temp.getUserAccount().getPassword(), null));
 
 		Administrator result = this.save(temp);
@@ -248,8 +285,10 @@ public class AdministratorService {
 		Actor principal;
 
 		Assert.notNull(administrator);
+		
 
 		principal = this.actorService.findByPrincipal();
+		
 
 		Assert.isTrue(principal.getId() == administrator.getId(),
 				"no.permission");

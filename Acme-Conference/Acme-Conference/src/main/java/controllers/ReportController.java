@@ -55,8 +55,10 @@ public class ReportController extends AbstractController{
 	public ModelAndView create(@RequestParam int submissionId){
 		ModelAndView result;
 		Actor principal;
+		try{
 		principal = this.actorService.findByPrincipal();
 		Assert.isTrue(this.actorService.checkAuthority(principal, "REVIEWER"));
+		Assert.isTrue(this.submissionService.submissionsOfReviewer(principal.getId()).contains(this.submissionService.findOne(submissionId)));
 		Report report = this.reportService.create();
 		Collection<String> decisions=new ArrayList<String>();
 		decisions.add("REJECT");
@@ -66,6 +68,9 @@ public class ReportController extends AbstractController{
 
 		result.addObject("submissionId",submissionId);
 		result.addObject("decisions",decisions);
+		}catch(Throwable oops){
+			result = new ModelAndView("redirect:/welcome/index.do");
+		}
 
 
 
@@ -120,9 +125,9 @@ public class ReportController extends AbstractController{
 			principal = this.actorService.findByPrincipal();
 
 
-			if(	this.actorService.checkAuthority(principal, "AUTHOR")){
+			Assert.isTrue(this.actorService.checkAuthority(principal, "AUTHOR"));
 				Assert.isTrue(this.submissionService.getSubmissionByOwner(principal.getId()).contains(this.submissionService.findOne(submissionId)));
-			}
+			
 			result = new ModelAndView("report/toAuthor");
 
 
@@ -176,7 +181,9 @@ public class ReportController extends AbstractController{
 				Assert.isTrue(this.actorService.checkAuthority(principal, "REVIEWER"));
 				Submission submission =this.submissionService.findOne(submissionId);
 				Assert.isTrue(this.submissionService.submissionsOfReviewer(this.actorService.findByPrincipal().getId()).contains(submission),"commit.error");
-
+				if(report.getId()!=0){
+					Assert.isTrue(report.getReviewer()==principal,"commit.error");
+				}
 				String comment= report.getComments().toString();
 				List<String> commentL= new ArrayList<String>();
 				commentL.add(comment);
@@ -213,17 +220,21 @@ public class ReportController extends AbstractController{
 		boolean timeToComment=false;
 		boolean permissionAuthor=false;
 		Actor principal; 
+	try{
 		if(this.submissionService.reportTimeToComment(reportId)!=null){
 			timeToComment=true;
 		}
 		principal = this.actorService.findByPrincipal();
 
-
-
-
+		
 
 
 		Report report=this.reportService.findOne(reportId);
+		
+		if(this.actorService.checkAuthority(principal, "REVIEWER")){
+			Assert.isTrue(report.getReviewer()==principal);
+			
+		}
 		result = new ModelAndView("report/display");
 		result.addObject("report",report );
 
@@ -232,6 +243,11 @@ public class ReportController extends AbstractController{
 			permissionAuthor=true;
 		}
 		result.addObject("permissionAuthor",permissionAuthor);
+	}catch(Throwable opps){
+		
+		result = new ModelAndView("redirect:/welcome/index.do");
+		
+	}
 		return result;
 	}
 

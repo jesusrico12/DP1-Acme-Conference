@@ -113,7 +113,7 @@ public class SubmissionAdminController extends AbstractController{
 			
 			this.submissionService.autoAssignReviewers(submissions);
 			
-			result = new ModelAndView("redirect:/welcome/index.do");
+			result = new ModelAndView("redirect:../../conference/list.do");
 			
 			return result;
 			

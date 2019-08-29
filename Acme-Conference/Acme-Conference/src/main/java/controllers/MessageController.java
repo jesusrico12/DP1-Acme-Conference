@@ -350,7 +350,7 @@ public class MessageController extends AbstractController{
 
 
 	@RequestMapping(value = "/broadcast", method = RequestMethod.POST, params = "save")
-	public ModelAndView broadcast(@RequestParam(required=false) String topic,
+	public ModelAndView broadcast(@RequestParam int conferenceId,@RequestParam(required=false) String topic,
 			@Valid final Message mensaje,
 			final BindingResult binding) {
 		ModelAndView result;
@@ -375,6 +375,7 @@ public class MessageController extends AbstractController{
 
 			}
 		}
+		result.addObject("conferenceId", conferenceId);
 		return result;
 	}
 
@@ -403,6 +404,7 @@ public class MessageController extends AbstractController{
 				result.addObject("conferenceId", conferenceId);
 			}
 		}
+		result.addObject("conferenceId", conferenceId);
 		return result;
 	}
 
@@ -431,11 +433,12 @@ public class MessageController extends AbstractController{
 				result.addObject("conferenceId", conferenceId);
 			}
 		}
+		result.addObject("conferenceId", conferenceId);
 		return result;
 	}
 
 	@RequestMapping(value = "/broadcast", method = RequestMethod.POST, params = "saveAuthors")
-	public ModelAndView broadcastAuthors(@RequestParam(required=false) String topic,
+	public ModelAndView broadcastAuthors(@RequestParam int conferenceId,@RequestParam(required=false) String topic,
 			@Valid final Message mensaje,
 			final BindingResult binding) {
 		ModelAndView result;
@@ -456,6 +459,7 @@ public class MessageController extends AbstractController{
 						"message.commit.error");
 			}
 		}
+		result.addObject("conferenceId", conferenceId);
 		return result;
 	}
 

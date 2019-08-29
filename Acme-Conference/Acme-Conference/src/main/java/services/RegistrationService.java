@@ -57,6 +57,10 @@ public class RegistrationService {
 		Date currentMoment=new Date(System.currentTimeMillis() - 1);
 		Assert.isTrue(this.actorService.checkAuthority(principal, "AUTHOR"),
 				"not.allowed");
+		Assert.isTrue(this.uniqueReg(registration.getCreditCard().getNumber())==null,"number.unique");
+		Assert.isTrue(!this.conferencesInRegistration((this.actorService.findByPrincipal().getId()))
+				.contains(conference),"commit.error");
+		Assert.isTrue(this.conferenceService.conferencesNotStarted().contains(conference),"commit.error");
 		Assert.isTrue(this.actorService.findByPrincipal()==registration.getAuthor(),"not.allowed");
 		Assert.isTrue(currentMoment.before(conference.getStartDate()),"commit.error");
 		Assert.isTrue(checkIfExpired(registration.getCreditCard().getExpirationMonth()
@@ -89,7 +93,9 @@ public class RegistrationService {
 
 		if (currentDate.after(expiryDate))
 			res = true;
-
+		if(expirationYear>19){
+			res=false;
+		}
 		return res;
 	}
 	public Registration findOne(int registrationId) {
@@ -107,6 +113,13 @@ public class RegistrationService {
 	public Collection<Registration> getRegistrationByConference(int id){
 		return this.registrationRepository.getRegistrationByConference(id);
 		
+	}
+	
+	public Collection<Conference> conferencesInRegistration(int authorId){
+		return this.registrationRepository.conferencesInRegistration(authorId);
+	}
+	public Registration uniqueReg(String number){
+		return this.registrationRepository.uniqueReg(number);
 	}
 }
 

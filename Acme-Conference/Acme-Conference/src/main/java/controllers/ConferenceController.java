@@ -1,6 +1,6 @@
 package controllers;
 
-import java.util.ArrayList;
+
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 import org.springframework.stereotype.Controller;
+
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -368,11 +369,16 @@ public class ConferenceController extends AbstractController{
 	@RequestMapping(value = "/decisionMaking" , method = RequestMethod.POST)
 	public ModelAndView decisionMaking(@RequestParam int conferenceId){
 		ModelAndView result;
+		try{
+			Actor principal=this.actorService.findByPrincipal();
+			Assert.isTrue(principal==this.conferenceService.findOne(conferenceId).getAdministrator());
 		
 		this.conferenceService.decisionMaking(conferenceId);
 	
 		result = new ModelAndView("redirect:list.do");
-		
+		}catch(Throwable oops){
+			result = new ModelAndView("redirect:/welcome/index.do");
+		}
 		
 		return result;
 	

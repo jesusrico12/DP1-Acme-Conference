@@ -53,6 +53,7 @@
 			</strong></td>
 			<td><jstl:out value="${tutorial.summary}"></jstl:out></td>
 		</tr>
+		<jstl:if test="${not empty tutorial.attachments}">
 						<tr>
 			<td><strong> <spring:message code="tutorial.attachments" />
 					:
@@ -62,9 +63,9 @@
 			</jstl:forEach>
 			</td>
 		</tr>
-		
+		</jstl:if>
 
-
+<jstl:if test="${permission}">
 
 	<tr><td>
 		<input type="button" name="edit"
@@ -72,17 +73,18 @@
 			onclick="redirect: location.href = 'tutorial/edit.do?tutorialId=${tutorial.id}';" />
 </td>
 </tr>
+</jstl:if>
 </table>
 
 <display:table pagesize="10" class="displaytag" name="sections"
-			 id="row">
+			 id="row" requestURI="tutorial/display.do?tutorialId=${tutorial.id}">
 			 
 
 			<display:column titleKey="section.display" >
 				<input type="button" value="<jstl:out value="${row.title}"/>"
 								onclick="redirect: location.href = 'section/display.do?sectionId=${row.id}';" />
 			</display:column>
-			<display:column titleKey="section.summary" >
+			<display:column titleKey="section.summary" sortable="true">
 				<jstl:out value="${row.summary}"></jstl:out>
 			</display:column>
 			
@@ -91,8 +93,9 @@
 	<input type="button" name="back"
 		value="<spring:message code="tutorial.back" />"
 		onclick="redirect: location.href = 'conference/display.do?conferenceId=${conference.id}';" />
+		<jstl:if test="${permission}">
 		<input type="button" value="<spring:message code="section.create"	/>"
 			onclick="redirect: location.href = 'section/create.do?tutorialId=${tutorial.id}';" />
-
+</jstl:if>
 
 

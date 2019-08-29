@@ -2,7 +2,7 @@ package controllers;
 
 import javax.validation.Valid;
 
-import org.aspectj.weaver.patterns.ThisOrTargetAnnotationPointcut;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
@@ -46,10 +46,21 @@ public class PresentationController extends AbstractController {
 	@RequestMapping(value = "presentation/display", method = RequestMethod.GET)
 	public ModelAndView display(@RequestParam int presentationId) {
 		ModelAndView result;
+		boolean permission=false;
 		Presentation presentation=this.presentationService.findOne(presentationId);
+		try{
+			Actor principal=this.actorService.findByPrincipal();
+			if(this.conferenceService.ConferenceOwn(presentation.getId()).getAdministrator()==principal){
+				permission=true;
+			
+			}
+			}catch(Throwable oops){
+				
+			}
 		result = new ModelAndView("presentation/display");
 		result.addObject("presentation",presentation );
 		result.addObject("conference",this.conferenceService.ConferenceOwn(presentationId));
+		result.addObject("permission",permission);
 		return result;
 	}
 	//Create
