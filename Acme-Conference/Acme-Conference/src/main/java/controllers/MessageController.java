@@ -228,7 +228,12 @@ public class MessageController extends AbstractController{
 			final Locale locale) {
 		ModelAndView result;
 		Message message;
-
+		
+		Actor principal = this.actorService.findByPrincipal();
+		boolean possible = false;
+		
+		
+		
 		String language;
 		String español;
 		String english;
@@ -236,7 +241,10 @@ public class MessageController extends AbstractController{
 		english = "en";
 
 		message = this.messageService.findOne(messageId);
-
+		
+		if(message.getSender().equals(principal) || message.getReceiver().equals(principal)){
+			possible = true;
+		}
 		language = locale.getLanguage();
 
 		result = new ModelAndView("message/display");
@@ -244,7 +252,8 @@ public class MessageController extends AbstractController{
 		result.addObject("language", language);
 		result.addObject("español", español);
 		result.addObject("english", english);
-
+		result.addObject("possible", possible);
+		
 		return result;
 	}
 
@@ -347,7 +356,8 @@ public class MessageController extends AbstractController{
 		ModelAndView result;
 
 		this.messageService.topicsFound(topic, mensaje);
-
+		
+		
 		if (binding.hasErrors() && mensaje.getTopic()==null) {
 			result = this.createEditModelAndView(mensaje,"binding");
 

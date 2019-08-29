@@ -225,15 +225,6 @@
 
 
 
-<security:authorize access="hasRole('AUTHOR')">
-	<a  href="conference/listSubmission.do"> <spring:message
-			code="conference.listToSubmission" />
-	</a>
-</security:authorize>
-
-
-
-
 <security:authorize access="hasRole('ADMIN')">
 	<jstl:if test="${isSubmission == true}">
 
@@ -566,12 +557,7 @@
 
 			</display:column>
 			
-			<display:column>
-				<a href="submission/administrator/AutoAssignReviewer.do?conferenceId=${row.id}"> <spring:message
-						code="conference.assign.reviewer" />
-				</a>
-
-			</display:column>
+			
 			
 			<display:column>
 				<a href="message/actor/broadcast.do?conferenceId=${row.id}"> <spring:message

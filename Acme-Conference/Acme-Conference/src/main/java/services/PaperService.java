@@ -6,8 +6,10 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import repositories.PaperRepository;
+import domain.Actor;
 import domain.Paper;
 import domain.Submission;
 
@@ -41,12 +43,23 @@ public class PaperService {
 	public Paper save(Paper paper,Submission submission){
 		
 		Paper result;
+		Actor principal = this.actorService.findByPrincipal();
 		
 		if(paper.getId() == 0){
+			
+			Assert.isTrue(submission.getAuthor().equals(principal),"no.permission.submission");
+			
+			
 			result = this.paperRepository.saveAndFlush(paper);
 			
 			submission.setPaper(result);
 		}else{
+			
+			Paper bd = this.findOne(paper.getId());
+			
+			Assert.isTrue(bd.getIsCameraReady() == paper.getIsCameraReady(),"changed.boolean");
+			Assert.isTrue(submission.getAuthor().equals(principal),"no.permission.submission");
+			
 			paper.setIsCameraReady(true);
 			
 			result = this.paperRepository.saveAndFlush(paper);

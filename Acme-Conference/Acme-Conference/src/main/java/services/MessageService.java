@@ -38,17 +38,17 @@ public class MessageService {
 
 	@Autowired
 	private Validator validator;
-	
+
 	@Autowired
 	private SubmissionService submissionService;
 
 	@Autowired
 	private SystemConfigurationService systemConfigurationService;
-	
+
 	@Autowired
 	private RegistrationService registrationService;
-	
-	
+
+
 	@Autowired
 	private AuthorService authorService;
 
@@ -85,34 +85,40 @@ public class MessageService {
 								"ADMIN")
 				);
 
-		
-		
 
-			// Update some values like send moment
 
-			message.setSendMoment(new Date(System.currentTimeMillis() - 1));
-			result=this.messageRepository.save(message);
-			
 
-			return result;
-		}
-		
-	
+		// Update some values like send moment
+
+		message.setSendMoment(new Date(System.currentTimeMillis() - 1));
+		result=this.messageRepository.save(message);
+
+
+		return result;
+	}
+
+
 
 
 	public void delete(final Message message) {
 		Actor principal;
-		
+
 
 		principal = this.actorService.findByPrincipal();
 		Assert.notNull(principal);
 
+		// Checking sender is the principal
+		Assert.isTrue(message.getSender().getId() == principal.getId() ||
+				message.getReceiver().getId() == principal.getId(),
+				"Not your message");
+
+
 		this.messageRepository.delete(message);
 
-	
+
 	}
 
-	
+
 
 
 
@@ -141,7 +147,7 @@ public class MessageService {
 		Message saved;
 		Collection<Actor> recipients;
 
-		
+
 		recipients = new ArrayList<Actor>();
 
 		recipients = this.actorService.findAll();
@@ -150,16 +156,22 @@ public class MessageService {
 		Assert.notNull(principal);
 		Assert.isTrue(this.actorService.checkAuthority(principal,
 				"ADMIN"));
+		
+		// Checking sender and receiver is the principal
+				Assert.isTrue(m.getSender().getId() == principal.getId() &&
+						m.getReceiver().getId() == principal.getId(),
+						"Not your message");
 
+				
 		Assert.notNull(m);
 
 		subject = m.getSubject();
 		body = m.getBody();
 		Map<String,String> topic = m.getTopic();
-		
-		
+
+
 		sentMoment = new Date(System.currentTimeMillis() - 1);
-		
+
 		for (Actor a : recipients) {
 			final Message message = new Message();
 			message.setSubject(subject);
@@ -169,46 +181,51 @@ public class MessageService {
 
 			message.setReceiver(a);
 			message.setSender(principal);
-			
+
 			saved = this.messageRepository.save(message);
-				
-			}
 
-		
+		}
 
 
-		
 
-		
+
+
+
+
 
 	}
 
-	
+
 	public void broadcastAuthorsSubmission(final Message m,Collection<Submission> submissions) {
 		Actor principal;
 		String subject, body;
 		Date sentMoment;
 		Message saved;
-		
 
 
-		
+
+
 		principal = this.actorService.findByPrincipal();
 		Assert.notNull(principal);
 		Assert.isTrue(this.actorService.checkAuthority(principal,
 				"ADMIN"));
+		
+		// Checking sender and receiver is the principal
+				Assert.isTrue(m.getSender().getId() == principal.getId() &&
+						m.getReceiver().getId() == principal.getId(),
+						"Not your message");
 
 		Assert.notNull(m);
 
 		subject = m.getSubject();
 		body = m.getBody();
 		Map<String,String> topic = m.getTopic();
-		
-		
+
+
 		sentMoment = new Date(System.currentTimeMillis() - 1);
-		
-	
-		
+
+
+
 		for (Submission s : submissions) {
 			final Message message = new Message();
 			message.setSubject(subject);
@@ -218,66 +235,71 @@ public class MessageService {
 
 			message.setReceiver(s.getAuthor());
 			message.setSender(principal);
-			
+
 			saved = this.messageRepository.save(message);
-				
-			}
 
-		
-		
+		}
 
-		
 
-		
+
+
+
+
+
 
 	}
-	
+
 	public void notificateAuthors(Submission submission){
 		Message message = this.create();
-		
+
 		message.setSubject("Your submission have been :" + submission.getStatus());
 		message.setBody("Your submission have been :" + submission.getStatus());
 		Map<String,String> topic = new HashMap<String,String>();
-		
+
 		topic.put("Español", "OTRO");
 		topic.put("English", "OTHER");
-		
+
 		message.setTopic(topic);
-		
+
 		message.setReceiver(submission.getAuthor());
-		
-		
+
+
 		this.messageRepository.save(message);
 		submission.setToAuthor(true);
 		this.submissionService.saveForce(submission);
-		
+
 	}
-	
+
 
 	public void broadcastAuthorsRegistration(final Message m,Collection<Registration> registrations) {
 		Actor principal;
 		String subject, body;
 		Date sentMoment;
 		Message saved;
-		
 
-		
-		
+
+
+
 		principal = this.actorService.findByPrincipal();
 		Assert.notNull(principal);
 		Assert.isTrue(this.actorService.checkAuthority(principal,
 				"ADMIN"));
+		
+		// Checking sender and receiver is the principal
+				Assert.isTrue(m.getSender().getId() == principal.getId() &&
+						m.getReceiver().getId() == principal.getId(),
+						"Not your message");
 
 		Assert.notNull(m);
 
 		subject = m.getSubject();
 		body = m.getBody();
 		Map<String,String> topic = m.getTopic();
-		
-		
+
+
 		sentMoment = new Date(System.currentTimeMillis() - 1);
-		
-	
+
+
 		for (Registration r : registrations) {
 			final Message message = new Message();
 			message.setSubject(subject);
@@ -287,46 +309,52 @@ public class MessageService {
 
 			message.setReceiver(r.getAuthor());
 			message.setSender(principal);
-			
+
 			saved = this.messageRepository.save(message);
-				
-			}
 
-		
+		}
 
 
-		
 
-		
+
+
+
+
 
 	}
-	
-	
+
+
 	public void broadcastAuthors(final Message m) {
 		Actor principal;
 		String subject, body;
 		Date sentMoment;
 		Message saved;
-		
 
-		
-		
+
+
+
 		principal = this.actorService.findByPrincipal();
 		Assert.notNull(principal);
 		Assert.isTrue(this.actorService.checkAuthority(principal,
 				"ADMIN"));
+		
+		// Checking sender and receiver is the principal
+				Assert.isTrue(m.getSender().getId() == principal.getId() &&
+						m.getReceiver().getId() == principal.getId(),
+						"Not your message");
 
+				
 		Assert.notNull(m);
 
 		subject = m.getSubject();
 		body = m.getBody();
 		Map<String,String> topic = m.getTopic();
-		
-		
+
+
 		sentMoment = new Date(System.currentTimeMillis() - 1);
-		
+
 		Collection<Author> authors = this.authorService.findAll();
-		
+
 		for (Author a : authors) {
 			final Message message = new Message();
 			message.setSubject(subject);
@@ -336,69 +364,69 @@ public class MessageService {
 
 			message.setReceiver(a);
 			message.setSender(principal);
-			
+
 			saved = this.messageRepository.save(message);
-				
-			}
 
-		
+		}
 
 
-		
 
-		
+
+
+
+
 
 	}
-	
+
 	public Collection<Message> getAllByOwner(int id){
 		Collection<Message> result = this.messageRepository.getMessagesByOwner(id);
-		
+
 		return result;
 	}
-	
+
 	public Message topicsFound(String topic ,Message mensaje){
 		if(topic!=null){
-		Map <String,String> topics= this.systemConfigurationService.findMySystemConfiguration().getTopics();
-		String[] topicsEn=topics.get("English").split(",");
-		List<String> listaEn= new ArrayList<String>();
-		String[] topicsEs=topics.get("Español").split(",");
-		List<String> listaEs= new ArrayList<String>();
-		for(String s: topicsEn){
-			listaEn.add(s.trim());
-		}
-		for(String s: topicsEs){
-			listaEs.add(s.trim());
-		}
-		topic.trim();
-		
-	
-	
-		if(listaEs.contains(topic)){
-		
-			int pos=listaEs.indexOf(topic);
-			if(pos!=-1){
-			
-				Map<String,String> t =new HashMap<String,String>();
-				t.put("Español", topic);
-				t.put("English", listaEn.get(pos));
-				mensaje.setTopic(t);
+			Map <String,String> topics= this.systemConfigurationService.findMySystemConfiguration().getTopics();
+			String[] topicsEn=topics.get("English").split(",");
+			List<String> listaEn= new ArrayList<String>();
+			String[] topicsEs=topics.get("Español").split(",");
+			List<String> listaEs= new ArrayList<String>();
+			for(String s: topicsEn){
+				listaEn.add(s.trim());
+			}
+			for(String s: topicsEs){
+				listaEs.add(s.trim());
+			}
+			topic.trim();
+
+
+
+			if(listaEs.contains(topic)){
+
+				int pos=listaEs.indexOf(topic);
+				if(pos!=-1){
+
+					Map<String,String> t =new HashMap<String,String>();
+					t.put("Español", topic);
+					t.put("English", listaEn.get(pos));
+					mensaje.setTopic(t);
 				}
 			}
-		
-		if(listaEn.contains(topic)){
-			
-			int pos=listaEn.indexOf(topic);
-			if(pos!=-1){
-			
-				Map<String,String> t =new HashMap<String,String>();
-				t.put("Español", listaEs.get(pos));
-				t.put("English", topic);				
-				mensaje.setTopic(t);
+
+			if(listaEn.contains(topic)){
+
+				int pos=listaEn.indexOf(topic);
+				if(pos!=-1){
+
+					Map<String,String> t =new HashMap<String,String>();
+					t.put("Español", listaEs.get(pos));
+					t.put("English", topic);				
+					mensaje.setTopic(t);
 				}
 			}
-	}
-				
+		}
+
 		return mensaje;
-	
-		}
+
+	}
 }

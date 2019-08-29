@@ -182,7 +182,8 @@ public class ConferenceController extends AbstractController{
 	@RequestMapping(value = "/list" , method = RequestMethod.GET)
 	public ModelAndView list(){
 		ModelAndView result;
-
+		
+		
 
 		boolean isForthcoming = false;
 		boolean isPast = false;
@@ -203,7 +204,7 @@ public class ConferenceController extends AbstractController{
 		Collection<Conference> forthcoming = this.conferenceService.getForthcoming();
 		Collection<Conference> past = this.conferenceService.getPast();
 		Collection<Conference> running = this.conferenceService.getRunning();
-		Collection<Conference> conferences = this.conferenceService.findAll();
+		
 		
 		if(!forthcoming.isEmpty()){
 			result.addObject("forthcoming", forthcoming);
@@ -233,45 +234,53 @@ public class ConferenceController extends AbstractController{
 
 		//Admin list
 
+		try{
+			Actor principal = this.actorService.findByPrincipal();
+			
+			Collection<Conference> conferences = this.conferenceService.getAdminConferences(principal.getId());
+			Collection<Conference> submission = this.conferenceService.getSubmissionLast5();
+			Collection<Conference> notification = this.conferenceService.getNotificationLess5();
+			Collection<Conference> camera = this.conferenceService.getCameraLess5();
+			Collection<Conference> start = this.conferenceService.getStartLess5();
+			
+			
+			if(!submission.isEmpty()){
+				result.addObject("submission", submission);
+				
+				isSubmission = true;
+			}
+			
+			if(!notification.isEmpty()){
+				result.addObject("notification", notification);
+				
+				isNotification = true;
+				
+			}
+			
+			if(!camera.isEmpty()){
+				result.addObject("camera", camera);
+				
+				isCamera = true;
+				
+			}
 
-
-		Collection<Conference> submission = this.conferenceService.getSubmissionLast5();
-		Collection<Conference> notification = this.conferenceService.getNotificationLess5();
-		Collection<Conference> camera = this.conferenceService.getCameraLess5();
-		Collection<Conference> start = this.conferenceService.getStartLess5();
-		
-		if(!submission.isEmpty()){
-			result.addObject("submission", submission);
+			if(!start.isEmpty()){
+				result.addObject("start", start);
+				
+				isStart = true;
+			}
 			
-			isSubmission = true;
-		}
-		
-		if(!notification.isEmpty()){
-			result.addObject("notification", notification);
+			if(!conferences.isEmpty()){
+				isAll = true;
+				
+				result.addObject("conferences", conferences);
+			}
 			
-			isNotification = true;
 			
-		}
-		
-		if(!camera.isEmpty()){
-			result.addObject("camera", camera);
-			
-			isCamera = true;
+		}catch(Throwable oops){
 			
 		}
 
-		if(!start.isEmpty()){
-			result.addObject("start", start);
-			
-			isStart = true;
-		}
-		
-		if(!conferences.isEmpty()){
-			isAll = true;
-			
-			result.addObject("conferences", conferences);
-		}
-		
 		
 
 		result.addObject("isSubmission", isSubmission);
@@ -284,6 +293,7 @@ public class ConferenceController extends AbstractController{
 		
 		
 		
+
 		
 		
 		return result;
@@ -307,6 +317,30 @@ public class ConferenceController extends AbstractController{
 		}
 		
 		result.addObject("isToMakeSubmission", isToMakeSubmission);
+		
+		return result;
+
+	}
+	
+	@RequestMapping(value="/listAutoAssign", method = RequestMethod.GET)
+	public ModelAndView listAutoAssign(){
+		ModelAndView result;
+		
+		Actor principal = this.actorService.findByPrincipal();
+		
+		boolean isToAutoAssign = false;
+		
+		Collection<Conference> conferencesToAutoAssign= this.conferenceService.getToAutoAssign(principal.getId());
+		
+		result = new ModelAndView("conference/listAutoAssign");
+		
+		if(!conferencesToAutoAssign.isEmpty()){
+			result.addObject("conferencesToAutoAssign", conferencesToAutoAssign);
+			
+			isToAutoAssign = true;
+		}
+		
+		result.addObject("isToAutoAssign", isToAutoAssign);
 		
 		return result;
 
@@ -371,16 +405,14 @@ public class ConferenceController extends AbstractController{
 	protected ModelAndView createEditModelAndView(Conference conference,
 			String messageCode) {
 		ModelAndView result;
-		Administrator principal = (Administrator) this.actorService.findByPrincipal();
+		Actor principal =  this.actorService.findByPrincipal();
 		Boolean possible = false;
 
 		result = new ModelAndView("conference/edit");
 
 		if(conference.getId() != 0){
 
-			if(conference.getAdministrator().equals(principal)){
-				possible = true;
-			}
+			
 			result.addObject("title", conference.getTitle());
 			result.addObject("acronym", conference.getAcronym());
 			result.addObject("venue", conference.getVenue());
@@ -391,10 +423,20 @@ public class ConferenceController extends AbstractController{
 			result.addObject("endDate", conference.getEndDate());
 			result.addObject("summary", conference.getSummary());
 			result.addObject("fee", conference.getFee());
-			result.addObject("possible", possible);
+			
 
 		}
-
+		
+		if(conference.getAdministrator()!=null){
+			if(conference.getAdministrator().equals(principal)){
+				possible = true;
+			}
+		}
+			
+		
+		
+		
+		result.addObject("possible", possible);
 		result.addObject("conference", conference);
 		result.addObject("message", messageCode);
 

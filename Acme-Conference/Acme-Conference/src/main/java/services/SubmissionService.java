@@ -217,4 +217,10 @@ public class SubmissionService {
 
 		return result;
 	}
+	
+	public Submission getSubmissionByPaper(int id){
+		Submission result = this.submissionRepository.getSubmissionByPaper(id);
+		
+		return result;
+	}
 }

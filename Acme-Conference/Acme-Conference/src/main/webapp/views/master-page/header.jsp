@@ -68,6 +68,14 @@
 				<security:authorize access="hasRole('ADMIN')">
 				<li><a href="conference/create.do"><spring:message
 							code="master.page.conference.create" /></a></li>
+				
+				<li><a href="conference/listAutoAssign.do"><spring:message
+							code="master.page.conference.auto" /></a></li>
+				</security:authorize>
+				
+				<security:authorize access="hasRole('AUTHOR')">
+				<li><a href="conference/listSubmission.do"><spring:message
+							code="master.page.conference.to.submission" /></a></li>
 				</security:authorize>
 
 			</ul></li>

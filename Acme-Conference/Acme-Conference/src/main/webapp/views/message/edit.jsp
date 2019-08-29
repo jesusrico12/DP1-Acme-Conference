@@ -132,3 +132,11 @@
 		<br />
 	</form:form>
 </jstl:if>
+
+<jstl:if test="${!possible}">
+	<spring:message code= "message.nopermission" var="per"/>
+	
+	<jstl:out value="${per}"></jstl:out>
+	
+</jstl:if>
+

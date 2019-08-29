@@ -1,6 +1,7 @@
 package services;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.LinkedList;
 
 import javax.transaction.Transactional;
@@ -11,6 +12,7 @@ import org.springframework.util.Assert;
 
 import repositories.ConferenceRepository;
 import domain.Activity;
+import domain.Actor;
 import domain.Administrator;
 import domain.Conference;
 import domain.Report;
@@ -44,12 +46,12 @@ public class ConferenceService {
 
 		Conference result = new Conference();
 
-		Administrator principal = (Administrator) this.actorService.findByPrincipal();
+		Actor principal = this.actorService.findByPrincipal();
 		
 		Collection<Activity> actis= new LinkedList<>();
 		result.setActivities(actis);
 
-		result.setAdministrator(principal);
+		result.setAdministrator((Administrator)principal);
 		result.setIsDraft(true);
 
 		return result;
@@ -70,6 +72,12 @@ public class ConferenceService {
 			Assert.isTrue(conference.getAdministrator().getId() == principal.getId(), "no.permission");
 
 			//Check dates
+			
+			Assert.isTrue(conference.getSubmissionDeadline().after(new Date(System.currentTimeMillis()-1)), "past.date");
+			Assert.isTrue(conference.getNotificationDeadline().after(new Date(System.currentTimeMillis()-1)), "past.date");
+			Assert.isTrue(conference.getCameraReadyDeadline().after(new Date(System.currentTimeMillis()-1)), "past.date");
+			Assert.isTrue(conference.getStartDate().after(new Date(System.currentTimeMillis()-1)), "past.date");
+			Assert.isTrue(conference.getEndDate().after(new Date(System.currentTimeMillis()-1)), "past.date");
 
 			Assert.isTrue(conference.getSubmissionDeadline().before(conference.getNotificationDeadline()),
 					"submission.before.notification");
@@ -95,9 +103,9 @@ public class ConferenceService {
 		}else{
 
 			Conference db = this.conferenceRepository.findOne(conference.getId());
-
+			
 			//Checking can edit this conference
-			Assert.isTrue(db.getAdministrator().getId() == principal.getId(),"no.permission");
+			Assert.isTrue(db.getAdministrator().getId() == conference.getId(),"no.permission");
 			Assert.isTrue(db.getIsDraft() == true,"no.final");
 			
 			if(!db.getActivities().isEmpty()){
@@ -105,7 +113,13 @@ public class ConferenceService {
 			}
 			
 			//Check dates
-
+			
+			Assert.isTrue(conference.getSubmissionDeadline().after(new Date(System.currentTimeMillis()-1)), "past.date");
+			Assert.isTrue(conference.getNotificationDeadline().after(new Date(System.currentTimeMillis()-1)), "past.date");
+			Assert.isTrue(conference.getCameraReadyDeadline().after(new Date(System.currentTimeMillis()-1)), "past.date");
+			Assert.isTrue(conference.getStartDate().after(new Date(System.currentTimeMillis()-1)), "past.date");
+			Assert.isTrue(conference.getEndDate().after(new Date(System.currentTimeMillis()-1)), "past.date");
+			
 			Assert.isTrue(conference.getSubmissionDeadline().before(conference.getNotificationDeadline()),
 					"submission.before.notification");
 
@@ -267,6 +281,18 @@ public class ConferenceService {
 	
 	public Collection<Conference> getToMakeSubmission(){
 		Collection<Conference> result = this.conferenceRepository.getToMakeSubmission();
+		
+		return result;
+	}
+	
+	public Collection<Conference> getAdminConferences(int id){
+		Collection<Conference> result = this.conferenceRepository.adminConferences(id);
+		
+		return result;
+	}
+	
+	public Collection<Conference> getToAutoAssign(int id){
+		Collection<Conference> result = this.conferenceRepository.conferencesToAutoAssign(id);
 		
 		return result;
 	}

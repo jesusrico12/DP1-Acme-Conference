@@ -13,6 +13,7 @@ import services.ActorService;
 import services.ConferenceService;
 import services.PaperService;
 import services.SubmissionService;
+import domain.Actor;
 import domain.Submission;
 
 @Controller
@@ -83,14 +84,20 @@ public class SubmissionAdminController extends AbstractController{
 		@RequestMapping(value="/display", method=RequestMethod.GET)
 		public ModelAndView display(@RequestParam int submissionId){
 			ModelAndView result;
+			Actor principal = this.actorService.findByPrincipal();
+			boolean possible = false;
 			
 			Submission submission = this.submissionService.findOne(submissionId);
+			
+			if(submission.getConference().getAdministrator().equals(principal)){
+				possible = true;
+			}
 			
 			result = new ModelAndView("submission/display");
 			
 			result.addObject("submission", submission);
 			result.addObject("paper", submission.getPaper());
-			
+			result.addObject("possible", possible);
 			
 			return result;
 			

@@ -9,6 +9,7 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
+<jstl:if test="${possible}">
 <h3>
 	<b><spring:message code="message.subject" />: </b>
 	<jstl:out value="${message0.subject}" />
@@ -56,3 +57,12 @@
 <button onClick="window.location.href='message/actor/list.do'">
 	<spring:message code="message.cancel" />
 </button>
+
+</jstl:if>
+
+<jstl:if test="${!possible}">
+	<spring:message code= "message.nopermission" var="per"/>
+	
+	<jstl:out value="${per}"></jstl:out>
+	
+</jstl:if>

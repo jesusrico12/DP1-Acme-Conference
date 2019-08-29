@@ -10,65 +10,68 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<security:authorize access="hasAnyRole('AUTHOR','ADMIN')">
+<security:authorize access="hasAnyRole('AUTHOR','ADMIN','REVIEWER')">
 
-	<table class="displayStyle">
-		<tr>
-			<td><strong> <spring:message code="paper.title" />
-					:
-			</strong></td>
-			<td><jstl:out value="${paper.title}"></jstl:out></td>
-		</tr>
+	<jstl:if test="${possible}">
+		<table class="displayStyle">
+			<tr>
+				<td><strong> <spring:message code="paper.title" /> :
+				</strong></td>
+				<td><jstl:out value="${paper.title}"></jstl:out></td>
+			</tr>
 
-		<tr>
-			<td><strong> <spring:message code="paper.isCameraReady" />
-					:
-			</strong></td>
-			<td><jstl:out value="${paper.isCameraReady}"></jstl:out></td>
-		</tr>
+			<tr>
+				<td><strong> <spring:message
+							code="paper.isCameraReady" /> :
+				</strong></td>
+				<td><jstl:out value="${paper.isCameraReady}"></jstl:out></td>
+			</tr>
 
-		<tr>
-			<td><strong> <spring:message code="paper.summary" />
-					:
-			</strong></td>
-			<td><jstl:out value="${paper.summary}"></jstl:out></td>
-		</tr>
-
-
-
-
-		<tr>
-			<td><strong> <spring:message code="paper.document" />
-					:
-			</strong></td>
-			<td><a href=" ${paper.document}"><jstl:out value="${paper.document}"></jstl:out></a></td>
-		</tr>
-
-		
-	
-
-		<tr>
-			<td><strong> <spring:message code="paper.authors" />
-					:
-			</strong></td>
-			<td>
-		
-
-				<jstl:out value="${paper.authors}"></jstl:out>
-			
-			</td>
-		</tr>
-
-	</table>
-
-	<input type="button" name="back"
-		value="<spring:message code="paper.b" />"
-		onclick="window.history.back()" />
+			<tr>
+				<td><strong> <spring:message code="paper.summary" />
+						:
+				</strong></td>
+				<td><jstl:out value="${paper.summary}"></jstl:out></td>
+			</tr>
 
 
 
-	
-		
-	
+
+			<tr>
+				<td><strong> <spring:message code="paper.document" />
+						:
+				</strong></td>
+				<td><a href=" ${paper.document}"><jstl:out
+							value="${paper.document}"></jstl:out></a></td>
+			</tr>
+
+
+
+
+			<tr>
+				<td><strong> <spring:message code="paper.authors" />
+						:
+				</strong></td>
+				<td><jstl:out value="${paper.authors}"></jstl:out></td>
+			</tr>
+
+		</table>
+
+		<input type="button" name="back"
+			value="<spring:message code="paper.b" />"
+			onclick="window.history.back()" />
+
+	</jstl:if>
+
+
+	<jstl:if test="${!possible}">
+		<spring:message code="paper.permission" var="per" />
+
+		<jstl:out value="${per}"></jstl:out>
+	</jstl:if>
+
+
+
+
 </security:authorize>
 

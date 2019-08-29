@@ -62,6 +62,9 @@ JpaRepository<Submission, Integer>{
 	
 	@Query("select s from Submission s where s.conference.id = ?1")
 	Collection<Submission> getSubmissionsByConference(int conferenceId);
+	
+	@Query("select s from Submission s where s.paper.id = ?1")
+	Submission getSubmissionByPaper(int paperId);
 }
 
 

@@ -57,9 +57,15 @@ JpaRepository<Conference, Integer>{
 	@Query("select c from Conference c where c.submissionDeadline < CURRENT_DATE and c.notificationDeadline > CURRENT_DATE")
 	Collection<Conference> conferencesBetweenSubDeadlineNotifDeadline();
 	
+	@Query("select c from Conference c where c.submissionDeadline < CURRENT_DATE and c.notificationDeadline > CURRENT_DATE and c.isDraft = 'false' and c.administrator.id = ?1")
+	Collection<Conference> conferencesToAutoAssign(int id);
+	
+	
 	@Query("select c from Conference c where c.startDate > CURRENT_DATE")
 	Collection<Conference> conferencesNotStarted();
 	
+	@Query("select c from Conference c where c.administrator.id = ?1")
+	Collection<Conference> adminConferences(int adminId);
 
 
 }

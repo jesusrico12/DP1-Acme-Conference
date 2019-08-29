@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import services.ActorService;
 import services.ConferenceService;
 import services.PaperService;
 import services.SubmissionService;
+import domain.Actor;
 import domain.Conference;
 import domain.Paper;
 import domain.Submission;
@@ -35,6 +37,9 @@ public class PaperController extends AbstractController{
 
 	@Autowired
 	private Validator validator;
+
+	@Autowired
+	private ActorService actorService;
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView create(@RequestParam int conferenceId){
@@ -96,7 +101,7 @@ public class PaperController extends AbstractController{
 			}catch(Throwable oops){
 				result = this.createEditModelAndView(paper, oops.getMessage());
 				result.addObject("conferenceId", conferenceId);
-				
+
 			}
 		}
 
@@ -107,13 +112,24 @@ public class PaperController extends AbstractController{
 	@RequestMapping(value="/display" , method = RequestMethod.GET)
 	public ModelAndView display(@RequestParam int paperId){
 		ModelAndView result;
-
+		Actor principal = this.actorService.findByPrincipal();
+		boolean possible = false;
+		
 		Paper paper = this.paperService.findOne(paperId);
-
+		Submission submission = this.submissionService.getSubmissionByPaper(paperId);
+		
+		if(submission.getAuthor().equals(principal) ||
+				submission.getReviewers().contains(principal)||
+				submission.getConference().getAdministrator().equals(principal)){
+			
+			possible = true;
+			
+		}
 		result = new ModelAndView("paper/display");
 
 		result.addObject("paper", paper);
-
+		result.addObject("possible", possible);
+		
 		return result;
 	}
 
@@ -129,12 +145,27 @@ public class PaperController extends AbstractController{
 
 	protected ModelAndView createEditModelAndView(Paper paper, String messageCode){
 		ModelAndView result;
+		boolean possible = false;
+
+		Actor principal = this.actorService.findByPrincipal();
+
+		if(paper.getId()!=0){
+			Submission submission = this.submissionService.getSubmissionByPaper(paper.getId());
+
+			if(submission.getAuthor().equals(principal)){
+				possible = true;
+			}
+		}else{
+			possible = true;
+		}
+
 
 		result = new ModelAndView("paper/edit");
 
 		result.addObject("paper", paper);
 		result.addObject("messageCode", messageCode);
 
+		result.addObject("possible", possible);
 		return result;
 	}
 }

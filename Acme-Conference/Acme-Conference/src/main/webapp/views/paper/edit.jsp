@@ -11,12 +11,13 @@
 
 <security:authorize access="hasRole('AUTHOR')">
 	<jstl:if test="${paper.id == 0}">
-		<form:form action="paper/edit.do?conferenceId=${conferenceId}" modelAttribute="paper" id="form">
+		<form:form action="paper/edit.do?conferenceId=${conferenceId}"
+			modelAttribute="paper" id="form">
 
 			<form:hidden path="id" />
 			<form:hidden path="version" />
 			<form:hidden path="isCameraReady" />
-			
+
 
 			<form:label path="title">
 				<spring:message code="paper.title" /> :
@@ -26,9 +27,10 @@
 			<br />
 			<br />
 
-	<acme:textbox code="paper.authors" path="authors" placeholder='sub.authors' />
-	
-	<br />
+			<acme:textbox code="paper.authors" path="authors"
+				placeholder='sub.authors' />
+
+			<br />
 
 			<form:label path="summary">
 				<spring:message code="paper.summary" /> :
@@ -38,8 +40,9 @@
 			<br />
 			<br />
 
-		<acme:textbox code="paper.document" path="document" placeholder='sub.document' />
-	<br />
+			<acme:textbox code="paper.document" path="document"
+				placeholder='sub.document' />
+			<br />
 			<br />
 			<input type="submit" name="save"
 				value="<spring:message code="paper.save"/>" />&nbsp;
@@ -54,50 +57,65 @@
 
 
 	</jstl:if>
-	
-	
+
+
 	<jstl:if test="${paper.id!=0}">
-		<form:form action="paper/edit.do?conferenceId=${conferenceId}" modelAttribute="paper" id="form">
+		<jstl:if test="${possible}">
+			<form:form action="paper/edit.do?conferenceId=${conferenceId}"
+				modelAttribute="paper" id="form">
 
-			<form:hidden path="id" />
-			<form:hidden path="version" />
-			<form:hidden path="isCameraReady" />
-			
+				<form:hidden path="id" />
+				<form:hidden path="version" />
+				<form:hidden path="isCameraReady" />
 
-			<form:label path="title">
-				<spring:message code="paper.title" /> :
+
+				<form:label path="title">
+					<spring:message code="paper.title" /> :
 	</form:label>
-			<form:input path="title" />
-			<form:errors cssClass="error" path="title" />
-			<br />
-			<br />
+				<form:input path="title" />
+				<form:errors cssClass="error" path="title" />
+				<br />
+				<br />
 
 
-			<acme:textbox code="paper.authors" path="authors" placeholder='sub.authors' />
-		<br />
-			<form:label path="summary">
-				<spring:message code="paper.summary" /> :
+				<acme:textbox code="paper.authors" path="authors"
+					placeholder='sub.authors' />
+				<br />
+				<form:label path="summary">
+					<spring:message code="paper.summary" /> :
 	</form:label>
-			<form:textarea path="summary" />
-			<form:errors cssClass="error" path="summary" />
-			<br />
-			<br />
+				<form:textarea path="summary" />
+				<form:errors cssClass="error" path="summary" />
+				<br />
+				<br />
 
 
-			
-	<acme:textbox code="paper.document" path="document" placeholder='sub.document' />
-		<br />
-			<br />
-			<input type="submit" name="save"
-				value="<spring:message code="paper.save"/>" />&nbsp;
+
+				<acme:textbox code="paper.document" path="document"
+					placeholder='sub.document' />
+				<br />
+				<br />
+				<input type="submit" name="save"
+					value="<spring:message code="paper.save"/>" />&nbsp;
 	
 	
 		<input type="button" name="back"
-				value="<spring:message code="paper.back" />"
-				onclick="window.history.back()" />
+					value="<spring:message code="paper.back" />"
+					onclick="window.history.back()" />
 
 
-		</form:form>
+			</form:form>
+		</jstl:if>
+		
+		<jstl:if test="${!possible}">
+			<spring:message code="paper.permission" var="per"/>
+			
+			<jstl:out value="${per}"></jstl:out>
+		</jstl:if>
+		
+		<jstl:if test="${messageCode!=null}">
+			<jstl:out value="${messageCode}"></jstl:out>
+		</jstl:if>
 	</jstl:if>
 </security:authorize>
 
