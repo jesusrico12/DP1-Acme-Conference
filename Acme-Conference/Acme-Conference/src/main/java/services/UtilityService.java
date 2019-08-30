@@ -47,10 +47,11 @@ the corresponding initial is “X”*/
 		Author principal = (Author) this.actorService.findByPrincipal();
 		String A=principal.getName().trim().substring(0, 1).toUpperCase();
 		String B;
-		if(principal.getMiddleName()!=null||!principal.getMiddleName().trim().isEmpty()){
-			 B=principal.getMiddleName().trim().substring(0, 1).toUpperCase();	
-		}else{
+		if(principal.getMiddleName()==null||principal.getMiddleName().trim().isEmpty()){
+			
 			 B="X";
+		}else{
+			 B=principal.getMiddleName().trim().substring(0, 1).toUpperCase();	
 		}
 		
 		String C=principal.getSurname().trim().substring(0, 1).toUpperCase();
