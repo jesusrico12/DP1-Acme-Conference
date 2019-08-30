@@ -27,24 +27,24 @@
 
 
 
-			<display:column titleKey="conference.title" >
+			<display:column titleKey="conference.title" sortable="true">
 				<jstl:out value="${row.title}" ></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.acronym">
+			<display:column titleKey="conference.acronym" sortable="true">
 				<jstl:out value="${row.acronym}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.venue">
+			<display:column titleKey="conference.venue" sortable="true">
 				<jstl:out value="${row.venue}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.startDate">
+			<display:column titleKey="conference.startDate" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.startDate}" />
 			</display:column>
 
-			<display:column titleKey="conference.endDate">
+			<display:column titleKey="conference.endDate" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.endDate}" />
 
@@ -96,24 +96,24 @@
 
 
 
-			<display:column titleKey="conference.title">
+			<display:column titleKey="conference.title" sortable="true">
 				<jstl:out value="${row.title}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.acronym">
+			<display:column titleKey="conference.acronym" sortable="true">
 				<jstl:out value="${row.acronym}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.venue">
+			<display:column titleKey="conference.venue" sortable="true">
 				<jstl:out value="${row.venue}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.startDate">
+			<display:column titleKey="conference.startDate" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.startDate}" />
 			</display:column>
 
-			<display:column titleKey="conference.endDate">
+			<display:column titleKey="conference.endDate" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.endDate}" />
 
@@ -167,25 +167,25 @@
 
 
 
-			<display:column titleKey="conference.title">
+			<display:column titleKey="conference.title" sortable="true">
 				<jstl:out value="${row.title}"></jstl:out>
 			</display:column>
 
 
-			<display:column titleKey="conference.acronym">
+			<display:column titleKey="conference.acronym" sortable="true">
 				<jstl:out value="${row.acronym}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.venue">
+			<display:column titleKey="conference.venue" sortable="true">
 				<jstl:out value="${row.venue}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.startDate">
+			<display:column titleKey="conference.startDate" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.startDate}" />
 			</display:column>
 
-			<display:column titleKey="conference.endDate">
+			<display:column titleKey="conference.endDate" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.endDate}" />
 
@@ -242,30 +242,30 @@
 
 
 
-			<display:column titleKey="conference.title">
+			<display:column titleKey="conference.title" sortable="true">
 				<jstl:out value="${row.title}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.acronym">
+			<display:column titleKey="conference.acronym" sortable="true">
 				<jstl:out value="${row.acronym}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.venue">
+			<display:column titleKey="conference.venue" sortable="true">
 				<jstl:out value="${row.venue}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.startDate">
+			<display:column titleKey="conference.startDate" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.startDate}" />
 			</display:column>
 
-			<display:column titleKey="conference.endDate">
+			<display:column titleKey="conference.endDate" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.endDate}" />
 
 			</display:column>
 
-			<display:column titleKey="conference.submissionDL">
+			<display:column titleKey="conference.submissionDL" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.submissionDeadline}" />
 
@@ -318,30 +318,30 @@
 
 
 
-			<display:column titleKey="conference.title">
+			<display:column titleKey="conference.title" sortable="true">
 				<jstl:out value="${row.title}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.acronym">
+			<display:column titleKey="conference.acronym" sortable="true">
 				<jstl:out value="${row.acronym}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.venue">
+			<display:column titleKey="conference.venue" sortable="true">
 				<jstl:out value="${row.venue}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.startDate">
+			<display:column titleKey="conference.startDate" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.startDate}" />
 			</display:column>
 
-			<display:column titleKey="conference.endDate">
+			<display:column titleKey="conference.endDate" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.endDate}" />
 
 			</display:column>
 
-			<display:column titleKey="conference.notificationDL">
+			<display:column titleKey="conference.notificationDL" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.notificationDeadline}" />
 
@@ -386,30 +386,30 @@
 
 
 
-			<display:column titleKey="conference.title">
+			<display:column titleKey="conference.title" sortable="true">
 				<jstl:out value="${row.title}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.acronym">
+			<display:column titleKey="conference.acronym" sortable="true">
 				<jstl:out value="${row.acronym}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.venue">
+			<display:column titleKey="conference.venue" sortable="true">
 				<jstl:out value="${row.venue}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.startDate">
+			<display:column titleKey="conference.startDate" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.startDate}" />
 			</display:column>
 
-			<display:column titleKey="conference.endDate">
+			<display:column titleKey="conference.endDate" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.endDate}" />
 
 			</display:column>
 
-			<display:column titleKey="conference.cameraReadyDL">
+			<display:column titleKey="conference.cameraReadyDL" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.cameraReadyDeadline}" />
 
@@ -454,24 +454,24 @@
 
 
 
-			<display:column titleKey="conference.title">
+			<display:column titleKey="conference.title" sortable="true">
 				<jstl:out value="${row.title}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.acronym">
+			<display:column titleKey="conference.acronym" sortable="true">
 				<jstl:out value="${row.acronym}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.venue">
+			<display:column titleKey="conference.venue" sortable="true">
 				<jstl:out value="${row.venue}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.startDate">
+			<display:column titleKey="conference.startDate" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.startDate}" />
 			</display:column>
 
-			<display:column titleKey="conference.endDate">
+			<display:column titleKey="conference.endDate" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.endDate}" />
 
@@ -520,24 +520,24 @@
 
 
 
-			<display:column titleKey="conference.title">
+			<display:column titleKey="conference.title" sortable="true">
 				<jstl:out value="${row.title}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.acronym">
+			<display:column titleKey="conference.acronym" sortable="true">
 				<jstl:out value="${row.acronym}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.venue">
+			<display:column titleKey="conference.venue" sortable="true">
 				<jstl:out value="${row.venue}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="conference.startDate">
+			<display:column titleKey="conference.startDate" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.startDate}" />
 			</display:column>
 
-			<display:column titleKey="conference.endDate">
+			<display:column titleKey="conference.endDate" sortable="true">
 				<fmt:formatDate type="both" dateStyle="short" timeStyle="short"
 					value="${row.endDate}" />
 

@@ -1,4 +1,5 @@
 #./src/main/resources/Entities.map
+<<<<<<< HEAD
 #Thu Aug 29 17:15:17 CEST 2019
 message3=278
 message2=277
@@ -53,3 +54,9 @@ sysConf=275
 author3=270
 author2=269
 author1=268
+=======
+#Thu Aug 29 19:03:14 CEST 2019
+administrator1=4
+sysConf=6
+userAdmin1=5
+>>>>>>> 1bf9362136401b3135303f65cf0bdd881c0f2d8b

@@ -163,7 +163,7 @@ public class PaperController extends AbstractController{
 		result = new ModelAndView("paper/edit");
 
 		result.addObject("paper", paper);
-		result.addObject("messageCode", messageCode);
+		result.addObject("message", messageCode);
 
 		result.addObject("possible", possible);
 		return result;
