@@ -146,7 +146,10 @@ public class ConferenceController extends AbstractController{
 			result = this.createEditModelAndView(conference);
 		}else{
 			try{
+				Assert.isTrue(conference.getIsDraft() == true, "changed.boolean");
+				
 				this.conferenceService.save(conference);
+				
 				result = new ModelAndView("redirect:list.do");
 
 			}catch(Throwable oops){
@@ -164,7 +167,9 @@ public class ConferenceController extends AbstractController{
 			result = this.createEditModelAndView(conference);
 		}else{
 			try{
-
+				
+				Assert.isTrue(conference.getIsDraft() == true, "changed.boolean");
+				
 				conference.setIsDraft(false);
 				this.conferenceService.save(conference);
 

@@ -49,6 +49,7 @@ public class PaperService {
 			
 			Assert.isTrue(submission.getAuthor().equals(principal),"no.permission.submission");
 			Assert.isTrue(paper.getDocument().startsWith("https://www.dropbox.com")||paper.getDocument().startsWith("https://www.flickr.com"),"url.error");
+			Assert.isTrue(paper.getIsCameraReady() == false,"changed.boolean");
 			
 			result = this.paperRepository.saveAndFlush(paper);
 			
