@@ -20,7 +20,7 @@
 	<jpa:repositories base-package="security" />
 	
 	
-	
+		<!-- Data source 
 		<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
@@ -31,19 +31,19 @@
 		<property name="maxPoolSize" value="5" />
 	</bean>
 
-	<!-- Data source 
 
+-->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
-		<property name="jdbcUrl" value="jdbc:mysql://bcbbkfx6crpskavzckag-mysql.services.clever-cloud.com:3306/bcbbkfx6crpskavzckag" />
-		<property name="user" value="ulrc6bib4tmj2d15" />
-		<property name="password" value="mstC9mbUXLGfYY4sCRS5" />
+		<property name="jdbcUrl" value="jdbc:mysql://bmsafhajgajdlj8ab6xc-mysql.services.clever-cloud.com:3306/bmsafhajgajdlj8ab6xc" />
+		<property name="user" value="utszlcrwxwr155br" />
+		<property name="password" value="BNNRjfI8WibRVWLyFgqb" />
 	
 		<property name="minPoolSize" value="1" />
 		<property name="maxPoolSize" value="5" />
 	</bean>
--->
+
 	<!-- JPA -->
 
 	<bean id="persistenceUnit" class="java.lang.String">
