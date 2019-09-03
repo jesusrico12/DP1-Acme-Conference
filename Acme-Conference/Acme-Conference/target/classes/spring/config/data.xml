@@ -20,7 +20,7 @@
 	<jpa:repositories base-package="security" />
 	
 	
-		<!-- Data source 
+		
 		<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
@@ -31,8 +31,8 @@
 		<property name="maxPoolSize" value="5" />
 	</bean>
 
+<!-- Data source 
 
--->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
@@ -43,7 +43,7 @@
 		<property name="minPoolSize" value="1" />
 		<property name="maxPoolSize" value="5" />
 	</bean>
-
+-->
 	<!-- JPA -->
 
 	<bean id="persistenceUnit" class="java.lang.String">
