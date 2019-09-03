@@ -1,9 +1,12 @@
 package controllers;
 
+import java.util.Date;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,13 +61,16 @@ public class PaperController extends AbstractController{
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public ModelAndView edit(@RequestParam int paperId){
 		ModelAndView result;
-
+		try{
 		Paper paper = this.paperService.findOne(paperId);
-
+		Assert.isTrue(this.submissionService.getSubmissionByPaper(paperId).getStatus().toString().equalsIgnoreCase("ACCEPTED") && this.submissionService.getSubmissionByPaper(paperId).getConference().getCameraReadyDeadline().after(new Date(System.currentTimeMillis()-1)));
 		result = this.createEditModelAndView(paper);
 
 		result.addObject("paper", paper);
-
+		}
+		catch(Throwable oops){
+			result = new ModelAndView("redirect:/welcome/index.do");
+		}
 		return result;
 	}
 

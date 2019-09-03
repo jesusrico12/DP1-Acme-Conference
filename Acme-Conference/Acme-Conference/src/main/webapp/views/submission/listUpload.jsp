@@ -18,11 +18,11 @@
 
 
 
-			<display:column titleKey="submission.ticker">
+			<display:column titleKey="submission.ticker" sortable="true">
 				<jstl:out value="${row.ticker}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="submission.paper.title">
+			<display:column titleKey="submission.paper.title" sortable="true">
 				<jstl:out value="${row.paper.title}"></jstl:out>
 			</display:column>
 

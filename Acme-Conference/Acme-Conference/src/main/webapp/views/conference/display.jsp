@@ -11,7 +11,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 
-
+<jstl:if test="${conference.isDraft == false || permission}">
 	<table class="displayStyle">
 		<tr>
 			<td><strong> <spring:message code="conference.title" />
@@ -106,7 +106,7 @@
 
 	</table>
 
-	
+	</jstl:if>
 
 <jstl:if test="${isPresentation == true}">
 	<display:table pagesize="10" class="displaytag" name="presentations"

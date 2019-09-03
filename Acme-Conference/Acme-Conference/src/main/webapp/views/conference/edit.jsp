@@ -10,7 +10,7 @@
 
 
 <security:authorize access="hasRole('ADMIN')">
-	<jstl:if test="${possible}">
+	<jstl:if test="${possible and conference.isDraft == true}">
 		<form:form action="conference/edit.do" modelAttribute="conference">
 
 			<form:hidden path="id" />

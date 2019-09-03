@@ -56,7 +56,7 @@ public class AbstractController {
 		result.addObject("exception", oops.getMessage());
 		result.addObject("stackTrace", ExceptionUtils.getStackTrace(oops));
 
-	//	result = new ModelAndView("redirect:/welcome/index.do");
+		result = new ModelAndView("redirect:/welcome/index.do");
 
 				
 

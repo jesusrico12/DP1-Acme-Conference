@@ -60,7 +60,7 @@ public class ConferenceService {
 
 	//Save
 
-	public Conference save(Conference conference){
+	public Conference saveNormal(Conference conference){
 
 		Conference result;
 
@@ -105,7 +105,7 @@ public class ConferenceService {
 			Conference db = this.conferenceRepository.findOne(conference.getId());
 			
 			//Checking can edit this conference
-			Assert.isTrue(db.getAdministrator().getId() == conference.getId(),"no.permission");
+			Assert.isTrue(conference.getAdministrator().getId() == principal.getId(), "no.permission");
 			Assert.isTrue(db.getIsDraft() == true,"no.final");
 			
 			if(!db.getActivities().isEmpty()){
@@ -137,6 +137,94 @@ public class ConferenceService {
 		    long diffDays = diff / (24 * 60 * 60 * 1000) + 1;
 		    daysdiff = (int) diffDays;
 		    
+		    conference.setDurationDays(daysdiff);
+			
+			result = this.conferenceRepository.save(conference);
+		}
+
+		return result;
+
+	}
+	
+	
+	
+	public Conference saveFinal(Conference conference){
+
+		Conference result;
+
+		Administrator principal = (Administrator) this.actorService.findByPrincipal();
+
+		if(conference.getId() == 0){
+
+			//Check owner
+			Assert.isTrue(conference.getAdministrator().getId() == principal.getId(), "no.permission");
+
+			//Check dates
+			
+			Assert.isTrue(conference.getSubmissionDeadline().after(new Date(System.currentTimeMillis()-1)), "past.date");
+			Assert.isTrue(conference.getNotificationDeadline().after(new Date(System.currentTimeMillis()-1)), "past.date");
+			Assert.isTrue(conference.getCameraReadyDeadline().after(new Date(System.currentTimeMillis()-1)), "past.date");
+			Assert.isTrue(conference.getStartDate().after(new Date(System.currentTimeMillis()-1)), "past.date");
+			Assert.isTrue(conference.getEndDate().after(new Date(System.currentTimeMillis()-1)), "past.date");
+
+			Assert.isTrue(conference.getSubmissionDeadline().before(conference.getNotificationDeadline()),
+					"submission.before.notification");
+
+			Assert.isTrue(conference.getNotificationDeadline().before(conference.getCameraReadyDeadline()),
+					"notification.before.camera");
+
+			Assert.isTrue(conference.getCameraReadyDeadline().before(conference.getStartDate()),
+					"camera.before.start");
+
+			Assert.isTrue(conference.getStartDate().before(conference.getEndDate()), 
+					"start.before.end");
+			
+			int daysdiff = 0;
+		    long diff = conference.getEndDate().getTime() - conference.getStartDate().getTime();
+		    long diffDays = diff / (24 * 60 * 60 * 1000) + 1;
+		    daysdiff = (int) diffDays;
+		    conference.setIsDraft(false);
+		    conference.setDurationDays(daysdiff);
+
+			result = this.conferenceRepository.save(conference);
+
+		}else{
+
+			Conference db = this.conferenceRepository.findOne(conference.getId());
+			
+			//Checking can edit this conference
+			Assert.isTrue(conference.getAdministrator().getId() == principal.getId(), "no.permission");
+			Assert.isTrue(db.getIsDraft() == true,"no.final");
+			
+			if(!db.getActivities().isEmpty()){
+				conference.setActivities(db.getActivities());
+			}
+			
+			//Check dates
+			
+			Assert.isTrue(conference.getSubmissionDeadline().after(new Date(System.currentTimeMillis()-1)), "past.date");
+			Assert.isTrue(conference.getNotificationDeadline().after(new Date(System.currentTimeMillis()-1)), "past.date");
+			Assert.isTrue(conference.getCameraReadyDeadline().after(new Date(System.currentTimeMillis()-1)), "past.date");
+			Assert.isTrue(conference.getStartDate().after(new Date(System.currentTimeMillis()-1)), "past.date");
+			Assert.isTrue(conference.getEndDate().after(new Date(System.currentTimeMillis()-1)), "past.date");
+			
+			Assert.isTrue(conference.getSubmissionDeadline().before(conference.getNotificationDeadline()),
+					"submission.before.notification");
+
+			Assert.isTrue(conference.getNotificationDeadline().before(conference.getCameraReadyDeadline()),
+					"notification.before.camera");
+
+			Assert.isTrue(conference.getCameraReadyDeadline().before(conference.getStartDate()),
+					"camera.before.start");
+
+			Assert.isTrue(conference.getStartDate().before(conference.getEndDate()), 
+					"start.before.end");
+			
+			int daysdiff = 0;
+		    long diff = conference.getEndDate().getTime() - conference.getStartDate().getTime();
+		    long diffDays = diff / (24 * 60 * 60 * 1000) + 1;
+		    daysdiff = (int) diffDays;
+		    conference.setIsDraft(false);
 		    conference.setDurationDays(daysdiff);
 			
 			result = this.conferenceRepository.save(conference);

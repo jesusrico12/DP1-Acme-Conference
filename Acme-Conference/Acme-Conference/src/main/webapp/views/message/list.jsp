@@ -25,7 +25,7 @@
 
 
 
-			<display:column titleKey="message.subject">
+			<display:column titleKey="message.subject" sortable="true">
 				<jstl:out value="${row.subject}"></jstl:out>
 			</display:column>
 
@@ -103,11 +103,11 @@
 
 
 
-			<display:column titleKey="message.sender">
+			<display:column titleKey="message.sender" sortable="true">
 				<jstl:out value="${row.sender.userAccount.username}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="message.subject">
+			<display:column titleKey="message.subject" sortable="true">
 				<jstl:out value="${row.subject}"></jstl:out>
 			</display:column>
 			
@@ -158,11 +158,11 @@
 
 
 
-			<display:column titleKey="message.sender">
+			<display:column titleKey="message.sender" sortable="true">
 				<jstl:out value="${row.sender.userAccount.username}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="message.subject">
+			<display:column titleKey="message.subject" sortable="true">
 				<jstl:out value="${row.subject}"></jstl:out>
 			</display:column>
 
@@ -211,11 +211,11 @@
 
 
 
-			<display:column titleKey="message.sender">
+			<display:column titleKey="message.sender" sortable="true">
 				<jstl:out value="${row.sender.userAccount.username}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="message.subject">
+			<display:column titleKey="message.subject" sortable="true">
 				<jstl:out value="${row.subject}"></jstl:out>
 			</display:column>
 
@@ -269,11 +269,11 @@
 
 
 
-			<display:column titleKey="message.actor.receiver">
+			<display:column titleKey="message.actor.receiver" sortable="true">
 				<jstl:out value="${row.receiver.userAccount.username}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="message.subject">
+			<display:column titleKey="message.subject" sortable="true">
 				<jstl:out value="${row.subject}"></jstl:out>
 			</display:column>
 
@@ -322,11 +322,11 @@
 
 
 
-			<display:column titleKey="message.actor.receiver">
+			<display:column titleKey="message.actor.receiver" sortable="true">
 				<jstl:out value="${row.receiver.userAccount.username}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="message.subject">
+			<display:column titleKey="message.subject" sortable="true">
 				<jstl:out value="${row.subject}"></jstl:out>
 			</display:column>
 
@@ -376,11 +376,11 @@
 
 
 
-			<display:column titleKey="message.actor.receiver">
+			<display:column titleKey="message.actor.receiver" sortable="true">
 				<jstl:out value="${row.receiver.userAccount.username}"></jstl:out>
 			</display:column>
 
-			<display:column titleKey="message.subject">
+			<display:column titleKey="message.subject" sortable="true">
 				<jstl:out value="${row.subject}"></jstl:out>
 			</display:column>
 

@@ -148,7 +148,7 @@ public class ConferenceController extends AbstractController{
 			try{
 				Assert.isTrue(conference.getIsDraft() == true, "changed.boolean");
 				
-				this.conferenceService.save(conference);
+				this.conferenceService.saveNormal(conference);
 				
 				result = new ModelAndView("redirect:list.do");
 
@@ -168,10 +168,10 @@ public class ConferenceController extends AbstractController{
 		}else{
 			try{
 				
-				Assert.isTrue(conference.getIsDraft() == true, "changed.boolean");
 				
-				conference.setIsDraft(false);
-				this.conferenceService.save(conference);
+				
+				
+				this.conferenceService.saveFinal(conference);
 
 				result = new ModelAndView("redirect:list.do");
 

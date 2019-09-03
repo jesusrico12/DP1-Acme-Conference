@@ -23,6 +23,7 @@ import services.MessageService;
 import services.RegistrationService;
 import services.SubmissionService;
 import services.SystemConfigurationService;
+import services.ConferenceService;
 import domain.Actor;
 import domain.Message;
 import domain.Registration;
@@ -51,6 +52,9 @@ public class MessageController extends AbstractController{
 
 	@Autowired
 	private RegistrationService registrationService;
+	
+	@Autowired
+	private ConferenceService  ConferenceService;
 
 	// Create =======================================================================
 
@@ -318,10 +322,10 @@ public class MessageController extends AbstractController{
 
 	@RequestMapping(value = "/broadcast", method = RequestMethod.GET)
 	public ModelAndView broadcast(@RequestParam int conferenceId,final Locale locale) {
-		final ModelAndView result;
+		ModelAndView result;
 		Message mensaje;
-
-
+		boolean mensajeAutores=true;
+		try{
 		String language;
 		String español;
 		String english;
@@ -329,11 +333,14 @@ public class MessageController extends AbstractController{
 		english = "en";
 
 		language = locale.getLanguage();
-
-
+		
+		Actor principal = this.actorService.findByPrincipal();
+		Assert.isTrue(principal==this.ConferenceService.findOne(conferenceId).getAdministrator());
 		mensaje = this.messageService.create();
 
-
+			if(this.ConferenceService.findOne(conferenceId).getIsDraft()==true){
+				mensajeAutores=false;
+			}
 
 		mensaje.setReceiver(this.actorService.findByPrincipal());
 
@@ -343,7 +350,11 @@ public class MessageController extends AbstractController{
 		result.addObject("español", español);
 		result.addObject("english", english);
 		result.addObject("conferenceId", conferenceId);
-
+		result.addObject("mensajeAutores", mensajeAutores);
+		}
+		catch(Throwable oops){
+			result = new ModelAndView("redirect:/welcome/index.do");
+		}
 
 		return result;
 	}

@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,9 +38,10 @@ public class SubmissionAdminController extends AbstractController{
 		@RequestMapping(value="/list", method = RequestMethod.GET)
 		public ModelAndView list(@RequestParam int conferenceId){
 			ModelAndView result;
-			
+			try{
 			result = new ModelAndView("submission/list");
-			
+			Actor principal= this.actorService.findByPrincipal();
+			Assert.isTrue(this.conferenceService.findOne(conferenceId).getAdministrator()==principal);
 			
 			boolean isAccepted = false;
 			boolean isRejected = false;
@@ -74,7 +76,13 @@ public class SubmissionAdminController extends AbstractController{
 			result.addObject("isAccepted", isAccepted);
 			result.addObject("isRejected", isRejected);
 			result.addObject("isUnder", isUnder);
-			
+			}
+			catch(Throwable oops){
+				
+				
+				result = new ModelAndView("redirect:/welcome/index.do");
+				
+			}
 			
 			
 			return result;

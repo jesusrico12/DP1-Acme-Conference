@@ -96,6 +96,8 @@
 
 			<input type="submit" name="save"
 				value="<spring:message code="message.broadcast"/>" />&nbsp;
+				
+				<jstl:if test="${mensajeAutores}">
 		
 			<input type="submit" name="saveAuthorsSubmission"
 				value="<spring:message code="message.broadcast.authors.submission"/>" />&nbsp;
@@ -103,6 +105,7 @@
 			
 			<input type="submit" name="saveAuthorsRegistration"
 				value="<spring:message code="message.broadcast.authors.registration"/>" />&nbsp;
+				</jstl:if>
 			
 			<input type="submit" name="saveAuthors"
 				value="<spring:message code="message.broadcast.authors"/>" />&nbsp;
