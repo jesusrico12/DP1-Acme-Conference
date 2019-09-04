@@ -12,7 +12,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
-import org.springframework.validation.Validator;
+
 
 import repositories.MessageRepository;
 import domain.Actor;
@@ -36,8 +36,7 @@ public class MessageService {
 	@Autowired
 	private ActorService actorService;
 
-	@Autowired
-	private Validator validator;
+
 
 	@Autowired
 	private SubmissionService submissionService;
@@ -45,8 +44,7 @@ public class MessageService {
 	@Autowired
 	private SystemConfigurationService systemConfigurationService;
 
-	@Autowired
-	private RegistrationService registrationService;
+
 
 
 	@Autowired

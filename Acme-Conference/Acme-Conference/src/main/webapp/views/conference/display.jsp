@@ -175,7 +175,7 @@
 	<input type="button" name="back"
 		value="<spring:message code="conference.atras" />"
 		onclick="redirect: location.href = 'conference/list.do';" />
-	<jstl:if test="${ not conference.isDraft and permission}">
+	<jstl:if test="${ not conference.isDraft and permission and cPasada}">
 		<input type="button" value="<spring:message code="panel.create"	/>"
 			onclick="redirect: location.href = 'panel/create.do?conferenceId=${conference.id}';" />
 		<input type="button"

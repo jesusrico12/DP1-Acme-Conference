@@ -2,6 +2,8 @@ package controllers;
 
 
 
+import java.util.Date;
+
 import javax.validation.Valid;
 
 
@@ -78,7 +80,9 @@ public class PanelController extends AbstractController {
 		Assert.isTrue(principal==this.conferenceService.findOne(conferenceId).getAdministrator());
 		Panel panel = this.panelService.create();
 		Conference c=this.conferenceService.findOne(conferenceId);
-		
+		Date currentMoment = new Date(System.currentTimeMillis() - 1);
+		Assert.isTrue(c.getEndDate().after(currentMoment)&& c.getIsDraft()==false);
+	
 
 		result = this.createEditModelAndView(panel,c);
 		

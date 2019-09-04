@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.Date;
+
 import javax.validation.Valid;
 
 
@@ -73,7 +75,8 @@ public class PresentationController extends AbstractController {
 		Assert.isTrue(principal==this.conferenceService.findOne(conferenceId).getAdministrator());
 		Presentation presentation = this.presentationService.create();
 		Conference c=this.conferenceService.findOne(conferenceId);
-		
+		Date currentMoment = new Date(System.currentTimeMillis() - 1);
+		Assert.isTrue(c.getEndDate().after(currentMoment)&& c.getIsDraft()==false);
 
 		result = this.createEditModelAndView(presentation,c);
 		

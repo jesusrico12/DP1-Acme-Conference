@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.Date;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,7 +72,8 @@ public class TutorialController extends AbstractController {
 		Assert.isTrue(principal==this.conferenceService.findOne(conferenceId).getAdministrator());
 		Tutorial tutorial = this.tutorialService.create();
 		Conference c=this.conferenceService.findOne(conferenceId);
-		
+		Date currentMoment = new Date(System.currentTimeMillis() - 1);
+		Assert.isTrue(c.getEndDate().after(currentMoment)&& c.getIsDraft()==false);
 
 		result = this.createEditModelAndView(tutorial,c);
 		

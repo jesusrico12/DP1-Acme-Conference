@@ -1,7 +1,6 @@
 package services;
 
 import java.util.Collection;
-import java.util.Date;
 
 import javax.transaction.Transactional;
 
@@ -24,8 +23,7 @@ public class PaperService {
 	@Autowired
 	private ActorService actorService;
 	
-	@Autowired
-	private SubmissionService submissionService;
+
 	//Repository
 	
 	@Autowired

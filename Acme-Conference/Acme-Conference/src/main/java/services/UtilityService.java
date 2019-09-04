@@ -1,7 +1,7 @@
 package services;
 
 import java.security.SecureRandom;
-import java.text.ParseException;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import domain.Author;
-import domain.Submission;
+
 
 @Service
 @Transactional
@@ -20,8 +20,7 @@ public class UtilityService {
 	@Autowired
 	private ActorService actorService;
 	
-	@Autowired
-	private SubmissionService submissionService;
+
 
 
 

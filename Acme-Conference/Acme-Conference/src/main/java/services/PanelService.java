@@ -65,27 +65,13 @@ public class PanelService {
 			Assert.isTrue(panel.getStartMoment().after(currentMoment),"invalid.date");
 			
 			if(panel.getId()!=0){
-//				copy=this.findOne(panel.getId());
-//				copy.setAttachments(panel.getAttachments());
-//				copy.setRoom(panel.getRoom());
-//				copy.setSpeakers(panel.getSpeakers());
-//				copy.setStartMoment(panel.getStartMoment());
-//
-//				copy.setSummary(panel.getSummary());
-//				copy.setTitle(panel.getTitle());
-//				copy.setDuration(panel.getDuration());
+
 				Assert.isTrue(this.findOne(panel.getId())!=null,"commit.error");
 				this.panelRepository.save(panel);
 				
 			}else{
 				
-//				copy.setAttachments(panel.getAttachments());
-//				copy.setRoom(panel.getRoom());
-//				copy.setSpeakers(panel.getSpeakers());
-//				copy.setStartMoment(panel.getStartMoment());
-//				copy.setSummary(panel.getSummary());
-//				copy.setTitle(panel.getTitle());
-//				copy.setDuration(panel.getDuration());
+
 				
 			
 				panel=this.panelRepository.save(panel);

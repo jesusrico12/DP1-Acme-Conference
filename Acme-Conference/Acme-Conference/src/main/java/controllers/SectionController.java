@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.Date;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ import services.TutorialService;
 import services.SectionService;
 
 import domain.Actor;
+import domain.Conference;
 import domain.Tutorial;
 import domain.Section;
 @Controller
@@ -70,6 +73,9 @@ public class SectionController extends AbstractController{
 		Section section = this.sectionService.create();
 		Tutorial c=this.tutorialService.findOne(tutorialId);
 		
+		Date currentMoment = new Date(System.currentTimeMillis() - 1);
+		Conference conf=this.conferenceService.ConferenceOwn(c.getId());
+		Assert.isTrue(conf.getEndDate().after(currentMoment)&& conf.getIsDraft()==false);
 
 		result = this.createEditModelAndView(section,c);
 		

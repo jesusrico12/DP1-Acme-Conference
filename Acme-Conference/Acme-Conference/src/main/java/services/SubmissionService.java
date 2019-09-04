@@ -33,8 +33,7 @@ public class SubmissionService {
 	@Autowired
 	private ActorService actorService;
 
-	@Autowired
-	private PaperService paperService;
+
 
 	@Autowired
 	private UtilityService utilityService;

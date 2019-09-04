@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.ActorService;
 import services.ConferenceService;
-import services.PaperService;
+
 import services.SubmissionService;
 import domain.Actor;
 import domain.Submission;
@@ -25,8 +25,7 @@ public class SubmissionAdminController extends AbstractController{
 		@Autowired
 		private ConferenceService conferenceService;
 		
-		@Autowired
-		private PaperService paperService;
+
 		
 		@Autowired
 		private SubmissionService submissionService;

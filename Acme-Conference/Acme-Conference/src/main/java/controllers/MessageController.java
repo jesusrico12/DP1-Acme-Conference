@@ -490,7 +490,7 @@ public class MessageController extends AbstractController{
 			final String messageError) {
 		ModelAndView result;
 
-		Collection<Message> messages;
+		
 		Actor sender;
 		boolean possible = false;
 		Actor principal;
@@ -516,7 +516,7 @@ public class MessageController extends AbstractController{
 		principal = this.actorService.findByPrincipal();
 		Assert.notNull(principal);
 
-		messages = new ArrayList<Message>();
+		
 		recipients = new ArrayList<Actor>();
 
 

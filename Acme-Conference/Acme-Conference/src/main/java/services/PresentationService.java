@@ -64,29 +64,13 @@ public class PresentationService {
 		Assert.isTrue(presentation.getPaper().getIsCameraReady()==true,"paper.invalid");
 		
 		if(presentation.getId()!=0){
-//			copy=this.findOne(presentation.getId());
-//			copy.setAttachments(presentation.getAttachments());
-//			copy.setRoom(presentation.getRoom());
-//			copy.setSpeakers(presentation.getSpeakers());
-//			copy.setStartMoment(presentation.getStartMoment());
-//			copy.setPaper(presentation.getPaper());
-//			copy.setSummary(presentation.getSummary());
-//			copy.setTitle(presentation.getTitle());
-//			copy.setDuration(presentation.getDuration());
+
 			Assert.isTrue(this.findOne(presentation.getId())!=null,"commit.error");
 			this.presentationRepository.save(presentation);
 			
 		}else{
 			
-//			copy.setAttachments(presentation.getAttachments());
-//			copy.setRoom(presentation.getRoom());
-//			copy.setSpeakers(presentation.getSpeakers());
-//			copy.setStartMoment(presentation.getStartMoment());
-//			copy.setPaper(presentation.getPaper());
-//			copy.setSummary(presentation.getSummary());
-//			copy.setTitle(presentation.getTitle());
-//			copy.setDuration(presentation.getDuration());
-			
+
 			presentation=this.presentationRepository.save(presentation);
 			Set<Activity> actis= new HashSet<Activity>();
 			for(Activity a :conference.getActivities()){

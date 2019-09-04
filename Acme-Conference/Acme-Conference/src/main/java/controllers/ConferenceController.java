@@ -2,6 +2,7 @@ package controllers;
 
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
@@ -25,7 +26,7 @@ import services.ActorService;
 import services.ConferenceService;
 import domain.Activity;
 import domain.Actor;
-import domain.Administrator;
+
 import domain.Conference;
 import domain.Panel;
 import domain.Presentation;
@@ -68,6 +69,8 @@ public class ConferenceController extends AbstractController{
 
 		boolean permission=false;
 		boolean Autheticated=true;
+		boolean cPasada=false;
+		Date currentMoment = new Date(System.currentTimeMillis() - 1);
 		try{
 		Actor principal=this.actorService.findByPrincipal();
 		if(this.conferenceService.findOne(conferenceId).getAdministrator()==principal){
@@ -76,6 +79,9 @@ public class ConferenceController extends AbstractController{
 		}
 		}catch(Throwable oops){
 			Autheticated=false;
+		}
+		if(conference.getEndDate().after(currentMoment)){
+			cPasada=true;
 		}
 
 		boolean isActivity = false;
@@ -123,6 +129,7 @@ public class ConferenceController extends AbstractController{
 		result.addObject("isActivity", isActivity);
 		result.addObject("permission",permission);
 		result.addObject("Autheticated",Autheticated);
+		result.addObject("cPasada",cPasada);
 		return result;
 		
 	}
@@ -202,7 +209,7 @@ public class ConferenceController extends AbstractController{
 		boolean isCamera = false;
 		boolean isStart = false;
 		
-		boolean isMakeSubmission = false;
+	
 
 		result = new ModelAndView("conference/list");
 

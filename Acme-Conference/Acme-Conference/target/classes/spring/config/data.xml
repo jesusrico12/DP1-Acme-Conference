@@ -36,9 +36,9 @@
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
-		<property name="jdbcUrl" value="jdbc:mysql://bmsafhajgajdlj8ab6xc-mysql.services.clever-cloud.com:3306/bmsafhajgajdlj8ab6xc" />
-		<property name="user" value="utszlcrwxwr155br" />
-		<property name="password" value="BNNRjfI8WibRVWLyFgqb" />
+		<property name="jdbcUrl" value="jdbc:mysql://b1mwm7gicggc6fwyxjjj-mysql.services.clever-cloud.com:3306/b1mwm7gicggc6fwyxjjj" />
+		<property name="user" value="uawpywarupkj8lyf" />
+		<property name="password" value="G90jfSXKBMKcFlrMAbMU" />
 	
 		<property name="minPoolSize" value="1" />
 		<property name="maxPoolSize" value="5" />
